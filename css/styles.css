@@ -110,12 +110,25 @@ footer {
     padding: 15px 25px;
     background-color: #f4a261;
     color: white;
-    height: 60px; /* Ajusta la altura del footer */
     box-sizing: border-box; /* Incluye el padding en la altura total */
-    margin-top: auto; /* Empuja el footer al final */
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: auto; /* Mantiene el footer al final */
+    height: auto; /* Elimina altura fija */
+}
+
+/* Eliminar espacios en blanco no deseados */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Asegura que no haya desplazamiento lateral */
+}
+
+footer::after {
+    content: ''; /* Soluciona posibles problemas de espacio adicional */
+    display: block;
+    height: 0;
 }
 
 /* Media Queries */
