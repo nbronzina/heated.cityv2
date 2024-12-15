@@ -156,3 +156,20 @@ footer {
     color: white;
     margin-top: auto;
 }
+
+/* Media Queries - Responsive Design */
+@media (max-width: 768px) {
+    nav.desktop-nav {
+        display: none; /* Ocultar el navbar de escritorio */
+    }
+
+    .mobile-nav {
+        display: flex; /* Mostrar el navbar móvil */
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-nav {
+        display: none; /* Ocultar el navbar móvil en pantallas grandes */
+    }
+}
