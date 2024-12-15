@@ -47,3 +47,16 @@ document.addEventListener('DOMContentLoaded', () => {
             .bindPopup(`<b>${location.id}. ${location.name}</b>`);
     });
 });
+
+function toggleReadMore(element) {
+    const parent = element.parentElement;
+    const content = parent.querySelector('p');
+
+    if (element.textContent === 'Read More') {
+        content.style.maxHeight = 'none'; // Muestra todo el contenido
+        element.textContent = 'Read Less';
+    } else {
+        content.style.maxHeight = '3.6em'; // Oculta el contenido adicional
+        element.textContent = 'Read More';
+    }
+}
