@@ -1,7 +1,16 @@
-// Toggle Fullscreen Menu
 function toggleMenu() {
     document.getElementById('fullscreen-menu').classList.toggle('show');
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const menuIcon = document.querySelector('.menu-icon');
+    const closeIcon = document.querySelector('.close-icon');
+
+    if (menuIcon && closeIcon) {
+        menuIcon.addEventListener("click", toggleMenu);
+        closeIcon.addEventListener("click", toggleMenu);
+    }
+});
 
 // Slideshow Functionality
 function initializeSlideshow(slides, interval = 10000) {
@@ -13,17 +22,6 @@ function initializeSlideshow(slides, interval = 10000) {
             currentIndex = (currentIndex + 1) % slides.length;
             slides[currentIndex].classList.add("active");
         }, interval);
-    }
-}
-
-// Add Event Listeners for Mobile Navigation
-function setupMobileNavigation() {
-    const menuIcon = document.querySelector('.menu-icon');
-    const closeIcon = document.querySelector('.close-icon');
-
-    if (menuIcon && closeIcon) {
-        menuIcon.addEventListener("click", toggleMenu);
-        closeIcon.addEventListener("click", toggleMenu);
     }
 }
 
