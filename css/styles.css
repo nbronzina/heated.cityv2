@@ -1,3 +1,6 @@
+Sure, I'll add the specific styles for the About page to your existing CSS. Here is the updated `styles.css` file with the new styles included:
+
+```css
 /* General Styles */
 html, body {
     margin: 0;
@@ -318,4 +321,46 @@ header .cta-button:hover {
 /* Add specific styles for the contributors page here */
 
 /* Specific Styles for About Page */
-/* Add specific styles for the about page here */
+.about-header {
+    text-align: center;
+    padding: 40px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.about-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.about-header p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.cta-section {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    max-width: 800px;
+}
+
+.cta-section p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.cta-section a {
+    color: #e76f51;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cta-section a:hover {
+    text-decoration: underline;
+}
