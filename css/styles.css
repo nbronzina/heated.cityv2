@@ -354,6 +354,7 @@ header h1 {
 .kyoto-main #map {
     height: 500px; /* Tamaño del mapa solo para Kyoto */
     border-radius: 8px;
+    margin-bottom: 30px; /* Ajusta el valor según el espacio deseado */
 }
 
 .kyoto-main .contributors-wrapper {
