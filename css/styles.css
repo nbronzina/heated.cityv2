@@ -206,7 +206,7 @@ footer {
 header {
     position: relative;
     width: 100%;
-    height: calc(100vh - 100px); /* Ajusta la altura del header */
+    height: calc(100vh - 70px); /* Ajusta la altura del header */
     display: flex;
     justify-content: center;
     align-items: center;
