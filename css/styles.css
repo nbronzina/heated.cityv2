@@ -294,10 +294,13 @@ header .cta-button:hover {
 
 /* Header */
 header {
-    background: url('../img/kyotoheader.png') no-repeat center center / cover;
+    background: url('../img/kyotoheader.png') no-repeat center center;
+    background-size: cover; /* Hace que la imagen cubra todo el contenedor */
     color: white;
     text-align: center;
-    padding: 100px 15px;
+    padding: 50px 15px; /* Ajusta el padding según lo necesites */
+    height: 300px; /* Define una altura fija */
+    overflow: hidden; /* Evita que el contenido sobresalga */
 }
 
 header h1 {
