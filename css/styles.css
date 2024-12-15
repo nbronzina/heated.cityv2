@@ -5,28 +5,31 @@ body {
     background-color: #fff;
     color: #333;
     line-height: 1.6;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
 }
 
-/* Navbar Styles */
-nav.desktop-nav, nav.mobile-nav {
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Navigation Styles */
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 25px;
     background-color: #f4a261;
     color: white;
-    height: auto;
     box-sizing: border-box;
 }
 
 nav .logo a {
     font-size: 1.5rem;
     font-weight: bold;
-    text-decoration: none;
-    color: white;
 }
 
 nav ul {
@@ -38,13 +41,17 @@ nav ul {
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: white;
     font-weight: bold;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
+/* Mobile Navigation */
+.mobile-nav {
+    display: none;
+}
+
+.mobile-nav .menu-icon {
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 /* Fullscreen Mobile Menu */
@@ -57,6 +64,7 @@ nav ul li a:hover {
     height: 100vh;
     background-color: rgba(244, 162, 97, 0.95);
     color: white;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -74,39 +82,9 @@ nav ul li a:hover {
     right: 20px;
     font-size: 1.5rem;
     cursor: pointer;
-    color: white;
 }
 
-#fullscreen-menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-#fullscreen-menu a:hover {
-    text-decoration: underline;
-}
-
-/* Footer Styles */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #f4a261;
-    color: white;
-    margin-top: auto;
-}
-
-footer a {
-    color: white;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
-}
-
-/* Index Page */
+/* Header Styles */
 header {
     position: relative;
     height: calc(100vh - 60px);
@@ -162,11 +140,19 @@ header .cta-button {
     font-size: 1.2rem;
     color: #f4a261;
     background-color: white;
-    text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
 }
 
 header .cta-button:hover {
     background-color: #ffe0b2;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f4a261;
+    color: white;
+    margin-top: auto;
 }
