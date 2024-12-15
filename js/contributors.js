@@ -23,7 +23,7 @@ function initializeContributorsMap() {
             { name: "Callagun Smith", coords: [-37.8136, 144.9631] },
             { name: "Kamau Mwangi", coords: [-1.2921, 36.8219] },
             { name: "Priya Sharma", coords: [28.6139, 77.2090] },
-            { name: "Himari Satō", coords: [35.0116, 135.7681] },
+            { name: "Himari Satō", location: [35.0116, 135.7681], image: "img/HimariSato.png" },
         ];
 
         locations.forEach(location => {
