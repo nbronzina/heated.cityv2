@@ -21,6 +21,7 @@ function initializeMap(centerCoords, locations) {
     const mapElement = document.getElementById('map');
 
     if (mapElement) {
+        console.log('Map element found');
         const map = L.map(mapElement).setView(centerCoords, 12);
 
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -39,6 +40,8 @@ function initializeMap(centerCoords, locations) {
                 .addTo(map)
                 .bindPopup(`<b>${location.name}</b>`);
         });
+    } else {
+        console.error('Map element not found');
     }
 }
 
