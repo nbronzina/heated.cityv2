@@ -127,16 +127,7 @@ footer {
     .mobile-nav {
         display: flex; /* Show mobile navbar */
     }
-}
 
-@media (min-width: 769px) {
-    .mobile-nav {
-        display: none; /* Hide on desktop */
-    }
-}
-
-/* Specific Styles for Index Page */
-@media (max-width: 768px) {
     header {
         height: calc(100vh - 120px); /* Adjust the height of the header for mobile */
     }
@@ -178,6 +169,12 @@ footer {
     header .cta-button {
         font-size: 0.875rem;
         padding: 8px 16px;
+    }
+}
+
+@media (min-width: 769px) {
+    .mobile-nav {
+        display: none; /* Hide on desktop */
     }
 }
 
