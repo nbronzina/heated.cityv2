@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <nav>
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
         <div class="logo"><a href="index.html">Heated.city</a></div>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <ul>
             <li><a href="cities.html">Cities</a></li>
             <li><a href="contributors.html">Contributors</a></li>
@@ -21,13 +21,21 @@
         </ul>
     </nav>
 
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="logo"><a href="index.html">Heated.city</a></div>
+        <div class="menu-icon">☰</div>
+    </nav>
+
+    <!-- Fullscreen Mobile Menu -->
     <div id="fullscreen-menu">
-        <span class="close-icon" onclick="toggleMenu()">&times;</span>
+        <span class="close-icon">&times;</span>
         <a href="cities.html">Cities</a>
         <a href="contributors.html">Contributors</a>
         <a href="about.html">About</a>
     </div>
 
+    <!-- Header Section -->
     <header>
         <div class="slideshow">
             <img src="img/city1.png" alt="Image 1" class="active">
@@ -41,10 +49,12 @@
         </div>
     </header>
 
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
     </footer>
 
+    <!-- Scripts -->
     <script src="js/main.js"></script>
 </body>
 </html>
