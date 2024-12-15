@@ -421,10 +421,10 @@ footer {
 }
 
 .contributor p {
-    max-height: 60px;
+    max-height: 3.6em; /* Oculta contenido adicional (ajusta según el tamaño del texto) */
     overflow: hidden;
     text-overflow: ellipsis;
-    margin: 0 0 10px 0;
+    transition: max-height 0.3s ease-in-out; /* Transición suave */
 }
 
 .read-more {
