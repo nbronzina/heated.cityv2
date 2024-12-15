@@ -24,7 +24,7 @@ function initializeMap(centerCoords, locations) {
         const map = L.map(mapElement).setView(centerCoords, 12);
 
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            attribution: '&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap</a>"
+            attribution: '&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap</a>'
         }).addTo(map);
 
         const customIcon = L.divIcon({
@@ -46,10 +46,12 @@ function initializeMap(centerCoords, locations) {
 function initializePageFeatures() {
     // Inicializar slideshow
     const slides = document.querySelectorAll(".slideshow img");
+    console.log(slides); // Verificar si se seleccionan las imágenes correctamente
     initializeSlideshow(slides);
 
     // Título de la página para inicializar mapas específicos
     const title = document.querySelector('title').textContent;
+    console.log(title); // Verificar el título de la página
 
     if (title.includes('Kyoto')) {
         initializeMap([35.0116, 135.7681], [
