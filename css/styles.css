@@ -175,14 +175,15 @@ footer {
 header {
     position: relative;
     width: 100%;
-    min-height: calc(100vh - 60px); /* Resta la altura del footer o navbar si hay espacio */
+    height: 100vh; /* Ocupa toda la altura de la ventana */
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     text-align: center;
-    background: url('../img/header-image.jpg') no-repeat center center; /* Reemplaza con la ruta correcta */
-    background-size: cover; /* La imagen cubre todo el header */
+    background: url('../img/header-image.jpg') no-repeat center center; /* Reemplaza con la ruta de tu imagen */
+    background-size: cover; /* Escala la imagen para cubrir todo el contenedor */
+    background-attachment: fixed; /* La imagen permanece fija al hacer scroll */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
