@@ -128,6 +128,10 @@ footer {
         display: flex; /* Mostrar navbar móvil */
     }
 
+    header {
+        height: calc(100vh - 120px); /* Ajustar la altura del header para móviles */
+    }
+
     header .content {
         padding: 20px;
         text-align: center;
