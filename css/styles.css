@@ -574,3 +574,15 @@ header h1 {
         padding: 8px 16px;
     }
 }
+
+@media (max-width: 768px) {
+    .kyoto-layout {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 10px;
+    }
+
+    #map {
+        height: 400px; /* Ajustar altura del mapa en móviles */
+    }
+}
+
