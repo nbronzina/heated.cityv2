@@ -183,7 +183,7 @@ header {
     color: white;
     text-align: center;
     background: url('../img/header-image.jpg') no-repeat center center; /* Imagen de fondo */
-    background-size: cover; /* Escala la imagen para cubrir el contenedor */
+    background-size: contain;
     background-attachment: fixed; /* La imagen permanece fija al hacer scroll */
     margin: 0;
     padding: 0;
