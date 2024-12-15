@@ -1,3 +1,4 @@
+// Función para activar el menú móvil
 function toggleMenu() {
     document.getElementById('fullscreen-menu').classList.toggle('show');
 }
@@ -10,9 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
         menuIcon.addEventListener("click", toggleMenu);
         closeIcon.addEventListener("click", toggleMenu);
     }
+
+    // Slideshow Functionality
+    const slides = document.querySelectorAll(".slideshow img");
+    initializeSlideshow(slides);
 });
 
-// Slideshow Functionality
+// Función del slideshow
 function initializeSlideshow(slides, interval = 10000) {
     let currentIndex = 0;
 
@@ -24,10 +29,3 @@ function initializeSlideshow(slides, interval = 10000) {
         }, interval);
     }
 }
-
-// Initialize Everything on DOMContentLoaded
-document.addEventListener("DOMContentLoaded", () => {
-    setupMobileNavigation();
-    const slides = document.querySelectorAll(".slideshow img");
-    initializeSlideshow(slides);
-});
