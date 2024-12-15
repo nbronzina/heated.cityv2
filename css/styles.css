@@ -526,9 +526,9 @@ header.kyoto-header h1 {
 
 /* Media Queries */
 
-/* Dispositivos pequeños: hasta 768px */
+/* Estilos Responsivos para Pantallas Pequeñas */
 @media (max-width: 768px) {
-    /* Ocultar navegación de escritorio y mostrar la móvil */
+    /* Ocultar navegación de escritorio y mostrar navegación móvil */
     nav.desktop-nav {
         display: none;
     }
@@ -537,64 +537,54 @@ header.kyoto-header h1 {
         display: flex;
     }
 
-    /* Ajustes generales */
-    .section-header h1,
-    #cities-header h1,
-    #contributors h1 {
-        font-size: 2rem;
-    }
-
-    header {
-        height: calc(100vh - 120px);
-    }
-
-    header .content {
-        padding: 20px;
+    /* Ajustes generales para headers */
+    header, header.kyoto-header {
+        height: 200px; /* Altura reducida */
         text-align: center;
+        padding: 20px;
     }
 
-    header h1 {
-        font-size: 2rem;
+    header h1, header.kyoto-header h1 {
+        font-size: 2rem; /* Ajustar tamaño del título */
         margin-bottom: 10px;
     }
 
     header p {
-        font-size: 1rem;
-        margin-bottom: 20px;
+        font-size: 1rem; /* Tamaño más pequeño para párrafos */
     }
 
     header .cta-button {
         font-size: 1rem;
-        padding: 10px 20px;
+        padding: 10px 20px; /* Botón más pequeño */
     }
 
-    /* Layout de Kyoto */
+    /* Layout de Kyoto: una sola columna */
     .kyoto-layout {
-        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-columns: 1fr; 
         gap: 10px;
     }
 
     #map {
-        height: 400px; /* Ajustar altura del mapa en móviles */
+        height: 400px; /* Ajuste de altura */
     }
 
     .city-card {
-        width: 100%;
+        width: 100%; /* Tarjetas a ancho completo */
     }
 }
 
-/* Dispositivos extra pequeños: hasta 480px */
+/* Estilos Responsivos para Dispositivos Extra Pequeños */
 @media (max-width: 480px) {
     header .content {
         padding: 15px;
     }
 
     header h1 {
-        font-size: 1.5rem;
+        font-size: 1.5rem; /* Título más pequeño */
     }
 
     header p {
-        font-size: 0.875rem;
+        font-size: 0.875rem; /* Texto más pequeño */
     }
 
     header .cta-button {
@@ -603,11 +593,9 @@ header.kyoto-header h1 {
     }
 }
 
-/* Dispositivos grandes: desde 769px en adelante */
+/* Estilos Responsivos para Pantallas Grandes */
 @media (min-width: 769px) {
     .mobile-nav {
-        display: none;
+        display: none; /* Ocultar navegación móvil */
     }
 }
-
-
