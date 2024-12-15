@@ -13,9 +13,8 @@
 </head>
 <body>
     <!-- Navbar -->
-    <nav>
+    <nav class="desktop-nav">
         <div class="logo"><a href="index.html">Heated.city</a></div>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <ul>
             <li><a href="cities.html">Cities</a></li>
             <li><a href="contributors.html">Contributors</a></li>
@@ -23,21 +22,30 @@
         </ul>
     </nav>
 
+    <nav class="mobile-nav">
+        <div class="logo"><a href="index.html">Heated.city</a></div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+
     <!-- Fullscreen Mobile Menu -->
     <div id="fullscreen-menu">
         <span class="close-icon" onclick="toggleMenu()">&times;</span>
-        <a href="cities.html">Cities</a>
-        <a href="contributors.html">Contributors</a>
-        <a href="about.html">About</a>
+        <ul>
+            <li><a href="cities.html">Cities</a></li>
+            <li><a href="contributors.html">Contributors</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
     </div>
+
     <main>
-    <!-- Contributors Section -->
-    <section id="contributors">
-        <h2>Contributors</h2>
-        <p>Heated.city team members and friends worldwide who share their visions for cities in 2030 and beyond. Our contributors are passionate about creating sustainable, resilient, and innovative urban environments that will transform the way we inhabit our world.</p>
-        <div id="map"></div>
-    </section>
+        <!-- Contributors Section -->
+        <section id="contributors">
+            <h2>Contributors</h2>
+            <p>Heated.city team members and friends worldwide who share their visions for cities in 2030 and beyond. Our contributors are passionate about creating sustainable, resilient, and innovative urban environments that will transform the way we inhabit our world.</p>
+            <div id="map"></div>
+        </section>
     </main>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
