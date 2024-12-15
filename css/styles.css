@@ -173,9 +173,9 @@ footer {
 
 /* Index Header Styles */
 /* Header Global */
-header {
+.global-header {
     position: relative;
-    height: calc(100vh - 60px - 93.5px); /* Altura total menos nav y footer */
+    height: calc(100vh - 60px - 93.5px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -183,7 +183,7 @@ header {
     text-align: center;
 }
 
-header .slideshow {
+.global-header .slideshow {
     position: absolute;
     top: 0;
     left: 0;
@@ -192,7 +192,7 @@ header .slideshow {
     z-index: 1;
 }
 
-header .slideshow img {
+.global-header .slideshow img {
     position: absolute;
     top: 0;
     left: 0;
@@ -203,26 +203,26 @@ header .slideshow img {
     transition: opacity 1s ease-in-out;
 }
 
-header .slideshow img.active {
+.global-header .slideshow img.active {
     opacity: 1;
 }
 
-header .content {
+.global-header .content {
     position: relative;
     z-index: 2;
 }
 
-header h1 {
+.global-header h1 {
     font-size: 3rem;
     margin: 0;
 }
 
-header p {
+.global-header p {
     font-size: 1.5rem;
     margin: 20px 0;
 }
 
-header .cta-button {
+.global-header .cta-button {
     display: inline-block;
     padding: 15px 30px;
     font-size: 1.2rem;
@@ -233,7 +233,7 @@ header .cta-button {
     font-weight: bold;
 }
 
-header .cta-button:hover {
+.global-header .cta-button:hover {
     background-color: #ffe0b2;
 }
 
