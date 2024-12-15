@@ -49,15 +49,19 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function toggleReadMore(element) {
-    const parent = element.parentElement; // Accede al contenedor padre
-    const content = parent.querySelector('p'); // Selecciona el párrafo solo dentro de la tarjeta activa
+    // Selecciona el párrafo específico de la tarjeta actual
+    const parentCard = element.closest('.contributor');
+    const paragraph = parentCard.querySelector('p');
 
+    // Alternar 'Read More' y 'Read Less' solo en esta tarjeta
     if (element.textContent === 'Read More') {
-        content.style.maxHeight = 'none'; // Expande el contenido solo en la tarjeta seleccionada
+        paragraph.style.maxHeight = 'none';
         element.textContent = 'Read Less';
     } else {
-        content.style.maxHeight = '3.6em'; // Colapsa la tarjeta seleccionada
+        paragraph.style.maxHeight = '3.6em'; // Valor colapsado
         element.textContent = 'Read More';
     }
+}
+
 }
 
