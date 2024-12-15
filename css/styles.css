@@ -1,13 +1,14 @@
 /* General Styles */
-body {
+html, body {
     margin: 0;
+    padding: 0;
+    height: 100%;
     font-family: 'Open Sans', sans-serif;
     background-color: #fff;
     color: #333;
     line-height: 1.6;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
 }
 
 /* Enlaces generales */
