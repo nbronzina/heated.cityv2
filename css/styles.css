@@ -343,14 +343,22 @@ header h1 {
     color: #777;
 }
 
-/* Main Content */
-main {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 15px;
+/* Estilos específicos para el main de Kyoto */
+.kyoto-main {
+    background-color: #f9f9f9; /* Fondo claro específico */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.kyoto-main #map {
+    height: 500px; /* Tamaño del mapa solo para Kyoto */
+    border-radius: 8px;
+}
+
+.kyoto-main .contributors-wrapper {
+    background-color: #fff; /* Fondo para la sección de contribuidores */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* Map Section */
