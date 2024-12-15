@@ -11,14 +11,6 @@ html, body {
     flex-direction: column;
 }
 
-/* General Style for Main */
-main {
-    display: block; /* Default block layout */
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 15px;
-}
-
 /* Links */
 a {
     text-decoration: none;
@@ -317,14 +309,6 @@ header .cta-button:hover {
 }
 
 /* Specific Styles for Cities Page */
-main.cities-layout {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr;
-    gap: 20px;
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 15px;
-}
 
 #cities-section {
     display: flex;
