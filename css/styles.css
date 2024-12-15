@@ -115,7 +115,7 @@ nav.desktop-nav ul li a:hover {
 }
 
 #fullscreen-menu ul li a {
-    font-size: 2rem; /* Increased font size for menu items */
+    font-size: 4rem; /* Increased font size for menu items */
     color: white;
     text-decoration: none;
     font-weight: bold;
