@@ -315,7 +315,35 @@ header .cta-button:hover {
 /* Add specific styles for the Kyoto page here */
 
 /* Specific Styles for Contributors Page */
-/* Add specific styles for the contributors page here */
+#contributors {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+#contributors h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#contributors p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+#map {
+    height: 500px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    z-index: 1; /* Detrás del menú desplegable */
+    position: relative;
+}
+
+.leaflet-control-container {
+    z-index: 1; /* Detrás del menú desplegable */
+}
 
 /* Specific Styles for About Page */
 .about-header {
