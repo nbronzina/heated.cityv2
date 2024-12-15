@@ -44,6 +44,18 @@ document.addEventListener("DOMContentLoaded", () => {
         ];
         initializeMap([20, 0], contributorsLocations);
     }
+
+    // Event Listeners para Mobile Navigation
+    const menuIcon = document.querySelector('.menu-icon');
+    const closeIcon = document.querySelector('.close-icon');
+
+    if (menuIcon && closeIcon) {
+        // Mostrar el menú
+        menuIcon.addEventListener("click", toggleMenu);
+
+        // Cerrar el menú
+        closeIcon.addEventListener("click", toggleMenu);
+    }
 });
 
 // Initialize Map for Pages with Maps
@@ -54,7 +66,7 @@ function initializeMap(centerCoords, locations) {
         const map = L.map(mapElement).setView(centerCoords, 12);
 
         L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a>'
+            attribution: '&copy; <a href=\"https://openstreetmap.org\">OpenStreetMap</a>"
         }).addTo(map);
 
         const customIcon = L.divIcon({
