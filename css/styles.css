@@ -384,6 +384,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
+    align-items: start; /* Evita que las tarjetas se ajusten a la altura máxima */
 }
 
 .contributor {
@@ -421,11 +422,11 @@ footer {
 }
 
 .contributor p {
-    max-height: 3.6em; /* Oculta contenido adicional (ajusta según el tamaño del texto) */
+    max-height: 3.6em;
     overflow: hidden;
-    text-overflow: ellipsis;
-    transition: max-height 0.3s ease-in-out; /* Transición suave */
+    transition: max-height 0.3s ease;
 }
+
 
 .read-more {
     color: #007BFF;
