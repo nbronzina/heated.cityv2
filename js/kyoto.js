@@ -49,23 +49,32 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function toggleReadMore(element) {
-    // Cierra cualquier tarjeta abierta
-    document.querySelectorAll('.contributor p').forEach(p => {
-        p.style.maxHeight = '3.6em';
-    });
-    document.querySelectorAll('.read-more').forEach(btn => {
-        btn.textContent = 'Read More';
-    });
-
-    // Abre la tarjeta seleccionada
+    // Selecciona la tarjeta actual
     const parentCard = element.closest('.contributor');
     const paragraph = parentCard.querySelector('p');
+    const allReadMoreButtons = document.querySelectorAll('.read-more');
 
+    // Cierra todas las tarjetas menos la actual
+    document.querySelectorAll('.contributor p').forEach((p) => {
+        if (p !== paragraph) {
+            p.style.maxHeight = '3.6em'; // Reset a su tamaño original
+        }
+    });
+
+    // Restaura el texto de "Read More" en otros botones
+    allReadMoreButtons.forEach((btn) => {
+        if (btn !== element) {
+            btn.textContent = 'Read More';
+        }
+    });
+
+    // Toggle: "Read More" / "Read Less" solo en la tarjeta actual
     if (element.textContent === 'Read More') {
-        paragraph.style.maxHeight = 'none';
-        element.textContent = 'Read Less';
+        paragraph.style.maxHeight = 'none'; // Expande el párrafo
+        element.textContent = 'Read Less'; // Cambia el texto del botón
     } else {
-        paragraph.style.maxHeight = '3.6em';
-        element.textContent = 'Read More';
+        paragraph.style.maxHeight = '3.6em'; // Contrae el párrafo
+        element.textContent = 'Read More'; // Restaura el texto
     }
 }
+
