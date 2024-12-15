@@ -356,21 +356,24 @@ header h1 {
     padding: 20px;
 }
 
-/* Estilo para el mapa */
-.kyoto-layout #map {
-    height: 600px;
-    width: 100%;
+/* Estilos para el layout de Kyoto */
+.kyoto-layout #map,
+.kyoto-layout .contributors-wrapper {
     border: 1px solid #ddd;
     border-radius: 8px;
 }
 
-/* Estilo para el listado */
+.kyoto-layout #map {
+    height: 600px;
+    width: 100%;
+}
+
 .kyoto-layout .contributors-wrapper {
     background-color: #fff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    border-radius: 8px;
+    padding: 15px; /* Un poco más de espacio interno */
     overflow-y: auto;
+    max-height: 600px; /* Limita la altura si el contenido crece demasiado */
 }
 
 /* Contributors Section */
