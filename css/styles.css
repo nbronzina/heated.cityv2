@@ -2,13 +2,13 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%; /* Ocupa el 100% de la pantalla */
+    height: 100%;
     font-family: 'Open Sans', sans-serif;
     background-color: #fff;
     color: #333;
     line-height: 1.6;
     display: flex;
-    flex-direction: column; /* Estructura vertical */
+    flex-direction: column;
 }
 
 /* Links */
@@ -69,7 +69,7 @@ nav.desktop-nav ul li a:hover {
     color: white;
 }
 
-mobile-nav .menu-icon {
+.mobile-nav .menu-icon {
     font-size: 1.5rem;
     cursor: pointer;
     color: white;
@@ -110,25 +110,12 @@ footer {
     padding: 15px 25px;
     background-color: #f4a261;
     color: white;
-    box-sizing: border-box; /* Incluye el padding en la altura total */
+    height: 60px; /* Adjust the height of the footer */
+    box-sizing: border-box; /* Include the padding in the total height */
+    margin-top: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: auto; /* Mantiene el footer al final */
-    height: auto; /* Elimina altura fija */
-}
-
-/* Eliminar espacios en blanco no deseados */
-body {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Asegura que no haya desplazamiento lateral */
-}
-
-footer::after {
-    content: ''; /* Soluciona posibles problemas de espacio adicional */
-    display: block;
-    height: 0;
 }
 
 /* Media Queries */
