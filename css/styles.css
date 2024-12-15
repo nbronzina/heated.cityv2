@@ -172,6 +172,7 @@ footer {
 }
 
 /* Index Header Styles */
+/* Header Global */
 header {
     position: relative;
     width: 100%;
@@ -181,8 +182,8 @@ header {
     align-items: center;
     color: white;
     text-align: center;
-    background: url('../img/header-image.jpg') no-repeat center center; /* Reemplaza con la ruta de tu imagen */
-    background-size: cover; /* Escala la imagen para cubrir todo el contenedor */
+    background: url('../img/header-image.jpg') no-repeat center center; /* Imagen de fondo */
+    background-size: cover; /* Escala la imagen para cubrir el contenedor */
     background-attachment: fixed; /* La imagen permanece fija al hacer scroll */
     margin: 0;
     padding: 0;
@@ -200,14 +201,16 @@ header .slideshow {
 }
 
 header h1 {
-    font-size: 3rem;
+    font-size: 3rem; /* Tamaño del título */
     margin: 0;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Sombra para resaltar el texto */
+    z-index: 2;
 }
 
 header p {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* Tamaño del texto */
     margin: 20px 0;
+    z-index: 2;
 }
 
 header .cta-button {
@@ -220,10 +223,27 @@ header .cta-button {
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    z-index: 2;
 }
 
 header .cta-button:hover {
-    background-color: #ffe0b2;
+    background-color: #ffe0b2; /* Cambio de color al pasar el cursor */
+}
+
+/* Estilos Responsivos para Pantallas Pequeñas */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem; /* Ajusta el tamaño del título */
+    }
+
+    header p {
+        font-size: 1rem; /* Ajusta el tamaño del texto */
+    }
+
+    header .cta-button {
+        font-size: 1rem;
+        padding: 10px 20px; /* Botón más pequeño */
+    }
 }
 
 /* Cities Section */
