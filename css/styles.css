@@ -422,22 +422,19 @@ footer {
 }
 
 .contributor p {
-    max-height: 3.6em;
+    max-height: 3.6em; /* Tamaño inicial del párrafo */
     overflow: hidden;
     transition: max-height 0.3s ease;
 }
 
-
 .read-more {
     color: #007BFF;
-    font-size: 0.9rem;
     cursor: pointer;
     text-decoration: underline;
 }
 
 .read-more:hover {
     color: #0056b3;
-    text-decoration: none;
 }
 
 /* Contributors Section */
