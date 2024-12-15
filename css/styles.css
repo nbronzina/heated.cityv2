@@ -2,13 +2,13 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    height: 100%; /* Ocupa el 100% de la pantalla */
     font-family: 'Open Sans', sans-serif;
     background-color: #fff;
     color: #333;
     line-height: 1.6;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Estructura vertical */
 }
 
 /* Links */
@@ -69,7 +69,7 @@ nav.desktop-nav ul li a:hover {
     color: white;
 }
 
-.mobile-nav .menu-icon {
+mobile-nav .menu-icon {
     font-size: 1.5rem;
     cursor: pointer;
     color: white;
@@ -110,9 +110,9 @@ footer {
     padding: 15px 25px;
     background-color: #f4a261;
     color: white;
-    height: 60px; /* Adjust the height of the footer */
-    box-sizing: border-box; /* Include the padding in the total height */
-    margin-top: auto;
+    height: 60px; /* Ajusta la altura del footer */
+    box-sizing: border-box; /* Incluye el padding en la altura total */
+    margin-top: auto; /* Empuja el footer al final */
     display: flex;
     justify-content: center;
     align-items: center;
