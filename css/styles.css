@@ -175,13 +175,18 @@ footer {
 header {
     position: relative;
     width: 100%;
-    height: calc(100vh - 120px); /* Altura calculada */
+    min-height: calc(100vh - 60px); /* Resta la altura del footer o navbar si hay espacio */
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     text-align: center;
-    overflow: hidden;
+    background: url('../img/header-image.jpg') no-repeat center center; /* Reemplaza con la ruta correcta */
+    background-size: cover; /* La imagen cubre todo el header */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden; /* Evita desbordamientos */
 }
 
 header .slideshow {
@@ -196,6 +201,7 @@ header .slideshow {
 header h1 {
     font-size: 3rem;
     margin: 0;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 header p {
