@@ -28,6 +28,8 @@ nav.desktop-nav {
     padding: 15px 25px;
     background-color: #f4a261;
     color: white;
+    height: 60px; /* Ajustar la altura del navbar */
+    box-sizing: border-box; /* Incluir el padding en la altura total */
 }
 
 nav.desktop-nav ul {
@@ -56,6 +58,8 @@ nav.desktop-nav ul li a:hover {
     padding: 15px 25px;
     background-color: #f4a261;
     color: white;
+    height: 60px; /* Ajustar la altura del navbar */
+    box-sizing: border-box; /* Incluir el padding en la altura total */
 }
 
 .mobile-nav .logo a {
@@ -102,10 +106,15 @@ nav.desktop-nav ul li a:hover {
 /* Footer Styles */
 footer {
     text-align: center;
-    padding: 15px 25px; /* Ajustar el padding para que coincida con el navbar */
+    padding: 15px 25px;
     background-color: #f4a261;
     color: white;
+    height: 60px; /* Ajustar la altura del footer */
+    box-sizing: border-box; /* Incluir el padding en la altura total */
     margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Media Queries */
@@ -206,7 +215,7 @@ footer {
 header {
     position: relative;
     width: 100%;
-    height: calc(100vh - 60px); /* Ajusta la altura del header */
+    height: calc(100vh - 120px); /* Ajusta la altura del header */
     display: flex;
     justify-content: center;
     align-items: center;
