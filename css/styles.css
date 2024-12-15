@@ -288,10 +288,13 @@ header .cta-button:hover {
 
 /* Contributors Section */
 #contributors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
     max-width: 1200px;
-    margin: 40px auto;
-    padding: 0 20px;
-    text-align: center;
+    margin: 30px auto;
+    flex: 1;
 }
 
 #map {
