@@ -11,14 +11,19 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <nav>
+    <!-- Navbar -->
+    <nav class="desktop-nav">
         <div class="logo"><a href="index.html">Heated.city</a></div>
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
         <ul>
             <li><a href="cities.html">Cities</a></li>
             <li><a href="contributors.html">Contributors</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
+    </nav>
+
+    <nav class="mobile-nav">
+        <div class="logo"><a href="index.html">Heated.city</a></div>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
     </nav>
 
     <div id="fullscreen-menu">
@@ -28,44 +33,58 @@
         <a href="about.html">About</a>
     </div>
 
+    <!-- Title Section -->
     <section id="title">
         <h2>Cities</h2>
         <p>Discover sustainable and innovative urban visions from around the globe.</p>
     </section>
 
+    <!-- Cities Section -->
     <section id="cities-section">
         <div class="city-card">
-            <img src="img/BsAs.png" alt="Buenos Aires">
-            <h3>Buenos Aires, Argentina</h3>
+            <a href="buenos-aires.html">
+                <img src="img/BsAs.png" alt="Buenos Aires">
+                <h3>Buenos Aires, Argentina</h3>
+            </a>
         </div>
         <div class="city-card">
-            <img src="img/Madrid.png" alt="Madrid">
-            <h3>Madrid, Spain</h3>
+            <a href="madrid.html">
+                <img src="img/Madrid.png" alt="Madrid">
+                <h3>Madrid, Spain</h3>
+            </a>
         </div>
         <div class="city-card">
-            <img src="img/Melbourne.png" alt="Melbourne">
-            <h3>Melbourne, Australia</h3>
+            <a href="melbourne.html">
+                <img src="img/Melbourne.png" alt="Melbourne">
+                <h3>Melbourne, Australia</h3>
+            </a>
         </div>
         <div class="city-card">
-            <img src="img/Nairobi.png" alt="Nairobi">
-            <h3>Nairobi, Kenya</h3>
+            <a href="nairobi.html">
+                <img src="img/Nairobi.png" alt="Nairobi">
+                <h3>Nairobi, Kenya</h3>
+            </a>
         </div>
         <div class="city-card">
-            <img src="img/delhi.png" alt="New Delhi">
-            <h3>New Delhi, India</h3>
+            <a href="new-delhi.html">
+                <img src="img/Delhi.png" alt="New Delhi">
+                <h3>New Delhi, India</h3>
+            </a>
         </div>
         <div class="city-card">
             <a href="kyoto.html">
-                <img src="img/kyoto.png" alt="Kyoto">
+                <img src="img/Kyoto.png" alt="Kyoto">
                 <h3>Kyoto, Japan</h3>
             </a>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
     </footer>
 
+    <!-- Scripts -->
     <script src="js/main.js"></script>
 </body>
 </html>
