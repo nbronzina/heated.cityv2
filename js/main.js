@@ -4,7 +4,7 @@ function toggleMenu() {
 }
 
 // Slideshow Functionality
-function initializeSlideshow(slides, interval = 5000) {
+function initializeSlideshow(slides, interval = 10000) {
     let currentIndex = 0;
 
     if (slides.length > 0) {
