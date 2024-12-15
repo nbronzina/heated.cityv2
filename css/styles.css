@@ -291,7 +291,6 @@ header .cta-button:hover {
 }
 
 /* Kyoto Section */
-/* Kyoto Specific Styles */
 
 /* Header */
 header {
@@ -343,32 +342,31 @@ header h1 {
     color: #777;
 }
 
-/* Estilos específicos para el main de Kyoto */
-.kyoto-main {
-    background-color: #f9f9f9; /* Fondo claro específico */
+/* Estilo principal para la disposición en Desktop */
+.kyoto-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr; /* Mapa a la izquierda, listado más grande a la derecha */
+    gap: 20px; /* Espacio entre columnas */
+    max-width: 1200px;
+    margin: 20px auto;
     padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
 }
 
-.kyoto-main #map {
-    height: 500px; /* Tamaño del mapa solo para Kyoto */
-    border-radius: 8px;
-    margin-bottom: 30px; /* Ajusta el valor según el espacio deseado */
-}
-
-.kyoto-main .contributors-wrapper {
-    background-color: #fff; /* Fondo para la sección de contribuidores */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Map Section */
-#map {
+/* Estilo para el mapa */
+.kyoto-layout #map {
     height: 600px;
     width: 100%;
     border: 1px solid #ddd;
     border-radius: 8px;
-    z-index: 0;
+}
+
+/* Estilo para el listado */
+.kyoto-layout .contributors-wrapper {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 8px;
+    overflow-y: auto;
 }
 
 /* Contributors Section */
@@ -506,7 +504,10 @@ header h1 {
 }
 
 /* Media Queries */
+
+/* Dispositivos pequeños: hasta 768px */
 @media (max-width: 768px) {
+    /* Ocultar navegación de escritorio y mostrar la móvil */
     nav.desktop-nav {
         display: none;
     }
@@ -515,6 +516,7 @@ header h1 {
         display: flex;
     }
 
+    /* Ajustes generales */
     .section-header h1,
     #cities-header h1,
     #contributors h1 {
@@ -545,17 +547,22 @@ header h1 {
         padding: 10px 20px;
     }
 
+    /* Layout de Kyoto */
+    .kyoto-layout {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 10px;
+    }
+
+    #map {
+        height: 400px; /* Ajustar altura del mapa en móviles */
+    }
+
     .city-card {
         width: 100%;
     }
 }
 
-@media (min-width: 769px) {
-    .mobile-nav {
-        display: none;
-    }
-}
-
+/* Dispositivos extra pequeños: hasta 480px */
 @media (max-width: 480px) {
     header .content {
         padding: 15px;
@@ -575,14 +582,11 @@ header h1 {
     }
 }
 
-@media (max-width: 768px) {
-    .kyoto-layout {
-        grid-template-columns: 1fr; /* Una sola columna */
-        gap: 10px;
-    }
-
-    #map {
-        height: 400px; /* Ajustar altura del mapa en móviles */
+/* Dispositivos grandes: desde 769px en adelante */
+@media (min-width: 769px) {
+    .mobile-nav {
+        display: none;
     }
 }
+
 
