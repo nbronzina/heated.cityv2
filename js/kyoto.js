@@ -69,7 +69,3 @@ function toggleReadMore(element) {
         element.textContent = 'Read More';
     }
 }
-
-
-}
-
