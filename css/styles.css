@@ -309,7 +309,56 @@ header .cta-button:hover {
 }
 
 /* Specific Styles for Cities Page */
-/* Add specific styles for the cities page here */
+#cities-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 30px auto;
+    flex: 1;
+}
+
+.city-card {
+    width: calc(50% - 15px);
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.city-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.city-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.city-card h3 {
+    margin: 15px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* City links */
+.city-card a {
+    color: inherit; /* Hereda el color del texto original */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+.city-card a:hover {
+    color: inherit; /* Mantiene el color original al pasar el mouse */
+    text-decoration: none; /* Evita subrayado en hover */
+}
+
+.city-card a:visited {
+    color: inherit; /* Mantiene el color original después de visitar el enlace */
+}
 
 /* Specific Styles for Kyoto Page */
 header {
