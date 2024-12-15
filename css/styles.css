@@ -106,24 +106,16 @@ nav.desktop-nav ul li a:hover {
 
 /* Footer Styles */
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
     text-align: center;
     padding: 15px 25px;
     background-color: #f4a261;
     color: white;
     height: 60px; /* Adjust the height of the footer */
     box-sizing: border-box; /* Include the padding in the total height */
+    margin-top: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-/* Main Content */
-main {
-    flex: 1;
-    padding-bottom: 60px; /* Add padding to prevent overlap with the footer */
 }
 
 /* Media Queries */
@@ -135,7 +127,16 @@ main {
     .mobile-nav {
         display: flex; /* Show mobile navbar */
     }
+}
 
+@media (min-width: 769px) {
+    .mobile-nav {
+        display: none; /* Hide on desktop */
+    }
+}
+
+/* Specific Styles for Index Page */
+@media (max-width: 768px) {
     header {
         height: calc(100vh - 120px); /* Adjust the height of the header for mobile */
     }
@@ -177,12 +178,6 @@ main {
     header .cta-button {
         font-size: 0.875rem;
         padding: 8px 16px;
-    }
-}
-
-@media (min-width: 769px) {
-    .mobile-nav {
-        display: none; /* Hide on desktop */
     }
 }
 
