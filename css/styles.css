@@ -120,6 +120,12 @@ footer {
     align-items: center;
 }
 
+/* Main Content */
+main {
+    flex: 1;
+    padding-bottom: 60px; /* Add padding to prevent overlap with the footer */
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     nav.desktop-nav {
