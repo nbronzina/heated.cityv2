@@ -6,7 +6,6 @@
     <meta name="description" content="Explore Heated.city's global contributors sharing their visions for sustainable, resilient cities in 2030 and beyond.">
     <meta name="keywords" content="Heated.city, Contributors, Sustainability, Urban Planning, Climate Innovation, Future Cities">
     <meta name="author" content="Heated.city">
-    <meta name="robots" content="index, follow">
     <meta property="og:title" content="Heated.city - Contributors">
     <meta property="og:description" content="Meet the global team of innovators and urban planners shaping sustainable cities for the future.">
     <meta property="og:url" content="https://heated.city/contributors.html">
@@ -18,7 +17,7 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
 </head>
 <body>
-    <!-- Navbar -->
+    <!-- Desktop Navigation -->
     <nav class="desktop-nav">
         <div class="logo"><a href="index.html">Heated.city</a></div>
         <ul>
@@ -28,30 +27,32 @@
         </ul>
     </nav>
 
-<!-- Menú móvil -->
-<nav class="mobile-nav">
-    <div class="logo"><a href="index.html">Heated.city</a></div>
-    <div class="menu-icon">☰</div>
-</nav>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav">
+        <div class="logo"><a href="index.html">Heated.city</a></div>
+        <div class="menu-icon" aria-label="Open menu">☰</div>
+    </nav>
 
-<!-- Menú desplegable -->
-<div id="fullscreen-menu">
-    <span class="close-icon">&times;</span>
-    <ul>
-        <li><a href="cities.html">Cities</a></li>
-        <li><a href="contributors.html">Contributors</a></li>
-        <li><a href="about.html">About</a></li>
-    </ul>
-</div>
+    <!-- Mobile Fullscreen Menu -->
+    <div id="fullscreen-menu" aria-hidden="true">
+        <span class="close-icon" aria-label="Close menu">&times;</span>
+        <ul>
+            <li><a href="cities.html">Cities</a></li>
+            <li><a href="contributors.html">Contributors</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </div>
 
     <!-- Main Content -->
     <main>
         <!-- Contributors Section -->
         <section id="contributors" class="section-header">
             <h1>Contributors</h1>
-            <p>Heated.city team members and friends worldwide who share their visions for cities in 2030 and beyond. Our contributors are passionate about creating sustainable, resilient, and innovative urban environments that will transform the way we inhabit our world.</p>
-            <div id="map" aria-label="Interactive world map showing contributor locations"></div>
+            <p>Meet our global team of innovators, urban planners, and visionaries shaping sustainable cities for 2030 and beyond. These contributors bring unique ideas and stories to life, redefining urban living for a resilient future.</p>
         </section>
+
+        <!-- Interactive Map -->
+        <div id="map" aria-label="Interactive world map of contributors"></div>
     </main>
 
     <!-- Footer -->
