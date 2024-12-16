@@ -3,58 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Heated.city is your future guide to sustainable and innovative urban visions.">
-    <meta name="keywords" content="Heated.city, Cities, Sustainability, Urban Planning, Future Cities, Innovation">
+    <meta name="description" content="Discover sustainable, innovative urban solutions with Heated.city. Your guide to the future of cities.">
+    <meta name="keywords" content="sustainability, urban planning, future cities, innovation, Heated.city">
     <meta name="author" content="Heated.city">
-    <title>Heated.city - Future Guide</title>
+    <title>Heated.city | Sustainable Urban Visions</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Desktop Navigation -->
-    <nav class="desktop-nav">
-        <div class="logo"><a href="index.html">Heated.city</a></div>
+    <nav class="desktop-nav" aria-label="Main navigation">
+        <div class="logo"><a href="index.html" aria-label="Heated.city Homepage">Heated.city</a></div>
         <ul>
-            <li><a href="cities.html">Cities</a></li>
-            <li><a href="contributors.html">Contributors</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="cities.html" aria-label="Explore Cities">Cities</a></li>
+            <li><a href="contributors.html" aria-label="Meet Our Contributors">Contributors</a></li>
+            <li><a href="about.html" aria-label="Learn About Us">About</a></li>
         </ul>
     </nav>
 
-   <!-- Menú móvil -->
-<nav class="mobile-nav">
-    <div class="logo"><a href="index.html">Heated.city</a></div>
-    <div class="menu-icon">☰</div>
-</nav>
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+        <div class="logo"><a href="index.html" aria-label="Heated.city Homepage">Heated.city</a></div>
+        <button class="menu-icon" aria-label="Open Menu">☰</button>
+    </nav>
 
-<!-- Menú desplegable -->
-<div id="fullscreen-menu">
-    <span class="close-icon">&times;</span>
-    <ul>
-        <li><a href="cities.html">Cities</a></li>
-        <li><a href="contributors.html">Contributors</a></li>
-        <li><a href="about.html">About</a></li>
-    </ul>
-</div>
+    <!-- Fullscreen Menu -->
+    <div id="fullscreen-menu" aria-hidden="true">
+        <button class="close-icon" aria-label="Close Menu">&times;</button>
+        <ul>
+            <li><a href="cities.html" aria-label="Explore Cities">Cities</a></li>
+            <li><a href="contributors.html" aria-label="Meet Our Contributors">Contributors</a></li>
+            <li><a href="about.html" aria-label="Learn About Us">About</a></li>
+        </ul>
+    </div>
 
+    <!-- Main Content -->
     <main>
-    <!-- Header Section -->
-    <header class="global-header">
-        <div class="slideshow">
-            <img src="img/city1.png" alt="City 1" class="active">
-            <img src="img/city2.png" alt="City 2">
-            <img src="img/city3.png" alt="City 3">
-        </div>
-        <div class="content">
-            <h1>Heated.city</h1>
-            <p>Your guide to sustainable, innovative cities.</p>
-            <a href="cities.html" class="cta-button">Choose a City</a>
-        </div>
-    </header>
+        <!-- Header Section -->
+        <header class="global-header">
+            <div class="slideshow" aria-label="City Highlights">
+                <img src="img/city1.png" alt="Futuristic skyline of a sustainable city" class="active">
+                <img src="img/city2.png" alt="Green urban park in a modern city">
+                <img src="img/city3.png" alt="Innovative city architecture by the water">
+            </div>
+            <div class="content">
+                <h1>Heated.city</h1>
+                <p>Your guide to sustainable and innovative cities.</p>
+                <a href="cities.html" class="cta-button" aria-label="Choose a city to explore">Explore Cities</a>
+            </div>
+        </header>
     </main>
-    <!-- Footer Section -->
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Heated.city | <a href="/contact.html">Contact Us</a></p>
+        <p>&copy; 2024 Heated.city | <a href="/contact.html" aria-label="Contact Us">Contact Us</a></p>
     </footer>
 
     <!-- Scripts -->
