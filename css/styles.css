@@ -486,3 +486,35 @@ footer {
         font-size: 1rem;
     }
 }
+
+/* ============================
+   Contributors Page Styles
+   ============================ */
+#contributors {
+    text-align: center;
+    margin: 40px auto;
+    max-width: 900px;
+    padding: 20px;
+}
+
+#contributors h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+#contributors p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+    border-radius: 8px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+}
