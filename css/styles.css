@@ -233,3 +233,131 @@ footer {
         padding: 10px 20px;
     }
 }
+
+/* ============================
+   Cities Page Styles
+   ============================ */
+#cities-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.city-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.city-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.city-card h3 {
+    margin: 15px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.city-card a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.city-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================
+   Kyoto Page Styles
+   ============================ */
+.kyoto-header {
+    background: url('../img/kyotoheader.png') no-repeat center center / cover;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 20px;
+}
+
+.kyoto-header h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.intro {
+    text-align: center;
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 20px;
+    color: #444;
+}
+
+.kyoto-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#map {
+    height: 500px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.contributors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.contributor {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.contributor img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.contributor h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.contributor p {
+    max-height: 3.6em;
+    overflow: hidden;
+}
+
+.read-more {
+    color: #e76f51;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.read-more:hover {
+    color: #f4a261;
+}
+
