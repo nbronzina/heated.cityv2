@@ -397,10 +397,10 @@ footer {
    About Page Styles
    ============================ */
 .about-header {
-    text-align: center;
-    margin: 40px auto;
-    max-width: 900px;
-    padding: 20px;
+    text-align: center; /* Centra el texto */
+    margin: 0 auto; /* Centra el bloque horizontalmente */
+    padding: 40px 20px; /* Espaciado alrededor del contenido */
+    max-width: 900px; /* Limita el ancho máximo */
 }
 
 .about-header h1 {
@@ -425,22 +425,21 @@ footer {
 }
 
 .about-header ul {
-    list-style: disc;
-    text-align: left;
-    margin: 0 auto 20px;
-    padding-left: 40px;
-    color: #555;
+    list-style: none;
+    padding: 0;
+    text-align: center;
 }
 
 .about-header ul li {
-    margin-bottom: 10px;
-    font-size: 1rem;
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #555;
 }
 
 .cta-section {
-    text-align: center;
-    margin: 30px auto;
-    padding: 15px;
+    text-align: center; /* Centra el texto */
+    margin: 30px auto; /* Centra el contenedor */
+    padding: 20px;
     background-color: #f4a261;
     color: white;
     border-radius: 8px;
@@ -455,6 +454,22 @@ footer {
 
 .cta-section a:hover {
     color: #ffe0b2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-header h1 {
+        font-size: 2rem;
+    }
+
+    .about-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-header p,
+    .about-header ul li {
+        font-size: 1rem;
+    }
 }
 
 /* Responsive adjustments */
