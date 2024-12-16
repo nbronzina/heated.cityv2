@@ -32,6 +32,7 @@ nav.desktop-nav {
     background-color: #f4a261;
     color: white;
     height: 60px;
+    box-sizing: border-box;
 }
 
 nav.desktop-nav ul {
@@ -43,6 +44,8 @@ nav.desktop-nav ul {
 }
 
 nav.desktop-nav ul li a {
+    text-decoration: none;
+    color: white;
     font-weight: bold;
 }
 
@@ -59,6 +62,13 @@ nav.desktop-nav ul li a:hover {
     background-color: #f4a261;
     color: white;
     height: 60px;
+    box-sizing: border-box;
+}
+
+.mobile-nav .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
 }
 
 .mobile-nav .menu-icon {
@@ -81,10 +91,13 @@ nav.desktop-nav ul li a:hover {
     align-items: center;
     flex-direction: column;
     gap: 20px;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
 }
 
 #fullscreen-menu.show {
     display: flex;
+    opacity: 1;
 }
 
 #fullscreen-menu .close-icon {
@@ -95,12 +108,30 @@ nav.desktop-nav ul li a:hover {
     cursor: pointer;
 }
 
+#fullscreen-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
 #fullscreen-menu ul li a {
     font-size: 1.5rem;
     font-weight: bold;
+    color: white;
+    transition: color 0.3s ease;
 }
 
-/* Header */
+#fullscreen-menu ul li a:hover {
+    color: #ffe0b2;
+    text-decoration: underline;
+}
+
+/* HEADER */
+
 .global-header {
     position: relative;
     height: calc(100vh - 60px);
@@ -112,8 +143,19 @@ nav.desktop-nav ul li a:hover {
     background-color: #264653;
 }
 
+.global-header .slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
 .global-header .slideshow img {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -125,34 +167,113 @@ nav.desktop-nav ul li a:hover {
     opacity: 1;
 }
 
+.global-header .content {
+    position: relative;
+    z-index: 2;
+}
+
 .global-header h1 {
     font-size: 2.5rem;
+    margin: 0;
 }
 
 .global-header p {
     font-size: 1.2rem;
+    margin: 20px 0;
 }
 
-.cta-button {
+.global-header .cta-button {
+    display: inline-block;
     padding: 12px 25px;
     font-size: 1rem;
-    background-color: white;
     color: #f4a261;
+    background-color: white;
+    text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
 }
 
-.cta-button:hover {
+.global-header .cta-button:hover {
     background-color: #ffe0b2;
+    color: #333;
 }
 
-/* Cities Section */
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background-color: #f4a261;
+    color: white;
+    margin-top: auto;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px) {
+    /* Ocultar navegación de escritorio y mostrar navegación móvil */
+    nav.desktop-nav {
+        display: none;
+    }
+
+    .mobile-nav {
+        display: flex;
+    }
+
+    .global-header h1 {
+        font-size: 2rem;
+    }
+
+    .global-header p {
+        font-size: 1rem;
+    }
+
+    .global-header .cta-button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+/* ============================
+   Cities Page Styles
+   ============================ */
+.section-header {
+    text-align: center; /* Centra el texto horizontalmente */
+    margin: 20px auto; /* Márgenes automáticos para centrar verticalmente */
+    max-width: 800px; /* Limita el ancho máximo para mayor legibilidad */
+    padding: 10px;
+}
+
+.section-header h1 {
+    font-size: 2.5rem; /* Tamaño del título */
+    margin-bottom: 10px; /* Espaciado entre el título y subtítulo */
+    color: #333; /* Color del texto */
+    font-weight: bold;
+}
+
+.section-header p {
+    font-size: 1.2rem; /* Tamaño del subtítulo */
+    color: #555; /* Color más suave */
+    line-height: 1.5; /* Espaciado de línea */
+    margin: 0 auto; /* Centra el subtítulo */
+}
+
 #cities-section {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    margin: 20px auto;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas iguales */
+    gap: 20px; /* Espaciado entre tarjetas */
+    padding: 20px;
+    max-width: 1200px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+}
+
+.city-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    text-align: center;
 }
 
 .city-card img {
@@ -162,32 +283,238 @@ nav.desktop-nav ul li a:hover {
 }
 
 .city-card h3 {
-    text-align: center;
+    margin: 15px 0;
     font-size: 1.2rem;
-    margin: 10px 0;
+    color: #333;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    background-color: #f4a261;
-    padding: 15px;
+.city-card a {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.city-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================
+   Kyoto Page Styles
+   ============================ */
+.kyoto-header {
+    background: url('../img/kyotoheader.png') no-repeat center center / cover;
     color: white;
-    margin-top: auto;
+    text-align: center;
+    padding: 100px 20px;
+    margin-bottom: 20px;
 }
 
-/* Media Queries */
+.kyoto-header h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.intro {
+    text-align: center;
+    margin: 40px auto;
+    max-width: 800px;
+    padding: 20px;
+    color: #444;
+}
+
+.kyoto-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* El mapa ocupa 1 parte, y los proyectos 2 */
+    gap: 30px; /* Espaciado entre el mapa y los proyectos */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenedor */
+    align-items: start; /* Alinea los elementos al inicio */
+}
+
+#map {
+    height: 600px; /* Altura fija para el mapa */
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contributors-wrapper {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contributors {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas de tarjetas */
+    gap: 20px; /* Espaciado entre tarjetas */
+}
+
+.contributor {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.contributor img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.contributor h3 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.contributor p {
+    font-size: 1rem;
+    margin: 0 10px;
+    max-height: 3.6em;
+    overflow: hidden;
+}
+
+.read-more {
+    color: #e76f51;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.read-more:hover {
+    color: #f4a261;
+}
+
+/* ============================
+   About Page Styles
+   ============================ */
+.about-header {
+    text-align: center; /* Centra el texto */
+    margin: 0 auto; /* Centra el bloque horizontalmente */
+    padding: 40px 20px; /* Espaciado alrededor del contenido */
+    max-width: 900px; /* Limita el ancho máximo */
+}
+
+.about-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.about-header h2 {
+    font-size: 2rem;
+    margin: 20px 0 10px;
+    color: #f4a261;
+    font-weight: bold;
+}
+
+.about-header p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+.about-header ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.about-header ul li {
+    margin: 10px 0;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.cta-section {
+    text-align: center; /* Centra el texto */
+    margin: 30px auto; /* Centra el contenedor */
+    padding: 20px;
+    background-color: #f4a261;
+    color: white;
+    border-radius: 8px;
+    max-width: 800px;
+}
+
+.cta-section a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.cta-section a:hover {
+    color: #ffe0b2;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    nav.desktop-nav {
-        display: none;
-    }
-    .mobile-nav {
-        display: flex;
-    }
-    #cities-section {
-        grid-template-columns: 1fr;
-    }
-    .global-header h1 {
+    .about-header h1 {
         font-size: 2rem;
     }
+
+    .about-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-header p,
+    .about-header ul li {
+        font-size: 1rem;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-header h1 {
+        font-size: 2rem;
+    }
+
+    .about-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-header p {
+        font-size: 1rem;
+    }
+}
+
+/* ============================
+   Contributors Page Styles
+   ============================ */
+#contributors {
+    text-align: center;
+    margin: 40px auto;
+    max-width: 900px;
+    padding: 20px;
+}
+
+#contributors h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+#contributors p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+#map {
+    width: 100%;
+    height: 500px;
+    border-radius: 8px;
+    margin: 20px auto;
+    border: 1px solid #ddd;
 }
