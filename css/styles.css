@@ -326,23 +326,32 @@ footer {
 
 .kyoto-layout {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 20px;
+    grid-template-columns: 1fr 2fr; /* El mapa ocupa 1 parte, y los proyectos 2 */
+    gap: 30px; /* Espaciado entre el mapa y los proyectos */
     padding: 20px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 0 auto; /* Centra el contenedor */
+    align-items: start; /* Alinea los elementos al inicio */
 }
 
 #map {
-    height: 500px;
+    height: 600px; /* Altura fija para el mapa */
     border-radius: 8px;
     border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contributors-wrapper {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contributors {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas de tarjetas */
+    gap: 20px; /* Espaciado entre tarjetas */
 }
 
 .contributor {
@@ -367,6 +376,8 @@ footer {
 }
 
 .contributor p {
+    font-size: 1rem;
+    margin: 0 10px;
     max-height: 3.6em;
     overflow: hidden;
 }
@@ -381,4 +392,3 @@ footer {
 .read-more:hover {
     color: #f4a261;
 }
-
