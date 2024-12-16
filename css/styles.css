@@ -237,6 +237,27 @@ footer {
 /* ============================
    Cities Page Styles
    ============================ */
+.section-header {
+    text-align: center; /* Centra el texto horizontalmente */
+    margin: 20px auto; /* Márgenes automáticos para centrar verticalmente */
+    max-width: 800px; /* Limita el ancho máximo para mayor legibilidad */
+    padding: 10px;
+}
+
+.section-header h1 {
+    font-size: 2.5rem; /* Tamaño del título */
+    margin-bottom: 10px; /* Espaciado entre el título y subtítulo */
+    color: #333; /* Color del texto */
+    font-weight: bold;
+}
+
+.section-header p {
+    font-size: 1.2rem; /* Tamaño del subtítulo */
+    color: #555; /* Color más suave */
+    line-height: 1.5; /* Espaciado de línea */
+    margin: 0 auto; /* Centra el subtítulo */
+}
+
 #cities-section {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columnas iguales */
