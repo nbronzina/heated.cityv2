@@ -306,39 +306,39 @@ footer {
     background: url('../img/kyotoheader.png') no-repeat center center / cover;
     color: white;
     text-align: center;
-    padding: 120px 20px; /* Increased padding for more visual impact */
-    margin-bottom: 30px; /* Increased margin for better spacing */
+    padding: 120px 20px;
+    margin-bottom: 30px;
 }
 
 .kyoto-header h1 {
-    font-size: 3.5rem; /* Larger font for better emphasis */
+    font-size: 3.5rem;
     margin: 0;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Enhanced shadow for better readability */
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 .intro {
     text-align: center;
-    margin: 50px auto; /* More space around the intro section */
-    max-width: 900px; /* Slightly wider for better readability */
+    margin: 50px auto;
+    max-width: 900px;
     padding: 30px;
     color: #444;
-    background-color: #f9f9f9; /* Added background for better section distinction */
-    border-radius: 8px; /* Rounded corners for a modern look */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .kyoto-layout {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* The map occupies 1 part, and the projects 2 */
-    gap: 40px; /* Increased spacing for clarity */
+    grid-template-columns: 3fr 1fr; /* El mapa ocupa 3 partes y el listado 1 */
+    gap: 40px;
     padding: 30px;
     max-width: 1200px;
-    margin: 0 auto; /* Centers the container */
-    align-items: start; /* Aligns elements at the start */
+    margin: 0 auto;
 }
 
 #map {
-    height: 600px; /* Fixed height for the map */
+    width: 100%;
+    height: 800px; /* Mapa ampliado */
     border-radius: 8px;
     border: 1px solid #ddd;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -347,14 +347,16 @@ footer {
 .contributors-wrapper {
     background-color: #fff;
     border-radius: 8px;
-    padding: 30px; /* Increased padding for better content spacing */
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 800px; /* Altura para permitir scroll */
 }
 
 .contributors {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns for contributor cards */
-    gap: 30px; /* More space between cards */
+    display: flex;
+    flex-direction: column; /* Convertir el listado en columna */
+    gap: 20px;
 }
 
 .contributor {
@@ -374,13 +376,13 @@ footer {
 }
 
 .contributor h3 {
-    margin: 15px 0; /* Increased spacing for better readability */
-    font-size: 1.3rem; /* Slightly larger font */
+    margin: 15px 0;
+    font-size: 1.3rem;
 }
 
 .contributor p {
     font-size: 1rem;
-    margin: 0 15px; /* Increased horizontal margin for spacing */
+    margin: 0 15px;
     max-height: 3.6em;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -388,7 +390,7 @@ footer {
 
 .read-more {
     display: block;
-    margin: 15px auto; /* Center the button with better spacing */
+    margin: 15px auto;
     padding: 10px 15px;
     background-color: #e76f51;
     color: white;
