@@ -21,8 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para crear íconos personalizados numerados
     const createCustomIcon = (id) => L.divIcon({
         className: 'custom-marker',
-        html: 
-            <div style="
+        html: `<div style="
                 width: 30px; 
                 height: 30px; 
                 background-color: #f4a261; 
@@ -34,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 color: white; 
                 font-weight: bold;">
                 ${id}
-            </div>,
+            </div>`,
         iconSize: [30, 30],
         iconAnchor: [15, 15], // Centra el ícono
     });
@@ -43,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     locations.forEach((location) => {
         L.marker(location.coords, { icon: createCustomIcon(location.id) })
             .addTo(map)
-            .bindPopup(<b>${location.id}. ${location.name}</b>);
+            .bindPopup(`<b>${location.id}. ${location.name}</b>`);
     });
 
     // Función de "Read More" para expandir o contraer contenido
@@ -78,6 +77,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Asigna eventos a los botones "Read More"
     document.querySelectorAll('.read-more').forEach(button => {
-        button.addEventListener('click', () => toggleReadMore(button));
+        button.addEventListener('click', (event) => toggleReadMore(event.currentTarget));
     });
 });
