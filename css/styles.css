@@ -306,36 +306,39 @@ footer {
     background: url('../img/kyotoheader.png') no-repeat center center / cover;
     color: white;
     text-align: center;
-    padding: 100px 20px;
-    margin-bottom: 20px;
+    padding: 120px 20px; /* Increased padding for more visual impact */
+    margin-bottom: 30px; /* Increased margin for better spacing */
 }
 
 .kyoto-header h1 {
-    font-size: 3rem;
+    font-size: 3.5rem; /* Larger font for better emphasis */
     margin: 0;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7); /* Enhanced shadow for better readability */
 }
 
 .intro {
     text-align: center;
-    margin: 40px auto;
-    max-width: 800px;
-    padding: 20px;
+    margin: 50px auto; /* More space around the intro section */
+    max-width: 900px; /* Slightly wider for better readability */
+    padding: 30px;
     color: #444;
+    background-color: #f9f9f9; /* Added background for better section distinction */
+    border-radius: 8px; /* Rounded corners for a modern look */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .kyoto-layout {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* El mapa ocupa 1 parte, y los proyectos 2 */
-    gap: 30px; /* Espaciado entre el mapa y los proyectos */
-    padding: 20px;
+    grid-template-columns: 1fr 2fr; /* The map occupies 1 part, and the projects 2 */
+    gap: 40px; /* Increased spacing for clarity */
+    padding: 30px;
     max-width: 1200px;
-    margin: 0 auto; /* Centra el contenedor */
-    align-items: start; /* Alinea los elementos al inicio */
+    margin: 0 auto; /* Centers the container */
+    align-items: start; /* Aligns elements at the start */
 }
 
 #map {
-    height: 600px; /* Altura fija para el mapa */
+    height: 600px; /* Fixed height for the map */
     border-radius: 8px;
     border: 1px solid #ddd;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -344,14 +347,14 @@ footer {
 .contributors-wrapper {
     background-color: #fff;
     border-radius: 8px;
-    padding: 20px;
+    padding: 30px; /* Increased padding for better content spacing */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contributors {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columnas de tarjetas */
-    gap: 20px; /* Espaciado entre tarjetas */
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for contributor cards */
+    gap: 30px; /* More space between cards */
 }
 
 .contributor {
@@ -371,26 +374,36 @@ footer {
 }
 
 .contributor h3 {
-    margin: 10px 0;
-    font-size: 1.2rem;
+    margin: 15px 0; /* Increased spacing for better readability */
+    font-size: 1.3rem; /* Slightly larger font */
 }
 
 .contributor p {
     font-size: 1rem;
-    margin: 0 10px;
+    margin: 0 15px; /* Increased horizontal margin for spacing */
     max-height: 3.6em;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .read-more {
-    color: #e76f51;
+    display: block;
+    margin: 15px auto; /* Center the button with better spacing */
+    padding: 10px 15px;
+    background-color: #e76f51;
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    text-decoration: underline;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
 .read-more:hover {
-    color: #f4a261;
+    background-color: #f4a261;
 }
 
 /* ============================
