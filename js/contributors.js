@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
         // Define el ícono personalizado
         const customIcon = L.divIcon({
             className: 'custom-marker',
-            html: `<div style="width: 24px; height: 24px; background-color: #f4a261; border-radius: 50%; border: 2px solid white;"></div>`,
+            html: `<div style="width: 24px; height: 24px; background-color: #f4a261; 
+                    border-radius: 50%; border: 2px solid white;"></div>`,
             iconSize: [24, 24],
             iconAnchor: [12, 12]
         });
@@ -30,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // Añadir los marcadores al mapa
         contributors.forEach(contributor => {
             let popupContent = `<b>${contributor.name}</b><br>${contributor.description}`;
-
             if (contributor.image) {
                 popupContent = `
                     <div style="text-align: center;">
@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         <p style="margin: 0; font-size: 0.9rem;">${contributor.description}</p>
                     </div>`;
             }
-
             L.marker(contributor.location, { icon: customIcon })
                 .addTo(map)
                 .bindPopup(popupContent);
