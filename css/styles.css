@@ -63,20 +63,23 @@ nav ul li a {
 }
 
 /* ============================
-   Index Page Styles
+   Page Headers
    ============================ */
-.index-header {
+.page-header {
     text-align: center;
     background-color: var(--dark-bg-color);
     color: var(--light-text-color);
     padding: 120px 20px;
 }
 
-.index-header h1 {
+.page-header h1 {
     font-size: var(--font-size-large);
     margin-bottom: var(--gap-medium);
 }
 
+/* ============================
+   Index Page Styles
+   ============================ */
 .index-section {
     padding: var(--gap-large);
     max-width: var(--max-width-large);
@@ -99,13 +102,6 @@ nav ul li a {
 /* ============================
    Cities Page Styles
    ============================ */
-.cities-header {
-    text-align: center;
-    padding: var(--gap-large);
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-}
-
 .cities-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -182,13 +178,6 @@ nav ul li a {
 /* ============================
    Contributors Page Styles
    ============================ */
-.contributors-header {
-    text-align: center;
-    padding: var(--gap-large);
-    background-color: var(--secondary-color);
-    color: var(--light-text-color);
-}
-
 .contributors-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -210,13 +199,6 @@ nav ul li a {
 /* ============================
    About Page Styles
    ============================ */
-.about-header {
-    text-align: center;
-    padding: var(--gap-large);
-    background-color: var(--primary-color);
-    color: var(--light-text-color);
-}
-
 .about-section {
     max-width: var(--max-width-medium);
     margin: 0 auto;
@@ -240,7 +222,7 @@ nav ul li a {
         gap: 10px;
     }
 
-    .index-header h1, .cities-header h1, .kyoto-header h1, .contributors-header h1, .about-header h1 {
+    .page-header h1 {
         font-size: 2.5rem;
     }
 
@@ -248,7 +230,7 @@ nav ul li a {
         padding: var(--gap-medium);
     }
 
-    .kyoto-layout #map, .contributors-wrapper {
+    #map, .contributors-wrapper {
         height: 400px;
         max-height: 400px;
         overflow-y: auto;
@@ -256,14 +238,5 @@ nav ul li a {
 
     .city-card img, .contributor-card img {
         height: 150px;
-    }
-}
-
-    .kyoto-layout #map {
-        height: 400px;
-    }
-
-    .contributors-wrapper {
-        max-height: 400px;
     }
 }
