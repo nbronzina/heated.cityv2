@@ -5,6 +5,7 @@ function toggleMenu() {
 
 function initializeSlideshow(slides, interval = 5000) {
     let currentIndex = 0;
+
     if (slides.length > 0) {
         setInterval(() => {
             slides[currentIndex].classList.remove("active");
@@ -15,19 +16,15 @@ function initializeSlideshow(slides, interval = 5000) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const menuIcon = document.querySelector('.menu-icon');
-    const closeIcon = document.querySelector('.close-icon');
-    const fullscreenMenu = document.getElementById('fullscreen-menu');
     const slides = document.querySelectorAll(".slideshow img");
 
-    // Menú de navegación
-    if (menuIcon && closeIcon && fullscreenMenu) {
-        menuIcon.addEventListener("click", toggleMenu);
-        closeIcon.addEventListener("click", toggleMenu);
-    }
-
-    // Slideshow
     if (slides.length > 0) {
         initializeSlideshow(slides);
     }
 });
+
+   // Menú de navegación
+    if (menuIcon && closeIcon && fullscreenMenu) {
+        menuIcon.addEventListener("click", toggleMenu);
+        closeIcon.addEventListener("click", toggleMenu);
+    }
