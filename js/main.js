@@ -5,7 +5,6 @@ function toggleMenu() {
 
 function initializeSlideshow(slides, interval = 5000) {
     let currentIndex = 0;
-
     if (slides.length > 0) {
         setInterval(() => {
             slides[currentIndex].classList.remove("active");
@@ -21,11 +20,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const fullscreenMenu = document.getElementById('fullscreen-menu');
     const slides = document.querySelectorAll(".slideshow img");
 
+    // Menú de navegación
     if (menuIcon && closeIcon && fullscreenMenu) {
         menuIcon.addEventListener("click", toggleMenu);
         closeIcon.addEventListener("click", toggleMenu);
     }
 
+    // Slideshow
     if (slides.length > 0) {
         initializeSlideshow(slides);
     }
