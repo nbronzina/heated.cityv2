@@ -112,6 +112,18 @@ nav ul li a {
     color: var(--light-text-color);
     font-weight: bold;
 }
+/* ============================
+   Slideshow Styles
+   ============================ */
+.slideshow img {
+    display: none; /* Oculta todas las imágenes */
+    width: 100%;
+    height: auto;
+}
+
+.slideshow img.active {
+    display: block; /* Muestra solo la imagen activa */
+}
 
 /* ============================
    Footer Styles
