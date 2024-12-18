@@ -114,6 +114,29 @@ nav ul li a {
 }
 
 /* ============================
+   Footer Styles
+   ============================ */
+footer {
+    text-align: center;
+    padding: 15px 20px;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    font-size: var(--font-size-small);
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: var(--secondary-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--dark-bg-color);
+}
+
+/* ============================
    Page Headers
    ============================ */
 .page-header {
