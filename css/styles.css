@@ -266,8 +266,28 @@ footer a:hover {
     background: var(--light-bg-color);
     border: 1px solid #ddd;
     border-radius: 8px;
-    padding: var(--gap-medium);
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contributor-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.contributor-card h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.contributor-card p {
+    font-size: 1rem;
+    color: var(--dark-text-color);
+    margin-top: 5px;
 }
 
 /* ============================
