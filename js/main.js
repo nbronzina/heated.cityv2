@@ -3,19 +3,6 @@ function toggleMenu() {
     fullscreenMenu.classList.toggle('show');
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const menuIcon = document.querySelector('.menu-icon');
-    const closeIcon = document.querySelector('.close-icon');
-
-    if (menuIcon && closeIcon) {
-        menuIcon.addEventListener("click", toggleMenu);
-        closeIcon.addEventListener("click", toggleMenu);
-    }
-
-    const slides = document.querySelectorAll(".slideshow img");
-    initializeSlideshow(slides);
-});
-
 function initializeSlideshow(slides, interval = 5000) {
     let currentIndex = 0;
 
@@ -27,3 +14,19 @@ function initializeSlideshow(slides, interval = 5000) {
         }, interval);
     }
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const menuIcon = document.querySelector('.menu-icon');
+    const closeIcon = document.querySelector('.close-icon');
+    const fullscreenMenu = document.getElementById('fullscreen-menu');
+    const slides = document.querySelectorAll(".slideshow img");
+
+    if (menuIcon && closeIcon && fullscreenMenu) {
+        menuIcon.addEventListener("click", toggleMenu);
+        closeIcon.addEventListener("click", toggleMenu);
+    }
+
+    if (slides.length > 0) {
+        initializeSlideshow(slides);
+    }
+});
