@@ -328,8 +328,8 @@ footer {
 }
 
 .kyoto-layout {
-    display: grid;
-    grid-template-columns: 3fr 1fr; /* El mapa ocupa 3 partes y el listado 1 */
+    display: flex;
+    flex-direction: column;
     gap: 40px;
     padding: 30px;
     max-width: 1200px;
@@ -408,6 +408,48 @@ footer {
     background-color: #f4a261;
 }
 
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .kyoto-header h1 {
+        font-size: 2.5rem; /* Tamaño de fuente reducido */
+    }
+
+    .intro {
+        margin: 20px auto; /* Espaciado menor */
+        padding: 20px; /* Ajustar el relleno */
+        max-width: 100%; /* Usar todo el ancho disponible */
+    }
+
+    .kyoto-layout {
+        gap: 20px; /* Menor separación en móvil */
+    }
+
+    #map {
+        height: 400px; /* Altura reducida para dispositivos móviles */
+    }
+
+    .contributors-wrapper {
+        max-height: 400px; /* Reducir altura máxima del listado */
+        overflow-y: scroll; /* Mantener el scroll para facilitar navegación */
+    }
+
+    .contributors {
+        gap: 15px; /* Menor separación entre tarjetas */
+    }
+
+    .contributor img {
+        height: 120px; /* Ajustar altura de imágenes */
+    }
+
+    .contributor h3 {
+        font-size: 1.1rem; /* Tamaño de fuente más pequeño */
+    }
+
+    .read-more {
+        font-size: 0.9rem; /* Botones más pequeños */
+        padding: 8px 12px; /* Ajustar relleno */
+    }
+}
 /* ============================
    About Page Styles
    ============================ */
