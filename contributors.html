@@ -361,11 +361,38 @@
             box-shadow: var(--shadow-strong);
         }
 
+        /* 
+           Profile Image Optimization: Técnica 1 - Object Position
+           =====================================================
+           
+           object-fit: cover = La imagen mantiene sus proporciones y llena completamente el contenedor,
+                              cortando las partes que no caben
+           
+           object-position: center 15% = Controla QUÉ parte de la imagen original se muestra:
+                                       - "center" = horizontalmente centrada
+                                       - "15%" = muestra la región que está al 15% desde la parte superior
+                                       
+           Esto significa que en lugar de mostrar el centro de la foto (que podría ser el pecho),
+           mostramos la parte superior donde está la cara de la persona.
+           
+           Puedes ajustar ese 15% según necesites:
+           - 5% = más enfoque en la frente/cabello
+           - 10% = buen balance cara/hombros  
+           - 20% = más del contexto alrededor de la cara
+           - 25% = incluye más del torso
+        */
         .profile-image {
             width: 100%;
             height: 280px;
             object-fit: cover;
+            object-position: center 15%; /* La clave: esto enfoca en la cara en lugar del centro */
             background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+            transition: transform 0.3s ease; /* Sutil efecto hover para mayor interactividad */
+        }
+
+        /* Efecto hover sutil en las imágenes para mejor experiencia de usuario */
+        .gardener-profile:hover .profile-image {
+            transform: scale(1.05);
         }
 
         .profile-content {
@@ -578,6 +605,12 @@
                 grid-template-columns: 1fr;
                 gap: 24px;
             }
+
+            /* En móvil, ajustamos object-position para mostrar un poco más de contexto */
+            .profile-image {
+                height: 260px; /* Ligeramente menor en móvil */
+                object-position: center 20%; /* Un poco más de contexto en pantallas pequeñas */
+            }
         }
 
         .mobile-header {
@@ -650,7 +683,7 @@
             <!-- Gardeners Hero Section -->
             <section class="gardeners-hero">
                 <div class="gardeners-hero-content">
-                    <h1>The people who tend to breathing neighborhoods</h1>
+                    <h1>The people who tend to breathe in neighborhoods</h1>
                     <p class="gardeners-hero-subtitle">Climate gardeners combine the patience of traditional horticulturists with expertise in community dynamics and biological systems. They spend their days calibrating atmospheric processors, interpreting seasonal soil changes, and facilitating conversations between neighbors about what makes their environment feel healthy.</p>
                     <div class="profession-context">
                         A specialized practice of environmental community care
@@ -667,7 +700,7 @@
                     </div>
                     
                     <div class="content-text">
-                        <p>Climate gardeners work at the intersection of several disciplines that traditionally operated separately. They need to understand soil microbiology well enough to diagnose why mycelium networks aren't establishing properly in a building's foundation. They need social skills to facilitate community meetings about atmospheric processing schedules that work for families with different sleep patterns and respiratory sensitivities. They need mechanical competency to troubleshoot biointegration equipment alongside biological system expertise to know when technical problems reflect ecological imbalances rather than equipment failure.</p>
+                        <p>Climate gardeners work at the intersection of several disciplines traditionally operated separately. They need to understand soil microbiology well enough to diagnose why mycelium networks aren't establishing properly in a building's foundation. They need social skills to facilitate community meetings about atmospheric processing schedules that work for families with different sleep patterns and respiratory sensitivities. They need mechanical competency to troubleshoot biointegration equipment alongside biological system expertise to know when technical problems reflect ecological imbalances rather than equipment failure.</p>
 
                         <p>Most climate gardeners develop their practice through apprenticeship with experienced practitioners, though formal certification programs now exist through municipal environmental management departments. The work requires continuous learning because every neighborhood develops unique patterns of interaction between human activities, local climate conditions, and biointegration infrastructure. What works well in Kyoto's bamboo grove districts may need significant adaptation for Madrid's thermal management systems or Melbourne's urban watershed restoration projects.</p>
 
@@ -675,7 +708,7 @@
                     </div>
 
                     <div class="professional-insight">
-                        <div class="insight-quote">"People think the technology is the complicated part, but honestly? Learning to listen to what a neighborhood is actually telling you about how it wants to breathe—that takes years to develop."</div>
+                        <div class="insight-quote">"People think the technology is the complicated part, but honestly? Learning to listen to what a neighborhood is telling you about how it wants to breathe takes years to develop."</div>
                         <div class="insight-attribution">— Kenji Nakamura, climate gardener with eight years of practice across four different district types</div>
                     </div>
 
@@ -692,18 +725,18 @@
                 <div class="section-content">
                     <div class="section-header">
                         <h2 class="section-title">How climate gardeners approach their work</h2>
-                        <p class="section-intro">Every climate gardener develops their own style of practice, but certain methodological approaches have proven effective across different community contexts and biointegration system configurations.</p>
+                        <p class="section-intro">Every climate gardener develops their style of practice, but certain methodological approaches have proven effective across different community contexts and biointegration system configurations.</p>
                     </div>
 
                     <div class="methods-grid">
                         <div class="method-item">
                             <h3 class="method-title">Seasonal observation cycles</h3>
-                            <p class="method-description">Climate gardeners track environmental and social patterns through complete annual cycles before making significant system adjustments. They map how community activities, biological system performance, and atmospheric conditions interact throughout different seasons, building baseline understanding that guides long-term optimization decisions.</p>
+                            <p class="method-description">Climate gardeners track environmental and social patterns through annual cycles before making significant system adjustments. They map how community activities, biological system performance, and atmospheric conditions interact throughout different seasons, building baseline understanding that guides long-term optimization decisions.</p>
                         </div>
                         
                         <div class="method-item">
                             <h3 class="method-title">Community conversation facilitation</h3>
-                            <p class="method-description">Regular neighborhood meetings provide opportunities for residents to share observations about environmental changes and system performance. Climate gardeners facilitate these discussions, helping translate community feedback into technical improvements while building shared understanding about how biointegration systems serve neighborhood wellbeing.</p>
+                            <p class="method-description">Regular neighborhood meetings allow residents to share observations about environmental changes and system performance. Climate gardeners facilitate these discussions, helping translate community feedback into technical improvements while building shared understanding about how biointegration systems serve neighborhood wellbeing.</p>
                         </div>
                         
                         <div class="method-item">
@@ -734,7 +767,7 @@
                 <div class="section-content">
                     <div class="section-header">
                         <h2 class="section-title">Climate gardeners from around the network</h2>
-                        <p class="section-intro">Each climate gardener brings unique background experience and develops specialized approaches based on their district's environmental conditions and community characteristics. Their diverse expertise strengthens the global practice of climate gardening through shared learning and collaborative innovation.</p>
+                        <p class="section-intro">Each climate gardener brings a unique background experience and develops specialized approaches based on their district's environmental conditions and community characteristics. Their diverse expertise strengthens the global practice of climate gardening through shared learning and collaborative innovation.</p>
                     </div>
 
                     <div class="gardeners-grid">
@@ -746,7 +779,7 @@
                                     <p class="gardener-role">Atmospheric Systems Specialist</p>
                                     <div class="location-badge">Kyoto</div>
                                 </div>
-                                <p class="gardener-description">Himari combines traditional Japanese seasonal observation practices with biointegration system calibration, specializing in atmospheric processing coordination with natural weather patterns. Her background in ecological anthropology helps her facilitate community conversations about environmental preferences and system optimization. She pioneered integration techniques between bamboo grove acoustic monitoring and neighborhood atmospheric processing schedules.</p>
+                                <p class="gardener-description">Himari combines traditional Japanese seasonal observation practices with biointegration system calibration, specializing in atmospheric processing coordination with natural weather patterns. His background in ecological anthropology helps her facilitate community conversations about environmental preferences and system optimization. She pioneered integration techniques between bamboo grove acoustic monitoring and neighborhood atmospheric processing schedules.</p>
                                 <div class="specialties">
                                     <span class="specialty-tag">Acoustic-atmospheric integration</span>
                                     <span class="specialty-tag">Seasonal pattern recognition</span>
@@ -764,7 +797,7 @@
                                     <p class="gardener-role">Thermal Regulation Coordinator</p>
                                     <div class="location-badge">Madrid</div>
                                 </div>
-                                <p class="gardener-description">Ana focuses on biointegration systems that address extreme heat management and building thermal performance. Her engineering background in passive cooling design complements her expertise in community heat vulnerability assessment. She develops adaptive thermal regulation protocols that respond to both weather forecasting and neighborhood demographic needs, particularly supporting elderly residents and families with young children during heat waves.</p>
+                                <p class="gardener-description">Ana focuses on biointegration systems that address extreme heat management and building thermal performance. Her engineering background in passive cooling design complements her community heat vulnerability assessment expertise. She develops adaptive thermal regulation protocols that respond to both weather forecasting and neighborhood demographic needs, particularly supporting elderly residents and families with young children during heat waves.</p>
                                 <div class="specialties">
                                     <span class="specialty-tag">Thermal system optimization</span>
                                     <span class="specialty-tag">Heat vulnerability assessment</span>
@@ -800,7 +833,7 @@
                                     <p class="gardener-role">Community Systems Coordinator</p>
                                     <div class="location-badge">Buenos Aires</div>
                                 </div>
-                                <p class="gardener-description">Pablo coordinates biointegration systems across high-density residential districts, specializing in vertical growing systems and community-scale atmospheric processing. His background in urban planning and community organizing helps him navigate complex neighborhood politics around environmental infrastructure investments. He focuses particularly on biointegration approaches that create economic opportunities for local residents through sustainable food production and building material cultivation.</p>
+                                <p class="gardener-description">Pablo coordinates biointegration systems across high-density residential districts, specializing in vertical growing systems and community-scale atmospheric processing. His urban planning and community organizing background helps him navigate complex neighborhood politics around environmental infrastructure investments. He focuses particularly on biointegration approaches that create economic opportunities for local residents through sustainable food production and building material cultivation.</p>
                                 <div class="specialties">
                                     <span class="specialty-tag">Vertical growing systems</span>
                                     <span class="specialty-tag">Community economic development</span>
@@ -836,7 +869,7 @@
                                     <p class="gardener-role">Air Quality Systems Coordinator</p>
                                     <div class="location-badge">New Delhi</div>
                                 </div>
-                                <p class="gardener-description">Priya specializes in atmospheric processing systems for high-pollution urban environments, developing biointegration approaches that address both ambient air quality improvement and indoor environmental health. Her background in public health and environmental engineering informs her work on community-scale air filtration systems that provide immediate health benefits while supporting long-term atmospheric restoration. She focuses particularly on respiratory health impacts and vulnerable population protection.</p>
+                                <p class="gardener-description">Priya specializes in atmospheric processing systems for high-pollution urban environments, developing biointegration approaches that address ambient air quality improvement and indoor environmental health. Her public health and environmental engineering background informs her work on community-scale air filtration systems that provide immediate health benefits while supporting long-term atmospheric restoration. She focuses particularly on respiratory health impacts and vulnerable population protection.</p>
                                 <div class="specialties">
                                     <span class="specialty-tag">High-pollution adaptation</span>
                                     <span class="specialty-tag">Public health integration</span>
@@ -860,18 +893,18 @@
                     <div class="content-text">
                         <p>Climate gardeners maintain active communication networks that enable rapid sharing of insights, problem-solving approaches, and technical innovations. Monthly video conferences bring together practitioners from different continents to discuss seasonal challenges, share successful adaptations, and collaborate on solutions for complex environmental problems. These conversations combine technical troubleshooting with community engagement strategies, reflecting the interdisciplinary nature of climate gardening practice.</p>
 
-                        <p>Professional development occurs through both formal training programs and peer-to-peer knowledge exchange. Experienced climate gardeners often host visiting practitioners who want to learn about specific approaches or observe different community engagement methods. These exchanges enable practitioners to experience diverse biointegration system configurations and community dynamics, building expertise that they adapt to their own district's needs and characteristics.</p>
+                        <p>Professional development occurs through formal training programs and peer-to-peer knowledge exchange. Experienced climate gardeners often host visiting practitioners who want to learn about specific approaches or observe different community engagement methods. These exchanges enable practitioners to experience diverse biointegration system configurations and community dynamics, building expertise that they adapt to their own district's needs and characteristics.</p>
                     </div>
 
                     <div class="network-visual">
                         <h3 class="network-title">Global Knowledge Circulation</h3>
-                        <p class="network-description">When Himari discovers that bamboo acoustic monitoring improves atmospheric processing timing in Kyoto, that innovation flows through the climate gardening network to districts with different acoustic environments. Ana's thermal regulation protocols for Madrid heat waves inspire cooling adaptations in other hot climate regions. Knowledge moves through relationships, conferences, site visits, and collaborative problem-solving sessions that strengthen the global practice of climate gardening.</p>
+                        <p class="network-description">When Himari discovers that bamboo acoustic monitoring improves atmospheric processing timing in Kyoto, innovation flows through the climate gardening network to districts with different acoustic environments. Ana's thermal regulation protocols for Madrid heat waves inspire cooling adaptations in other hot climate regions. Knowledge moves through relationships, conferences, site visits, and collaborative problem-solving sessions that strengthen the global practice of climate gardening.</p>
                     </div>
 
                     <div class="content-text">
                         <p>Research collaboration between climate gardeners contributes to academic understanding of biointegration system optimization and community environmental stewardship. Many practitioners maintain relationships with universities and research institutions, contributing field observations and practical insights that inform both technological development and community engagement best practices. This research collaboration ensures that climate gardening practice evolves based on empirical evidence and systematic observation rather than just accumulated anecdotal experience.</p>
 
-                        <p>Professional certification programs for climate gardening continue developing through input from experienced practitioners who understand both technical requirements and community engagement skills necessary for effective practice. These programs combine classroom learning about biological systems and atmospheric processing technology with apprenticeship periods where new practitioners work alongside experienced climate gardeners in active districts, building practical skills through guided observation and community relationship development.</p>
+                        <p>Professional certification programs for climate gardening continue developing through input from experienced practitioners who understand technical requirements and community engagement skills necessary for effective practice. These programs combine classroom learning about biological systems and atmospheric processing technology with apprenticeship periods where new practitioners work alongside experienced climate gardeners in active districts, building practical skills through guided observation and community relationship development.</p>
                     </div>
                 </div>
             </section>
@@ -881,11 +914,11 @@
                 <div class="section-content">
                     <div class="section-header">
                         <h2 class="section-title" style="color: white;">Pathways into climate gardening practice</h2>
-                        <p class="section-intro" style="color: rgba(255,255,255,0.9);">Climate gardening attracts people from diverse professional backgrounds who share interest in community environmental stewardship and enjoy work that combines technical problem-solving with social engagement.</p>
+                        <p class="section-intro" style="color: rgba(255,255,255,0.9);">Climate gardening attracts people from diverse professional backgrounds who share an interest in community environmental stewardship and enjoy work that combines technical problem-solving with social engagement.</p>
                     </div>
                     
                     <div class="content-text" style="color: rgba(255,255,255,0.9);">
-                        <p>Most climate gardeners enter the profession through apprenticeship programs with experienced practitioners, though formal degree programs are developing through partnerships between municipal environmental departments and regional universities. Successful climate gardeners typically have background experience in at least one relevant area: biological systems, community organizing, environmental engineering, public health, or social work. The interdisciplinary nature of the profession requires ongoing learning and collaboration rather than complete expertise in all relevant areas.</p>
+                        <p>Most climate gardeners enter the profession through apprenticeship programs with experienced practitioners, though formal degree programs develop through partnerships between municipal environmental departments and regional universities. Successful climate gardeners typically have background experience in at least one relevant area: biological systems, community organizing, environmental engineering, public health, or social work. The interdisciplinary nature of the profession requires ongoing learning and collaboration rather than complete expertise in all relevant areas.</p>
 
                         <p>Personal characteristics that support climate gardening practice include patience with complex systems that change seasonally, enjoyment of community relationship building, and comfort with technical troubleshooting. Climate gardeners spend significant time listening to community concerns and translating between technical system requirements and neighborhood preferences. The work requires persistence and adaptability, since environmental and social conditions change continuously and solutions must evolve accordingly.</p>
 
