@@ -6,7 +6,7 @@
     <meta name="description" content="Walk through Kyoto's biointegration zone where bamboo groves predict weather, sake breweries power themselves with fungal networks, and traditional crafts grow from living materials.">
     <meta name="keywords" content="Kyoto biointegration, regenerative districts, climate gardening, traditional innovation">
     <meta name="author" content="Heated.city">
-    <title>Kyoto Biointegration Zone | Heated.city</title>
+    <title>Kyoto | Heated.city</title>
     
     <!-- Google Fonts for modern typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -520,34 +520,8 @@
             border: 1px solid rgba(127, 176, 105, 0.2);
         }
 
-        .project-action {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: var(--radius-small);
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .project-action:hover {
-            background: var(--secondary-accent);
-            transform: translateY(-1px);
-        }
-
-        .project-action::after {
-            content: '↗';
-            transition: transform 0.3s ease;
-        }
-
-        .project-action:hover::after {
-            transform: scale(1.2);
-        }
+        /* Remove all button-related styles since we no longer have buttons */
+        /* Cards are now fully interactive through click events */
 
         /* ============================
            Footer (Consistent with site)
@@ -700,27 +674,27 @@
                 <div class="nav-section">
                     <div class="nav-title">Active Districts</div>
                     <a href="kyoto.html" class="nav-link active">
-                        Kyoto Biointegration Zone
+                        Kyoto
                         <span class="project-count">6</span>
                     </a>
                     <a href="#madrid" class="nav-link">
-                        Madrid Climate Adaptation Hub
+                        Madrid
                         <span class="project-count">18</span>
                     </a>
                     <a href="#melbourne" class="nav-link">
-                        Melbourne Circular District
+                        Melbourne
                         <span class="project-count">15</span>
                     </a>
                     <a href="#buenos-aires" class="nav-link">
-                        Buenos Aires Vertical Farms
+                        Buenos Aires
                         <span class="project-count">22</span>
                     </a>
                     <a href="#nairobi" class="nav-link">
-                        Nairobi Water Commons
+                        Nairobi
                         <span class="project-count">9</span>
                     </a>
                     <a href="#new-delhi" class="nav-link">
-                        Delhi Air Restoration Grid
+                        New Delhi
                         <span class="project-count">16</span>
                     </a>
                 </div>
@@ -736,7 +710,7 @@
                         <span>●</span>
                         Active Biointegration Zone
                     </div>
-                    <h1>Kyoto Biointegration Zone</h1>
+                    <h1>Kyoto</h1>
                     <p class="kyoto-hero-subtitle">Walk through neighborhoods where morning routines include checking rainwater pool colors, where street lighting helps you time your umbrella-carrying, and where local breweries power your evening showers. These aren't tomorrow's innovations—they're Tuesday's mundane conveniences in a district where biotechnology solved everyday problems so well that people forgot it was biotechnology.</p>
                     <div class="gardener-intro">
                         Climate gardening guided by Himari Satō
@@ -750,7 +724,7 @@
                 <div class="map-section">
                     <div class="map-header">
                         <h2 class="map-title">District Infrastructure Map</h2>
-                        <p class="map-description">Six interconnected facilities that residents use for daily conveniences—papermaking workshops, weather-responsive lighting, community gardens, walking trails, breweries, and waste processing. Click any location to see how it fits into neighborhood routines.</p>
+                        <p class="map-description">Six interconnected facilities that residents use for daily conveniences: papermaking workshops, weather-responsive lighting, community gardens, walking trails, breweries, and waste processing. Click any location to see how it fits into neighborhood routines.</p>
                     </div>
                     <div id="map" aria-label="Kyoto biointegration zone infrastructure map"></div>
                 </div>
@@ -790,7 +764,7 @@
                             </div>
                             <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80" alt="Street lighting that adjusts to weather patterns for community navigation" class="project-image">
                             <p class="project-description collapsed">
-                                People have gradually learned to read the street lights for weather and timing their daily routines. Blue-tinted clusters usually mean rain within six hours, so residents grab umbrellas or plan indoor activities. Amber lighting indicates stable weather—good days for hanging laundry or scheduling outdoor work. The pattern recognition happens unconsciously now; mothers instinctively know when to call children inside based on subtle shifts in lighting color they don't consciously register. Local merchants have adjusted store hours slightly—the hardware store stays open later when lights indicate good weather for home repairs, while the tea shop prepares for busier indoor periods when blues predominate. The system occasionally malfunctions during unusual weather patterns, leading to the same frustrated complaints people have about any public infrastructure. Teenagers text each other about "good light nights" for outdoor gatherings, treating the system like they would any other useful but unremarkable neighborhood resource.
+                                People have gradually learned to read the street lights for weather and to time their daily routines. Blue-tinted clusters usually mean rain within six hours, so residents grab umbrellas or plan indoor activities. Amber lighting indicates stable weather—good days for hanging laundry or scheduling outdoor work. The pattern recognition happens unconsciously now; mothers instinctively know when to call children inside based on subtle shifts in lighting color they don't consciously register. Local merchants have adjusted store hours slightly—the hardware store stays open later when lights indicate good weather for home repairs, while the tea shop prepares for busier indoor periods when blues predominate. The system occasionally malfunctions during unusual weather patterns, leading to the same frustrated complaints people have about any public infrastructure. Teenagers text each other about "good light nights" for outdoor gatherings, treating the system like they would any other useful but unremarkable neighborhood resource.
                             </p>
                             <div class="project-features">
                                 <span class="feature-tag">Six-Hour Weather Signals</span>
@@ -817,7 +791,7 @@
                                 <span class="feature-tag">Seasonal Maintenance Adjustments</span>
                                 <span class="feature-tag">Gradual Skill Development</span>
                             </div>
-                            <button class="project-action" onclick="toggleDescription(this)">Leer más</button>
+                            <!-- Click anywhere on card to expand/collapse -->
                         </article>
 
                         <!-- Project 4: Bamboo Grove Knowledge Trail -->
@@ -836,7 +810,7 @@
                                 <span class="feature-tag">Hands-On Weather Education</span>
                                 <span class="feature-tag">Water Management Integration</span>
                             </div>
-                            <button class="project-action" onclick="toggleDescription(this)">Leer más</button>
+                            <!-- Click anywhere on card to expand/collapse -->
                         </article>
 
                         <!-- Project 5: Kura no Megumi -->
@@ -855,7 +829,7 @@
                                 <span class="feature-tag">Fluctuating Utility Bills</span>
                                 <span class="feature-tag">Better Sleep After Visits</span>
                             </div>
-                            <button class="project-action" onclick="toggleDescription(this)">Leer más</button>
+                            <!-- Click anywhere on card to expand/collapse -->
                         </article>
 
                         <!-- Project 6: Midori no Kura -->
@@ -874,7 +848,7 @@
                                 <span class="feature-tag">Phone Usage Notifications</span>
                                 <span class="feature-tag">Maintenance Downtime Issues</span>
                             </div>
-                            <button class="project-action" onclick="toggleDescription(this)">Leer más</button>
+                            <!-- Click anywhere on card to expand/collapse -->
                         </article>
                     </div>
                 </div>
