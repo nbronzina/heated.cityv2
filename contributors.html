@@ -3,68 +3,948 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore Heated.city's global contributors sharing their visions for sustainable, resilient cities in 2030 and beyond.">
-    <meta name="keywords" content="Heated.city, Contributors, Sustainability, Urban Planning, Climate Innovation, Future Cities">
-    <title>Heated.city - Contributors</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <meta name="description" content="Meet the climate gardeners who tend to the daily rhythms of biointegration districts, combining community intuition with biological system expertise.">
+    <meta name="keywords" content="climate gardeners, biointegration experts, community stewardship, urban ecology professionals">
+    <meta name="author" content="Heated.city">
+    <title>Climate Gardeners — Heated.city</title>
+    
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================
+           Design System Variables
+           ============================ */
+        :root {
+            /* Color palette inspired by regenerative design */
+            --primary-color: #1a3d35;
+            --accent-color: #7fb069;
+            --secondary-accent: #d4af37;
+            --text-dark: #0f1419;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --background: #fdfffe;
+            --background-soft: #f7fafc;
+            --background-warm: #fefcf8;
+            --border-light: #e2e8f0;
+            --border-medium: #cbd5e0;
+            
+            /* Advanced visual effects */
+            --surface-glass: rgba(255, 255, 255, 0.92);
+            --shadow-subtle: 0 2px 12px rgba(0, 0, 0, 0.04);
+            --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
+            --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.12);
+            
+            /* Layout measurements */
+            --sidebar-width: 320px;
+            --content-max-width: 1200px;
+            --radius-small: 8px;
+            --radius-medium: 16px;
+            --radius-large: 24px;
+        }
+
+        /* ============================
+           Base Styles
+           ============================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--background) 0%, var(--background-warm) 100%);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        /* ============================
+           Layout Structure
+           ============================ */
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--surface-glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-right: 1px solid var(--border-light);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sidebar-header {
+            padding: 40px 32px 32px;
+            border-bottom: 1px solid var(--border-light);
+            background: linear-gradient(135deg, rgba(122, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.8px;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 15px;
+            color: var(--text-medium);
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .climate-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            padding: 8px 12px;
+            background: rgba(127, 176, 105, 0.1);
+            border-radius: var(--radius-small);
+            font-size: 13px;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .climate-indicator::before {
+            content: '●';
+            color: var(--accent-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .sidebar-nav {
+            padding: 40px 0 32px;
+        }
+
+        .nav-section {
+            margin-bottom: 40px;
+        }
+
+        .nav-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding: 0 32px;
+            margin-bottom: 20px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 32px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-medium);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            background: linear-gradient(135deg, rgba(26, 61, 53, 0.04) 0%, rgba(127, 176, 105, 0.04) 100%);
+        }
+
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+        }
+
+        .project-count {
+            font-size: 12px;
+            color: var(--text-light);
+            background: var(--background-soft);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        /* ============================
+           Main Content Area
+           ============================ */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            min-height: 100vh;
+        }
+
+        /* Gardeners Hero Section */
+        .gardeners-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0f2a24 100%);
+            color: white;
+            padding: 120px 64px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gardeners-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(30deg, rgba(127, 176, 105, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(127, 176, 105, 0.1) 87.5%),
+                linear-gradient(150deg, rgba(127, 176, 105, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(127, 176, 105, 0.1) 87.5%);
+            background-size: 80px 140px;
+            opacity: 0.3;
+        }
+
+        .gardeners-hero-content {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .gardeners-hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 32px;
+            letter-spacing: -1.2px;
+        }
+
+        .gardeners-hero-subtitle {
+            font-size: 24px;
+            opacity: 0.9;
+            line-height: 1.4;
+            font-weight: 400;
+            margin-bottom: 48px;
+        }
+
+        .profession-context {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 16px;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+
+        .profession-context::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent));
+        }
+
+        /* ============================
+           Content Sections
+           ============================ */
+        .gardeners-section {
+            padding: 100px 64px;
+        }
+
+        .gardeners-section:nth-child(even) {
+            background: var(--background-soft);
+        }
+
+        .section-content {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 64px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 24px;
+            letter-spacing: -0.8px;
+            line-height: 1.2;
+        }
+
+        .section-intro {
+            font-size: 20px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Content text styling */
+        .content-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        .content-text p {
+            margin-bottom: 32px;
+        }
+
+        .content-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Professional insight boxes */
+        .professional-insight {
+            background: linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-radius: var(--radius-medium);
+            padding: 40px;
+            margin: 48px 0;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .insight-quote {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--primary-color);
+            line-height: 1.4;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .insight-attribution {
+            font-style: normal;
+            font-weight: 500;
+            color: var(--text-medium);
+            font-size: 16px;
+        }
+
+        /* Gardener profiles grid */
+        .gardeners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 48px;
+            margin: 64px 0;
+        }
+
+        .gardener-profile {
+            background: white;
+            border-radius: var(--radius-large);
+            overflow: hidden;
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gardener-profile:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+        }
+
+        .profile-content {
+            padding: 40px;
+        }
+
+        .profile-header {
+            margin-bottom: 24px;
+        }
+
+        .gardener-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .gardener-role {
+            font-size: 16px;
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+
+        .location-badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        .gardener-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            margin: 24px 0;
+        }
+
+        .specialties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 24px;
+        }
+
+        .specialty-tag {
+            background: var(--background-soft);
+            color: var(--text-medium);
+            padding: 6px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            border: 1px solid var(--border-light);
+        }
+
+        /* Work methods section */
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin: 48px 0;
+        }
+
+        .method-item {
+            background: white;
+            border-radius: var(--radius-medium);
+            padding: 32px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--border-light);
+        }
+
+        .method-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .method-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-medium);
+        }
+
+        /* Network collaboration section */
+        .network-visual {
+            background: linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-radius: var(--radius-large);
+            padding: 48px;
+            margin: 48px 0;
+            text-align: center;
+            border: 1px solid rgba(127, 176, 105, 0.2);
+        }
+
+        .network-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 24px;
+        }
+
+        .network-description {
+            font-size: 18px;
+            line-height: 1.6;
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--background-soft);
+            border-top: 1px solid var(--border-light);
+            padding: 64px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+        }
+
+        .footer p {
+            color: var(--text-medium);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* ============================
+           Mobile Responsive Design
+           ============================ */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: 100vw;
+                max-width: 400px;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .mobile-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 24px;
+                background: var(--surface-glass);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--border-light);
+                position: sticky;
+                top: 0;
+                z-index: 999;
+            }
+
+            .mobile-logo {
+                font-size: 22px;
+                font-weight: 700;
+                color: var(--primary-color);
+            }
+
+            .menu-toggle {
+                background: none;
+                border: none;
+                font-size: 28px;
+                color: var(--primary-color);
+                cursor: pointer;
+                padding: 8px;
+                border-radius: var(--radius-small);
+                transition: background-color 0.2s ease;
+            }
+
+            .menu-toggle:hover {
+                background: rgba(127, 176, 105, 0.1);
+            }
+
+            .gardeners-hero {
+                padding: 64px 24px 48px;
+            }
+
+            .gardeners-hero h1 {
+                font-size: 36px;
+            }
+
+            .gardeners-hero-subtitle {
+                font-size: 18px;
+            }
+
+            .gardeners-section {
+                padding: 64px 24px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .gardeners-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .methods-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        .mobile-header {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-header {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="logo"><a href="index.html">Heated.city</a></div>
-        <ul>
-            <li><a href="cities.html">Cities</a></li>
-            <li><a href="contributors.html">Contributors</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </nav>
+    <div class="app-container">
+        <!-- Mobile Header -->
+        <header class="mobile-header">
+            <div class="mobile-logo">Heated.city</div>
+            <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
+        </header>
 
-    <!-- Header -->
-    <header class="page-header">
-        <h1>Contributors</h1>
-        <p>Meet our global team of innovators, urban planners, and visionaries shaping sustainable cities for 2030 and beyond.</p>
-    </header>
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">Heated.city</div>
+                <div class="tagline">Where your neighborhood breathes better than a forest</div>
+                <div class="climate-indicator">Climate Gardening Network</div>
+            </div>
+            
+            <div class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-title">Navigate</div>
+                    <a href="index.html" class="nav-link">Districts</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contributors.html" class="nav-link active">Gardeners</a>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">Active Districts</div>
+                    <a href="cities/kyoto.html" class="nav-link">
+                        Kyoto
+                        <span class="project-count">6</span>
+                    </a>
+                    <a href="madrid.html" class="nav-link">
+                        Madrid
+                        <span class="project-count">18</span>
+                    </a>
+                    <a href="melbourne.html" class="nav-link">
+                        Melbourne
+                        <span class="project-count">15</span>
+                    </a>
+                    <a href="buenos-aires.html" class="nav-link">
+                        Buenos Aires
+                        <span class="project-count">22</span>
+                    </a>
+                    <a href="nairobi.html" class="nav-link">
+                        Nairobi
+                        <span class="project-count">9</span>
+                    </a>
+                    <a href="new-delhi.html" class="nav-link">
+                        New Delhi
+                        <span class="project-count">16</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Contributors Section -->
-        <section class="contributors-list">
-            <div class="contributor-card">
-                <img src="img/pablo.png" alt="Pablo Sanguinetti">
-                <h3>Pablo Sanguinetti</h3>
-                <p>Urban Planner - Buenos Aires, Argentina</p>
-            </div>
-            <div class="contributor-card">
-                <img src="img/ana.png" alt="Ana García">
-                <h3>Ana García</h3>
-                <p>Climate Architect - Madrid, Spain</p>
-            </div>
-            <div class="contributor-card">
-                <img src="img/callagun.png" alt="Callagun Smith">
-                <h3>Callagun Smith</h3>
-                <p>Urban Designer - Melbourne, Australia</p>
-            </div>
-            <div class="contributor-card">
-                <img src="img/kamau.png" alt="Kamau Mwangi">
-                <h3>Kamau Mwangi</h3>
-                <p>	Green Infrastructure Lead - Nairobi, Kenya</p>
-            </div>
-            <div class="contributor-card">
-                <img src="img/priya.png" alt="Priya Sharma">
-                <h3>Priya Sharma</h3>
-                <p>Climate Researcher - New Delhi, India</p>
-            </div>
-            <div class="contributor-card">
-                <img src="img/HimariSatov2.png" alt="Himari Satō">
-                <h3>Himari Satō</h3>
-                <p>Sustainability Expert - Kyoto, Japan</p>
-        </section>
-    </main>
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Gardeners Hero Section -->
+            <section class="gardeners-hero">
+                <div class="gardeners-hero-content">
+                    <h1>The people who tend to breathing neighborhoods</h1>
+                    <p class="gardeners-hero-subtitle">Climate gardeners combine the patience of traditional horticulturists with expertise in community dynamics and biological systems. They spend their days calibrating atmospheric processors, interpreting seasonal soil changes, and facilitating conversations between neighbors about what makes their environment feel healthy.</p>
+                    <div class="profession-context">
+                        A specialized practice of environmental community care
+                    </div>
+                </div>
+            </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Heated.city | <a href="contact.html">Contact Us</a></p>
-    </footer>
+            <!-- Understanding the Profession -->
+            <section class="gardeners-section">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title">What climate gardening actually involves</h2>
+                        <p class="section-intro">Think of climate gardening as a profession that emerged when communities needed experts who could understand both the technical aspects of biointegration systems and the social dynamics of neighborhood environmental care.</p>
+                    </div>
+                    
+                    <div class="content-text">
+                        <p>Climate gardeners work at the intersection of several disciplines that traditionally operated separately. They need to understand soil microbiology well enough to diagnose why mycelium networks aren't establishing properly in a building's foundation. They need social skills to facilitate community meetings about atmospheric processing schedules that work for families with different sleep patterns and respiratory sensitivities. They need mechanical competency to troubleshoot biointegration equipment alongside biological system expertise to know when technical problems reflect ecological imbalances rather than equipment failure.</p>
+
+                        <p>Most climate gardeners develop their practice through apprenticeship with experienced practitioners, though formal certification programs now exist through municipal environmental management departments. The work requires continuous learning because every neighborhood develops unique patterns of interaction between human activities, local climate conditions, and biointegration infrastructure. What works well in Kyoto's bamboo grove districts may need significant adaptation for Madrid's thermal management systems or Melbourne's urban watershed restoration projects.</p>
+
+                        <p>Day-to-day work varies significantly by season and community needs. During spring establishment periods, climate gardeners spend considerable time monitoring soil conditions and coordinating with residents about optimal timing for new mycelium substrate installations. Summer months often require attention to thermal regulation systems and atmospheric processing capacity during heat waves. Autumn involves preparing biointegration systems for dormancy periods and community education about how building environmental performance changes during colder weather. Winter provides time for equipment maintenance, community relationship building, and collaboration with climate gardeners in other districts about innovations and problem-solving approaches.</p>
+                    </div>
+
+                    <div class="professional-insight">
+                        <div class="insight-quote">"People think the technology is the complicated part, but honestly? Learning to listen to what a neighborhood is actually telling you about how it wants to breathe—that takes years to develop."</div>
+                        <div class="insight-attribution">— Kenji Nakamura, climate gardener with eight years of practice across four different district types</div>
+                    </div>
+
+                    <div class="content-text">
+                        <p>Professional development in climate gardening emphasizes observation skills and community engagement as much as technical competency. Successful practitioners learn to recognize subtle environmental changes that indicate system optimization opportunities: how children's play patterns reveal comfortable microclimates, how elderly residents' walking routes show preferences for specific atmospheric conditions, how community gathering spaces naturally develop around areas with optimal thermal regulation. This observational expertise guides decisions about biointegration system calibration that purely technical monitoring cannot provide.</p>
+
+                        <p>Climate gardeners also serve as translators between community knowledge and technical systems. When residents mention that certain corners of their building smell different on Tuesday mornings, climate gardeners investigate whether atmospheric processing schedules need adjustment. When neighbors express concerns about unfamiliar sounds from biointegration equipment, climate gardeners explain normal operational patterns while checking for potential maintenance issues. This role requires patience and communication skills alongside technical expertise, because community trust forms the foundation for effective environmental stewardship.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Methods and Approaches -->
+            <section class="gardeners-section">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title">How climate gardeners approach their work</h2>
+                        <p class="section-intro">Every climate gardener develops their own style of practice, but certain methodological approaches have proven effective across different community contexts and biointegration system configurations.</p>
+                    </div>
+
+                    <div class="methods-grid">
+                        <div class="method-item">
+                            <h3 class="method-title">Seasonal observation cycles</h3>
+                            <p class="method-description">Climate gardeners track environmental and social patterns through complete annual cycles before making significant system adjustments. They map how community activities, biological system performance, and atmospheric conditions interact throughout different seasons, building baseline understanding that guides long-term optimization decisions.</p>
+                        </div>
+                        
+                        <div class="method-item">
+                            <h3 class="method-title">Community conversation facilitation</h3>
+                            <p class="method-description">Regular neighborhood meetings provide opportunities for residents to share observations about environmental changes and system performance. Climate gardeners facilitate these discussions, helping translate community feedback into technical improvements while building shared understanding about how biointegration systems serve neighborhood wellbeing.</p>
+                        </div>
+                        
+                        <div class="method-item">
+                            <h3 class="method-title">Collaborative troubleshooting</h3>
+                            <p class="method-description">When problems arise with biointegration systems, climate gardeners work with residents to understand how environmental changes affect daily routines and comfort levels. This collaborative approach often reveals solutions that purely technical diagnostics miss, while building community knowledge about system operation and maintenance.</p>
+                        </div>
+                        
+                        <div class="method-item">
+                            <h3 class="method-title">Cross-district knowledge sharing</h3>
+                            <p class="method-description">Climate gardeners maintain active communication networks with practitioners in other districts, sharing insights about effective approaches and innovative solutions. This professional community enables rapid dissemination of improvements and collaborative problem-solving for challenging environmental conditions.</p>
+                        </div>
+                        
+                        <div class="method-item">
+                            <h3 class="method-title">Anticipatory care practices</h3>
+                            <p class="method-description">Experienced climate gardeners learn to recognize early indicators of potential system stress or community needs, enabling proactive adjustments that prevent problems rather than reactive solutions. This approach minimizes disruptions to neighborhood routines while maintaining optimal environmental performance.</p>
+                        </div>
+                        
+                        <div class="method-item">
+                            <h3 class="method-title">Adaptive system calibration</h3>
+                            <p class="method-description">Rather than following standardized protocols, climate gardeners adjust biointegration system operation to match specific community rhythms and local environmental conditions. This customization requires ongoing attention and adjustment, but produces environmental quality improvements that serve particular neighborhood characteristics and resident preferences.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gardener Profiles -->
+            <section class="gardeners-section">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title">Climate gardeners from around the network</h2>
+                        <p class="section-intro">Each climate gardener brings unique background experience and develops specialized approaches based on their district's environmental conditions and community characteristics. Their diverse expertise strengthens the global practice of climate gardening through shared learning and collaborative innovation.</p>
+                    </div>
+
+                    <div class="gardeners-grid">
+                        <div class="gardener-profile">
+                            <div class="profile-image" style="background: linear-gradient(135deg, #7fb069 0%, #d4af37 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; font-weight: 800;">HS</div>
+                            <div class="profile-content">
+                                <div class="profile-header">
+                                    <h3 class="gardener-name">Himari Satō</h3>
+                                    <p class="gardener-role">Atmospheric Systems Specialist</p>
+                                    <div class="location-badge">Kyoto</div>
+                                </div>
+                                <p class="gardener-description">Himari combines traditional Japanese seasonal observation practices with biointegration system calibration, specializing in atmospheric processing coordination with natural weather patterns. Her background in ecological anthropology helps her facilitate community conversations about environmental preferences and system optimization. She pioneered integration techniques between bamboo grove acoustic monitoring and neighborhood atmospheric processing schedules.</p>
+                                <div class="specialties">
+                                    <span class="specialty-tag">Acoustic-atmospheric integration</span>
+                                    <span class="specialty-tag">Seasonal pattern recognition</span>
+                                    <span class="specialty-tag">Community dialogue facilitation</span>
+                                    <span class="specialty-tag">Weather-responsive systems</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gardener-profile">
+                            <div class="profile-image" style="background: linear-gradient(135deg, #e76f51 0%, #f4a261 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; font-weight: 800;">AG</div>
+                            <div class="profile-content">
+                                <div class="profile-header">
+                                    <h3 class="gardener-name">Ana García</h3>
+                                    <p class="gardener-role">Thermal Regulation Coordinator</p>
+                                    <div class="location-badge">Madrid</div>
+                                </div>
+                                <p class="gardener-description">Ana focuses on biointegration systems that address extreme heat management and building thermal performance. Her engineering background in passive cooling design complements her expertise in community heat vulnerability assessment. She develops adaptive thermal regulation protocols that respond to both weather forecasting and neighborhood demographic needs, particularly supporting elderly residents and families with young children during heat waves.</p>
+                                <div class="specialties">
+                                    <span class="specialty-tag">Thermal system optimization</span>
+                                    <span class="specialty-tag">Heat vulnerability assessment</span>
+                                    <span class="specialty-tag">Adaptive cooling protocols</span>
+                                    <span class="specialty-tag">Intergenerational care</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gardener-profile">
+                            <div class="profile-image" style="background: linear-gradient(135deg, #2a9d8f 0%, #7fb069 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; font-weight: 800;">CS</div>
+                            <div class="profile-content">
+                                <div class="profile-header">
+                                    <h3 class="gardener-name">Callagun Smith</h3>
+                                    <p class="gardener-role">Soil Networks Integration Specialist</p>
+                                    <div class="location-badge">Melbourne</div>
+                                </div>
+                                <p class="gardener-description">Callagun specializes in mycelium network establishment and soil restoration system coordination with existing urban watershed patterns. Their background in soil microbiology and urban ecology informs their approach to biointegration system integration that enhances rather than disrupts existing ecological relationships. They coordinate closely with indigenous knowledge holders about traditional land management practices that complement technological interventions.</p>
+                                <div class="specialties">
+                                    <span class="specialty-tag">Mycelium network cultivation</span>
+                                    <span class="specialty-tag">Watershed integration</span>
+                                    <span class="specialty-tag">Indigenous knowledge collaboration</span>
+                                    <span class="specialty-tag">Soil ecosystem restoration</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gardener-profile">
+                            <div class="profile-image" style="background: linear-gradient(135deg, #f4a261 0%, #e76f51 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; font-weight: 800;">PS</div>
+                            <div class="profile-content">
+                                <div class="profile-header">
+                                    <h3 class="gardener-name">Pablo Sanguinetti</h3>
+                                    <p class="gardener-role">Community Systems Coordinator</p>
+                                    <div class="location-badge">Buenos Aires</div>
+                                </div>
+                                <p class="gardener-description">Pablo coordinates biointegration systems across high-density residential districts, specializing in vertical growing systems and community-scale atmospheric processing. His background in urban planning and community organizing helps him navigate complex neighborhood politics around environmental infrastructure investments. He focuses particularly on biointegration approaches that create economic opportunities for local residents through sustainable food production and building material cultivation.</p>
+                                <div class="specialties">
+                                    <span class="specialty-tag">Vertical growing systems</span>
+                                    <span class="specialty-tag">Community economic development</span>
+                                    <span class="specialty-tag">High-density integration</span>
+                                    <span class="specialty-tag">Food system connections</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gardener-profile">
+                            <div class="profile-image" style="background: linear-gradient(135deg, #7fb069 0%, #2a9d8f 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; font-weight: 800;">KM</div>
+                            <div class="profile-content">
+                                <div class="profile-header">
+                                    <h3 class="gardener-name">Kamau Mwangi</h3>
+                                    <p class="gardener-role">Water Systems Integration Specialist</p>
+                                    <div class="location-badge">Nairobi</div>
+                                </div>
+                                <p class="gardener-description">Kamau focuses on atmospheric water generation systems and integrated water cycle management within biointegration districts. His expertise in hydrology and community water management helps optimize moisture capture and distribution systems that serve both human needs and biological system requirements. He coordinates closely with traditional water conservation practices and local watershed restoration initiatives.</p>
+                                <div class="specialties">
+                                    <span class="specialty-tag">Atmospheric water generation</span>
+                                    <span class="specialty-tag">Integrated water cycles</span>
+                                    <span class="specialty-tag">Traditional conservation practices</span>
+                                    <span class="specialty-tag">Watershed coordination</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gardener-profile">
+                            <div class="profile-image" style="background: linear-gradient(135deg, #d4af37 0%, #7fb069 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; font-weight: 800;">PS</div>
+                            <div class="profile-content">
+                                <div class="profile-header">
+                                    <h3 class="gardener-name">Priya Sharma</h3>
+                                    <p class="gardener-role">Air Quality Systems Coordinator</p>
+                                    <div class="location-badge">New Delhi</div>
+                                </div>
+                                <p class="gardener-description">Priya specializes in atmospheric processing systems for high-pollution urban environments, developing biointegration approaches that address both ambient air quality improvement and indoor environmental health. Her background in public health and environmental engineering informs her work on community-scale air filtration systems that provide immediate health benefits while supporting long-term atmospheric restoration. She focuses particularly on respiratory health impacts and vulnerable population protection.</p>
+                                <div class="specialties">
+                                    <span class="specialty-tag">High-pollution adaptation</span>
+                                    <span class="specialty-tag">Public health integration</span>
+                                    <span class="specialty-tag">Vulnerable population care</span>
+                                    <span class="specialty-tag">Respiratory health focus</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Global Collaboration -->
+            <section class="gardeners-section">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title">How climate gardeners learn from each other</h2>
+                        <p class="section-intro">Climate gardening improves through collaborative learning between practitioners working in different environmental and social contexts. Innovations developed in one district often inspire adaptations that benefit communities facing similar challenges elsewhere.</p>
+                    </div>
+
+                    <div class="content-text">
+                        <p>Climate gardeners maintain active communication networks that enable rapid sharing of insights, problem-solving approaches, and technical innovations. Monthly video conferences bring together practitioners from different continents to discuss seasonal challenges, share successful adaptations, and collaborate on solutions for complex environmental problems. These conversations combine technical troubleshooting with community engagement strategies, reflecting the interdisciplinary nature of climate gardening practice.</p>
+
+                        <p>Professional development occurs through both formal training programs and peer-to-peer knowledge exchange. Experienced climate gardeners often host visiting practitioners who want to learn about specific approaches or observe different community engagement methods. These exchanges enable practitioners to experience diverse biointegration system configurations and community dynamics, building expertise that they adapt to their own district's needs and characteristics.</p>
+                    </div>
+
+                    <div class="network-visual">
+                        <h3 class="network-title">Global Knowledge Circulation</h3>
+                        <p class="network-description">When Himari discovers that bamboo acoustic monitoring improves atmospheric processing timing in Kyoto, that innovation flows through the climate gardening network to districts with different acoustic environments. Ana's thermal regulation protocols for Madrid heat waves inspire cooling adaptations in other hot climate regions. Knowledge moves through relationships, conferences, site visits, and collaborative problem-solving sessions that strengthen the global practice of climate gardening.</p>
+                    </div>
+
+                    <div class="content-text">
+                        <p>Research collaboration between climate gardeners contributes to academic understanding of biointegration system optimization and community environmental stewardship. Many practitioners maintain relationships with universities and research institutions, contributing field observations and practical insights that inform both technological development and community engagement best practices. This research collaboration ensures that climate gardening practice evolves based on empirical evidence and systematic observation rather than just accumulated anecdotal experience.</p>
+
+                        <p>Professional certification programs for climate gardening continue developing through input from experienced practitioners who understand both technical requirements and community engagement skills necessary for effective practice. These programs combine classroom learning about biological systems and atmospheric processing technology with apprenticeship periods where new practitioners work alongside experienced climate gardeners in active districts, building practical skills through guided observation and community relationship development.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Becoming a Climate Gardener -->
+            <section class="gardeners-section" style="background: linear-gradient(135deg, var(--primary-color) 0%, #0f2a24 100%); color: white;">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title" style="color: white;">Pathways into climate gardening practice</h2>
+                        <p class="section-intro" style="color: rgba(255,255,255,0.9);">Climate gardening attracts people from diverse professional backgrounds who share interest in community environmental stewardship and enjoy work that combines technical problem-solving with social engagement.</p>
+                    </div>
+                    
+                    <div class="content-text" style="color: rgba(255,255,255,0.9);">
+                        <p>Most climate gardeners enter the profession through apprenticeship programs with experienced practitioners, though formal degree programs are developing through partnerships between municipal environmental departments and regional universities. Successful climate gardeners typically have background experience in at least one relevant area: biological systems, community organizing, environmental engineering, public health, or social work. The interdisciplinary nature of the profession requires ongoing learning and collaboration rather than complete expertise in all relevant areas.</p>
+
+                        <p>Personal characteristics that support climate gardening practice include patience with complex systems that change seasonally, enjoyment of community relationship building, and comfort with technical troubleshooting. Climate gardeners spend significant time listening to community concerns and translating between technical system requirements and neighborhood preferences. The work requires persistence and adaptability, since environmental and social conditions change continuously and solutions must evolve accordingly.</p>
+
+                        <p>Professional opportunities in climate gardening continue expanding as more districts implement biointegration systems and communities recognize the value of expert environmental stewardship. Municipal environmental departments, community development organizations, and biointegration technology companies employ climate gardeners in various capacities. Many practitioners also work as independent consultants, providing specialized expertise to districts implementing new systems or optimizing existing installations.</p>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 48px;">
+                        <a href="about.html" style="display: inline-block; padding: 16px 32px; background: rgba(127, 176, 105, 0.2); border: 1px solid rgba(127, 176, 105, 0.4); border-radius: var(--radius-medium); color: white; font-size: 16px; font-weight: 600; transition: all 0.3s ease; backdrop-filter: blur(10px); margin-right: 16px;">Learn about climate gardening</a>
+                        <a href="index.html" style="display: inline-block; padding: 16px 32px; background: rgba(127, 176, 105, 0.2); border: 1px solid rgba(127, 176, 105, 0.4); border-radius: var(--radius-medium); color: white; font-size: 16px; font-weight: 600; transition: all 0.3s ease; backdrop-filter: blur(10px);">Visit districts</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <p>Global climate gardening practitioners — caring for neighborhoods that breathe well together</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // Mobile sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(event.target) && 
+                !menuToggle.contains(event.target) && 
+                sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+        });
+
+        // Smooth scrolling for internal navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('sidebar').classList.remove('open');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
