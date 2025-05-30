@@ -85,8 +85,6 @@
         /* Sidebar Navigation - Identical to other pages for consistency */
         .sidebar {
             width: var(--sidebar-width);
-            background: var(--surface-glass);
-            backdrop-filter: blur(20px) saturate(180%);
             border-right: 1px solid var(--border-light);
             position: fixed;
             top: 0;
@@ -95,6 +93,19 @@
             overflow-y: auto;
             z-index: 1000;
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Glassmorphism background applied via pseudo-element for stability */
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--surface-glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            z-index: -1;
         }
 
         .sidebar-header {
@@ -344,6 +355,10 @@
             max-height: 600px;
             overflow-y: auto;
             padding-right: 8px;
+            /* Add left padding to prevent cards from touching the edge when scaled */
+            padding-left: 8px;
+            /* Add extra space around the container to accommodate hover effects */
+            margin: 0 -8px;
         }
 
         /* Scrollbar styling for projects container */
@@ -361,7 +376,7 @@
             border-radius: 3px;
         }
 
-        /* Individual Project Cards - Transformed design */
+        /* Individual Project Cards - Enhanced design with contained hover effects */
         .project-card {
             background: var(--surface-glass);
             backdrop-filter: blur(20px) saturate(180%);
@@ -372,6 +387,8 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
+            /* Create breathing room for hover effects */
+            margin: 16px 0 32px 0;
         }
 
         .project-card::before {
@@ -388,8 +405,11 @@
         }
 
         .project-card:hover {
-            transform: translateY(-4px) scale(1.02);
+            /* Reduced scaling that stays within layout bounds */
+            transform: translateY(-2px) scale(1.01);
             box-shadow: var(--shadow-strong);
+            /* Add subtle background brightness change for additional hover feedback */
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 250, 252, 0.92) 100%);
         }
 
         .project-card:hover::before {
@@ -443,16 +463,37 @@
             line-height: 1.7;
             color: var(--text-dark);
             margin-bottom: 24px;
-            transition: max-height 0.4s ease;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
+            position: relative;
         }
 
+        /* Collapsed state - shows approximately 4 lines with a subtle fade effect */
         .project-description.collapsed {
-            max-height: 4.8em; /* Approximately 3 lines */
+            max-height: 6.8em !important; /* Force specificity to ensure this rule applies */
         }
 
+        /* Expanded state - shows full content */
         .project-description.expanded {
-            max-height: none;
+            max-height: 50em !important; /* Use a large but finite value for smooth transitions */
+        }
+
+        /* Subtle fade effect at the bottom of collapsed text */
+        .project-description.collapsed::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1.5em;
+            background: linear-gradient(transparent, var(--surface-glass));
+            pointer-events: none;
+        }
+
+        /* Hide the fade effect when expanded */
+        .project-description.expanded::after {
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .project-features {
@@ -731,7 +772,7 @@
                                 <span class="feature-tag">Seasonal Paper Variations</span>
                                 <span class="feature-tag">Weekly Scent Patterns</span>
                             </div>
-                            <button class="project-action" onclick="toggleDescription(this)">Visit Workshop</button>
+                            <button class="project-action" onclick="toggleDescription(this)">Leer más</button>
                         </article>
 
                         <!-- Project 2: Akari no Michi -->
@@ -750,7 +791,7 @@
                                 <span class="feature-tag">Merchant Schedule Adjustments</span>
                                 <span class="feature-tag">Occasional Malfunctions</span>
                             </div>
-                            <button class="project-action" onclick="toggleDescription(this)">Learn Light Patterns</button>
+                            <button class="project-action" onclick="toggleDescription(this)">Leer más</button>
                         </article>
 
                         <!-- Project 3: Katzura Eco-Island Center -->
@@ -769,7 +810,7 @@
                                 <span class="feature-tag">Seasonal Maintenance Adjustments</span>
                                 <span class="feature-tag">Gradual Skill Development</span>
                             </div>
-                            <button class="project-action" onclick="toggleDescription(this)">Visit Gardens</button>
+                            <button class="project-action" onclick="toggleDescription(this)">Leer más</button>
                         </article>
 
                         <!-- Project 4: Bamboo Grove Knowledge Trail -->
@@ -788,7 +829,7 @@
                                 <span class="feature-tag">Hands-On Weather Education</span>
                                 <span class="feature-tag">Water Management Integration</span>
                             </div>
-                            <button class="project-action" onclick="toggleDescription(this)">Walk the Trails</button>
+                            <button class="project-action" onclick="toggleDescription(this)">Leer más</button>
                         </article>
 
                         <!-- Project 5: Kura no Megumi -->
@@ -807,7 +848,7 @@
                                 <span class="feature-tag">Fluctuating Utility Bills</span>
                                 <span class="feature-tag">Better Sleep After Visits</span>
                             </div>
-                            <button class="project-action" onclick="toggleDescription(this)">Visit Brewery</button>
+                            <button class="project-action" onclick="toggleDescription(this)">Leer más</button>
                         </article>
 
                         <!-- Project 6: Midori no Kura -->
@@ -826,7 +867,7 @@
                                 <span class="feature-tag">Phone Usage Notifications</span>
                                 <span class="feature-tag">Maintenance Downtime Issues</span>
                             </div>
-                            <button class="project-action" onclick="toggleDescription(this)">Learn Processing</button>
+                            <button class="project-action" onclick="toggleDescription(this)">Leer más</button>
                         </article>
                     </div>
                 </div>
@@ -870,30 +911,24 @@
             }
         });
 
-        // Project description toggle functionality
+        // Project description toggle functionality with clear controls
         function toggleDescription(button) {
             const card = button.closest('.project-card');
             const description = card.querySelector('.project-description');
             const isCollapsed = description.classList.contains('collapsed');
             
             if (isCollapsed) {
+                // Expand the description
                 description.classList.remove('collapsed');
                 description.classList.add('expanded');
-                button.textContent = 'Show Less';
+                button.textContent = 'Menos info';
+                button.style.background = 'var(--text-medium)'; // Darker color when expanded
             } else {
+                // Collapse the description
                 description.classList.remove('expanded');
                 description.classList.add('collapsed');
-                // Restore original button text based on project
-                const projectNumber = card.querySelector('.project-number').textContent;
-                const buttonTexts = {
-                    '1': 'Visit Workshop',
-                    '2': 'Learn Light Patterns', 
-                    '3': 'Visit Gardens',
-                    '4': 'Walk the Trails',
-                    '5': 'Visit Brewery',
-                    '6': 'Learn Processing'
-                };
-                button.textContent = buttonTexts[projectNumber] || 'Explore Project';
+                button.textContent = 'Leer más';
+                button.style.background = 'var(--accent-color)'; // Original color when collapsed
             }
         }
 
@@ -1037,7 +1072,9 @@
             }
         }
 
-        // Enhanced scroll effects for project cards
+        // Note: Parallax effect for hero content has been disabled for static behavior
+        // If you want to re-enable subtle parallax, uncomment the following code:
+        /*
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             
@@ -1047,6 +1084,7 @@
                 heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
             }
         });
+        */
     </script>
 </body>
 </html>
