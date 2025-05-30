@@ -3,57 +3,882 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Heated.city explores how neighborhoods and communities redefine urban living through innovation, creativity, and resilience.">
-    <meta name="keywords" content="Heated.city, About, Sustainability, Urban Planning, Future Cities">
+    <meta name="description" content="Understanding how neighborhoods became regenerative ecosystems where human and natural communities flourish together.">
+    <meta name="keywords" content="regenerative cities, urban stewardship, biointegration, climate adaptation, neighborhood transformation">
     <meta name="author" content="Heated.city">
-    <title>About - Heated.city</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <title>About — Heated.city</title>
+    
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================
+           Design System Variables (Inherited from index)
+           ============================ */
+        :root {
+            /* Color palette inspired by regenerative design */
+            --primary-color: #1a3d35;
+            --accent-color: #7fb069;
+            --secondary-accent: #d4af37;
+            --text-dark: #0f1419;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --background: #fdfffe;
+            --background-soft: #f7fafc;
+            --background-warm: #fefcf8;
+            --border-light: #e2e8f0;
+            --border-medium: #cbd5e0;
+            
+            /* Advanced visual effects for 2030 aesthetic */
+            --surface-glass: rgba(255, 255, 255, 0.92);
+            --shadow-subtle: 0 2px 12px rgba(0, 0, 0, 0.04);
+            --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
+            --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.12);
+            
+            /* Layout measurements */
+            --sidebar-width: 320px;
+            --content-max-width: 1000px;
+            --radius-small: 8px;
+            --radius-medium: 16px;
+            --radius-large: 24px;
+        }
+
+        /* ============================
+           Base Styles
+           ============================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--background) 0%, var(--background-warm) 100%);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        /* ============================
+           Layout Structure (Consistent with index)
+           ============================ */
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation - Identical to index for consistency */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--surface-glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-right: 1px solid var(--border-light);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sidebar-header {
+            padding: 40px 32px 32px;
+            border-bottom: 1px solid var(--border-light);
+            background: linear-gradient(135deg, rgba(122, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.8px;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 15px;
+            color: var(--text-medium);
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .climate-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            padding: 8px 12px;
+            background: rgba(127, 176, 105, 0.1);
+            border-radius: var(--radius-small);
+            font-size: 13px;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .climate-indicator::before {
+            content: '●';
+            color: var(--accent-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .sidebar-nav {
+            padding: 40px 0 32px;
+        }
+
+        .nav-section {
+            margin-bottom: 40px;
+        }
+
+        .nav-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding: 0 32px;
+            margin-bottom: 20px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 32px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-medium);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            background: linear-gradient(135deg, rgba(26, 61, 53, 0.04) 0%, rgba(127, 176, 105, 0.04) 100%);
+        }
+
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+        }
+
+        .project-count {
+            font-size: 12px;
+            color: var(--text-light);
+            background: var(--background-soft);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        /* ============================
+           Main Content Area
+           ============================ */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            min-height: 100vh;
+        }
+
+        /* About Hero Section - Context setting rather than emotional immersion */
+        .about-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0f2a24 100%);
+            color: white;
+            padding: 120px 64px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle geometric pattern for intellectual rather than emotional tone */
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(30deg, rgba(127, 176, 105, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(127, 176, 105, 0.1) 87.5%, rgba(127, 176, 105, 0.1)),
+                linear-gradient(150deg, rgba(127, 176, 105, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(127, 176, 105, 0.1) 87.5%, rgba(127, 176, 105, 0.1)),
+                linear-gradient(30deg, rgba(212, 175, 55, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(212, 175, 55, 0.05) 87.5%, rgba(212, 175, 55, 0.05)),
+                linear-gradient(150deg, rgba(212, 175, 55, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(212, 175, 55, 0.05) 87.5%, rgba(212, 175, 55, 0.05));
+            background-size: 80px 140px;
+            opacity: 0.3;
+        }
+
+        .about-hero-content {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 32px;
+            letter-spacing: -1.2px;
+        }
+
+        .about-hero-subtitle {
+            font-size: 24px;
+            opacity: 0.9;
+            line-height: 1.4;
+            font-weight: 400;
+            margin-bottom: 48px;
+        }
+
+        /* Timeline indicator showing progression */
+        .timeline-context {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 16px;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+
+        .timeline-context::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent));
+        }
+
+        /* ============================
+           About Content Sections
+           ============================ */
+        .about-section {
+            padding: 100px 64px;
+        }
+
+        .about-section:nth-child(even) {
+            background: var(--background-soft);
+        }
+
+        .section-content {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 64px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 24px;
+            letter-spacing: -0.8px;
+            line-height: 1.2;
+        }
+
+        .section-intro {
+            font-size: 20px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Philosophy content with enhanced readability */
+        .philosophy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .philosophy-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: var(--text-dark);
+        }
+
+        .philosophy-text p {
+            margin-bottom: 32px;
+        }
+
+        .philosophy-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Visual element for philosophy section */
+        .philosophy-visual {
+            background: linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            border-radius: var(--radius-large);
+            padding: 48px;
+            border: 1px solid rgba(127, 176, 105, 0.2);
+            position: relative;
+        }
+
+        .philosophy-quote {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.3;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+
+        .philosophy-attribution {
+            font-size: 16px;
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+
+        /* Approach methodology section */
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 48px;
+            margin-top: 64px;
+        }
+
+        .approach-item {
+            background: white;
+            border-radius: var(--radius-medium);
+            padding: 40px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .approach-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .approach-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent));
+            color: white;
+            border-radius: 50%;
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .approach-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .approach-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-medium);
+        }
+
+        /* Vision section with forward-looking content */
+        .vision-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .vision-text {
+            font-size: 20px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 48px;
+        }
+
+        .vision-text p {
+            margin-bottom: 32px;
+        }
+
+        /* Call to action for engagement */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0f2a24 100%);
+            color: white;
+            padding: 100px 64px;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.8px;
+        }
+
+        .cta-text {
+            font-size: 20px;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 48px;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 16px 32px;
+            background: rgba(127, 176, 105, 0.2);
+            border: 1px solid rgba(127, 176, 105, 0.4);
+            border-radius: var(--radius-medium);
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-button:hover {
+            background: rgba(127, 176, 105, 0.3);
+            border-color: rgba(127, 176, 105, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .cta-button::after {
+            content: '→';
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* ============================
+           Footer (Consistent with index)
+           ============================ */
+        .footer {
+            background: var(--background-soft);
+            border-top: 1px solid var(--border-light);
+            padding: 64px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+        }
+
+        .footer p {
+            color: var(--text-medium);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* ============================
+           Mobile Responsive Design
+           ============================ */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: 100vw;
+                max-width: 400px;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .mobile-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 24px;
+                background: var(--surface-glass);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--border-light);
+                position: sticky;
+                top: 0;
+                z-index: 999;
+            }
+
+            .mobile-logo {
+                font-size: 22px;
+                font-weight: 700;
+                color: var(--primary-color);
+            }
+
+            .menu-toggle {
+                background: none;
+                border: none;
+                font-size: 28px;
+                color: var(--primary-color);
+                cursor: pointer;
+                padding: 8px;
+                border-radius: var(--radius-small);
+                transition: background-color 0.2s ease;
+            }
+
+            .menu-toggle:hover {
+                background: rgba(127, 176, 105, 0.1);
+            }
+
+            .about-hero {
+                padding: 64px 24px 48px;
+            }
+
+            .about-hero h1 {
+                font-size: 36px;
+            }
+
+            .about-hero-subtitle {
+                font-size: 18px;
+            }
+
+            .about-section {
+                padding: 64px 24px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .philosophy-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .approach-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .cta-section {
+                padding: 64px 24px;
+            }
+
+            .cta-title {
+                font-size: 32px;
+            }
+
+            .cta-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+        }
+
+        /* Hidden by default on desktop */
+        .mobile-header {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-header {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="logo"><a href="index.html">Heated.city</a></div>
-        <ul>
-            <li><a href="cities.html">Cities</a></li>
-            <li><a href="contributors.html">Contributors</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </nav>
+    <div class="app-container">
+        <!-- Mobile Header - Shows only on mobile devices -->
+        <header class="mobile-header">
+            <div class="mobile-logo">Heated.city</div>
+            <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
+        </header>
 
-    <!-- About Page Header -->
-    <header class="page-header">
-        <h1>Reimagining Cities: A Global Guide for 2030 and Beyond</h1>
-    </header>
+        <!-- Sidebar Navigation - Consistent with index -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">Heated.city</div>
+                <div class="tagline">Where your neighborhood breathes better than a forest</div>
+                <div class="climate-indicator">Live Climate Network</div>
+            </div>
+            
+            <div class="sidebar-nav">
+                <!-- Primary navigation section -->
+                <div class="nav-section">
+                    <div class="nav-title">Navigate</div>
+                    <a href="index.html" class="nav-link">Districts</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="contributors.html" class="nav-link">Stewards</a>
+                </div>
+                
+                <!-- Districts section with project counts -->
+                <div class="nav-section">
+                    <div class="nav-title">Active Districts</div>
+                    <a href="cities/kyoto.html" class="nav-link">
+                        Kyoto Biointegration Zone
+                        <span class="project-count">12</span>
+                    </a>
+                    <a href="#madrid" class="nav-link">
+                        Madrid Climate Adaptation Hub
+                        <span class="project-count">18</span>
+                    </a>
+                    <a href="#melbourne" class="nav-link">
+                        Melbourne Circular District
+                        <span class="project-count">15</span>
+                    </a>
+                    <a href="#buenos-aires" class="nav-link">
+                        Buenos Aires Vertical Farms
+                        <span class="project-count">22</span>
+                    </a>
+                    <a href="#nairobi" class="nav-link">
+                        Nairobi Water Commons
+                        <span class="project-count">9</span>
+                    </a>
+                    <a href="#new-delhi" class="nav-link">
+                        Delhi Air Restoration Grid
+                        <span class="project-count">16</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
 
-    <!-- About Content Section -->
-    <main>
-        <section class="about-section">
-            <h2>Why Heated.city?</h2>
-            <p>
-                Heated.city is your gateway to vibrant communities redefining urban living. Through curated stories and innovative ideas, we highlight how neighborhoods around the world shape tomorrow's cities.
-            </p>
-            <h2>What We Do</h2>
-            <ul>
-                <li>Highlight pioneering urban projects.</li>
-                <li>Share transformative stories of cities and neighborhoods.</li>
-                <li>Empower communities to design inclusive and resilient urban spaces.</li>
-            </ul>
-            <p>
-                Together, we shape adaptable, thriving, and alive cities with possibility.
-            </p>
-        </section>
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- About Hero Section - Context setting -->
+            <section class="about-hero">
+                <div class="about-hero-content">
+                    <h1>How neighborhoods learned to heal themselves</h1>
+                    <p class="about-hero-subtitle">When communities discovered that the air could clean itself, soil could store more carbon than forests, and buildings could grow their own materials, everything changed. Not overnight, but the way all lasting transformations happen—through people who cared enough to pay attention.</p>
+                    <div class="timeline-context">
+                        A decade of guided transformation
+                    </div>
+                </div>
+            </section>
 
-        <!-- Call-to-Action Section -->
-        <section class="cta-section">
-            <p>Have an idea or vision for your city? <a href="../contact.html">Contact us</a> and join the movement to shape the future of urban living.</p>
-        </section>
-    </main>
+            <!-- Philosophy Section -->
+            <section class="about-section">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title">The wisdom that neighborhoods already knew</h2>
+                        <p class="section-intro">Before we had climate stewards, we had grandmothers who could predict weather by watching how cats stretched. Before biointegration systems, we had communities that knew which corner smelled different when rain was coming.</p>
+                    </div>
+                    
+                    <div class="philosophy-content">
+                        <div class="philosophy-text">
+                            <p>The transformation you experience when walking through any of our active districts didn't emerge from laboratories or think tanks. It grew from recognizing that neighborhoods have always been intelligent systems—they just needed tools that matched their natural rhythms.</p>
+                            
+                            <p>When Himari first noticed that certain bamboo groves in Kyoto hummed differently before typhoons, she wasn't discovering something new. She was remembering something that urban planning had forgotten: that cities at their best are conversations between human intuition and natural systems, mediated by technology gentle enough not to interrupt.</p>
+                            
+                            <p>This is why our districts feel familiar even though they process air at molecular levels and grow their own building materials. The technology serves patterns that communities have always recognized—seasonal rhythms, resource flows, the way children's play reveals the health of a neighborhood's ecosystem.</p>
+                        </div>
+                        
+                        <div class="philosophy-visual">
+                            <blockquote class="philosophy-quote">
+                                "We didn't teach neighborhoods to be sustainable. We learned to listen when they told us how they wanted to breathe."
+                            </blockquote>
+                            <div class="philosophy-attribution">
+                                — From the Global Climate Stewardship Collective
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Heated.city | <a href="../contact.html">Contact Us</a></p>
-    </footer>
+            <!-- Approach Section -->
+            <section class="about-section">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title">How stewardship actually works</h2>
+                        <p class="section-intro">Every district develops differently because every place has its own genius. But the process of guided transformation follows patterns we've learned to recognize and support.</p>
+                    </div>
+                    
+                    <div class="approach-grid">
+                        <div class="approach-item">
+                            <div class="approach-number">1</div>
+                            <h3 class="approach-title">Listen to what's already working</h3>
+                            <p class="approach-description">Climate stewards spend their first year observing: where do people naturally gather? Which corners stay cool in summer? How does water actually move through the neighborhood during storms? We build on existing flows, not against them.</p>
+                        </div>
+                        
+                        <div class="approach-item">
+                            <div class="approach-number">2</div>
+                            <h3 class="approach-title">Start with what residents notice</h3>
+                            <p class="approach-description">If children complain that the playground smells funny on Tuesdays, that's data. If elderly neighbors mention that certain trees sound different before rain, that's intelligence. Technology amplifies human attention, never replaces it.</p>
+                        </div>
+                        
+                        <div class="approach-item">
+                            <div class="approach-number">3</div>
+                            <h3 class="approach-title">Integrate by seasons, not schedules</h3>
+                            <p class="approach-description">Atmospheric processing systems come online when plants are ready for them. Soil restoration happens at the pace that fungi can establish healthy networks. Community workshops begin when neighbors have time to attend regularly.</p>
+                        </div>
+                        
+                        <div class="approach-item">
+                            <div class="approach-number">4</div>
+                            <h3 class="approach-title">Design for abundance, not efficiency</h3>
+                            <p class="approach-description">When air processing systems generate surplus clean air, that abundance creates microclimates that attract birds. When soil restoration produces extra nutrients, community gardens expand. Regenerative systems thrive when they can overflow their intended boundaries.</p>
+                        </div>
+                        
+                        <div class="approach-item">
+                            <div class="approach-number">5</div>
+                            <h3 class="approach-title">Measure what matters to daily life</h3>
+                            <p class="approach-description">Success means children playing outside without parents worrying about air quality. It means elderly residents walking further because sidewalks stay comfortable. It means morning coffee tastes better because water processes through living systems overnight.</p>
+                        </div>
+                        
+                        <div class="approach-item">
+                            <div class="approach-number">6</div>
+                            <h3 class="approach-title">Share insights across the network</h3>
+                            <p class="approach-description">When Nairobi discovers that zebra migration patterns improve atmospheric water generation, that intelligence flows to every district dealing with water scarcity. When Madrid's thermal regulation prevents heat-related deaths, every climate adaptation hub learns from their innovations.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
+            <!-- Vision Section -->
+            <section class="about-section">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title">What we're growing into</h2>
+                        <p class="section-intro">The districts you explore through Heated.city represent something unprecedented: proof that human communities and natural systems can enhance each other's intelligence.</p>
+                    </div>
+                    
+                    <div class="vision-content">
+                        <div class="vision-text">
+                            <p>What started as emergency adaptation to climate disruption has become something more generative: neighborhoods that actively improve the conditions for all life. Not just human life—though air quality measurements show children's lung capacity improving year over year. Not just natural systems—though urban soils now sequester more carbon per square meter than many forests.</p>
+                            
+                            <p>The intelligence that emerges when communities have tools that match their care produces innovations no individual district could develop alone. Fungal networks that power sake breweries in Kyoto inspire biomaterial processing centers in Melbourne. Atmospheric water generation in Nairobi influences thermal management systems in Madrid.</p>
+                            
+                            <p>This network of regenerative districts demonstrates that resilience and abundance aren't competing values. When neighborhoods can heal themselves, they create surplus healing capacity that enriches the broader region. When communities thrive, they have more resources to share with places still undergoing transformation.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <section class="cta-section">
+                <div class="cta-content">
+                    <h2 class="cta-title">Your neighborhood is ready when you are</h2>
+                    <p class="cta-text">Climate stewardship isn't about perfect knowledge or unlimited resources. It's about consistent attention to what your community already knows about how it wants to flourish.</p>
+                    
+                    <div class="cta-actions">
+                        <a href="contributors.html" class="cta-button">Meet the stewards</a>
+                        <a href="index.html" class="cta-button">Explore districts</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <p>Global Climate Stewardship Network — Regenerative districts stewarded by local guardians</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        /* ============================
+           Interactive Functionality (Consistent with index)
+           ============================ */
+        
+        // Mobile sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(event.target) && 
+                !menuToggle.contains(event.target) && 
+                sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+        });
+
+        // Smooth scrolling for internal navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close sidebar on mobile after navigation
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('sidebar').classList.remove('open');
+                    }
+                }
+            });
+        });
+
+        // Enhanced scroll effects for about page
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            
+            // Subtle parallax for hero content
+            const heroContent = document.querySelector('.about-hero-content');
+            if (heroContent && scrolled < window.innerHeight) {
+                heroContent.style.transform = `translateY(${scrolled * 0.2}px)`;
+            }
+            
+            // Reveal animations for approach items
+            const approachItems = document.querySelectorAll('.approach-item');
+            approachItems.forEach(item => {
+                const itemTop = item.offsetTop;
+                const itemHeight = item.offsetHeight;
+                const windowHeight = window.innerHeight;
+                
+                if (scrolled > itemTop - windowHeight + itemHeight * 0.3) {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initialize approach items with animation-ready state
+        document.addEventListener('DOMContentLoaded', () => {
+            const approachItems = document.querySelectorAll('.approach-item');
+            approachItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+        });
+    </script>
 </body>
 </html>
