@@ -439,4 +439,469 @@
             border: 1px solid rgba(127, 176, 105, 0.2);
         }
 
-        /* Exploration links
+        /* Exploration links with animated arrow */
+        .explore-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .explore-link:hover {
+            color: var(--accent-color);
+            transform: translateX(4px);
+        }
+
+        .explore-link::after {
+            content: '→';
+            margin-left: 12px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 18px;
+        }
+
+        .explore-link:hover::after {
+            transform: translateX(6px);
+        }
+
+        /* ============================
+           Footer
+           ============================ */
+        .footer {
+            background: var(--background-soft);
+            border-top: 1px solid var(--border-light);
+            padding: 64px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+        }
+
+        .footer p {
+            color: var(--text-medium);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* ============================
+           Mobile Responsive Design
+           ============================ */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: 100vw;
+                max-width: 400px;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .mobile-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 24px;
+                background: var(--surface-glass);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--border-light);
+                position: sticky;
+                top: 0;
+                z-index: 999;
+            }
+
+            .mobile-logo {
+                font-size: 22px;
+                font-weight: 700;
+                color: var(--primary-color);
+            }
+
+            .menu-toggle {
+                background: none;
+                border: none;
+                font-size: 28px;
+                color: var(--primary-color);
+                cursor: pointer;
+                padding: 8px;
+                border-radius: var(--radius-small);
+                transition: background-color 0.2s ease;
+            }
+
+            .menu-toggle:hover {
+                background: rgba(127, 176, 105, 0.1);
+            }
+
+            .hero {
+                padding: 64px 24px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .hero-metrics {
+                flex-direction: column;
+                gap: 32px;
+            }
+
+            .content-section {
+                padding: 64px 24px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .cities-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        /* Hidden by default on desktop */
+        .mobile-header {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-header {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Mobile Header - Shows only on mobile devices -->
+        <header class="mobile-header">
+            <div class="mobile-logo">Heated.city</div>
+            <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
+        </header>
+
+        <!-- Sidebar Navigation - Fixed position inspired by On The Grid -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">Heated.city</div>
+                <div class="tagline">Where your neighborhood works better than you remember cities working</div>
+                <div class="climate-indicator">Municipal Infrastructure Network</div>
+            </div>
+            
+            <div class="sidebar-nav">
+                <!-- Primary navigation section -->
+                <div class="nav-section">
+                    <div class="nav-title">Navigate</div>
+                    <a href="#districts" class="nav-link active">Districts</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contributors.html" class="nav-link">Stewards</a>
+                </div>
+                
+                <!-- Districts section with facility counts -->
+                <div class="nav-section">
+                    <div class="nav-title">Active Districts</div>
+                    <a href="cities/kyoto.html" class="nav-link">
+                        Kyoto Biointegration Zone
+                        <span class="project-count">6</span>
+                    </a>
+                    <a href="#madrid" class="nav-link">
+                        Madrid Climate Adaptation Hub
+                        <span class="project-count">18</span>
+                    </a>
+                    <a href="#melbourne" class="nav-link">
+                        Melbourne Circular District
+                        <span class="project-count">15</span>
+                    </a>
+                    <a href="#buenos-aires" class="nav-link">
+                        Buenos Aires Vertical Farms
+                        <span class="project-count">22</span>
+                    </a>
+                    <a href="#nairobi" class="nav-link">
+                        Nairobi Water Commons
+                        <span class="project-count">9</span>
+                    </a>
+                    <a href="#new-delhi" class="nav-link">
+                        Delhi Air Restoration Grid
+                        <span class="project-count">16</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Hero Section - First impression and emotional connection -->
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span>●</span>
+                        Global Municipal Infrastructure Network
+                    </div>
+                    <h1>Your morning commute just became the best part of your day</h1>
+                    <p>Walk through neighborhoods where air quality notifications have become as routine as weather reports, where utility bills arrive predictably low each month, and where community spaces stay comfortably cool during heat waves without cranking up energy costs. These aren't prototype cities—these are Tuesday morning routines in districts where biotechnology solved everyday problems so well that residents forgot it was biotechnology.</p>
+                    
+                    <!-- Impact metrics -->
+                    <div class="hero-metrics">
+                        <div class="metric">
+                            <div class="metric-number">92</div>
+                            <div class="metric-label">Community Facilities</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-number">6</div>
+                            <div class="metric-label">Districts</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-number">24/7</div>
+                            <div class="metric-label">Operations</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Districts Section - Showcase of regenerative neighborhoods -->
+            <section class="content-section" id="districts">
+                <div class="section-header">
+                    <h2 class="section-title">Six districts where daily routines just work better</h2>
+                    <p class="section-subtitle">Each neighborhood developed practical solutions to common urban challenges—from water reliability to air quality to food access—that residents now take for granted as part of municipal infrastructure</p>
+                </div>
+                
+                <div class="cities-grid">
+                    <!-- Kyoto Biointegration Zone -->
+                    <article class="city-card">
+                        <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="city-overlay">
+                                <h3 class="city-name">Kyoto</h3>
+                                <p class="city-steward">Stewarded by Himari Satō</p>
+                                <p class="steward-role">Community Infrastructure Coordinator</p>
+                            </div>
+                        </div>
+                        <div class="city-content">
+                            <p class="city-description">Morning routines here include checking rainwater pool colors at the community paper workshop, timing umbrella-carrying based on street lighting patterns, and knowing that the local brewery's fermentation schedule affects when hot water runs most efficiently in residential buildings. These biotechnology systems became so reliable that residents plan their daily activities around them the same way people elsewhere plan around public transit schedules or post office hours. Children growing up here take eighteen-hour storm warnings from bamboo groves for granted, similar to how previous generations took weather reports from television for granted.</p>
+                            <div class="city-features">
+                                <span class="feature-tag">18-Hour Weather Predictions</span>
+                                <span class="feature-tag">Community Workshop Cycles</span>
+                                <span class="feature-tag">Brewery-Linked Utilities</span>
+                                <span class="feature-tag">Predictable Resource Flows</span>
+                            </div>
+                            <a href="cities/kyoto.html" class="explore-link">Explore facilities</a>
+                        </div>
+                    </article>
+
+                    <!-- Madrid Climate Adaptation Hub -->
+                    <article class="city-card">
+                        <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="city-overlay">
+                                <h3 class="city-name">Madrid</h3>
+                                <p class="city-steward">Stewarded by Ana García</p>
+                                <p class="steward-role">Municipal Climate Coordinator</p>
+                            </div>
+                        </div>
+                        <div class="city-content">
+                            <p class="city-description">Your afternoon errands stay comfortable even when temperatures hit 47°C because Ana has mapped which buildings, plazas, and transit stops maintain pleasant microclimates during heat waves. Residents receive morning notifications about which routes to take for coolest walks, when public spaces will be most comfortable, and which community centers have optimal conditions for different activities. The system learned from five years of temperature monitoring and resident feedback, creating reliable patterns that people now plan their days around. Bus stops in certain locations stay consistently cooler, particular metro entrances provide better relief, and some plazas become impromptu community gathering spots during heat spells because they've proven reliably comfortable.</p>
+                            <div class="city-features">
+                                <span class="feature-tag">Morning Route Notifications</span>
+                                <span class="feature-tag">Microclimate Mapping</span>
+                                <span class="feature-tag">Reliable Cool Spots</span>
+                                <span class="feature-tag">Community Heat Planning</span>
+                            </div>
+                            <a href="#madrid" class="explore-link">Explore climate district</a>
+                        </div>
+                    </article>
+
+                    <!-- Melbourne Circular District -->
+                    <article class="city-card">
+                        <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="city-overlay">
+                                <h3 class="city-name">Melbourne</h3>
+                                <p class="city-steward">Stewarded by Callagun Smith</p>
+                                <p class="steward-role">Resource Flow Coordinator</p>
+                            </div>
+                        </div>
+                        <div class="city-content">
+                            <p class="city-description">Residents here receive weekly phone notifications about optimal timing for household tasks based on district resource processing schedules. Laundry runs most efficiently on Tuesdays when heat recovery from organic waste processing peaks, hot water is most abundant Thursday mornings when community composting generates extra thermal energy, and fresh herbs are ready for pickup Saturdays at rooftop growing stations that process greywater from the week. The district operates on predictable cycles that people gradually learned to time their routines around, similar to how communities adapt to trash collection schedules or farmer's market days. Local grocery costs have decreased because many ingredients come from building-integrated growing systems that residents maintain collectively through building management arrangements.</p>
+                            <div class="city-features">
+                                <span class="feature-tag">Weekly Efficiency Notifications</span>
+                                <span class="feature-tag">Tuesday Laundry Peaks</span>
+                                <span class="feature-tag">Saturday Herb Pickup</span>
+                                <span class="feature-tag">Collective Building Maintenance</span>
+                            </div>
+                            <a href="#melbourne" class="explore-link">Explore circular systems</a>
+                        </div>
+                    </article>
+
+                    <!-- Buenos Aires Vertical Ecosystems -->
+                    <article class="city-card">
+                        <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1589909202802-8f4aadce1849?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="city-overlay">
+                                <h3 class="city-name">Buenos Aires</h3>
+                                <p class="city-steward">Stewarded by Pablo Sanguinetti</p>
+                                <p class="steward-role">Community Food Systems Manager</p>
+                            </div>
+                        </div>
+                        <div class="city-content">
+                            <p class="city-description">Apartment buildings here include shared growing spaces on several floors that residents maintain collectively through building association arrangements, similar to how buildings manage gyms or laundry facilities. Families sign up for growing shifts that fit their schedules, contributing a few hours monthly in exchange for fresh vegetables that supplement grocery shopping. Community kitchens on ground floors operate like shared amenity spaces where neighbors coordinate meals using building-grown ingredients. The system reduced grocery costs enough that building association fees actually decreased despite facility maintenance expenses. Children growing up here learn basic plant care as naturally as they might learn to use building elevators or mailbox systems, since food production became part of standard building infrastructure rather than specialized agricultural knowledge.</p>
+                            <div class="city-features">
+                                <span class="feature-tag">Building Association Growing</span>
+                                <span class="feature-tag">Monthly Resident Shifts</span>
+                                <span class="feature-tag">Shared Community Kitchens</span>
+                                <span class="feature-tag">Reduced Building Fees</span>
+                            </div>
+                            <a href="#buenos-aires" class="explore-link">Explore food systems</a>
+                        </div>
+                    </article>
+
+                    <!-- Nairobi Water Commons -->
+                    <article class="city-card">
+                        <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1611348524140-53c9a25263d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="city-overlay">
+                                <h3 class="city-name">Nairobi</h3>
+                                <p class="city-steward">Stewarded by Kamau Mwangi</p>
+                                <p class="steward-role">Community Water Systems Coordinator</p>
+                            </div>
+                        </div>
+                        <div class="city-content">
+                            <p class="city-description">Water availability here became reliable year-round after atmospheric water generation systems were installed at community collection points, providing backup supply during dry periods and supplementing traditional sources during wet seasons. Residents adapted their routines around these dependable resources, using community water points as natural gathering spaces where neighbors coordinate school pickup schedules, plan weekend activities, and share information about neighborhood events. The morning and evening collection times became informal community meetings that strengthened social connections while providing practical coordination opportunities. Children who grew up with this system take reliable water access for granted, though parents remember when water planning dominated daily logistics and appreciate how much mental energy is now available for other priorities.</p>
+                            <div class="city-features">
+                                <span class="feature-tag">Year-Round Water Reliability</span>
+                                <span class="feature-tag">Backup Supply Systems</span>
+                                <span class="feature-tag">Community Gathering Points</span>
+                                <span class="feature-tag">Informal Morning Meetings</span>
+                            </div>
+                            <a href="#nairobi" class="explore-link">Explore water systems</a>
+                        </div>
+                    </article>
+
+                    <!-- Delhi Air Restoration Grid -->
+                    <article class="city-card">
+                        <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="city-overlay">
+                                <h3 class="city-name">New Delhi</h3>
+                                <p class="city-steward">Stewarded by Priya Sharma</p>
+                                <p class="steward-role">Air Quality Systems Manager</p>
+                            </div>
+                        </div>
+                        <div class="city-content">
+                            <p class="city-description">Residents here receive daily air quality forecasts that help them plan outdoor activities, exercise routines, and children's play schedules with confidence. Community gardens distributed throughout the district process atmospheric particulates while providing neighborhood gathering spaces that stay consistently pleasant for socializing and recreation. Parents report that children develop fewer respiratory issues and can play outside more regularly than in surrounding areas. The local schools schedule outdoor classes and sports activities based on air quality optimization schedules that Priya coordinates with community facility operations. Public spaces like markets and parks operate during windows when air processing systems create optimal conditions, leading to natural community rhythms that align with environmental health rather than fighting against air quality challenges.</p>
+                            <div class="city-features">
+                                <span class="feature-tag">Daily Air Quality Forecasts</span>
+                                <span class="feature-tag">Fewer Childhood Respiratory Issues</span>
+                                <span class="feature-tag">Outdoor Class Scheduling</span>
+                                <span class="feature-tag">Optimized Community Rhythms</span>
+                            </div>
+                            <a href="#new-delhi" class="explore-link">Explore air systems</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <p>Global Municipal Infrastructure Network — Districts with practical solutions to everyday urban challenges</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        /* ============================
+           Interactive Functionality
+           ============================ */
+        
+        // Mobile sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(event.target) && 
+                !menuToggle.contains(event.target) && 
+                sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+        });
+
+        // Smooth scrolling for internal navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close sidebar on mobile after navigation
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('sidebar').classList.remove('open');
+                    }
+                }
+            });
+        });
+
+        // Dynamic navigation state management
+        function updateActiveNavigation() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Optimized scroll detection
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateActiveNavigation);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            requestTick();
+            ticking = false;
+        });
+
+        // Initialize navigation state
+        window.addEventListener('load', updateActiveNavigation);
+
+        // Subtle parallax effect for hero content
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent && scrolled < window.innerHeight) {
+                heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
