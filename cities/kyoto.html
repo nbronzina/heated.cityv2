@@ -376,19 +376,18 @@
             border-radius: 3px;
         }
 
-        /* Individual Project Cards - Enhanced design with contained hover effects */
+        /* Individual Project Cards - Now fully interactive with click-to-expand functionality */
         .project-card {
             background: var(--surface-glass);
             backdrop-filter: blur(20px) saturate(180%);
             border-radius: var(--radius-medium);
             padding: 32px;
-            margin-bottom: 32px;
+            margin: 16px 0 32px 0;
             border: 1px solid var(--border-light);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
             overflow: hidden;
-            /* Create breathing room for hover effects */
-            margin: 16px 0 32px 0;
+            cursor: pointer; /* Indicate the entire card is clickable */
         }
 
         .project-card::before {
@@ -405,15 +404,23 @@
         }
 
         .project-card:hover {
-            /* Reduced scaling that stays within layout bounds */
             transform: translateY(-2px) scale(1.01);
             box-shadow: var(--shadow-strong);
-            /* Add subtle background brightness change for additional hover feedback */
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 250, 252, 0.92) 100%);
         }
 
         .project-card:hover::before {
             opacity: 1;
+        }
+
+        /* Add visual feedback for expanded state */
+        .project-card.expanded {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 250, 252, 0.95) 100%);
+            border-color: var(--accent-color);
+        }
+
+        .project-card.expanded::before {
+            opacity: 0.7;
         }
 
         .project-header {
@@ -772,7 +779,7 @@
                                 <span class="feature-tag">Seasonal Paper Variations</span>
                                 <span class="feature-tag">Weekly Scent Patterns</span>
                             </div>
-                            <button class="project-action" onclick="toggleDescription(this)">Leer más</button>
+                            <!-- Click anywhere on card to expand/collapse -->
                         </article>
 
                         <!-- Project 2: Akari no Michi -->
@@ -791,7 +798,7 @@
                                 <span class="feature-tag">Merchant Schedule Adjustments</span>
                                 <span class="feature-tag">Occasional Malfunctions</span>
                             </div>
-                            <button class="project-action" onclick="toggleDescription(this)">Leer más</button>
+                            <!-- Click anywhere on card to expand/collapse -->
                         </article>
 
                         <!-- Project 3: Katzura Eco-Island Center -->
@@ -911,90 +918,67 @@
             }
         });
 
-        // Enhanced project description toggle functionality with diagnostic capabilities
-        function toggleDescription(button) {
-            // Add diagnostic logging to verify function is being called
-            console.log('Toggle function called for button:', button);
+        // Simplified card-based toggle functionality - much more intuitive!
+        function initializeCardToggles() {
+            console.log('Initializing clickable cards...');
             
-            try {
-                const card = button.closest('.project-card');
-                console.log('Found card:', card);
-                
-                if (!card) {
-                    console.error('Could not find parent project card');
-                    return;
-                }
-                
-                const description = card.querySelector('.project-description');
-                console.log('Found description:', description);
-                
-                if (!description) {
-                    console.error('Could not find project description element');
-                    return;
-                }
-                
-                const isCollapsed = description.classList.contains('collapsed');
-                console.log('Current state - collapsed:', isCollapsed);
-                
-                if (isCollapsed) {
-                    // Expand the description
-                    description.classList.remove('collapsed');
-                    description.classList.add('expanded');
-                    button.textContent = 'Menos info';
-                    button.style.background = 'var(--text-medium)';
-                    console.log('Expanded description');
-                } else {
-                    // Collapse the description
-                    description.classList.remove('expanded');
-                    description.classList.add('collapsed');
-                    button.textContent = 'Leer más';
-                    button.style.background = 'var(--accent-color)';
-                    console.log('Collapsed description');
-                }
-                
-                // Force a reflow to ensure CSS changes are applied
-                description.offsetHeight;
-                
-            } catch (error) {
-                console.error('Error in toggleDescription function:', error);
-            }
-        }
-
-        // Alternative implementation using event listeners instead of inline onclick
-        function initializeDescriptionToggles() {
-            console.log('Initializing description toggles...');
+            // Find all project cards
+            const projectCards = document.querySelectorAll('.project-card');
+            console.log('Found project cards:', projectCards.length);
             
-            // Find all project action buttons
-            const actionButtons = document.querySelectorAll('.project-action');
-            console.log('Found action buttons:', actionButtons.length);
-            
-            actionButtons.forEach((button, index) => {
-                console.log(`Setting up button ${index + 1}:`, button);
+            projectCards.forEach((card, index) => {
+                console.log(`Setting up card ${index + 1}:`, card);
                 
-                // Remove any existing onclick handlers
-                button.removeAttribute('onclick');
+                // Add click event listener to entire card
+                card.addEventListener('click', function(event) {
+                    // Prevent interference from other click events
+                    event.stopPropagation();
+                    
+                    console.log('Card clicked:', this);
+                    
+                    // Find the description within this card
+                    const description = this.querySelector('.project-description');
+                    if (!description) {
+                        console.error('Could not find description in card');
+                        return;
+                    }
+                    
+                    // Toggle the state
+                    const isCollapsed = description.classList.contains('collapsed');
+                    console.log('Current state - collapsed:', isCollapsed);
+                    
+                    if (isCollapsed) {
+                        // Expand
+                        description.classList.remove('collapsed');
+                        description.classList.add('expanded');
+                        this.classList.add('expanded');
+                        console.log('Expanded card');
+                    } else {
+                        // Collapse
+                        description.classList.remove('expanded');
+                        description.classList.add('collapsed');
+                        this.classList.remove('expanded');
+                        console.log('Collapsed card');
+                    }
+                });
                 
-                // Add new event listener
-                button.addEventListener('click', function(event) {
-                    event.preventDefault();
-                    console.log('Button clicked via event listener:', this);
-                    toggleDescription(this);
+                // Add visual feedback for better UX
+                card.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.2s ease';
                 });
             });
         }
 
-        // Initialize everything when the DOM is ready
+        // Initialize when DOM is ready
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM loaded, initializing toggles...');
-            initializeDescriptionToggles();
+            console.log('DOM loaded, initializing card toggles...');
+            initializeCardToggles();
         });
 
-        // Also try to initialize if DOM is already loaded
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializeDescriptionToggles);
-        } else {
+        // Also initialize immediately if DOM is already loaded
+        if (document.readyState !== 'loading') {
             console.log('DOM already loaded, initializing immediately...');
-            initializeDescriptionToggles();
+            initializeCardToggles();
         }
 
         // Enhanced Map Initialization
