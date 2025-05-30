@@ -3,44 +3,905 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover sustainable, innovative urban solutions with Heated.city. Your guide to the future of cities.">
-    <meta name="keywords" content="sustainability, urban planning, future cities, innovation, Heated.city">
+    <meta name="description" content="Neighborhood guides for regenerative urban living, curated by local climate stewards around the world.">
+    <meta name="keywords" content="regenerative cities, urban living, neighborhood guides, climate stewards, biointegrated design">
     <meta name="author" content="Heated.city">
-    <title>Heated.city | Sustainable Urban Visions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Heated.city</title>
+    
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ============================
+           Design System Variables
+           ============================ */
+        :root {
+            /* Color palette inspired by regenerative design */
+            --primary-color: #1a3d35;
+            --accent-color: #7fb069;
+            --secondary-accent: #d4af37;
+            --text-dark: #0f1419;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --background: #fdfffe;
+            --background-soft: #f7fafc;
+            --background-warm: #fefcf8;
+            --border-light: #e2e8f0;
+            --border-medium: #cbd5e0;
+            
+            /* Advanced visual effects for 2030 aesthetic */
+            --surface-glass: rgba(255, 255, 255, 0.92);
+            --shadow-subtle: 0 2px 12px rgba(0, 0, 0, 0.04);
+            --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
+            --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.12);
+            
+            /* Layout measurements */
+            --sidebar-width: 320px;
+            --content-max-width: 1400px;
+            --radius-small: 8px;
+            --radius-medium: 16px;
+            --radius-large: 24px;
+        }
+
+        /* ============================
+           Base Styles
+           ============================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--background) 0%, var(--background-warm) 100%);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        /* ============================
+           Layout Structure (OTG-inspired sidebar layout)
+           ============================ */
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation - Fixed position with glass morphism effect */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: var(--surface-glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-right: 1px solid var(--border-light);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sidebar-header {
+            padding: 40px 32px 32px;
+            border-bottom: 1px solid var(--border-light);
+            background: linear-gradient(135deg, rgba(122, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.8px;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 15px;
+            color: var(--text-medium);
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        /* Climate network indicator - subtle animation for "live" feeling */
+        .climate-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            padding: 8px 12px;
+            background: rgba(127, 176, 105, 0.1);
+            border-radius: var(--radius-small);
+            font-size: 13px;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .climate-indicator::before {
+            content: '●';
+            color: var(--accent-color);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .sidebar-nav {
+            padding: 40px 0 32px;
+        }
+
+        .nav-section {
+            margin-bottom: 40px;
+        }
+
+        .nav-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding: 0 32px;
+            margin-bottom: 20px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 32px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-medium);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            background: linear-gradient(135deg, rgba(26, 61, 53, 0.04) 0%, rgba(127, 176, 105, 0.04) 100%);
+        }
+
+        /* Active state indicator */
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+        }
+
+        .project-count {
+            font-size: 12px;
+            color: var(--text-light);
+            background: var(--background-soft);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        /* ============================
+           Main Content Area
+           ============================ */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            min-height: 100vh;
+        }
+
+        /* Hero Section - Immersive introduction */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0f2a24 100%);
+            color: white;
+            padding: 100px 64px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle pattern overlay for depth */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(127, 176, 105, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="biopattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(127,176,105,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23biopattern)"/></svg>');
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Status badge indicating active network */
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(127, 176, 105, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 32px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 32px;
+            border: 1px solid rgba(127, 176, 105, 0.3);
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 32px;
+            letter-spacing: -1.5px;
+            background: linear-gradient(135deg, #ffffff 0%, rgba(127, 176, 105, 0.9) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 22px;
+            opacity: 0.9;
+            line-height: 1.5;
+            margin-bottom: 48px;
+            font-weight: 400;
+        }
+
+        /* Hero metrics - quantified impact indicators */
+        .hero-metrics {
+            display: flex;
+            gap: 64px;
+            margin-top: 64px;
+        }
+
+        .metric {
+            text-align: left;
+        }
+
+        .metric-number {
+            font-size: 40px;
+            font-weight: 800;
+            color: var(--accent-color);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .metric-label {
+            font-size: 14px;
+            opacity: 0.8;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============================
+           Content Sections
+           ============================ */
+        .content-section {
+            padding: 120px 64px;
+        }
+
+        .section-header {
+            max-width: var(--content-max-width);
+            margin: 0 auto 80px;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 22px;
+            color: var(--text-medium);
+            line-height: 1.5;
+            font-weight: 400;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ============================
+           Cities Grid - Showcase of districts
+           ============================ */
+        .cities-grid {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 40px;
+        }
+
+        .city-card {
+            background: var(--surface-glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: var(--radius-large);
+            overflow: hidden;
+            box-shadow: var(--shadow-subtle);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+
+        /* Gradient border effect on hover */
+        .city-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent));
+            border-radius: inherit;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: subtract;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .city-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .city-card:hover::before {
+            opacity: 1;
+        }
+
+        .city-image {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Overlay with district information */
+        .city-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 40px 32px 32px;
+            color: white;
+        }
+
+        .city-name {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .city-steward {
+            font-size: 15px;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .steward-role {
+            font-size: 13px;
+            opacity: 0.7;
+            margin-top: 4px;
+        }
+
+        .city-content {
+            padding: 32px;
+        }
+
+        .city-description {
+            font-size: 16px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        /* Feature tags - technology and approach indicators */
+        .city-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .feature-tag {
+            background: linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            color: var(--primary-color);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 24px;
+            border: 1px solid rgba(127, 176, 105, 0.2);
+        }
+
+        /* Exploration links with animated arrow */
+        .explore-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--primary-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .explore-link:hover {
+            color: var(--accent-color);
+            transform: translateX(4px);
+        }
+
+        .explore-link::after {
+            content: '→';
+            margin-left: 12px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 18px;
+        }
+
+        .explore-link:hover::after {
+            transform: translateX(6px);
+        }
+
+        /* ============================
+           Footer
+           ============================ */
+        .footer {
+            background: var(--background-soft);
+            border-top: 1px solid var(--border-light);
+            padding: 64px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+        }
+
+        .footer p {
+            color: var(--text-medium);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* ============================
+           Mobile Responsive Design
+           ============================ */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: 100vw;
+                max-width: 400px;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .mobile-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 24px;
+                background: var(--surface-glass);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--border-light);
+                position: sticky;
+                top: 0;
+                z-index: 999;
+            }
+
+            .mobile-logo {
+                font-size: 22px;
+                font-weight: 700;
+                color: var(--primary-color);
+            }
+
+            .menu-toggle {
+                background: none;
+                border: none;
+                font-size: 28px;
+                color: var(--primary-color);
+                cursor: pointer;
+                padding: 8px;
+                border-radius: var(--radius-small);
+                transition: background-color 0.2s ease;
+            }
+
+            .menu-toggle:hover {
+                background: rgba(127, 176, 105, 0.1);
+            }
+
+            .hero {
+                padding: 64px 24px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .hero-metrics {
+                flex-direction: column;
+                gap: 32px;
+            }
+
+            .content-section {
+                padding: 64px 24px;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+
+            .cities-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+
+        /* Hidden by default on desktop */
+        .mobile-header {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-header {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="logo"><a href="index.html">Heated.city</a></div>
-        <ul>
-            <li><a href="cities.html">Cities</a></li>
-            <li><a href="contributors.html">Contributors</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </nav>
+    <div class="app-container">
+        <!-- Mobile Header - Shows only on mobile devices -->
+        <header class="mobile-header">
+            <div class="mobile-logo">Heated.city</div>
+            <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
+        </header>
 
-    <!-- Header -->
-    <header class="global-header">
-        <div class="slideshow" aria-label="City Highlights">
-            <img src="img/city1.png" alt="Futuristic skyline of a sustainable city" class="active">
-            <img src="img/city2.png" alt="Green urban park in a modern city">
-            <img src="img/city3.png" alt="Innovative city architecture by the water">
-        </div>
-        <div class="content">
-            <h1>Heated.city</h1>
-            <p>Your guide to sustainable and innovative cities.</p>
-            <a href="cities.html" class="cta-button">Explore Cities</a>
-        </div>
-    </header>
+        <!-- Sidebar Navigation - Fixed position inspired by On The Grid -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">Heated.city</div>
+                <div class="tagline">Where your neighborhood breathes better than a forest</div>
+                <div class="climate-indicator">Live Climate Network</div>
+            </div>
+            
+            <div class="sidebar-nav">
+                <!-- Primary navigation section -->
+                <div class="nav-section">
+                    <div class="nav-title">Navigate</div>
+                    <a href="#districts" class="nav-link active">Districts</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="contributors.html" class="nav-link">Stewards</a>
+                </div>
+                
+                <!-- Districts section with project counts -->
+                <div class="nav-section">
+                    <div class="nav-title">Active Districts</div>
+                    <a href="cities/kyoto.html" class="nav-link">
+                        Kyoto Biointegration Zone
+                        <span class="project-count">12</span>
+                    </a>
+                    <a href="#madrid" class="nav-link">
+                        Madrid Climate Adaptation Hub
+                        <span class="project-count">18</span>
+                    </a>
+                    <a href="#melbourne" class="nav-link">
+                        Melbourne Circular District
+                        <span class="project-count">15</span>
+                    </a>
+                    <a href="#buenos-aires" class="nav-link">
+                        Buenos Aires Vertical Farms
+                        <span class="project-count">22</span>
+                    </a>
+                    <a href="#nairobi" class="nav-link">
+                        Nairobi Water Commons
+                        <span class="project-count">9</span>
+                    </a>
+                    <a href="#new-delhi" class="nav-link">
+                        Delhi Air Restoration Grid
+                        <span class="project-count">16</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Heated.city | <a href="contact.html">Contact Us</a></p>
-    </footer>
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Hero Section - First impression and emotional connection -->
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span>●</span>
+                        Global Climate Stewardship Network
+                    </div>
+                    <h1>You can smell the difference in the air here</h1>
+                    <p>Step into neighborhoods where morning mist carries hints of bergamot from vertical farms, where pavement stays cool under your bare feet, and where the sound of rainfall means your building just got stronger. This isn't tomorrow—this is Thursday in districts stewarded by people who know their soil as well as their neighbors.</p>
+                    
+                    <!-- Impact metrics -->
+                    <div class="hero-metrics">
+                        <div class="metric">
+                            <div class="metric-number">92</div>
+                            <div class="metric-label">Active Projects</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-number">6</div>
+                            <div class="metric-label">Climate Zones</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-number">∞</div>
+                            <div class="metric-label">Carbon Positive</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    <!-- Scripts -->
-    <script src="js/main.js"></script>
+            <!-- Districts Section - Showcase of regenerative neighborhoods -->
+            <section class="content-section" id="districts">
+                <div class="section-header">
+                    <h2 class="section-title">Six districts where your kids will grow up breathing easier</h2>
+                    <p class="section-subtitle">Each place stewarded by someone who remembers when air quality was a daily worry, now watches children play in streets that clean themselves</p>
+                </div>
+                
+                <div class="cities-grid">
+                    <!-- Kyoto Biointegration Zone -->
+                    <article class="city-card">
+                        <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="city-overlay">
+                                <h3 class="city-name">Kyoto</h3>
+                                <p class="city-steward">Stewarded by Himari Satō</p>
+                                <p class="steward-role">Biointegration Systems Designer</p>
+                            </div>
+                        </div>
+                        <div class="city-content">
+                            <p class="city-description">Walk barefoot on warm wooden floors that grew themselves last spring. The sake brewery down the street powers itself with the same fungal networks that make your neighbor's ceramics glow softly at dusk. Himari knows which bamboo grove hums differently when typhoon season approaches—it's how the district manages its water reserves three weeks ahead.</p>
+                            <div class="city-features">
+                                <span class="feature-tag">Self-Growing Materials</span>
+                                <span class="feature-tag">Mycological Power</span>
+                                <span class="feature-tag">Predictive Bamboo</span>
+                                <span class="feature-tag">Atmospheric Brewing</span>
+                            </div>
+                            <a href="cities/kyoto.html" class="explore-link">Explore biodistrict</a>
+                        </div>
+                    </article>
+
+                    <!-- Madrid Climate Adaptation Hub -->
+                    <article class="city-card">
+                        <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="city-overlay">
+                                <h3 class="city-name">Madrid</h3>
+                                <p class="city-steward">Stewarded by Ana García</p>
+                                <p class="steward-role">Thermal Ecosystem Architect</p>
+                            </div>
+                        </div>
+                        <div class="city-content">
+                            <p class="city-description">Your coffee stays perfectly cool even when the plaza stones register 47°C. Buildings here breathe slower during afternoon heat, their walls growing denser like how your grandmother's house felt during siesta. Ana maps the thermal flows underneath every neighborhood—she says August feels different now, more like the Aprils her abuelo described before air conditioning existed.</p>
+                            <div class="city-features">
+                                <span class="feature-tag">Thermal-Responsive Walls</span>
+                                <span class="feature-tag">Underground Flow Maps</span>
+                                <span class="feature-tag">Siesta Architecture</span>
+                                <span class="feature-tag">Seasonal Memory</span>
+                            </div>
+                            <a href="#madrid" class="explore-link">Explore thermal district</a>
+                        </div>
+                    </article>
+
+                    <!-- Melbourne Circular District -->
+                    <article class="city-card">
+                        <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="city-overlay">
+                                <h3 class="city-name">Melbourne</h3>
+                                <p class="city-steward">Stewarded by Callagun Smith</p>
+                                <p class="steward-role">Circular Flow Coordinator</p>
+                            </div>
+                        </div>
+                        <div class="city-content">
+                            <p class="city-description">Nothing here gets thrown "away"—because away doesn't exist when your morning shower water becomes tomorrow's rooftop lettuce. The packaging from Tuesday's groceries is already becoming next week's shipping containers through the algae processing center that smells faintly of ocean. Callagun tracks each neighborhood's metabolic rhythm; she knows Wednesday mornings produce the best biomaterials because that's when people replace things.</p>
+                            <div class="city-features">
+                                <span class="feature-tag">Shower-to-Lettuce Cycles</span>
+                                <span class="feature-tag">Algae Metamorphosis</span>
+                                <span class="feature-tag">Metabolic Rhythms</span>
+                                <span class="feature-tag">Wednesday Flows</span>
+                            </div>
+                            <a href="#melbourne" class="explore-link">Explore circular flows</a>
+                        </div>
+                    </article>
+
+                    <!-- Buenos Aires Vertical Ecosystems -->
+                    <article class="city-card">
+                        <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1589909202802-8f4aadce1849?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="city-overlay">
+                                <h3 class="city-name">Buenos Aires</h3>
+                                <p class="city-steward">Stewarded by Pablo Sanguinetti</p>
+                                <p class="steward-role">Vertical Ecosystem Curator</p>
+                            </div>
+                        </div>
+                        <div class="city-content">
+                            <p class="city-description">The elevator in María's building takes you through seven floors of cascading vegetables before you reach your apartment—carrots on three, tomatoes getting massive by five. Community kitchens on the ground floor smell like sofrito made with herbs picked thirty seconds ago. Pablo jokes that his neighborhood's soil is better fed than most people were back in '24, but the soil restoration lab data doesn't lie: this dirt now holds more carbon than the nearby park.</p>
+                            <div class="city-features">
+                                <span class="feature-tag">Elevator Agriculture</span>
+                                <span class="feature-tag">30-Second Herbs</span>
+                                <span class="feature-tag">Fed Soil</span>
+                                <span class="feature-tag">Carbon Storage</span>
+                            </div>
+                            <a href="#buenos-aires" class="explore-link">Explore vertical systems</a>
+                        </div>
+                    </article>
+
+                    <!-- Nairobi Water Commons -->
+                    <article class="city-card">
+                        <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1611348524140-53c9a25263d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="city-overlay">
+                                <h3 class="city-name">Nairobi</h3>
+                                <p class="city-steward">Stewarded by Kamau Mwangi</p>
+                                <p class="steward-role">Watershed Restoration Guide</p>
+                            </div>
+                        </div>
+                        <div class="city-content">
+                            <p class="city-description">Zebras still use the same migration routes they always have—they just drink from bio-retention pools now instead of shrinking streams. Morning dew collects differently here; Kamau checks atmospheric water generation levels while his coffee brews, the way his father used to check rain gauges. The sound of birds at dawn layers differently too: native species over the whisper of condensation systems that never sleep. Children draw zebra stripes in sidewalk puddles that will be tomorrow's drinking water.</p>
+                            <div class="city-features">
+                                <span class="feature-tag">Zebra-Compatible Infrastructure</span>
+                                <span class="feature-tag">Morning Dew Harvesting</span>
+                                <span class="feature-tag">Layered Bird Sounds</span>
+                                <span class="feature-tag">Sidewalk Water Cycling</span>
+                            </div>
+                            <a href="#nairobi" class="explore-link">Explore water commons</a>
+                        </div>
+                    </article>
+
+                    <!-- Delhi Air Restoration Grid -->
+                    <article class="city-card">
+                        <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
+                            <div class="city-overlay">
+                                <h3 class="city-name">New Delhi</h3>
+                                <p class="city-steward">Stewarded by Priya Sharma</p>
+                                <p class="steward-role">Atmospheric Restoration Specialist</p>
+                            </div>
+                        </div>
+                        <div class="city-content">
+                            <p class="city-description">You breathe easier before you realize why—molecular gardens line every street, processing what used to make eyes water into something that makes lung tissue stronger. Ancient stepwell architecture now houses filtration systems that gurgle contentedly like the fountains in old Bollywood films. Priya maps air quality the way meteorologists once tracked storms: block by block, hour by hour. Her kids ask why the healing gardens smell different on Tuesdays (that's when they process yesterday's vehicular emissions into today's medicine).</p>
+                            <div class="city-features">
+                                <span class="feature-tag">Molecular Street Gardens</span>
+                                <span class="feature-tag">Stepwell Filtration</span>
+                                <span class="feature-tag">Block-by-Block Air Maps</span>
+                                <span class="feature-tag">Tuesday Medicine</span>
+                            </div>
+                            <a href="#new-delhi" class="explore-link">Explore restoration grid</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <p>Global Climate Stewardship Network — Regenerative districts stewarded by local guardians</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        /* ============================
+           Interactive Functionality
+           ============================ */
+        
+        // Mobile sidebar toggle
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(event.target) && 
+                !menuToggle.contains(event.target) && 
+                sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+        });
+
+        // Smooth scrolling for internal navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close sidebar on mobile after navigation
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('sidebar').classList.remove('open');
+                    }
+                }
+            });
+        });
+
+        // Dynamic navigation state management
+        function updateActiveNavigation() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= (sectionTop - 300)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Optimized scroll detection
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateActiveNavigation);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', () => {
+            requestTick();
+            ticking = false;
+        });
+
+        // Initialize navigation state
+        window.addEventListener('load', updateActiveNavigation);
+
+        // Subtle parallax effect for hero content
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent && scrolled < window.innerHeight) {
+                heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+            }
+        });
+    </script>
 </body>
 </html>
