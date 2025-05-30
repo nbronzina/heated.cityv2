@@ -77,11 +77,9 @@
             min-height: 100vh;
         }
 
-        /* Sidebar Navigation - Fixed position with glass morphism effect */
+        /* Sidebar Navigation - Fixed position with stable glass morphism effect */
         .sidebar {
             width: var(--sidebar-width);
-            background: var(--surface-glass);
-            backdrop-filter: blur(20px) saturate(180%);
             border-right: 1px solid var(--border-light);
             position: fixed;
             top: 0;
@@ -90,6 +88,19 @@
             overflow-y: auto;
             z-index: 1000;
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Glassmorphism background applied via pseudo-element for stability */
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--surface-glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            z-index: -1;
         }
 
         .sidebar-header {
@@ -894,7 +905,9 @@
         // Initialize navigation state
         window.addEventListener('load', updateActiveNavigation);
 
-        // Subtle parallax effect for hero content
+        // Note: Parallax effect for hero content has been disabled for static behavior
+        // If you want to re-enable subtle parallax, uncomment the following code:
+        /*
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const heroContent = document.querySelector('.hero-content');
@@ -902,6 +915,7 @@
                 heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
             }
         });
+        */
     </script>
 </body>
 </html>
