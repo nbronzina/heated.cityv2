@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Understanding how neighborhoods became regenerative ecosystems where human and natural communities flourish together.">
-    <meta name="keywords" content="regenerative cities, urban stewardship, biointegration, climate adaptation, neighborhood transformation">
+    <meta name="description" content="Understanding how neighborhoods express their innate wisdom through biointegration systems that breathe with community rhythms.">
+    <meta name="keywords" content="community wisdom, biointegration, neighborhood intelligence, atmospheric processing, urban ecology">
     <meta name="author" content="Heated.city">
     <title>About — Heated.city</title>
     
@@ -13,7 +13,7 @@
     
     <style>
         /* ============================
-           Design System Variables (Inherited from index)
+           Design System Variables
            ============================ */
         :root {
             /* Color palette inspired by regenerative design */
@@ -29,7 +29,7 @@
             --border-light: #e2e8f0;
             --border-medium: #cbd5e0;
             
-            /* Advanced visual effects for 2030 aesthetic */
+            /* Advanced visual effects */
             --surface-glass: rgba(255, 255, 255, 0.92);
             --shadow-subtle: 0 2px 12px rgba(0, 0, 0, 0.04);
             --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
@@ -70,14 +70,14 @@
         }
 
         /* ============================
-           Layout Structure (Consistent with index)
+           Layout Structure
            ============================ */
         .app-container {
             display: flex;
             min-height: 100vh;
         }
 
-        /* Sidebar Navigation - Identical to index for consistency */
+        /* Sidebar Navigation */
         .sidebar {
             width: var(--sidebar-width);
             background: var(--surface-glass);
@@ -201,7 +201,7 @@
             min-height: 100vh;
         }
 
-        /* About Hero Section - Context setting rather than emotional immersion */
+        /* About Hero Section */
         .about-hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, #0f2a24 100%);
             color: white;
@@ -210,7 +210,6 @@
             overflow: hidden;
         }
 
-        /* Subtle geometric pattern for intellectual rather than emotional tone */
         .about-hero::before {
             content: '';
             position: absolute;
@@ -219,10 +218,8 @@
             right: 0;
             bottom: 0;
             background-image: 
-                linear-gradient(30deg, rgba(127, 176, 105, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(127, 176, 105, 0.1) 87.5%, rgba(127, 176, 105, 0.1)),
-                linear-gradient(150deg, rgba(127, 176, 105, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(127, 176, 105, 0.1) 87.5%, rgba(127, 176, 105, 0.1)),
-                linear-gradient(30deg, rgba(212, 175, 55, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(212, 175, 55, 0.05) 87.5%, rgba(212, 175, 55, 0.05)),
-                linear-gradient(150deg, rgba(212, 175, 55, 0.05) 12%, transparent 12.5%, transparent 87%, rgba(212, 175, 55, 0.05) 87.5%, rgba(212, 175, 55, 0.05));
+                linear-gradient(30deg, rgba(127, 176, 105, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(127, 176, 105, 0.1) 87.5%),
+                linear-gradient(150deg, rgba(127, 176, 105, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(127, 176, 105, 0.1) 87.5%);
             background-size: 80px 140px;
             opacity: 0.3;
         }
@@ -250,8 +247,7 @@
             margin-bottom: 48px;
         }
 
-        /* Timeline indicator showing progression */
-        .timeline-context {
+        .wisdom-context {
             display: flex;
             align-items: center;
             gap: 16px;
@@ -260,7 +256,7 @@
             font-weight: 500;
         }
 
-        .timeline-context::before {
+        .wisdom-context::before {
             content: '';
             width: 40px;
             height: 2px;
@@ -303,186 +299,92 @@
             font-weight: 400;
         }
 
-        /* Philosophy content with enhanced readability */
-        .philosophy-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: start;
-        }
-
-        .philosophy-text {
+        /* Content styling for readability */
+        .content-text {
             font-size: 18px;
             line-height: 1.7;
             color: var(--text-dark);
         }
 
-        .philosophy-text p {
+        .content-text p {
             margin-bottom: 32px;
         }
 
-        .philosophy-text p:last-child {
+        .content-text p:last-child {
             margin-bottom: 0;
         }
 
-        /* Visual element for philosophy section */
-        .philosophy-visual {
+        /* Quote boxes for specific perspectives */
+        .wisdom-quote {
             background: linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
-            border-radius: var(--radius-large);
-            padding: 48px;
-            border: 1px solid rgba(127, 176, 105, 0.2);
+            border-radius: var(--radius-medium);
+            padding: 40px;
+            margin: 48px 0;
+            border-left: 4px solid var(--accent-color);
             position: relative;
         }
 
-        .philosophy-quote {
-            font-size: 28px;
-            font-weight: 700;
+        .quote-text {
+            font-size: 24px;
+            font-weight: 600;
             color: var(--primary-color);
-            line-height: 1.3;
-            margin-bottom: 24px;
+            line-height: 1.4;
             font-style: italic;
+            margin-bottom: 20px;
         }
 
-        .philosophy-attribution {
-            font-size: 16px;
-            color: var(--text-medium);
+        .quote-attribution {
+            font-style: normal;
             font-weight: 500;
+            color: var(--text-medium);
+            font-size: 16px;
         }
 
-        /* Approach methodology section */
-        .approach-grid {
+        /* Two-column content layout */
+        .content-columns {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 48px;
-            margin-top: 64px;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            margin: 48px 0;
         }
 
-        .approach-item {
+        /* Understanding boxes */
+        .understanding-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin: 48px 0;
+        }
+
+        .understanding-item {
             background: white;
             border-radius: var(--radius-medium);
-            padding: 40px;
+            padding: 32px;
             box-shadow: var(--shadow-subtle);
             border: 1px solid var(--border-light);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .approach-item:hover {
+        .understanding-item:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-medium);
         }
 
-        .approach-number {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent));
-            color: white;
-            border-radius: 50%;
+        .understanding-title {
             font-size: 20px;
-            font-weight: 800;
-            margin-bottom: 24px;
-        }
-
-        .approach-title {
-            font-size: 22px;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 16px;
+            line-height: 1.3;
         }
 
-        .approach-description {
+        .understanding-text {
             font-size: 16px;
             line-height: 1.6;
             color: var(--text-medium);
         }
 
-        /* Vision section with forward-looking content */
-        .vision-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .vision-text {
-            font-size: 20px;
-            line-height: 1.7;
-            color: var(--text-dark);
-            margin-bottom: 48px;
-        }
-
-        .vision-text p {
-            margin-bottom: 32px;
-        }
-
-        /* Call to action for engagement */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #0f2a24 100%);
-            color: white;
-            padding: 100px 64px;
-            text-align: center;
-        }
-
-        .cta-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .cta-title {
-            font-size: 42px;
-            font-weight: 800;
-            margin-bottom: 24px;
-            letter-spacing: -0.8px;
-        }
-
-        .cta-text {
-            font-size: 20px;
-            opacity: 0.9;
-            line-height: 1.6;
-            margin-bottom: 48px;
-        }
-
-        .cta-actions {
-            display: flex;
-            gap: 24px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            padding: 16px 32px;
-            background: rgba(127, 176, 105, 0.2);
-            border: 1px solid rgba(127, 176, 105, 0.4);
-            border-radius: var(--radius-medium);
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .cta-button:hover {
-            background: rgba(127, 176, 105, 0.3);
-            border-color: rgba(127, 176, 105, 0.6);
-            transform: translateY(-2px);
-        }
-
-        .cta-button::after {
-            content: '→';
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .cta-button:hover::after {
-            transform: translateX(4px);
-        }
-
-        /* ============================
-           Footer (Consistent with index)
-           ============================ */
+        /* Footer */
         .footer {
             background: var(--background-soft);
             border-top: 1px solid var(--border-light);
@@ -573,37 +475,17 @@
                 font-size: 32px;
             }
 
-            .philosophy-content {
-                grid-template-columns: 1fr;
-                gap: 48px;
-            }
-
-            .approach-grid {
+            .content-columns {
                 grid-template-columns: 1fr;
                 gap: 32px;
             }
 
-            .cta-section {
-                padding: 64px 24px;
-            }
-
-            .cta-title {
-                font-size: 32px;
-            }
-
-            .cta-actions {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-button {
-                width: 100%;
-                max-width: 280px;
-                justify-content: center;
+            .understanding-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
             }
         }
 
-        /* Hidden by default on desktop */
         .mobile-header {
             display: none;
         }
@@ -617,13 +499,13 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Mobile Header - Shows only on mobile devices -->
+        <!-- Mobile Header -->
         <header class="mobile-header">
             <div class="mobile-logo">Heated.city</div>
             <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
         </header>
 
-        <!-- Sidebar Navigation - Consistent with index -->
+        <!-- Sidebar Navigation -->
         <nav class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="logo">Heated.city</div>
@@ -632,39 +514,37 @@
             </div>
             
             <div class="sidebar-nav">
-                <!-- Primary navigation section -->
                 <div class="nav-section">
                     <div class="nav-title">Navigate</div>
-                    <a href="index.html" class="nav-link">Districts</a>
-                    <a href="about.html" class="nav-link active">About</a>
-                    <a href="contributors.html" class="nav-link">Stewards</a>
+                    <a href="#" class="nav-link">Districts</a>
+                    <a href="#" class="nav-link active">About</a>
+                    <a href="#" class="nav-link">Gardeners</a>
                 </div>
                 
-                <!-- Districts section with project counts -->
                 <div class="nav-section">
                     <div class="nav-title">Active Districts</div>
-                    <a href="cities/kyoto.html" class="nav-link">
-                        Kyoto Biointegration Zone
-                        <span class="project-count">12</span>
+                    <a href="#" class="nav-link">
+                        Kyoto
+                        <span class="project-count">6</span>
                     </a>
-                    <a href="#madrid" class="nav-link">
-                        Madrid Climate Adaptation Hub
+                    <a href="#" class="nav-link">
+                        Madrid
                         <span class="project-count">18</span>
                     </a>
-                    <a href="#melbourne" class="nav-link">
-                        Melbourne Circular District
+                    <a href="#" class="nav-link">
+                        Melbourne
                         <span class="project-count">15</span>
                     </a>
-                    <a href="#buenos-aires" class="nav-link">
-                        Buenos Aires Vertical Farms
+                    <a href="#" class="nav-link">
+                        Buenos Aires
                         <span class="project-count">22</span>
                     </a>
-                    <a href="#nairobi" class="nav-link">
-                        Nairobi Water Commons
+                    <a href="#" class="nav-link">
+                        Nairobi
                         <span class="project-count">9</span>
                     </a>
-                    <a href="#new-delhi" class="nav-link">
-                        Delhi Air Restoration Grid
+                    <a href="#" class="nav-link">
+                        New Delhi
                         <span class="project-count">16</span>
                     </a>
                 </div>
@@ -673,123 +553,160 @@
 
         <!-- Main Content Area -->
         <main class="main-content">
-            <!-- About Hero Section - Context setting -->
+            <!-- About Hero Section -->
             <section class="about-hero">
                 <div class="about-hero-content">
-                    <h1>How neighborhoods learned to heal themselves</h1>
-                    <p class="about-hero-subtitle">When communities discovered that the air could clean itself, soil could store more carbon than forests, and buildings could grow their own materials, everything changed. Not overnight, but the way all lasting transformations happen—through people who cared enough to pay attention.</p>
-                    <div class="timeline-context">
-                        A decade of guided transformation
+                    <h1>The wisdom that neighborhoods already know</h1>
+                    <p class="about-hero-subtitle">Before biointegration systems existed, communities understood which corners stayed cool in summer, where water wanted to flow during storms, and how children's play reveals the health of a place. The technology simply amplifies intelligence that was always there.</p>
+                    <div class="wisdom-context">
+                        Community knowledge meets responsive infrastructure
                     </div>
                 </div>
             </section>
 
-            <!-- Philosophy Section -->
+            <!-- Understanding Community Intelligence -->
             <section class="about-section">
                 <div class="section-content">
                     <div class="section-header">
-                        <h2 class="section-title">The wisdom that neighborhoods already knew</h2>
-                        <p class="section-intro">Before we had climate stewards, we had grandmothers who could predict weather by watching how cats stretched. Before biointegration systems, we had communities that knew which corner smelled different when rain was coming.</p>
+                        <h2 class="section-title">How neighborhoods think and breathe</h2>
+                        <p class="section-intro">Every community develops intuitive knowledge about its environment through generations of careful attention. Biointegration systems provide ways for neighborhoods to express and act on this collective understanding.</p>
                     </div>
                     
-                    <div class="philosophy-content">
-                        <div class="philosophy-text">
-                            <p>The transformation you experience when walking through any of our active districts didn't emerge from laboratories or think tanks. It grew from recognizing that neighborhoods have always been intelligent systems—they just needed tools that matched their natural rhythms.</p>
-                            
-                            <p>When Himari first noticed that certain bamboo groves in Kyoto hummed differently before typhoons, she wasn't discovering something new. She was remembering something that urban planning had forgotten: that cities at their best are conversations between human intuition and natural systems, mediated by technology gentle enough not to interrupt.</p>
-                            
-                            <p>This is why our districts feel familiar even though they process air at molecular levels and grow their own building materials. The technology serves patterns that communities have always recognized—seasonal rhythms, resource flows, the way children's play reveals the health of a neighborhood's ecosystem.</p>
-                        </div>
-                        
-                        <div class="philosophy-visual">
-                            <blockquote class="philosophy-quote">
-                                "We didn't teach neighborhoods to be sustainable. We learned to listen when they told us how they wanted to breathe."
-                            </blockquote>
-                            <div class="philosophy-attribution">
-                                — From the Global Climate Stewardship Collective
-                            </div>
-                        </div>
+                    <div class="content-text">
+                        <p>Communities have always possessed sophisticated environmental intelligence. Elderly residents know which trees sound different before storms. Children instinctively avoid corners that smell wrong on certain days. Mothers notice when their babies sleep more peacefully in specific rooms during particular seasons. This knowledge accumulates through daily observation, passed down through conversations and shared experience.</p>
+
+                        <p>Biointegration systems work precisely because they amplify these existing patterns of awareness rather than replacing them. When Himari first observed that bamboo groves in Kyoto produce subtle acoustic changes before typhoons, she was recognizing something residents had noticed for generations without having technological means to respond systematically. The atmospheric processing networks now coordinate with these natural weather prediction systems, allowing neighborhoods to prepare collectively for environmental changes they could always sense individually.</p>
+
+                        <p>Think of it this way: communities are natural ecosystems of human attention. People notice air quality changes, seasonal rhythms, moisture patterns, and thermal variations through their daily routines. They develop preferences about timing and location based on how these environmental factors affect their comfort and wellbeing. Biointegration infrastructure provides technological expression for this collective environmental intelligence, creating feedback loops between human observation and responsive urban systems.</p>
+                    </div>
+
+                    <div class="wisdom-quote">
+                        <div class="quote-text">"We didn't teach neighborhoods to be sustainable. We provided tools for them to express what they already understood about how they wanted to breathe."</div>
+                        <div class="quote-attribution">— Global Climate Gardening Collective</div>
+                    </div>
+
+                    <div class="content-text">
+                        <p>Consider how this integration actually functions in daily life. Residents develop timing patterns around atmospheric processing cycles not because they understand the technical specifications, but because they notice when air feels cleaner and their energy levels improve. Children learn to recognize healthy versus problematic microbial growth through the same observational skills they use for identifying plants or weather patterns. Building managers adjust system schedules based on community feedback about comfort and convenience, creating localized optimization that serves specific neighborhood needs.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Approach Section -->
+            <!-- How Climate Gardening Works -->
             <section class="about-section">
                 <div class="section-content">
                     <div class="section-header">
-                        <h2 class="section-title">How stewardship actually works</h2>
-                        <p class="section-intro">Every district develops differently because every place has its own genius. But the process of guided transformation follows patterns we've learned to recognize and support.</p>
+                        <h2 class="section-title">Climate gardening as conversation between intuition and technology</h2>
+                        <p class="section-intro">Climate gardeners facilitate ongoing dialogue between community wisdom and biointegration systems, ensuring that technological capabilities serve local knowledge rather than overriding it.</p>
                     </div>
-                    
-                    <div class="approach-grid">
-                        <div class="approach-item">
-                            <div class="approach-number">1</div>
-                            <h3 class="approach-title">Listen to what's already working</h3>
-                            <p class="approach-description">Climate stewards spend their first year observing: where do people naturally gather? Which corners stay cool in summer? How does water actually move through the neighborhood during storms? We build on existing flows, not against them.</p>
+
+                    <div class="understanding-grid">
+                        <div class="understanding-item">
+                            <h3 class="understanding-title">Listen to what people already notice</h3>
+                            <p class="understanding-text">Climate gardeners spend their first months observing community patterns. Where do residents naturally gather during different seasons? Which spaces feel comfortable or uncomfortable and why? How do people describe air quality changes throughout the day? These observations become the foundation for technological integration that enhances rather than disrupts existing community rhythms.</p>
                         </div>
                         
-                        <div class="approach-item">
-                            <div class="approach-number">2</div>
-                            <h3 class="approach-title">Start with what residents notice</h3>
-                            <p class="approach-description">If children complain that the playground smells funny on Tuesdays, that's data. If elderly neighbors mention that certain trees sound different before rain, that's intelligence. Technology amplifies human attention, never replaces it.</p>
+                        <div class="understanding-item">
+                            <h3 class="understanding-title">Start with felt experience, not technical specifications</h3>
+                            <p class="understanding-text">If children mention that certain playgrounds smell different on Tuesdays, that information guides atmospheric processing schedules. If elderly neighbors comment about how specific trees sound before rain, those acoustic patterns inform weather response systems. Technology amplifies human attention rather than replacing it with purely mechanical monitoring.</p>
                         </div>
                         
-                        <div class="approach-item">
-                            <div class="approach-number">3</div>
-                            <h3 class="approach-title">Integrate by seasons, not schedules</h3>
-                            <p class="approach-description">Atmospheric processing systems come online when plants are ready for them. Soil restoration happens at the pace that fungi can establish healthy networks. Community workshops begin when neighbors have time to attend regularly.</p>
+                        <div class="understanding-item">
+                            <h3 class="understanding-title">Integrate according to biological and social seasons</h3>
+                            <p class="understanding-text">Atmospheric processing systems come online when plants are ready to collaborate with them. Soil restoration happens at the pace that fungal networks establish healthy relationships. Community workshops begin when residents have natural time and energy to participate regularly, creating sustainable engagement rather than forced adoption schedules.</p>
                         </div>
                         
-                        <div class="approach-item">
-                            <div class="approach-number">4</div>
-                            <h3 class="approach-title">Design for abundance, not efficiency</h3>
-                            <p class="approach-description">When air processing systems generate surplus clean air, that abundance creates microclimates that attract birds. When soil restoration produces extra nutrients, community gardens expand. Regenerative systems thrive when they can overflow their intended boundaries.</p>
+                        <div class="understanding-item">
+                            <h3 class="understanding-title">Design for abundance, not just efficiency</h3>
+                            <p class="understanding-text">When air processing systems generate surplus clean air, that abundance creates microclimates that attract birds and beneficial insects. When soil restoration produces extra nutrients, community gardens expand naturally. Regenerative systems thrive when they can overflow their intended boundaries, creating positive spillover effects throughout the neighborhood ecosystem.</p>
                         </div>
                         
-                        <div class="approach-item">
-                            <div class="approach-number">5</div>
-                            <h3 class="approach-title">Measure what matters to daily life</h3>
-                            <p class="approach-description">Success means children playing outside without parents worrying about air quality. It means elderly residents walking further because sidewalks stay comfortable. It means morning coffee tastes better because water processes through living systems overnight.</p>
+                        <div class="understanding-item">
+                            <h3 class="understanding-title">Measure what matters to daily community life</h3>
+                            <p class="understanding-text">Success means children playing outside without parents worrying about air quality. It means elderly residents walking further because sidewalks maintain comfortable temperatures. It means morning coffee tastes better because water processes through living filtration systems overnight. Technical metrics serve human experience rather than abstract optimization targets.</p>
                         </div>
                         
-                        <div class="approach-item">
-                            <div class="approach-number">6</div>
-                            <h3 class="approach-title">Share insights across the network</h3>
-                            <p class="approach-description">When Nairobi discovers that zebra migration patterns improve atmospheric water generation, that intelligence flows to every district dealing with water scarcity. When Madrid's thermal regulation prevents heat-related deaths, every climate adaptation hub learns from their innovations.</p>
+                        <div class="understanding-item">
+                            <h3 class="understanding-title">Share insights across the global climate gardening network</h3>
+                            <p class="understanding-text">When Nairobi discovers that seasonal bird migration patterns enhance atmospheric water generation, that wisdom flows to every district dealing with water scarcity. When Madrid's thermal regulation prevents heat-related illness, every climate adaptation hub adapts their innovations to local conditions. Knowledge moves through relationships rather than just technical documentation.</p>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Vision Section -->
+            <!-- Community Intelligence in Practice -->
             <section class="about-section">
                 <div class="section-content">
                     <div class="section-header">
-                        <h2 class="section-title">What we're growing into</h2>
-                        <p class="section-intro">The districts you explore through Heated.city represent something unprecedented: proof that human communities and natural systems can enhance each other's intelligence.</p>
+                        <h2 class="section-title">How technology serves community intuition</h2>
+                        <p class="section-intro">The most sophisticated aspect of biointegration districts is not their technical complexity, but how seamlessly they integrate with patterns of community attention and care that develop naturally over time.</p>
                     </div>
                     
-                    <div class="vision-content">
-                        <div class="vision-text">
-                            <p>What started as emergency adaptation to climate disruption has become something more generative: neighborhoods that actively improve the conditions for all life. Not just human life—though air quality measurements show children's lung capacity improving year over year. Not just natural systems—though urban soils now sequester more carbon per square meter than many forests.</p>
-                            
-                            <p>The intelligence that emerges when communities have tools that match their care produces innovations no individual district could develop alone. Fungal networks that power sake breweries in Kyoto inspire biomaterial processing centers in Melbourne. Atmospheric water generation in Nairobi influences thermal management systems in Madrid.</p>
-                            
-                            <p>This network of regenerative districts demonstrates that resilience and abundance aren't competing values. When neighborhoods can heal themselves, they create surplus healing capacity that enriches the broader region. When communities thrive, they have more resources to share with places still undergoing transformation.</p>
+                    <div class="content-columns">
+                        <div class="content-text">
+                            <p>Residents develop what we might call "ecological literacy" through daily interaction with responsive infrastructure, though they rarely think of it in those terms. They notice that certain corners of their building feel more comfortable after atmospheric processing cycles. They observe seasonal changes in soil texture and plant growth that indicate healthy mycelium network development. They recognize the subtle acoustic signatures that mean biointegration systems are functioning optimally.</p>
+
+                            <p>This knowledge accumulates gradually, the way people learn their neighborhood rhythms over months and years of walking the same routes. Parents discover which parks their children prefer during different seasons, not realizing they're responding to variations in air quality and soil health that biointegration systems actively maintain. Elderly residents develop preferences for specific benches and walking paths based on thermal regulation effects they experience as natural comfort rather than technological intervention.</p>
+
+                            <p>Understanding emerges through practice rather than explanation. Teenagers who grow up in biointegration districts find conventional buildings uncomfortable and stuffy, though they might describe this as the buildings feeling "dead" rather than lacking atmospheric processing. Young adults develop timing habits around community spaces that coincide with optimal biological system performance, experiencing this as natural preference rather than technological coordination.</p>
                         </div>
+                        
+                        <div class="content-text">
+                            <p>The climate gardening approach recognizes that communities possess intuitive knowledge about environmental health that predates any specific technology. Grandmothers who can predict weather by watching how cats stretch their bodies are demonstrating the same kind of attentive observation that informs biointegration system calibration. Neighborhoods that maintain community gardens through informal coordination and shared care are already practicing the kind of distributed environmental management that biointegration districts formalize technologically.</p>
+
+                            <p>What changes with biointegration infrastructure is not community intelligence itself, but the capacity for neighborhoods to act on their collective environmental knowledge at scale. Systems respond to community feedback about air quality, thermal comfort, and seasonal preferences, creating feedback loops between human observation and technological adjustment that enhance both individual wellbeing and ecosystem health.</p>
+
+                            <p>This relationship develops over time through trust and responsiveness rather than training or education programs. Communities learn to work with biointegration systems the way they learn to work with any new neighbor: through repeated interaction, shared experience, and gradual development of mutual understanding and accommodation.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Future of Community-Technology Integration -->
+            <section class="about-section">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title">Networks of caring communities</h2>
+                        <p class="section-intro">The districts you explore through Heated.city demonstrate what becomes possible when communities have technological tools that match their natural capacity for environmental care and attention.</p>
+                    </div>
+                    
+                    <div class="content-text">
+                        <p>What strikes visitors most about biointegration districts is not their technological sophistication, but how naturally residents seem to live within systems that actively improve environmental conditions. This naturalness emerges from design approaches that prioritize community wisdom over technical efficiency, creating infrastructure that serves human flourishing rather than requiring human adaptation to technological limitations.</p>
+
+                        <p>The intelligence that emerges when communities have tools that match their care produces innovations no individual district could develop alone. Fungal networks that power sake breweries in Kyoto inspire biomaterial processing approaches in Melbourne. Atmospheric water generation techniques developed in Nairobi influence thermal management strategies in Madrid. Knowledge flows through relationships between climate gardeners who understand both community needs and technological possibilities.</p>
+
+                        <p>This network of biointegration districts demonstrates that environmental restoration and community wellbeing enhance each other when systems are designed with sufficient attention to local wisdom and ecological relationships. When neighborhoods can express their environmental intelligence through responsive infrastructure, they create surplus healing capacity that benefits broader regions and contributes to global climate resilience through cumulative local care.</p>
+                    </div>
+
+                    <div class="wisdom-quote">
+                        <div class="quote-text">"Resilience grows through communities that have tools gentle enough not to interrupt their natural intelligence about how to care for their place."</div>
+                        <div class="quote-attribution">— Climate Gardening Principles</div>
+                    </div>
+
+                    <div class="content-text">
+                        <p>The transformation you experience when walking through these districts reflects this integration of community wisdom with technological capability. Air feels cleaner not just because of mechanical filtration, but because atmospheric processing systems coordinate with plant cycles and weather patterns that residents notice and respond to intuitively. Buildings feel more comfortable not just because of thermal regulation, but because environmental control systems adjust to seasonal rhythms and daily activities that communities naturally organize around.</p>
+
+                        <p>Understanding biointegration districts requires recognizing that the most advanced aspect of their technology is its invisibility within community life. Systems work well precisely because they amplify patterns of care and attention that neighborhoods already practice, creating technological expression for environmental intelligence that communities have always possessed but lacked adequate tools to express at the scale that contemporary environmental challenges require.</p>
                     </div>
                 </div>
             </section>
 
             <!-- Call to Action -->
-            <section class="cta-section">
-                <div class="cta-content">
-                    <h2 class="cta-title">Your neighborhood is ready when you are</h2>
-                    <p class="cta-text">Climate stewardship isn't about perfect knowledge or unlimited resources. It's about consistent attention to what your community already knows about how it wants to flourish.</p>
+            <section class="about-section" style="background: linear-gradient(135deg, var(--primary-color) 0%, #0f2a24 100%); color: white;">
+                <div class="section-content">
+                    <div class="section-header">
+                        <h2 class="section-title" style="color: white;">Your community's wisdom, amplified</h2>
+                        <p class="section-intro" style="color: rgba(255,255,255,0.9);">Climate gardening begins with recognizing the environmental intelligence your neighborhood already possesses and finding ways to support its expression through appropriate technological tools.</p>
+                    </div>
                     
-                    <div class="cta-actions">
-                        <a href="contributors.html" class="cta-button">Meet the stewards</a>
-                        <a href="index.html" class="cta-button">Explore districts</a>
+                    <div class="content-text" style="color: rgba(255,255,255,0.9);">
+                        <p>Every community understands something essential about how it wants to breathe, how water moves through its landscape, where people naturally gather during different seasons, and what makes children and elderly residents feel comfortable and safe. This knowledge exists in the careful attention that residents pay to their environment through daily routines, conversations about comfort and wellbeing, and shared observations about how their place changes throughout the year.</p>
+
+                        <p>Biointegration infrastructure provides ways for communities to act on this collective environmental intelligence at the scale necessary for meaningful climate resilience. The districts featured on Heated.city demonstrate how this integration functions when technology serves community wisdom rather than replacing it, creating neighborhoods where environmental restoration and human flourishing enhance each other through attentive, responsive design.</p>
+                    </div>
+
+                    <div style="text-align: center; margin-top: 48px;">
+                        <a href="#" style="display: inline-block; padding: 16px 32px; background: rgba(127, 176, 105, 0.2); border: 1px solid rgba(127, 176, 105, 0.4); border-radius: var(--radius-medium); color: white; font-size: 16px; font-weight: 600; transition: all 0.3s ease; backdrop-filter: blur(10px); margin-right: 16px;">Explore districts</a>
+                        <a href="#" style="display: inline-block; padding: 16px 32px; background: rgba(127, 176, 105, 0.2); border: 1px solid rgba(127, 176, 105, 0.4); border-radius: var(--radius-medium); color: white; font-size: 16px; font-weight: 600; transition: all 0.3s ease; backdrop-filter: blur(10px);">Meet climate gardeners</a>
                     </div>
                 </div>
             </section>
@@ -797,24 +714,20 @@
             <!-- Footer -->
             <footer class="footer">
                 <div class="footer-content">
-                    <p>Global Climate Stewardship Network — Regenerative districts stewarded by local guardians</p>
+                    <p>Global biointegration network — stewarded by communities that breathe well together</p>
                 </div>
             </footer>
         </main>
     </div>
 
     <script>
-        /* ============================
-           Interactive Functionality (Consistent with index)
-           ============================ */
-        
         // Mobile sidebar toggle
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('open');
         }
 
-        // Close sidebar when clicking outside on mobile
+        // Close sidebar when clicking outside
         document.addEventListener('click', function(event) {
             const sidebar = document.getElementById('sidebar');
             const menuToggle = document.querySelector('.menu-toggle');
@@ -838,45 +751,10 @@
                         block: 'start'
                     });
                     
-                    // Close sidebar on mobile after navigation
                     if (window.innerWidth <= 768) {
                         document.getElementById('sidebar').classList.remove('open');
                     }
                 }
-            });
-        });
-
-        // Enhanced scroll effects for about page
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            
-            // Subtle parallax for hero content
-            const heroContent = document.querySelector('.about-hero-content');
-            if (heroContent && scrolled < window.innerHeight) {
-                heroContent.style.transform = `translateY(${scrolled * 0.2}px)`;
-            }
-            
-            // Reveal animations for approach items
-            const approachItems = document.querySelectorAll('.approach-item');
-            approachItems.forEach(item => {
-                const itemTop = item.offsetTop;
-                const itemHeight = item.offsetHeight;
-                const windowHeight = window.innerHeight;
-                
-                if (scrolled > itemTop - windowHeight + itemHeight * 0.3) {
-                    item.style.opacity = '1';
-                    item.style.transform = 'translateY(0)';
-                }
-            });
-        });
-
-        // Initialize approach items with animation-ready state
-        document.addEventListener('DOMContentLoaded', () => {
-            const approachItems = document.querySelectorAll('.approach-item');
-            approachItems.forEach(item => {
-                item.style.opacity = '0';
-                item.style.transform = 'translateY(20px)';
-                item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             });
         });
     </script>
