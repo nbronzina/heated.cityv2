@@ -6,7 +6,7 @@
     <meta name="description" content="Walk through Kyoto's biointegration zone where bamboo groves predict weather, sake breweries power themselves with fungal networks, and traditional crafts grow from living materials.">
     <meta name="keywords" content="Kyoto biointegration, regenerative districts, climate gardening, traditional innovation">
     <meta name="author" content="Heated.city">
-    <title>Kyoto | Heated.city</title>
+    <title>Kyoto Biointegration Zone | Heated.city</title>
     
     <!-- Google Fonts for modern typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -693,27 +693,27 @@
                 <div class="nav-section">
                     <div class="nav-title">Active Districts</div>
                     <a href="kyoto.html" class="nav-link active">
-                        Kyoto
+                        Kyoto Biointegration Zone
                         <span class="project-count">6</span>
                     </a>
                     <a href="#madrid" class="nav-link">
-                        Madrid
+                        Madrid Climate Adaptation Hub
                         <span class="project-count">18</span>
                     </a>
                     <a href="#melbourne" class="nav-link">
-                        Melbourne
+                        Melbourne Circular District
                         <span class="project-count">15</span>
                     </a>
                     <a href="#buenos-aires" class="nav-link">
-                        Buenos Aires
+                        Buenos Aires Vertical Farms
                         <span class="project-count">22</span>
                     </a>
                     <a href="#nairobi" class="nav-link">
-                        Nairobi
+                        Nairobi Water Commons
                         <span class="project-count">9</span>
                     </a>
                     <a href="#new-delhi" class="nav-link">
-                        New Delhi
+                        Delhi Air Restoration Grid
                         <span class="project-count">16</span>
                     </a>
                 </div>
@@ -729,7 +729,7 @@
                         <span>●</span>
                         Active Biointegration Zone
                     </div>
-                    <h1>Kyoto</h1>
+                    <h1>Kyoto Biointegration Zone</h1>
                     <p class="kyoto-hero-subtitle">Walk through neighborhoods where morning routines include checking rainwater pool colors, where street lighting helps you time your umbrella-carrying, and where local breweries power your evening showers. These aren't tomorrow's innovations—they're Tuesday's mundane conveniences in a district where biotechnology solved everyday problems so well that people forgot it was biotechnology.</p>
                     <div class="gardener-intro">
                         Climate gardening guided by Himari Satō
@@ -743,7 +743,7 @@
                 <div class="map-section">
                     <div class="map-header">
                         <h2 class="map-title">District Infrastructure Map</h2>
-                        <p class="map-description">Six interconnected facilities that residents use for daily conveniences: papermaking workshops, weather-responsive lighting, community gardens, walking trails, breweries, and waste processing. Click any location to see how it fits into neighborhood routines.</p>
+                        <p class="map-description">Six interconnected facilities that residents use for daily conveniences—papermaking workshops, weather-responsive lighting, community gardens, walking trails, breweries, and waste processing. Click any location to see how it fits into neighborhood routines.</p>
                     </div>
                     <div id="map" aria-label="Kyoto biointegration zone infrastructure map"></div>
                 </div>
@@ -911,25 +911,90 @@
             }
         });
 
-        // Project description toggle functionality with clear controls
+        // Enhanced project description toggle functionality with diagnostic capabilities
         function toggleDescription(button) {
-            const card = button.closest('.project-card');
-            const description = card.querySelector('.project-description');
-            const isCollapsed = description.classList.contains('collapsed');
+            // Add diagnostic logging to verify function is being called
+            console.log('Toggle function called for button:', button);
             
-            if (isCollapsed) {
-                // Expand the description
-                description.classList.remove('collapsed');
-                description.classList.add('expanded');
-                button.textContent = 'Menos info';
-                button.style.background = 'var(--text-medium)'; // Darker color when expanded
-            } else {
-                // Collapse the description
-                description.classList.remove('expanded');
-                description.classList.add('collapsed');
-                button.textContent = 'Leer más';
-                button.style.background = 'var(--accent-color)'; // Original color when collapsed
+            try {
+                const card = button.closest('.project-card');
+                console.log('Found card:', card);
+                
+                if (!card) {
+                    console.error('Could not find parent project card');
+                    return;
+                }
+                
+                const description = card.querySelector('.project-description');
+                console.log('Found description:', description);
+                
+                if (!description) {
+                    console.error('Could not find project description element');
+                    return;
+                }
+                
+                const isCollapsed = description.classList.contains('collapsed');
+                console.log('Current state - collapsed:', isCollapsed);
+                
+                if (isCollapsed) {
+                    // Expand the description
+                    description.classList.remove('collapsed');
+                    description.classList.add('expanded');
+                    button.textContent = 'Menos info';
+                    button.style.background = 'var(--text-medium)';
+                    console.log('Expanded description');
+                } else {
+                    // Collapse the description
+                    description.classList.remove('expanded');
+                    description.classList.add('collapsed');
+                    button.textContent = 'Leer más';
+                    button.style.background = 'var(--accent-color)';
+                    console.log('Collapsed description');
+                }
+                
+                // Force a reflow to ensure CSS changes are applied
+                description.offsetHeight;
+                
+            } catch (error) {
+                console.error('Error in toggleDescription function:', error);
             }
+        }
+
+        // Alternative implementation using event listeners instead of inline onclick
+        function initializeDescriptionToggles() {
+            console.log('Initializing description toggles...');
+            
+            // Find all project action buttons
+            const actionButtons = document.querySelectorAll('.project-action');
+            console.log('Found action buttons:', actionButtons.length);
+            
+            actionButtons.forEach((button, index) => {
+                console.log(`Setting up button ${index + 1}:`, button);
+                
+                // Remove any existing onclick handlers
+                button.removeAttribute('onclick');
+                
+                // Add new event listener
+                button.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    console.log('Button clicked via event listener:', this);
+                    toggleDescription(this);
+                });
+            });
+        }
+
+        // Initialize everything when the DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing toggles...');
+            initializeDescriptionToggles();
+        });
+
+        // Also try to initialize if DOM is already loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeDescriptionToggles);
+        } else {
+            console.log('DOM already loaded, initializing immediately...');
+            initializeDescriptionToggles();
         }
 
         // Enhanced Map Initialization
