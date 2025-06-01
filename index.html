@@ -119,6 +119,17 @@
             margin-bottom: 8px;
         }
 
+        /* Catch phrase styling - positioned for conceptual anchoring */
+        .catch-phrase {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--care-accent);
+            font-style: italic;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+
         .tagline {
             font-size: 15px;
             color: var(--text-medium);
@@ -564,6 +575,173 @@
         }
 
         /* ============================
+           Participation Section - Call to Action for Care Coordination
+           ============================ */
+        .participation-section {
+            padding: 100px 64px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #0f2a24 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .participation-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(199, 149, 109, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(127, 176, 105, 0.1) 0%, transparent 50%);
+            opacity: 0.6;
+        }
+
+        .participation-content {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .participation-title {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .participation-subtitle {
+            font-size: 20px;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 64px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .participation-paths {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-bottom: 64px;
+        }
+
+        .participation-path {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-large);
+            padding: 40px 32px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .participation-path:hover {
+            transform: translateY(-4px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .path-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--care-accent) 0%, var(--accent-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .path-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .path-description {
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 24px;
+        }
+
+        .path-action {
+            display: inline-flex;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--care-accent);
+            background: rgba(199, 149, 109, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid rgba(199, 149, 109, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .path-action:hover {
+            background: rgba(199, 149, 109, 0.3);
+            transform: translateX(4px);
+        }
+
+        .path-action::after {
+            content: '→';
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .path-action:hover::after {
+            transform: translateX(4px);
+        }
+
+        .network-growth {
+            background: rgba(127, 176, 105, 0.1);
+            border-radius: var(--radius-medium);
+            padding: 32px;
+            border: 1px solid rgba(127, 176, 105, 0.2);
+        }
+
+        .growth-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-bottom: 24px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--accent-color);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+
+        .growth-message {
+            font-size: 16px;
+            line-height: 1.6;
+            opacity: 0.9;
+            text-align: center;
+        }
+
+        /* ============================
            Footer
            ============================ */
         .footer {
@@ -678,6 +856,25 @@
                 grid-template-columns: 1fr;
                 gap: 32px;
             }
+
+            /* Mobile adjustments for participation section */
+            .participation-section {
+                padding: 64px 24px;
+            }
+            
+            .participation-title {
+                font-size: 32px;
+            }
+            
+            .participation-paths {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .growth-stats {
+                flex-direction: column;
+                gap: 24px;
+            }
         }
 
         /* Hidden by default on desktop */
@@ -700,29 +897,31 @@
             <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
         </header>
 
-        <!-- Sidebar Navigation -->
+        <!-- Sidebar Navigation - Optimized flow from concrete to abstract -->
         <nav class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="logo">Heated.city</div>
-                <!-- Tagline integrando la ciudad del cuidado con diseño regenerativo -->
-                <div class="tagline">Cities where caring for place and caring for people became the same daily practice</div>
-                <!-- Indicator mostrando redes de cuidado regenerativo establecidas -->
-                <div class="care-indicator">Care & Climate Network</div>
+                <!-- Catch phrase as the primary conceptual statement -->
+                <div class="catch-phrase">Where caring became infrastructure</div>
+                <!-- Indicator mostrando los archivos fundacionales -->
+                <div class="care-indicator">Foundational Archives</div>
             </div>
             
             <div class="sidebar-nav">
-                <!-- Primary navigation -->
+                <!-- Primary navigation - reordered for optimal learning progression -->
                 <div class="nav-section">
                     <div class="nav-title">Navigate</div>
+                    <!-- First: Concrete places (tangible experience) -->
                     <a href="#districts" class="nav-link active">Caring Districts</a>
-                    <a href="about.html" class="nav-link">About</a>
-                    <!-- Link actualizado reflejando rol de coordinación del cuidado -->
+                    <!-- Second: People who made it work (human element) -->
                     <a href="contributors.html" class="nav-link">Care Coordinators</a>
+                    <!-- Third: Abstract concepts and theory (deeper understanding) -->
+                    <a href="about.html" class="nav-link">About</a>
                 </div>
                 
-                <!-- Districts section representando barrios de cuidado regenerativo -->
+                <!-- Districts section with clear foundational status -->
                 <div class="nav-section">
-                    <div class="nav-title">Caring Neighborhoods</div>
+                    <div class="nav-title">Foundational Districts</div>
                     <a href="cities/kyoto.html" class="nav-link">
                         Kyoto
                         <span class="project-count">6</span>
@@ -825,9 +1024,9 @@
             <section class="content-section" id="districts">
                 <div class="section-header">
                     <!-- Title enfatizando el cuidado en la proximidad -->
-                    <h2 class="section-title">Six neighborhoods where care coordinators learned to listen</h2>
-                    <!-- Subtitle describiendo el patrón bidireccional -->
-                    <p class="section-subtitle">Each district developed its character through years of observation and adjustment, as care coordinators watched how families used spaces and adapted systems to support rather than interrupt community rhythms</p>
+                    <h2 class="section-title">The six foundational districts where care coordination began</h2>
+                    <!-- Subtitle describiendo el contexto histórico y patrón bidireccional -->
+                    <p class="section-subtitle">Between 2028 and 2030, these pioneering neighborhoods developed the observation and adjustment protocols that established care coordination as a practice. Each district evolved through years of experimentation as coordinators learned to watch how families used spaces and adapt systems to support rather than interrupt community rhythms</p>
                 </div>
                 
                 <div class="cities-grid">
@@ -967,11 +1166,60 @@
                 </div>
             </section>
 
+            <!-- Participation Section - Call to Action for Care Coordination -->
+            <section class="participation-section">
+                <div class="participation-content">
+                    <h2 class="participation-title">Growing the care coordination network</h2>
+                    <p class="participation-subtitle">Care coordination began with six foundational districts developed between 2028-2030, where pioneering coordinators established the observation and adjustment protocols now practiced globally. Whether your neighborhood already shows signs of natural care patterns or you're interested in developing coordination skills, there are pathways to join this expanding practice that has grown to 47 active districts.</p>
+                    
+                    <div class="participation-paths">
+                        <div class="participation-path">
+                            <div class="path-icon">1</div>
+                            <h3 class="path-title">Apply as Care Coordinator</h3>
+                            <p class="path-description">Existing neighborhoods seeking care coordinators prioritize candidates with community organizing experience, environmental systems knowledge, or social work backgrounds. Apprenticeship programs pair new coordinators with experienced practitioners.</p>
+                            <div class="path-action">Submit coordinator application</div>
+                        </div>
+                        
+                        <div class="participation-path">
+                            <div class="path-icon">2</div>
+                            <h3 class="path-title">Nominate Your Neighborhood</h3>
+                            <p class="path-description">Communities ready for care coordination typically show existing patterns of mutual support, environmental awareness, and willingness to experiment with shared systems. Assessment includes infrastructure readiness and community social dynamics.</p>
+                            <div class="path-action">Nominate your area</div>
+                        </div>
+                        
+                        <div class="participation-path">
+                            <div class="path-icon">3</div>
+                            <h3 class="path-title">Learn Coordination Methods</h3>
+                            <p class="path-description">Online workshops and site visits provide introduction to observation techniques, community facilitation skills, and technical system coordination. Many coordinators begin through volunteer assistance with existing districts.</p>
+                            <div class="path-action">Explore learning opportunities</div>
+                        </div>
+                    </div>
+                    
+                    <div class="network-growth">
+                        <div class="growth-stats">
+                            <div class="stat">
+                                <div class="stat-number">47</div>
+                                <div class="stat-label">Active Districts</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">134</div>
+                                <div class="stat-label">Certified Coordinators</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">23</div>
+                                <div class="stat-label">Countries</div>
+                            </div>
+                        </div>
+                        <p class="growth-message">The care coordination network expanded from six foundational districts to 47 active communities through knowledge transfer and coordinator training programs. New districts emerge when local conditions support responsive environmental infrastructure and experienced coordinators can provide apprenticeship guidance, ensuring that community-led growth maintains the observation and adjustment protocols developed by the pioneering neighborhoods.</p>
+                    </div>
+                </div>
+            </section>
+
             <!-- Footer - Invitación a explorar comprensión más profunda -->
             <footer class="footer">
                 <div class="footer-content">
-                    <!-- Mensaje invitando exploración de capas más profundas -->
-                    <p>Six neighborhoods where care coordinators learned that the best infrastructure adjustments follow community wisdom rather than technical optimization. <a href="about.html" style="color: var(--primary-color); font-weight: 600;">Understand how care coordination actually works</a> or <a href="contributors.html" style="color: var(--primary-color); font-weight: 600;">meet the coordinators who developed these responsive approaches</a>.</p>
+                    <!-- Mensaje reflejando el contexto fundacional y la expansión posterior -->
+                    <p>The six foundational districts that pioneered care coordination between 2028-2030, establishing the observation and adjustment protocols now practiced by 47 active communities worldwide. <a href="about.html" style="color: var(--primary-color); font-weight: 600;">Understand how foundational care coordination protocols work</a> or <a href="contributors.html" style="color: var(--primary-color); font-weight: 600;">meet the pioneering coordinators who developed these responsive approaches</a>.</p>
                     <!-- Atribución Design Fiction -->
                     <p style="margin-top: 24px; font-size: 14px; color: var(--text-light); font-style: italic;">A design fiction work by <a href="https://www.heated.studio/" style="color: var(--care-accent); font-weight: 600; text-decoration: none;">heated.studio</a></p>
                 </div>
