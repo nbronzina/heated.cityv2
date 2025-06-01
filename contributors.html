@@ -20,14 +20,16 @@
             --primary-color: #1a3d35;
             --accent-color: #7fb069;
             --secondary-accent: #d4af37;
-            --care-accent: #c7956d; /* Color para temas de cuidado */
+            --care-accent: #c7956d; /* Color for care themes */
+            --expansion-accent: #8b7bb8; /* New color for second generation */
             --text-dark: #0f1419;
             --text-medium: #4a5568;
             --text-light: #718096;
             --background: #fdfffe;
             --background-soft: #f7fafc;
             --background-warm: #fefcf8;
-            --background-care: #faf9f7; /* Fondo cálido para secciones de cuidado */
+            --background-care: #faf9f7; /* Warm background for care sections */
+            --background-expansion: #f8f7fc; /* Background for second generation */
             --border-light: #e2e8f0;
             --border-medium: #cbd5e0;
             
@@ -287,6 +289,11 @@
             background: var(--background-soft);
         }
 
+        /* Second generation with differentiated styling */
+        .coordinators-section.second-generation {
+            background: var(--background-expansion);
+        }
+
         .section-content {
             max-width: var(--content-max-width);
             margin: 0 auto;
@@ -414,10 +421,21 @@
             font-weight: 500;
         }
 
-        /* Period badge indicating foundational era */
+        /* Period badges - differentiated by generation */
         .foundational-period {
             display: inline-block;
             background: var(--care-accent);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        .expansion-period {
+            display: inline-block;
+            background: var(--expansion-accent);
             color: white;
             padding: 6px 12px;
             border-radius: 16px;
@@ -452,38 +470,9 @@
             border: 1px solid var(--border-light);
         }
 
-        /* Legacy and current influence section */
-        .legacy-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 32px;
-            margin: 48px 0;
-        }
-
-        .legacy-item {
-            background: white;
-            border-radius: var(--radius-medium);
-            padding: 32px;
-            box-shadow: var(--shadow-subtle);
-            border: 1px solid var(--border-light);
-        }
-
-        .legacy-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 16px;
-        }
-
-        .legacy-description {
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--text-medium);
-        }
-
-        /* Network influence visualization */
-        .network-influence {
-            background: linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(199, 149, 109, 0.05) 100%);
+        /* Network growth section - new section for current context */
+        .network-growth {
+            background: linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(139, 123, 184, 0.05) 100%);
             border-radius: var(--radius-large);
             padding: 48px;
             margin: 48px 0;
@@ -491,18 +480,43 @@
             border: 1px solid rgba(127, 176, 105, 0.2);
         }
 
-        .influence-title {
+        .growth-title {
             font-size: 28px;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 24px;
         }
 
-        .influence-description {
+        .growth-stats {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            margin-bottom: 32px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--accent-color);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-medium);
+            font-weight: 500;
+        }
+
+        .growth-description {
             font-size: 18px;
             line-height: 1.6;
             color: var(--text-medium);
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
         }
 
@@ -602,8 +616,8 @@
                 gap: 32px;
             }
 
-            .legacy-grid {
-                grid-template-columns: 1fr;
+            .growth-stats {
+                flex-direction: column;
                 gap: 24px;
             }
 
@@ -643,8 +657,8 @@
                 <div class="logo">Heated.city</div>
                 <!-- Catch phrase maintaining consistency -->
                 <div class="catch-phrase">Where caring became infrastructure</div>
-                <!-- Indicator showing pioneer archives -->
-                <div class="care-indicator">Pioneer Archives</div>
+                <!-- Indicator showing operational archives -->
+                <div class="care-indicator">Operational Archives</div>
             </div>
             
             <div class="sidebar-nav">
@@ -687,161 +701,146 @@
 
         <!-- Main Content Area -->
         <main class="main-content">
-            <!-- Coordinators Hero Section - Foundational pioneers -->
+            <!-- Hero Section -->
             <section class="coordinators-hero">
                 <div class="coordinators-hero-content">
-                    <h1>The pioneers who established care coordination</h1>
-                    <p class="coordinators-hero-subtitle">Between 2028 and 2030, these six coordinators developed the observation and adjustment protocols that transformed how communities integrate environmental stewardship with daily care practices. Their foundational work now guides 134 certified coordinators across 47 active districts worldwide.</p>
+                    <h1>Care coordinators who learned how to watch neighborhoods</h1>
+                    <p class="coordinators-hero-subtitle">Between 2028 and 2030, these practitioners developed observation and adjustment methods that integrate environmental infrastructure with daily community routines. Working with existing building management systems and municipal utilities, they created protocols now used by 134 coordinators across 47 districts worldwide.</p>
                     <div class="pioneering-context">
-                        The foundational period that changed everything
+                        Fifteen years of daily operations
                     </div>
                 </div>
             </section>
 
-            <!-- Understanding the Pioneering Work -->
+            <!-- Foundational Coordinators (2028-2030) -->
             <section class="coordinators-section">
                 <div class="section-content">
                     <div class="section-header">
-                        <h2 class="section-title">How the foundational protocols were developed</h2>
-                        <p class="section-intro">Care coordination emerged through careful experimentation by practitioners who understood both technical environmental systems and the social dynamics of community care. These pioneers developed their expertise through trial and adaptation, establishing protocols that balanced system optimization with community rhythms.</p>
-                    </div>
-                    
-                    <div class="content-text">
-                        <p>The foundational period of 2028-2030 represented a unique moment when environmental technology had advanced enough to enable responsive community infrastructure, while urban communities were actively seeking more integrated approaches to neighborhood life. The six coordinators worked largely independently in their respective districts, developing site-specific approaches that later proved to have remarkable consistency in underlying principles.</p>
-
-                        <p>What distinguished these pioneers was their ability to observe community patterns with extraordinary patience and detail. Rather than implementing predetermined technical solutions, they spent months learning how families moved through spaces, when different generations needed different types of environmental support, and how community coordination naturally emerged around shared resources. This observational foundation became central to all subsequent coordinator training.</p>
-
-                        <p>The protocols they established weren't primarily technical documents, but frameworks for understanding how environmental systems could amplify rather than disrupt existing community care patterns. Each coordinator developed specialized expertise based on their district's specific challenges—thermal regulation in Madrid, atmospheric processing in Kyoto, resource coordination in Melbourne—but their approaches shared fundamental principles about responsive infrastructure and community-led optimization.</p>
-                    </div>
-
-                    <div class="historical-insight">
-                        <div class="insight-quote">"We weren't trying to change how communities cared for each other. We were learning how to make the infrastructure participate in that caring more effectively."</div>
-                        <div class="insight-attribution">— From the 2031 Foundational Protocols Documentation, reflecting shared insights from the pioneer coordinators</div>
-                    </div>
-
-                    <div class="content-text">
-                        <p>The breakthrough came when coordinators realized that optimal environmental performance often emerged from supporting community social patterns rather than pursuing technical efficiency in isolation. Himari's discovery that family arrival patterns could inform atmospheric processing schedules, Ana's insight that intergenerational thermal needs created better cooling strategies, and similar observations from other pioneers established care coordination as a fundamentally social practice that happened to involve sophisticated technology.</p>
-
-                        <p>Documentation from the foundational period reveals an extensive network of informal communication between coordinators, despite their geographic separation. They shared observations, compared approaches, and collectively developed the language and concepts that now define care coordination practice. This collaborative foundation-building created the knowledge base that enables current coordinator training and supports expansion to new districts.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Pioneer Profiles -->
-            <section class="coordinators-section">
-                <div class="section-content">
-                    <div class="section-header">
-                        <h2 class="section-title">The foundational coordinators</h2>
-                        <p class="section-intro">Each pioneer brought unique background expertise and developed specialized approaches based on their district's environmental conditions and community characteristics. Their diverse innovations collectively established the frameworks now practiced across the global care coordination network.</p>
+                        <h2 class="section-title">Foundational operations (2028-2030)</h2>
+                        <p class="section-intro">These practitioners figured out how to coordinate existing heating, cooling, water, and air systems with the rhythms of family life. Their methods evolved through trial and error, working within municipal utility frameworks and building management structures that were already in place.</p>
                     </div>
 
                     <div class="coordinators-grid">
+                        <!-- Himari Satō - UPDATED with Future Mundane approach -->
                         <div class="coordinator-profile">
                             <img src="img/Himari.png" alt="Himari Satō" class="profile-image">
                             <div class="profile-content">
                                 <div class="profile-header">
                                     <h3 class="coordinator-name">Himari Satō</h3>
-                                    <p class="coordinator-role">Atmospheric Systems Pioneer</p>
-                                    <div class="foundational-period">2028-2030 Foundational Period</div>
+                                    <p class="coordinator-role">Building Systems Coordinator</p>
+                                    <div class="foundational-period">2028-2030 Foundation</div>
                                 </div>
-                                <p class="coordinator-description">Himari pioneered the integration of traditional Japanese seasonal observation practices with biointegration system calibration in Kyoto's experimental district. Her breakthrough came through meticulous observation of the Yamamoto family at the Hikari Machiya paper workshop during 2029. Noticing that grandmother, working mother, and eight-year-old consistently arrived fifteen minutes early—with the grandmother sitting by mineral pools for arthritis relief, the child touching water to manage transition anxiety, and the mother using the time for work emails—Himari developed the foundational concept of "soft arrival periods" by subtly warming the pools during pre-session times. This innovation, which created thermal conditions that simultaneously served multiple intergenerational needs, became the template for atmospheric coordination protocols now used in 23 districts. Her collaboration with elderly resident Mrs. Tanaka, who provided traditional insights about seasonal pool conditions, established the Wednesday afternoon community dialogue sessions that became standard coordinator practice for integrating community wisdom with technical optimization. Himari's acoustic-atmospheric integration methods, connecting bamboo grove monitoring with neighborhood atmospheric processing schedules, and her Thursday calibration protocols based on weather forecasts and community feedback, created the foundational frameworks for weather-responsive system optimization used globally.</p>
+                                <p class="coordinator-description">Himari spent eighteen months figuring out how to adjust the timing on the Hikari Machiya workshop's electric pool heaters. The building's HVAC system was standard mid-2020s equipment—nothing fancy, just programmable thermostats connected to municipal grid monitoring. She noticed the Yamamoto family always arrived fifteen minutes early because grandmother Kimiko's arthritis flared up during the walk from the train station. While Kimiko sat by the pools to rest her joints, eight-year-old Sakura would touch the water obsessively, and mother Yuki used those quiet minutes to handle work emails on her phone. The workshop manager kept complaining about electricity costs from running heaters during "empty" periods until Himari showed him utility data proving the building's overall energy use actually decreased when families weren't stressed and rushing. She spent Thursday evenings manually adjusting temperature schedules based on weekly weather forecasts and feedback from Mrs. Tanaka, who lived upstairs and heard everything. The mineral tablets that children feed to the pools are standard calcium and magnesium supplements from the pharmacy—nothing more sophisticated than what aquarium stores sell. When the system occasionally malfunctions during unusual weather, families adapt their schedules just like they do when the train runs late or the pharmacy closes early.</p>
                                 <div class="innovations">
-                                    <span class="innovation-tag">Soft arrival period protocols</span>
-                                    <span class="innovation-tag">Intergenerational thermal coordination</span>
-                                    <span class="innovation-tag">Community-elder wisdom integration</span>
-                                    <span class="innovation-tag">Acoustic-atmospheric integration systems</span>
-                                    <span class="innovation-tag">Wednesday dialogue facilitation methods</span>
-                                    <span class="innovation-tag">Thursday weather-responsive calibration</span>
+                                    <span class="innovation-tag">Electric heater timing protocols</span>
+                                    <span class="innovation-tag">Municipal grid coordination</span>
+                                    <span class="innovation-tag">Standard HVAC integration</span>
+                                    <span class="innovation-tag">Community feedback systems</span>
+                                    <span class="innovation-tag">Manual adjustment procedures</span>
+                                    <span class="innovation-tag">Basic mineral supplementation</span>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Ana García - UPDATED with Future Mundane approach -->
                         <div class="coordinator-profile">
                             <img src="img/Ana2.png" alt="Ana García" class="profile-image">
                             <div class="profile-content">
                                 <div class="profile-header">
                                     <h3 class="coordinator-name">Ana García</h3>
-                                    <p class="coordinator-role">Thermal Regulation Pioneer</p>
-                                    <div class="foundational-period">2028-2030 Foundational Period</div>
+                                    <p class="coordinator-role">Municipal Cooling Systems Manager</p>
+                                    <div class="foundational-period">2028-2030 Foundation</div>
                                 </div>
-                                <p class="coordinator-description">Ana's engineering background in passive cooling design positioned her to pioneer biointegration approaches for extreme heat management in Madrid during the 2029 heat waves that reached 47°C. Her foundational work focused on thermal systems that address intergenerational needs simultaneously, developing adaptive cooling protocols that optimize for elderly comfort while maintaining child-safe play environments. Her heat vulnerability assessment methods and thermal gradient optimization techniques became the foundation for heat adaptation strategies now used in 12 districts with extreme climate conditions. Ana's protocols for coordinating thermal infrastructure with community care schedules revolutionized how districts approach climate adaptation as community support.</p>
+                                <p class="coordinator-description">Ana managed cooling infrastructure for Madrid's District 4 during the 2029 heat emergency when temperatures stayed above 45°C for twelve consecutive days. The city had installed misting stations and cooling centers using standard commercial HVAC units—the same Carrier and Daikin equipment used in shopping malls, just scaled up and hardened for outdoor use. She realized that families weren't using the stations as designed because children needed moderate cooling for active play while elderly residents required deeper thermal relief for health safety. Ana worked with municipal engineers to add programmable zone controls to existing equipment, creating temperature gradients within each station. The concrete benches get warm during morning sun and stay comfortable for sitting, while the misting areas cool to 28°C for children and shade zones maintain 24°C for elderly users. During system maintenance downtime, which happens every few weeks when filters need cleaning or pumps require service, families adjust their daily walking routes just like they do during street construction or bus service changes. The stations smell faintly of chlorine from the water treatment systems and make a low humming sound that children seem to find soothing.</p>
                                 <div class="innovations">
-                                    <span class="innovation-tag">Intergenerational thermal optimization</span>
-                                    <span class="innovation-tag">Heat vulnerability assessment protocols</span>
-                                    <span class="innovation-tag">Adaptive cooling system design</span>
-                                    <span class="innovation-tag">Community heat resilience frameworks</span>
+                                    <span class="innovation-tag">Programmable zone controls</span>
+                                    <span class="innovation-tag">Commercial HVAC adaptation</span>
+                                    <span class="innovation-tag">Municipal infrastructure integration</span>
+                                    <span class="innovation-tag">Temperature gradient management</span>
+                                    <span class="innovation-tag">Routine maintenance coordination</span>
+                                    <span class="innovation-tag">Standard water treatment systems</span>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Callagun Smith -->
                         <div class="coordinator-profile">
                             <img src="img/Calla.png" alt="Callagun Smith" class="profile-image">
                             <div class="profile-content">
                                 <div class="profile-header">
                                     <h3 class="coordinator-name">Callagun Smith</h3>
-                                    <p class="coordinator-role">Soil Networks Integration Pioneer</p>
-                                    <div class="foundational-period">2028-2030 Foundational Period</div>
+                                    <p class="coordinator-role">Soil Networks Integration Coordinator</p>
+                                    <div class="foundational-period">2028-2030 Foundation</div>
                                 </div>
-                                <p class="coordinator-description">Callagun's expertise in soil microbiology and urban ecology enabled pioneering work in mycelium network establishment and watershed integration in Melbourne. During the foundational period, they developed protocols for biointegration that enhance rather than disrupt existing ecological relationships, working closely with indigenous knowledge holders to ensure traditional land management practices informed technological interventions. Their mycelium cultivation techniques and watershed coordination methods established the foundation for soil ecosystem restoration approaches now used in 18 districts. Callagun's protocols for integrating indigenous knowledge with biointegration systems created frameworks that guide coordinator training in culturally responsive environmental stewardship.</p>
+                                <p class="coordinator-description">Callagun worked with Melbourne's Parks Victoria to coordinate soil monitoring using standard pH meters and digital moisture sensors available from agricultural suppliers. Their breakthrough came through recognizing that indigenous plant communities native to the Port Phillip bioregion performed better than introduced species when integrated with contemporary stormwater management infrastructure. Working with Wurundjeri elders, Callagun developed seasonal planting schedules that aligned traditional ecological timing with municipal maintenance cycles. The sensors they use are waterproof models designed for continuous outdoor deployment, the same equipment used by commercial farms and golf courses. Data collection happens through basic tablet computers running standard agricultural monitoring software. During equipment failures, which occur monthly when sensors need battery replacement or calibration, plant monitoring continues through traditional observation methods that Wurundjeri elders maintained alongside the digital systems. The integration works because indigenous plants naturally indicate soil conditions that the sensors measure, creating redundant monitoring that doesn't depend entirely on technology functioning perfectly.</p>
                                 <div class="innovations">
-                                    <span class="innovation-tag">Mycelium network cultivation protocols</span>
-                                    <span class="innovation-tag">Watershed integration systems</span>
-                                    <span class="innovation-tag">Indigenous knowledge integration frameworks</span>
-                                    <span class="innovation-tag">Soil ecosystem restoration methods</span>
+                                    <span class="innovation-tag">Standard pH monitoring equipment</span>
+                                    <span class="innovation-tag">Indigenous plant integration</span>
+                                    <span class="innovation-tag">Municipal maintenance alignment</span>
+                                    <span class="innovation-tag">Traditional observation backup systems</span>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Pablo Sanguinetti -->
                         <div class="coordinator-profile">
                             <img src="img/pablo.png" alt="Pablo Sanguinetti" class="profile-image">
                             <div class="profile-content">
                                 <div class="profile-header">
                                     <h3 class="coordinator-name">Pablo Sanguinetti</h3>
-                                    <p class="coordinator-role">Community Systems Pioneer</p>
-                                    <div class="foundational-period">2028-2030 Foundational Period</div>
+                                    <p class="coordinator-role">Building Management Coordinator</p>
+                                    <div class="foundational-period">2028-2030 Foundation</div>
                                 </div>
-                                <p class="coordinator-description">Pablo's background in urban planning and community organizing proved essential for developing biointegration approaches in Buenos Aires' high-density residential districts. His foundational work established protocols for vertical growing systems and community-scale atmospheric processing that create economic opportunities for residents while strengthening social bonds. During 2029, Pablo pioneered the integration of building maintenance systems with community care coordination, developing frameworks where teenagers earn income through environmental stewardship while learning from elder residents. His vertical community protocols and economic development methods now guide building-scale integration in 15 districts, demonstrating how environmental infrastructure can enhance rather than complicate community economic life.</p>
+                                <p class="coordinator-description">Pablo worked with building superintendents in Buenos Aires to coordinate maintenance schedules with family routines. The buildings use standard elevator control systems and centralized air handling units that most high-rise residential buildings installed during the 2020s energy retrofits. He noticed that sixteen-year-old Diego Martínez consistently skipped his assigned cleaning shifts but always appeared when his grandmother Elena was working in the rooftop greenhouse. Pablo rescheduled Diego's maintenance responsibilities—checking air filter status, documenting temperature readings, cleaning sensor ports—to align with Elena's gardening schedule. Elena teaches Diego which plants indicate humidity problems or air quality issues while he earns 3,000 pesos monthly for data entry and basic system monitoring. The building's management company initially resisted the irregular scheduling until utility bills decreased from better system optimization. When equipment breaks down, which happens monthly with pumps or sensors, families adapt their routines for a few days while parts are ordered from suppliers in Buenos Aires or Montevideo. The greenhouse smells like compost and the air handling equipment makes different sounds depending on outside humidity, which residents learn to interpret over time.</p>
                                 <div class="innovations">
-                                    <span class="innovation-tag">Vertical growing system protocols</span>
-                                    <span class="innovation-tag">Community economic development frameworks</span>
-                                    <span class="innovation-tag">High-density integration methods</span>
-                                    <span class="innovation-tag">Intergenerational economic coordination</span>
+                                    <span class="innovation-tag">Maintenance schedule coordination</span>
+                                    <span class="innovation-tag">Standard elevator control integration</span>
+                                    <span class="innovation-tag">Building management company cooperation</span>
+                                    <span class="innovation-tag">Youth employment through system monitoring</span>
+                                    <span class="innovation-tag">Equipment failure adaptation protocols</span>
+                                    <span class="innovation-tag">Local supplier integration</span>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Kamau Mwangi -->
                         <div class="coordinator-profile">
                             <img src="img/kamau.png" alt="Kamau Mwangi" class="profile-image">
                             <div class="profile-content">
                                 <div class="profile-header">
                                     <h3 class="coordinator-name">Kamau Mwangi</h3>
-                                    <p class="coordinator-role">Water Systems Pioneer</p>
-                                    <div class="foundational-period">2028-2030 Foundational Period</div>
+                                    <p class="coordinator-role">Water Systems Coordinator</p>
+                                    <div class="foundational-period">2028-2030 Foundation</div>
                                 </div>
-                                <p class="coordinator-description">Kamau's expertise in hydrology and community water management enabled pioneering work in atmospheric water generation and integrated water cycle management in Nairobi. His foundational protocols coordinate water systems with community care practices, transforming resource collection from individual household tasks into opportunities for neighborhood coordination and mutual support. During the experimental period, Kamau developed frameworks that integrate traditional water conservation practices with technological systems, ensuring that innovation enhanced rather than replaced community knowledge. His water commons coordination methods and atmospheric generation protocols now guide water system integration in 11 districts, establishing models for resource security that strengthens rather than disrupts community social fabric.</p>
+                                <p class="coordinator-description">Kamau coordinated with Nairobi Water and Sewerage Company to modify collection schedules at standpipes serving the Wanjiku extended family network. The infrastructure was standard municipal water distribution—pressure-regulated standpipes connected to central treatment facilities, with electronic meters and timed flow periods typical of growing city water management. He observed that nine-year-old Grace helped elderly neighbor Mary carry containers during collection times, naturally developing informal support systems where children learned community responsibility while elders received daily assistance. Kamau worked with the water company to extend collection windows from twenty to thirty minutes, adding concrete benches and corrugated metal weather protection at standpipe locations. The longer timing allowed Grace and Mary's assistance routine to include brief social support conversations without feeling rushed. When pumps malfunction or meters require service, which happens weekly somewhere in the system, families coordinate water sharing through traditional cooperation patterns that existed before the technological improvements. The extended collection periods cost approximately KSh 12,000 monthly in additional pumping but reduced complaints to the water company by forty percent.</p>
                                 <div class="innovations">
-                                    <span class="innovation-tag">Atmospheric water generation protocols</span>
-                                    <span class="innovation-tag">Integrated water cycle systems</span>
-                                    <span class="innovation-tag">Traditional conservation integration</span>
-                                    <span class="innovation-tag">Community water commons frameworks</span>
+                                    <span class="innovation-tag">Municipal water company coordination</span>
+                                    <span class="innovation-tag">Extended collection timing</span>
+                                    <span class="innovation-tag">Basic infrastructure improvements</span>
+                                    <span class="innovation-tag">Traditional cooperation integration</span>
+                                    <span class="innovation-tag">Service interruption adaptation</span>
+                                    <span class="innovation-tag">Cost-benefit utility optimization</span>
                                 </div>
                             </div>
                         </div>
 
+                        <!-- Priya Sharma -->
                         <div class="coordinator-profile">
                             <img src="img/PriyaSharma.png" alt="Priya Sharma" class="profile-image">
                             <div class="profile-content">
                                 <div class="profile-header">
                                     <h3 class="coordinator-name">Priya Sharma</h3>
-                                    <p class="coordinator-role">Air Quality Systems Pioneer</p>
-                                    <div class="foundational-period">2028-2030 Foundational Period</div>
+                                    <p class="coordinator-role">Air Quality Management Coordinator</p>
+                                    <div class="foundational-period">2028-2030 Foundation</div>
                                 </div>
-                                <p class="coordinator-description">Priya's background in public health and environmental engineering positioned her to pioneer atmospheric processing systems for high-pollution urban environments in New Delhi. Her foundational work developed biointegration approaches that address ambient air quality improvement while supporting community health practices and intergenerational outdoor activities. During 2029-2030, Priya established protocols for community-scale air filtration that provide immediate health benefits while enabling long-term atmospheric restoration. Her focus on respiratory health protection and vulnerable population care created frameworks that demonstrate how environmental technology can eliminate the choice between economic participation and health protection. Her air quality coordination protocols now guide atmospheric systems in 16 districts with challenging environmental conditions.</p>
+                                <p class="coordinator-description">Priya coordinated air filtration systems in New Delhi using industrial HEPA units and activated carbon filters that the city procurement department purchased from standard environmental equipment suppliers. The technology wasn't revolutionary—mostly the same filtration systems that hospitals and manufacturing facilities have used for decades, just deployed in community spaces with scheduling coordinated around family routines. She observed that the Gupta family brought six-year-old Arjun to the community garden during his respiratory treatment schedule, which aligned with grandfather Rajesh's teaching sessions about traditional plants. The filtration units run quieter during certain atmospheric conditions and produce a barely audible hum that becomes white noise for outdoor conversations. Priya learned to run the system at higher speeds before scheduled activities and dial back during conversation periods, adjusting based on real-time air quality monitors that connect to the same municipal database used by traffic management and construction permitting. Filter replacement happens every six weeks and costs about ₹15,000 monthly for the whole system. During monsoon season, humidity sometimes overwhelms the equipment, requiring families to move activities indoors until maintenance crews can service the units, usually within two days.</p>
                                 <div class="innovations">
-                                    <span class="innovation-tag">High-pollution adaptation systems</span>
-                                    <span class="innovation-tag">Public health integration protocols</span>
-                                    <span class="innovation-tag">Vulnerable population care frameworks</span>
-                                    <span class="innovation-tag">Community respiratory health systems</span>
+                                    <span class="innovation-tag">Industrial HEPA deployment</span>
+                                    <span class="innovation-tag">Municipal procurement integration</span>
+                                    <span class="innovation-tag">Real-time air quality monitoring</span>
+                                    <span class="innovation-tag">Seasonal equipment limitations</span>
+                                    <span class="innovation-tag">Regular filter replacement protocols</span>
+                                    <span class="innovation-tag">Noise level coordination</span>
                                 </div>
                             </div>
                         </div>
@@ -849,39 +848,118 @@
                 </div>
             </section>
 
-            <!-- Legacy and Current Influence -->
-            <section class="coordinators-section">
+            <!-- First Global Expansion (2031-2035) - NEW SECTION -->
+            <section class="coordinators-section second-generation">
                 <div class="section-content">
                     <div class="section-header">
-                        <h2 class="section-title">How pioneering innovations spread globally</h2>
-                        <p class="section-intro">The protocols established by foundational coordinators continue to evolve through implementation in new districts and ongoing collaboration between pioneer coordinators and current practitioners worldwide.</p>
+                        <h2 class="section-title">First global expansion (2031-2035)</h2>
+                        <p class="section-intro">These coordinators adapted foundational protocols to new cultural contexts and geographic challenges, demonstrating how care coordination principles transfer while maintaining responsiveness to local community patterns. Each expansion coordinator worked closely with foundational pioneers to ensure innovations strengthened rather than replaced existing community care practices.</p>
                     </div>
 
-                    <div class="legacy-grid">
-                        <div class="legacy-item">
-                            <h3 class="legacy-title">Coordinator Training Programs</h3>
-                            <p class="legacy-description">All current coordinator training incorporates apprenticeship periods with pioneer coordinators or their direct mentees. Himari, Ana, and other pioneers continue to provide guidance for coordinators implementing their protocols in new environmental and cultural contexts, ensuring foundational principles adapt appropriately to local conditions.</p>
+                    <div class="coordinators-grid">
+                        <!-- Amara Okafor - Cultural Adaptation -->
+                        <div class="coordinator-profile">
+                            <img src="img/amara.png" alt="Amara Okafor" class="profile-image">
+                            <div class="profile-content">
+                                <div class="profile-header">
+                                    <h3 class="coordinator-name">Amara Okafor</h3>
+                                    <p class="coordinator-role">Extended Family Water Coordination</p>
+                                    <div class="expansion-period">2031-2035 Expansion</div>
+                                </div>
+                                <p class="coordinator-description">Amara apprenticed with Kamau Mwangi during 2031 before adapting water coordination protocols for extended family structures in Lagos, Nigeria. Her breakthrough observation involved the Adebayo extended family—twenty-three relatives across three households who shared water collection responsibilities on rotating schedules. Amara noticed that teenage cousins Kemi and Tolu always arrived together during their grandmother Mama Aduke's collection time, not for efficiency but because those moments allowed cross-household coordination about childcare, elder support, and family finances. Working with Lagos Water Corporation, Amara extended collection windows to forty minutes and added concrete benches with corrugated metal roofing at collection points. The longer timing enabled informal family council sessions where employment opportunities, health resources, and community celebrations were coordinated across the extended family network. Other extended families began scheduling their collection times around these coordination sessions, creating neighborhood-wide information networks. This family-systems adaptation of foundational water protocols now guides coordination in eleven West African districts where extended kinship networks form the primary social infrastructure.</p>
+                                <div class="innovations">
+                                    <span class="innovation-tag">Extended family coordination protocols</span>
+                                    <span class="innovation-tag">Cross-household communication windows</span>
+                                    <span class="innovation-tag">Information circulation through resource sharing</span>
+                                    <span class="innovation-tag">Seasonal weather adaptation systems</span>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="legacy-item">
-                            <h3 class="legacy-title">Protocol Documentation Systems</h3>
-                            <p class="legacy-description">The observational methods and adjustment frameworks developed during the foundational period created standardized documentation approaches that enable knowledge transfer between districts. Current coordinators contribute ongoing refinements that pioneers review and incorporate into evolving protocol libraries.</p>
+
+                        <!-- Li Wei - Megacity Adaptation -->
+                        <div class="coordinator-profile">
+                            <img src="img/liwei.png" alt="Li Wei" class="profile-image">
+                            <div class="profile-content">
+                                <div class="profile-header">
+                                    <h3 class="coordinator-name">Li Wei</h3>
+                                    <p class="coordinator-role">High-Density Integration Coordinator</p>
+                                    <div class="expansion-period">2031-2035 Expansion</div>
+                                </div>
+                                <p class="coordinator-description">Li apprenticed with Pablo Sanguinetti in Buenos Aires during 2032 before establishing care coordination in Shanghai's high-rise districts where fifty-story residential buildings house 12,000 people each. Li's key insight emerged while observing the Chen family's daily routine in a building with forty-three floors. Retired professor Chen Weiming had developed an informal practice of riding elevators to different floors between 3-4 PM, checking on elderly neighbors who lived alone and helping families with young children coordinate pickup schedules from building daycare. Li worked with building management to program "vertical community stops"—elevator delays at specific floors during Chen's circulation period that improved air quality and provided comfortable spaces for these informal support conversations. The system coordinates with building management to ensure elevators pause longer at floors where intergenerational support conversations naturally occur, turning necessary vertical transit into community care infrastructure. Li's high-density adaptation protocols guide coordination in seven megacity districts across Asia where building-scale community coordination requires integration with vertical transportation systems.</p>
+                                <div class="innovations">
+                                    <span class="innovation-tag">Vertical transportation coordination</span>
+                                    <span class="innovation-tag">Building-scale intergenerational support</span>
+                                    <span class="innovation-tag">Elevator circuit community integration</span>
+                                    <span class="innovation-tag">High-rise atmospheric processing</span>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="legacy-item">
-                            <h3 class="legacy-title">Cross-District Collaboration Networks</h3>
-                            <p class="legacy-description">Communication patterns established between pioneer coordinators during 2028-2030 evolved into formal collaboration networks that connect current coordinators globally. Monthly coordination calls and annual convenings maintain knowledge circulation that strengthens practice across all 47 active districts.</p>
+
+                        <!-- Sofía Restrepo - Crisis Climate Adaptation -->
+                        <div class="coordinator-profile">
+                            <img src="img/sofia.png" alt="Sofía Restrepo" class="profile-image">
+                            <div class="profile-content">
+                                <div class="profile-header">
+                                    <h3 class="coordinator-name">Sofía Restrepo</h3>
+                                    <p class="coordinator-role">Climate Crisis Coordination</p>
+                                    <div class="expansion-period">2031-2035 Expansion</div>
+                                </div>
+                                <p class="coordinator-description">Sofía collaborated with Ana García during the extreme 2033 heat events in Medellín, Colombia, when temperatures reached 51°C for twelve consecutive days. Her breakthrough came through observing the Herrera family during the crisis period—grandmother Esperanza, working mother Carmen, and twins aged four who required constant hydration monitoring during extreme heat. Sofía noticed that the family's daily cooling station visits had naturally evolved into informal childcare coordination points where mothers shared water monitoring responsibilities and provided mutual support during heat stress. Building on Ana's thermal gradient protocols, Sofía developed "crisis period community clusters" where cooling systems automatically adjusted to create optimal conditions for group childcare during extreme weather while maintaining separate zones for elderly heat relief and adult coordination conversations. These crisis-responsive protocols enable communities to maintain social support structures during climate stress rather than forcing families into isolation, and now guide emergency coordination in fourteen districts across Latin America where climate extremes require community-scale adaptation rather than individual household resilience.</p>
+                                <div class="innovations">
+                                    <span class="innovation-tag">Crisis period community clustering</span>
+                                    <span class="innovation-tag">Extreme heat mutual support systems</span>
+                                    <span class="innovation-tag">Group childcare coordination during climate stress</span>
+                                    <span class="innovation-tag">Emergency-responsive thermal protocols</span>
+                                </div>
+                            </div>
                         </div>
-                        
-                        <div class="legacy-item">
-                            <h3 class="legacy-title">Community Integration Research</h3>
-                            <p class="legacy-description">Pioneer coordinators maintain active research partnerships with universities and policy institutions, contributing field observations and practical insights that inform technological development and community engagement best practices for future district development and coordinator training programs.</p>
+
+                        <!-- Tariq Al-Rashid - Indigenous Knowledge Integration -->
+                        <div class="coordinator-profile">
+                            <img src="img/tariq.png" alt="Tariq Al-Rashid" class="profile-image">
+                            <div class="profile-content">
+                                <div class="profile-header">
+                                    <h3 class="coordinator-name">Tariq Al-Rashid</h3>
+                                    <p class="coordinator-role">Desert Indigenous Systems Coordinator</p>
+                                    <div class="expansion-period">2031-2035 Expansion</div>
+                                </div>
+                                <p class="coordinator-description">Tariq worked with Callagun Smith and indigenous knowledge holders in Melbourne before establishing coordination protocols in Marrakech, Morocco, where Berber traditional water management practices required integration with modern atmospheric processing. His foundational observation involved the Amellal family—grandfather Hassan who maintained traditional timing knowledge about seasonal water patterns, mother Aicha who coordinated household water use with neighborhood families, and son Omar who helped Hassan document traditional observations about soil and atmospheric conditions. Tariq noticed that Hassan's traditional knowledge about optimal water collection timing aligned precisely with atmospheric processing peak efficiency, but the coordination methods required adaptation for mixed traditional-modern community structures. Working closely with Hassan and other traditional knowledge keepers, Tariq developed protocols that used atmospheric processing to amplify rather than replace traditional water wisdom, creating hybrid systems where technological precision enhanced rather than competed with inherited knowledge. These indigenous integration protocols enable communities to strengthen traditional practices through modern technology rather than requiring abandonment of cultural knowledge, and now guide coordination in nine districts across North Africa and the Middle East where traditional ecological knowledge provides irreplaceable environmental intelligence.</p>
+                                <div class="innovations">
+                                    <span class="innovation-tag">Traditional-modern knowledge integration</span>
+                                    <span class="innovation-tag">Intergenerational wisdom preservation</span>
+                                    <span class="innovation-tag">Cultural practice enhancement through technology</span>
+                                    <span class="innovation-tag">Desert water optimization protocols</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </section>
 
-                    <div class="network-influence">
-                        <h3 class="influence-title">Foundational Impact on Global Practice</h3>
-                        <p class="influence-description">The six foundational coordinators established more than technical protocols—they created a practice of environmental stewardship that prioritizes community wisdom and social coordination. Their combined innovations demonstrate that environmental technology achieves optimal performance when it amplifies rather than disrupts existing patterns of community care. This foundational insight continues to guide coordinator training and district development worldwide.</p>
+            <!-- Current Network Growth -->
+            <section class="coordinators-section">
+                <div class="section-content">
+                    <div class="network-growth">
+                        <h3 class="growth-title">Current operational network</h3>
+                        <div class="growth-stats">
+                            <div class="stat">
+                                <div class="stat-number">47</div>
+                                <div class="stat-label">Active Districts</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">134</div>
+                                <div class="stat-label">Certified Coordinators</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">23</div>
+                                <div class="stat-label">Countries</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-number">89%</div>
+                                <div class="stat-label">Equipment Uptime</div>
+                            </div>
+                        </div>
+                        <p class="growth-description">Care coordination expanded through municipal utility partnerships and building management companies that found the approach reduced maintenance calls and energy costs. Current coordinators complete six-month apprenticeships with experienced practitioners and maintain annual certification through demonstrated operational competency. Districts become active when local infrastructure supports responsive scheduling and municipal regulators approve modified operational protocols that integrate social coordination with technical system management.</p>
                     </div>
                 </div>
             </section>
@@ -889,22 +967,21 @@
             <!-- Footer -->
             <footer class="footer">
                 <div class="footer-content">
-                    <p>Six pioneering coordinators whose foundational work between 2028-2030 established the protocols now guiding care coordination in 47 districts worldwide. <a href="index.html" style="color: var(--primary-color); font-weight: 600;">Explore the foundational districts</a> or <a href="about.html" style="color: var(--primary-color); font-weight: 600;">understand how these protocols work in practice</a>.</p>
-                    <!-- Design Fiction attribution -->
-                    <p style="margin-top: 24px; font-size: 14px; color: var(--text-light); font-style: italic;">A design fiction work by <a href="https://www.heated.studio/" style="color: var(--care-accent); font-weight: 600; text-decoration: none;">heated.studio</a></p>
+                    <p>Coordinators working with standard municipal utilities and building management systems to align infrastructure timing with community routines. <a href="index.html" style="color: var(--primary-color); font-weight: 600;">See how this works in districts</a> or <a href="about.html" style="color: var(--primary-color); font-weight: 600;">understand the operational methods</a>.</p>
+                    <p style="margin-top: 24px; font-size: 14px; color: var(--text-light); font-style: italic;">A design fiction by <a href="https://www.heated.studio/" style="color: var(--care-accent); font-weight: 600; text-decoration: none;">heated.studio</a></p>
                 </div>
             </footer>
         </main>
     </div>
 
     <script>
-        // Mobile sidebar toggle
+        // Mobile sidebar toggle functionality
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             sidebar.classList.toggle('open');
         }
 
-        // Close sidebar when clicking outside
+        // Close sidebar when clicking outside on mobile
         document.addEventListener('click', function(event) {
             const sidebar = document.getElementById('sidebar');
             const menuToggle = document.querySelector('.menu-toggle');
