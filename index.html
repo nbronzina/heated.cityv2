@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Neighborhood guides for regenerative urban living, curated by local climate stewards around the world.">
-    <meta name="keywords" content="regenerative cities, urban living, neighborhood guides, climate stewards, biointegrated design">
+    <meta name="description" content="Neighborhood guides for cities that care—where walking distance became caring distance, and where daily routines strengthen both community bonds and environmental health.">
+    <meta name="keywords" content="caring cities, regenerative neighborhoods, community care infrastructure, climate stewardship, biointegrated living">
     <meta name="author" content="Heated.city">
-    <title>Heated.city</title>
+    <title>Heated.city | Cities That Care</title>
     
     <!-- Google Fonts for modern typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,16 +16,18 @@
            Design System Variables
            ============================ */
         :root {
-            /* Color palette inspired by regenerative design */
+            /* Color palette inspired by caring and regenerative design */
             --primary-color: #1a3d35;
             --accent-color: #7fb069;
             --secondary-accent: #d4af37;
+            --care-accent: #c7956d; /* Color para temas de cuidado */
             --text-dark: #0f1419;
             --text-medium: #4a5568;
             --text-light: #718096;
             --background: #fdfffe;
             --background-soft: #f7fafc;
             --background-warm: #fefcf8;
+            --background-care: #faf9f7; /* Fondo cálido para secciones de cuidado */
             --border-light: #e2e8f0;
             --border-medium: #cbd5e0;
             
@@ -70,14 +72,14 @@
         }
 
         /* ============================
-           Layout Structure (OTG-inspired sidebar layout)
+           Layout Structure
            ============================ */
         .app-container {
             display: flex;
             min-height: 100vh;
         }
 
-        /* Sidebar Navigation - Fixed position with stable glass morphism effect */
+        /* Sidebar Navigation */
         .sidebar {
             width: var(--sidebar-width);
             border-right: 1px solid var(--border-light);
@@ -106,7 +108,7 @@
         .sidebar-header {
             padding: 40px 32px 32px;
             border-bottom: 1px solid var(--border-light);
-            background: linear-gradient(135deg, rgba(122, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(122, 176, 105, 0.1) 0%, rgba(199, 149, 109, 0.08) 100%);
         }
 
         .logo {
@@ -124,23 +126,23 @@
             font-weight: 500;
         }
 
-        /* Climate network indicator - subtle animation for "live" feeling */
-        .climate-indicator {
+        /* Care network indicator - concepto integrando cuidado */
+        .care-indicator {
             display: inline-flex;
             align-items: center;
             gap: 6px;
             margin-top: 16px;
             padding: 8px 12px;
-            background: rgba(127, 176, 105, 0.1);
+            background: rgba(199, 149, 109, 0.1);
             border-radius: var(--radius-small);
             font-size: 13px;
-            color: var(--accent-color);
+            color: var(--care-accent);
             font-weight: 600;
         }
 
-        .climate-indicator::before {
+        .care-indicator::before {
             content: '●';
-            color: var(--accent-color);
+            color: var(--care-accent);
             animation: pulse 2s infinite;
         }
 
@@ -182,7 +184,7 @@
         .nav-link:hover,
         .nav-link.active {
             color: var(--primary-color);
-            background: linear-gradient(135deg, rgba(26, 61, 53, 0.04) 0%, rgba(127, 176, 105, 0.04) 100%);
+            background: linear-gradient(135deg, rgba(26, 61, 53, 0.04) 0%, rgba(199, 149, 109, 0.04) 100%);
         }
 
         /* Active state indicator */
@@ -193,7 +195,7 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background: linear-gradient(180deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+            background: linear-gradient(180deg, var(--accent-color) 0%, var(--care-accent) 100%);
         }
 
         .project-count {
@@ -214,7 +216,7 @@
             min-height: 100vh;
         }
 
-        /* Hero Section - APERTURA EXPERIENCIAL: Establishing universal 15-minutes experience + Future Mundane */
+        /* Hero Section - Integración del concepto de ciudad del cuidado */
         .hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, #0f2a24 100%);
             color: white;
@@ -223,7 +225,7 @@
             overflow: hidden;
         }
 
-        /* Subtle pattern overlay for depth */
+        /* Subtle pattern overlay for depth - ahora con elementos de cuidado */
         .hero::before {
             content: '';
             position: absolute;
@@ -233,8 +235,8 @@
             bottom: 0;
             background-image: 
                 radial-gradient(circle at 25% 25%, rgba(127, 176, 105, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="biopattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(127,176,105,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23biopattern)"/></svg>');
+                radial-gradient(circle at 75% 75%, rgba(199, 149, 109, 0.1) 0%, transparent 50%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="carepattern" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(199,149,109,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23carepattern)"/></svg>');
             opacity: 0.6;
         }
 
@@ -244,29 +246,29 @@
             z-index: 2;
         }
 
-        /* Badge establishing these as evolved 15-minutes communities (Future Mundane principle) */
+        /* Badge estableciendo ciudades del cuidado regenerativo */
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(127, 176, 105, 0.2);
+            background: rgba(199, 149, 109, 0.2);
             backdrop-filter: blur(10px);
             padding: 12px 20px;
             border-radius: 32px;
             font-size: 14px;
             font-weight: 600;
             margin-bottom: 32px;
-            border: 1px solid rgba(127, 176, 105, 0.3);
+            border: 1px solid rgba(199, 149, 109, 0.3);
         }
 
-        /* Hero title starting with universal pandemic experience (Moreno's 15-minutes discovery) */
+        /* Hero title conectando con experiencia universal del cuidado en proximidad */
         .hero h1 {
             font-size: 64px;
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 32px;
             letter-spacing: -1.5px;
-            background: linear-gradient(135deg, #ffffff 0%, rgba(127, 176, 105, 0.9) 100%);
+            background: linear-gradient(135deg, #ffffff 0%, rgba(199, 149, 109, 0.9) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -280,7 +282,7 @@
             font-weight: 400;
         }
 
-        /* Metrics reflecting regenerative proximity evolution from 15-minutes city */
+        /* Metrics reflejando la integración de cuidado y proximidad regenerativa */
         .hero-metrics {
             display: flex;
             gap: 64px;
@@ -294,7 +296,7 @@
         .metric-number {
             font-size: 40px;
             font-weight: 800;
-            color: var(--accent-color);
+            color: var(--care-accent);
             line-height: 1;
             margin-bottom: 8px;
         }
@@ -308,7 +310,87 @@
         }
 
         /* ============================
-           Districts Section - Community Experiences Level (Enfoque 3 Level 1)
+           Care Framework Section - Nueva sección explicando el marco conceptual
+           ============================ */
+        .care-framework {
+            padding: 100px 64px;
+            background: var(--background-care);
+        }
+
+        .care-framework-content {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .framework-title {
+            font-size: 42px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 32px;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .framework-subtitle {
+            font-size: 20px;
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 64px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .care-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 64px;
+        }
+
+        .care-principle {
+            background: white;
+            border-radius: var(--radius-large);
+            padding: 40px;
+            box-shadow: var(--shadow-subtle);
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease;
+        }
+
+        .care-principle:hover {
+            transform: translateY(-4px);
+        }
+
+        .principle-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--care-accent) 0%, var(--accent-color) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 24px;
+            font-weight: 800;
+            color: white;
+        }
+
+        .principle-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+        }
+
+        .principle-description {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-medium);
+        }
+
+        /* ============================
+           Districts Section - Experiencias de cuidado comunitario
            ============================ */
         .content-section {
             padding: 120px 64px;
@@ -320,7 +402,7 @@
             text-align: center;
         }
 
-        /* Section title emphasizing lived experience over technical systems */
+        /* Section title enfatizando la experiencia vivida de proximidad del cuidado */
         .section-title {
             font-size: 48px;
             font-weight: 800;
@@ -340,7 +422,7 @@
         }
 
         /* ============================
-           Cities Grid - Community Experience Cards
+           Cities Grid - Tarjetas de experiencia de cuidado comunitario
            ============================ */
         .cities-grid {
             max-width: var(--content-max-width);
@@ -361,13 +443,13 @@
             position: relative;
         }
 
-        /* Gradient border effect on hover */
+        /* Gradient border effect on hover - ahora incluyendo colores de cuidado */
         .city-card::before {
             content: '';
             position: absolute;
             inset: 0;
             padding: 1px;
-            background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent));
+            background: linear-gradient(135deg, var(--accent-color), var(--care-accent));
             border-radius: inherit;
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             mask-composite: subtract;
@@ -410,7 +492,7 @@
             letter-spacing: -0.5px;
         }
 
-        /* Climate gardeners presented as established neighborhood coordinators */
+        /* Care coordinators presentados como facilitadores de cuidado comunitario */
         .city-steward {
             font-size: 15px;
             opacity: 0.9;
@@ -427,7 +509,7 @@
             padding: 32px;
         }
 
-        /* Community experience description - Future Mundane approach to daily life */
+        /* Community care experience description */
         .city-description {
             font-size: 16px;
             color: var(--text-medium);
@@ -436,7 +518,7 @@
             font-weight: 400;
         }
 
-        /* Feature tags describing how community experiences manifest */
+        /* Feature tags describiendo cómo se manifiestan las experiencias de cuidado comunitario */
         .city-features {
             display: flex;
             flex-wrap: wrap;
@@ -445,13 +527,13 @@
         }
 
         .feature-tag {
-            background: linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(199, 149, 109, 0.1) 0%, rgba(127, 176, 105, 0.05) 100%);
             color: var(--primary-color);
             font-size: 13px;
             font-weight: 600;
             padding: 8px 16px;
             border-radius: 24px;
-            border: 1px solid rgba(127, 176, 105, 0.2);
+            border: 1px solid rgba(199, 149, 109, 0.2);
         }
 
         /* Exploration links inviting deeper investigation */
@@ -466,7 +548,7 @@
         }
 
         .explore-link:hover {
-            color: var(--accent-color);
+            color: var(--care-accent);
             transform: translateX(4px);
         }
 
@@ -482,7 +564,7 @@
         }
 
         /* ============================
-           Footer - Invitation to explore deeper layers
+           Footer
            ============================ */
         .footer {
             background: var(--background-soft);
@@ -551,7 +633,7 @@
             }
 
             .menu-toggle:hover {
-                background: rgba(127, 176, 105, 0.1);
+                background: rgba(199, 149, 109, 0.1);
             }
 
             .hero {
@@ -568,6 +650,19 @@
 
             .hero-metrics {
                 flex-direction: column;
+                gap: 32px;
+            }
+
+            .care-framework {
+                padding: 64px 24px;
+            }
+
+            .framework-title {
+                font-size: 32px;
+            }
+
+            .care-principles {
+                grid-template-columns: 1fr;
                 gap: 32px;
             }
 
@@ -599,35 +694,35 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Mobile Header - Shows only on mobile devices -->
+        <!-- Mobile Header -->
         <header class="mobile-header">
             <div class="mobile-logo">Heated.city</div>
             <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
         </header>
 
-        <!-- Sidebar Navigation - Gateway to complete exploration -->
+        <!-- Sidebar Navigation -->
         <nav class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="logo">Heated.city</div>
-                <!-- Tagline establishing architectural communication and regenerative design -->
-                <div class="tagline">Neighborhoods that speak the language of care through their very design</div>
-                <!-- Indicator showing established regenerative proximity networks -->
-                <div class="climate-indicator">Regenerative Proximity Network</div>
+                <!-- Tagline integrando la ciudad del cuidado con diseño regenerativo -->
+                <div class="tagline">Cities where caring for place and caring for people became the same daily practice</div>
+                <!-- Indicator mostrando redes de cuidado regenerativo establecidas -->
+                <div class="care-indicator">Care & Climate Network</div>
             </div>
             
             <div class="sidebar-nav">
-                <!-- Primary navigation - leading to deeper understanding -->
+                <!-- Primary navigation -->
                 <div class="nav-section">
                     <div class="nav-title">Navigate</div>
-                    <a href="#districts" class="nav-link active">Districts</a>
+                    <a href="#districts" class="nav-link active">Caring Districts</a>
                     <a href="about.html" class="nav-link">About</a>
-                    <!-- Link to gardeners page for system translators understanding -->
-                    <a href="contributors.html" class="nav-link">Gardeners</a>
+                    <!-- Link actualizado reflejando rol de coordinación del cuidado -->
+                    <a href="contributors.html" class="nav-link">Care Coordinators</a>
                 </div>
                 
-                <!-- Districts section representing 15-minutes evolved neighborhoods -->
+                <!-- Districts section representando barrios de cuidado regenerativo -->
                 <div class="nav-section">
-                    <div class="nav-title">Walking Cities</div>
+                    <div class="nav-title">Caring Neighborhoods</div>
                     <a href="cities/kyoto.html" class="nav-link">
                         Kyoto
                         <span class="project-count">6</span>
@@ -658,193 +753,227 @@
 
         <!-- Main Content Area -->
         <main class="main-content">
-            <!-- Hero Section - APERTURA EXPERIENCIAL: Universal 15-minutes experience + regenerative evolution -->
+            <!-- Hero Section - Integración de ciudad del cuidado con proximidad regenerativa -->
             <section class="hero">
                 <div class="hero-content">
-                    <!-- Badge establishing these as established regenerative proximity communities -->
+                    <!-- Badge estableciendo ciudades del cuidado regenerativo -->
                     <div class="hero-badge">
                         <span>●</span>
-                        Regenerative Proximity Communities
+                        Cities That Care
                     </div>
-                    <!-- Title connecting with universal pandemic discovery of walkable quality of life -->
-                    <h1>You know that feeling when everything you need is within walking distance</h1>
-                    <!-- Description: concise version that creates curiosity without overwhelming -->
-                    <p>You discovered it during lockdown, or in that neighborhood where life worked better on foot. These six places took that feeling and evolved it into something more profound: cities where proximity doesn't just save time, but improves the air, soil, and community connections. Where the streets themselves seem designed for care.</p>
+                    <!-- Title conectando con experiencia universal de cuidado en proximidad -->
+                    <h1>When caring for your neighborhood means it cares back</h1>
+                    <!-- Description integrando conceptos de Future Mundane aplicado al cuidado -->
+                    <p>You recognize that moment when daily life clicks into place naturally. Where walking your elderly father to his blood pressure check becomes a neighborhood stroll that includes picking up groceries for the young mother next door. Where your teenager's community service hours happen at the building's atmospheric processors, earning them respect from adult neighbors while keeping systems running smoothly. These six places discovered how to weave those caring instincts into environmental infrastructure itself.</p>
                     
-                    <!-- Metrics reflecting regenerative proximity principles -->
+                    <!-- Metrics reflejando la integración de cuidado y proximidad regenerativa -->
                     <div class="hero-metrics">
                         <div class="metric">
-                            <!-- Highlighting the 15-minutes foundation -->
+                            <!-- Destacando los 15 minutos de cuidado -->
                             <div class="metric-number">15</div>
-                            <div class="metric-label">Minutes Walking</div>
+                            <div class="metric-label">Minutes of Care</div>
                         </div>
                         <div class="metric">
-                            <!-- Emphasizing the mundane nature of environmental care -->
-                            <div class="metric-number">Everyday</div>
-                            <div class="metric-label">Environmental Care</div>
+                            <!-- Enfatizando el cuidado mutual como rutina -->
+                            <div class="metric-number">Daily</div>
+                            <div class="metric-label">Mutual Care</div>
                         </div>
                         <div class="metric">
-                            <!-- Indicating established neighborhoods that communicate -->
+                            <!-- Indicando barrios que facilitan el cuidado -->
                             <div class="metric-number">Six</div>
-                            <div class="metric-label">Speaking Neighborhoods</div>
+                            <div class="metric-label">Caring Places</div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Districts Section - COMMUNITY EXPERIENCES: How it feels to live in regenerative proximity -->
+            <!-- Care Framework Section - Explicando el marco conceptual integrado -->
+            <section class="care-framework">
+                <div class="care-framework-content">
+                    <h2 class="framework-title">How neighborhoods learned to hold the work of caring</h2>
+                    <p class="framework-subtitle">When infrastructure stops requiring adaptation and starts amplifying what communities already do naturally—checking on elderly neighbors, coordinating child supervision, sharing resources during difficult times—something remarkable happens. Care work becomes easier rather than harder, and environmental health improves as a natural byproduct.</p>
+                    
+                    <div class="care-principles">
+                        <div class="care-principle">
+                            <div class="principle-icon">1</div>
+                            <h3 class="principle-title">Observation-Led Coordination</h3>
+                            <p class="principle-description">Care coordinators spend time watching how families actually move through spaces, where children naturally gather, when elderly residents need support. Technical adjustments follow social patterns rather than forcing people to adapt to systems.</p>
+                        </div>
+                        
+                        <div class="care-principle">
+                            <div class="principle-icon">2</div>
+                            <h3 class="principle-title">Responsive Environmental Support</h3>
+                            <p class="principle-description">Building systems adjust based on community needs—atmospheric processors running quieter during homework hours, thermal regulation optimizing for intergenerational comfort, lighting schedules that support natural gathering patterns.</p>
+                        </div>
+                        
+                        <div class="care-principle">
+                            <div class="principle-icon">3</div>
+                            <h3 class="principle-title">Economic Coordination Through Care</h3>
+                            <p class="principle-description">Shared environmental systems reduce household costs while creating opportunities for community coordination—building maintenance that teenagers can perform for income, resource sharing that strengthens social bonds.</p>
+                        </div>
+                        
+                        <div class="care-principle">
+                            <div class="principle-icon">4</div>
+                            <h3 class="principle-title">Intergenerational Knowledge Circulation</h3>
+                            <p class="principle-description">Environmental stewardship becomes a practice where different generations contribute different expertise—technical facility from youth, pattern recognition from elders, coordination skills from working-age adults.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Districts Section - Experiencias específicas del patrón bidireccional -->
             <section class="content-section" id="districts">
                 <div class="section-header">
-                    <!-- Title emphasizing felt experience of regenerative proximity -->
-                    <h2 class="section-title">Six neighborhoods where walking distance became caring distance</h2>
-                    <!-- Subtitle connecting 15-minutes evolution with environmental benefits, inviting exploration -->
-                    <p class="section-subtitle">Residents describe what daily life feels like when everything you need is not only walkable, but when walking itself happens through environments that actively improve your health and strengthen community connections</p>
+                    <!-- Title enfatizando el cuidado en la proximidad -->
+                    <h2 class="section-title">Six neighborhoods where care coordinators learned to listen</h2>
+                    <!-- Subtitle describiendo el patrón bidireccional -->
+                    <p class="section-subtitle">Each district developed its character through years of observation and adjustment, as care coordinators watched how families used spaces and adapted systems to support rather than interrupt community rhythms</p>
                 </div>
                 
                 <div class="cities-grid">
-                    <!-- Kyoto - Atmospheric Rhythms Experience (integrating Design Fiction details from kyoto.html) -->
+                    <!-- Kyoto - Patrón bidireccional a través de ritmos atmosféricos -->
                     <article class="city-card">
                         <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
                             <div class="city-overlay">
                                 <h3 class="city-name">Kyoto</h3>
-                                <!-- Himari presented as established neighborhood coordinator -->
-                                <p class="city-steward">Stewarded by Himari Satō</p>
-                                <p class="steward-role">Neighborhood Rhythm Coordinator</p>
+                                <!-- Himari presentado como coordinador de cuidado comunitario -->
+                                <p class="city-steward">Coordinated by Himari Satō</p>
+                                <p class="steward-role">Community Care & Atmospheric Coordinator</p>
                             </div>
                         </div>
                         <div class="city-content">
-                            <!-- Community experience description using Future Mundane + specific details from kyoto.html -->
-                            <p class="city-description">Walking to the community workshop has become the most centering part of my week. The street lighting shifts subtly on days when storms are coming, so I know when to bring an umbrella without checking forecasts. The workshop pools change color based on seasonal conditions, and somehow this visual rhythm has become part of how I track time—not just calendar months, but the deeper patterns of weather and soil that influence everything from paper texture to the timing of community gatherings. My evening shower timing follows the local brewery's fermentation cycles, which means hot water peaks just when I'm returning from evening walks. These aren't inconveniences or constraints; they're rhythms that make daily life feel more connected to place and season than I ever experienced in conventional neighborhoods.</p>
-                            <!-- Feature tags describing community experience patterns -->
+                            <!-- Descripción siguiendo el patrón bidireccional: coordinador → observación → local → personas → ajuste → nueva posibilidad de cuidado -->
+                            <p class="city-description">Himari Satō noticed that the Yamamoto family—grandmother, working mother, and eight-year-old—always arrived fifteen minutes early to the Hikari Machiya paper workshop. The grandmother would sit quietly by the mineral pools while the daughter ran straight to touch the water and the mother checked work messages. Himari began subtly warming the pools during those fifteen minutes, which helps the grandmother's arthritis while the thermal changes in water texture calm the child's transition anxiety. The slight vapor that results during this period improves focus for reading emails. Now other families arrive early without planning it, creating an informal "soft arrival" period that Himari observes might work at other community spaces throughout the district.</p>
+                            <!-- Tags describiendo elementos específicos del patrón -->
                             <div class="city-features">
-                                <span class="feature-tag">Weather rhythms in daily planning</span>
-                                <span class="feature-tag">Seasonal patterns as time-keeping</span>
-                                <span class="feature-tag">Community activities linked to natural cycles</span>
-                                <span class="feature-tag">Infrastructure that responds to place</span>
+                                <span class="feature-tag">Early arrival patterns create soft transitions</span>
+                                <span class="feature-tag">Thermal adjustments serve multiple generations</span>
+                                <span class="feature-tag">Observation-based system modifications</span>
+                                <span class="feature-tag">Unplanned community coordination</span>
                             </div>
-                            <a href="cities/kyoto.html" class="explore-link">Walk the neighborhood</a>
+                            <a href="cities/kyoto.html" class="explore-link">Experience atmospheric care rhythms</a>
                         </div>
                     </article>
 
-                    <!-- Madrid - Thermal Comfort Experience -->
+                    <!-- Madrid - Patrón bidireccional a través de coordinación térmica -->
                     <article class="city-card">
                         <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
                             <div class="city-overlay">
                                 <h3 class="city-name">Madrid</h3>
-                                <p class="city-steward">Stewarded by Ana García</p>
-                                <p class="steward-role">Thermal Comfort Coordinator</p>
+                                <p class="city-steward">Coordinated by Ana García</p>
+                                <p class="steward-role">Thermal Care & Community Coordinator</p>
                             </div>
                         </div>
                         <div class="city-content">
-                            <!-- Experience emphasizing thermal comfort within walking distance -->
-                            <p class="city-description">Even during 47°C heat waves, running errands feels manageable because you learn which streets stay cool, which building entrances provide reliable relief, and when the plaza fountains run at their most refreshing. What started as neighborhood word-of-mouth about heat management has become as routine as knowing which metro lines run on time. My teenage daughter walks to school along paths that maintain comfortable temperatures, while my elderly mother has her preferred benches and covered walkways that she can depend on during afternoon visits. The neighborhood holds its thermal comfort so consistently that planning summer activities feels natural rather than defensive against the climate. You don't think about cooling technology; you simply know that some corners will feel better than others, and the built environment communicates this information clearly.</p>
+                            <!-- Descripción del patrón bidireccional: Ana observando patrones familiares específicos -->
+                            <p class="city-description">Ana García observed that during 45°C heat waves, the Serrano family's daily routine included stopping for ten minutes at the Plaza Cooling Station while walking elderly grandfather Luis to his pharmacy appointment. Luis needed the thermal relief, three-year-old Carmen needed playground time, and working mother Isabel used those minutes to coordinate with other parents about pickup schedules. Ana adjusted the station's thermal optimization to create a gradient of cooling intensities—deeper relief for seniors, moderate cooling where toddlers play, and comfortable temperatures for standing conversations. Other families began timing errands around these coordinated stops, creating natural intergenerational support networks during climate stress.</p>
                             <div class="city-features">
-                                <span class="feature-tag">Confident planning during heat waves</span>
-                                <span class="feature-tag">Intergenerational thermal comfort</span>
-                                <span class="feature-tag">Infrastructure knowledge as neighborhood wisdom</span>
-                                <span class="feature-tag">Natural adaptation to climate patterns</span>
+                                <span class="feature-tag">Thermal gradients for different age needs</span>
+                                <span class="feature-tag">Ten-minute routine coordination windows</span>
+                                <span class="feature-tag">Climate stress as community opportunity</span>
+                                <span class="feature-tag">Cross-family errand timing</span>
                             </div>
-                            <a href="#madrid" class="explore-link">Walk the neighborhood</a>
+                            <a href="#madrid" class="explore-link">Experience thermal care networks</a>
                         </div>
                     </article>
 
-                    <!-- Melbourne - Resource Rhythms Experience -->
+                    <!-- Melbourne - Patrón bidireccional a través de recursos del edificio -->
                     <article class="city-card">
                         <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
                             <div class="city-overlay">
                                 <h3 class="city-name">Melbourne</h3>
-                                <p class="city-steward">Stewarded by Callagun Smith</p>
-                                <p class="steward-role">Resource Flow Coordinator</p>
+                                <p class="city-steward">Coordinated by Callagun Smith</p>
+                                <p class="steward-role">Resource Care & Community Coordinator</p>
                             </div>
                         </div>
                         <div class="city-content">
-                            <!-- Experience emphasizing community coordination around resource cycles -->
-                            <p class="city-description">Our building operates on weekly rhythms that have become as predictable as garbage collection days. Laundry runs most efficiently on Tuesdays when heat recovery peaks, hot water is abundant Thursday mornings when community composting generates extra warmth, and fresh herbs are ready for pickup Saturdays at rooftop growing stations. These cycles developed gradually as residents learned to time their routines around resource flows, creating informal coordination that reduces both costs and environmental impact. The community kitchen operates based on seasonal growing cycles and resident schedules, resulting in shared meals that use building-grown ingredients. Managing household tasks around these rhythms feels more like participating in a community metabolism than following technical specifications.</p>
+                            <!-- Descripción del patrón bidireccional específico para Melbourne -->
+                            <p class="city-description">Callagun Smith noticed that the Chen-Williams household used the building's laundry facilities every Tuesday at 2 PM when optimal energy generation coincided with their toddler's nap time. Meanwhile, elderly residents from floors seven through nine gathered in the community kitchen during the same energy peak, preparing shared meals with building-grown herbs. Callagun coordinated these overlapping resource needs by adjusting the building's atmospheric processing to create quieter operation during nap hours while optimizing kitchen ventilation for cooking. This created a natural rhythm where young parents have reliable quiet time while older residents coordinate weekly meal preparation, with both activities benefiting from peak energy efficiency.</p>
                             <div class="city-features">
-                                <span class="feature-tag">Weekly household rhythm coordination</span>
-                                <span class="feature-tag">Reduced costs through resource timing</span>
-                                <span class="feature-tag">Community meals with local ingredients</span>
-                                <span class="feature-tag">Participation in building metabolism</span>
+                                <span class="feature-tag">Toddler nap coordination with energy peaks</span>
+                                <span class="feature-tag">Elder meal preparation during optimal hours</span>
+                                <span class="feature-tag">Quiet atmosphere processing adjustments</span>
+                                <span class="feature-tag">Cross-generational resource timing</span>
                             </div>
-                            <a href="#melbourne" class="explore-link">Walk the neighborhood</a>
+                            <a href="#melbourne" class="explore-link">Experience resource care rhythms</a>
                         </div>
                     </article>
 
-                    <!-- Buenos Aires - Vertical Community Experience -->
+                    <!-- Buenos Aires - Patrón bidireccional vertical comunitario -->
                     <article class="city-card">
                         <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1589909202802-8f4aadce1849?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
                             <div class="city-overlay">
                                 <h3 class="city-name">Buenos Aires</h3>
-                                <p class="city-steward">Stewarded by Pablo Sanguinetti</p>
-                                <p class="steward-role">Vertical Community Coordinator</p>
+                                <p class="city-steward">Coordinated by Pablo Sanguinetti</p>
+                                <p class="steward-role">Vertical Care & Community Coordinator</p>
                             </div>
                         </div>
                         <div class="city-content">
-                            <!-- Experience emphasizing vertical community as building amenity -->
-                            <p class="city-description">Living in vertical community feels as natural as having access to a building gym or laundry facility. Families contribute growing shifts that fit their schedules, spending a few hours monthly tending shared gardens in exchange for fresh vegetables that supplement grocery shopping. The community kitchen coordinates meals using building-grown ingredients, and children learn plant care through building maintenance rather than specialized agricultural education. Building association fees decreased because integrated growing systems reduce grocery costs while providing social spaces where neighbors naturally coordinate childcare, schedule sharing, and resource exchange. The vertical ecosystem operates through collective management that strengthens social connections while providing economic and environmental benefits that residents experience as enhanced quality of life.</p>
+                            <!-- Descripción del patrón bidireccional en comunidad vertical -->
+                            <p class="city-description">Pablo Sanguinetti observed that sixteen-year-old Diego Martinez had been skipping his assigned building maintenance shifts but consistently appeared whenever his grandmother Elena was tending the rooftop seedlings. Pablo restructured the growing systems schedule to align Diego's technical responsibilities with Elena's gardening knowledge, creating partnerships where teenagers learn plant care from elders while contributing income through system optimization. Diego now earns money maintaining atmospheric sensors during optimal growing conditions that Elena identifies through decades of agricultural experience. Other teen-elder partnerships formed naturally, reducing building maintenance costs while providing purposeful intergenerational connection and supplementary family income.</p>
                             <div class="city-features">
-                                <span class="feature-tag">Growing participation as building amenity</span>
-                                <span class="feature-tag">Reduced household expenses</span>
-                                <span class="feature-tag">Children learning through building management</span>
-                                <span class="feature-tag">Social coordination through resource sharing</span>
+                                <span class="feature-tag">Teen-elder partnerships for system maintenance</span>
+                                <span class="feature-tag">Agricultural knowledge meets technical skills</span>
+                                <span class="feature-tag">Family income through building coordination</span>
+                                <span class="feature-tag">Purposeful intergenerational connection</span>
                             </div>
-                            <a href="#buenos-aires" class="explore-link">Walk the neighborhood</a>
+                            <a href="#buenos-aires" class="explore-link">Experience vertical care community</a>
                         </div>
                     </article>
 
-                    <!-- Nairobi - Water Commons Experience -->
+                    <!-- Nairobi - Patrón bidireccional a través de sistemas de agua -->
                     <article class="city-card">
                         <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1611348524140-53c9a25263d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
                             <div class="city-overlay">
                                 <h3 class="city-name">Nairobi</h3>
-                                <p class="city-steward">Stewarded by Kamau Mwangi</p>
-                                <p class="steward-role">Water Commons Coordinator</p>
+                                <p class="city-steward">Coordinated by Kamau Mwangi</p>
+                                <p class="steward-role">Water Care & Community Coordinator</p>
                             </div>
                         </div>
                         <div class="city-content">
-                            <!-- Experience emphasizing water security as social infrastructure -->
-                            <p class="city-description">Water collection became community coordination time rather than individual chore. The atmospheric water generation systems provide reliable supply year-round, and collection points function as natural gathering spaces where neighbors coordinate school pickup schedules, plan weekend activities, and share information about neighborhood events. Morning and evening collection times developed into informal community meetings that strengthen social connections while providing practical coordination opportunities. Families whose children grew up with reliable water access take this stability for granted, though parents remember when water planning dominated daily logistics and appreciate how much mental energy is now available for other priorities. The infrastructure supports both resource security and social connection through thoughtful design.</p>
+                            <!-- Descripción del patrón bidireccional específico para Nairobi -->
+                            <p class="city-description">Kamau Mwangi noticed that the Wanjiku family's morning water collection routine included their nine-year-old daughter Grace helping elderly neighbor Mary carry containers back to her apartment. Grace had naturally developed a system for checking whether Mary needed additional support with daily tasks during these walks. Kamau adjusted the atmospheric water generation schedule to create a natural fifteen-minute window when collection containers fill slowly, giving Grace and Mary time for these support conversations while other children play safely near the collection points. This extended collection time now serves as informal community care coordination for several families, with children learning responsibility while elderly residents receive consistent daily check-ins.</p>
                             <div class="city-features">
-                                <span class="feature-tag">Water collection as community time</span>
-                                <span class="feature-tag">Year-round resource reliability</span>
-                                <span class="feature-tag">Mental energy freed for other priorities</span>
-                                <span class="feature-tag">Infrastructure that builds social connections</span>
+                                <span class="feature-tag">Slow-fill water collection creates care time</span>
+                                <span class="feature-tag">Children's responsibility development</span>
+                                <span class="feature-tag">Daily elder check-ins through water routines</span>
+                                <span class="feature-tag">Safe play areas during collection</span>
                             </div>
-                            <a href="#nairobi" class="explore-link">Walk the neighborhood</a>
+                            <a href="#nairobi" class="explore-link">Experience water care commons</a>
                         </div>
                     </article>
 
-                    <!-- New Delhi - Air Quality Experience -->
+                    <!-- New Delhi - Patrón bidireccional a través de calidad del aire -->
                     <article class="city-card">
                         <div class="city-image" style="background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');">
                             <div class="city-overlay">
                                 <h3 class="city-name">New Delhi</h3>
-                                <p class="city-steward">Stewarded by Priya Sharma</p>
-                                <p class="steward-role">Air Quality Coordinator</p>
+                                <p class="city-steward">Coordinated by Priya Sharma</p>
+                                <p class="steward-role">Air Care & Community Coordinator</p>
                             </div>
                         </div>
                         <div class="city-content">
-                            <!-- Experience emphasizing air quality confidence as daily reality -->
-                            <p class="city-description">Checking air quality has become as routine as checking weather, but with the confidence that outdoor activities, exercise routines, and children's play schedules can proceed regardless of ambient conditions. Community gardens throughout the district maintain consistently pleasant spaces for socializing and recreation, while schools schedule outdoor classes and sports activities during optimal air quality windows. Parents report that respiratory health concerns no longer dominate daily planning decisions, and children develop outdoor skills and confidence that would be difficult to maintain in surrounding areas. Public spaces operate during times when atmospheric processing creates the most comfortable conditions, resulting in natural community rhythms that align with environmental health rather than working against air quality challenges.</p>
+                            <!-- Descripción del patrón bidireccional enfocado en calidad del aire -->
+                            <p class="city-description">Priya Sharma observed that the Gupta family consistently brought their six-year-old son Arjun to the community garden during his after-school respiratory treatment schedule, while grandfather Rajesh taught traditional plants identification to neighborhood children during those same hours. Priya coordinated the atmospheric processing to create optimal air quality conditions during these educational sessions, while also ensuring that Arjun's medical needs were met without separating him from peer activities. Other families with children requiring respiratory support began timing their visits to coincide with Rajesh's teaching sessions, creating an informal outdoor school where health treatment becomes community learning and elders share traditional knowledge while supporting medical care needs.</p>
                             <div class="city-features">
-                                <span class="feature-tag">Confident outdoor activity planning</span>
-                                <span class="feature-tag">Children's outdoor skill development</span>
-                                <span class="feature-tag">Community rhythms aligned with air quality</span>
-                                <span class="feature-tag">Health concerns no longer dominating decisions</span>
+                                <span class="feature-tag">Medical treatment integrated with community education</span>
+                                <span class="feature-tag">Elder knowledge sharing during optimal air quality</span>
+                                <span class="feature-tag">Peer inclusion for children needing respiratory support</span>
+                                <span class="feature-tag">Informal outdoor learning communities</span>
                             </div>
-                            <a href="#new-delhi" class="explore-link">Walk the neighborhood</a>
+                            <a href="#new-delhi" class="explore-link">Experience air care community</a>
                         </div>
                     </article>
                 </div>
             </section>
 
-            <!-- Footer - Invitation to explore deeper understanding -->
+            <!-- Footer - Invitación a explorar comprensión más profunda -->
             <footer class="footer">
                 <div class="footer-content">
-                    <!-- Message inviting exploration of the deeper layers (about.html for concepts, contributors.html for gardeners) -->
-                    <p>Six neighborhoods where walking distance became caring distance. <a href="about.html" style="color: var(--primary-color); font-weight: 600;">Learn how this became possible</a> or <a href="contributors.html" style="color: var(--primary-color); font-weight: 600;">meet the gardeners who coordinate it all</a>.</p>
-                    <!-- Design Fiction attribution - contextualizing the speculative nature of the work -->
-                    <p style="margin-top: 24px; font-size: 14px; color: var(--text-light); font-style: italic;">A design fiction work by <a href="https://www.heated.studio/" style="color: var(--accent-color); font-weight: 600; text-decoration: none;">heated.studio</a></p>
+                    <!-- Mensaje invitando exploración de capas más profundas -->
+                    <p>Six neighborhoods where care coordinators learned that the best infrastructure adjustments follow community wisdom rather than technical optimization. <a href="about.html" style="color: var(--primary-color); font-weight: 600;">Understand how care coordination actually works</a> or <a href="contributors.html" style="color: var(--primary-color); font-weight: 600;">meet the coordinators who developed these responsive approaches</a>.</p>
+                    <!-- Atribución Design Fiction -->
+                    <p style="margin-top: 24px; font-size: 14px; color: var(--text-light); font-style: italic;">A design fiction work by <a href="https://www.heated.studio/" style="color: var(--care-accent); font-weight: 600; text-decoration: none;">heated.studio</a></p>
                 </div>
             </footer>
         </main>
