@@ -3,29 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Meet the climate gardeners who tend to the daily rhythms of biointegration districts, combining community intuition with biological system expertise.">
-    <meta name="keywords" content="climate gardeners, biointegration experts, community stewardship, urban ecology professionals">
+    <meta name="description" content="Meet the pioneering care coordinators who established the foundational protocols for community care infrastructure between 2028-2030, setting the groundwork for 47 active districts worldwide.">
+    <meta name="keywords" content="care coordinators, foundational pioneers, community care infrastructure, biointegration experts, regenerative neighborhood stewardship">
     <meta name="author" content="Heated.city">
-    <title>Climate Gardeners — Heated.city</title>
+    <title>Pioneering Care Coordinators — Heated.city</title>
     
     <!-- Google Fonts for modern typography -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         /* ============================
-           Design System Variables
+           Design System Variables - Consistent with foundational framework
            ============================ */
         :root {
-            /* Color palette inspired by regenerative design */
+            /* Color palette inspired by caring and regenerative design */
             --primary-color: #1a3d35;
             --accent-color: #7fb069;
             --secondary-accent: #d4af37;
+            --care-accent: #c7956d; /* Color para temas de cuidado */
             --text-dark: #0f1419;
             --text-medium: #4a5568;
             --text-light: #718096;
             --background: #fdfffe;
             --background-soft: #f7fafc;
             --background-warm: #fefcf8;
+            --background-care: #faf9f7; /* Fondo cálido para secciones de cuidado */
             --border-light: #e2e8f0;
             --border-medium: #cbd5e0;
             
@@ -77,7 +79,7 @@
             min-height: 100vh;
         }
 
-        /* Sidebar Navigation */
+        /* Sidebar Navigation - Consistent with foundational framework */
         .sidebar {
             width: var(--sidebar-width);
             background: var(--surface-glass);
@@ -95,7 +97,7 @@
         .sidebar-header {
             padding: 40px 32px 32px;
             border-bottom: 1px solid var(--border-light);
-            background: linear-gradient(135deg, rgba(122, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(122, 176, 105, 0.1) 0%, rgba(199, 149, 109, 0.08) 100%);
         }
 
         .logo {
@@ -106,6 +108,17 @@
             margin-bottom: 8px;
         }
 
+        /* Catch phrase styling - consistent positioning */
+        .catch-phrase {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--care-accent);
+            font-style: italic;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+
         .tagline {
             font-size: 15px;
             color: var(--text-medium);
@@ -113,22 +126,22 @@
             font-weight: 500;
         }
 
-        .climate-indicator {
+        .care-indicator {
             display: inline-flex;
             align-items: center;
             gap: 6px;
             margin-top: 16px;
             padding: 8px 12px;
-            background: rgba(127, 176, 105, 0.1);
+            background: rgba(199, 149, 109, 0.1);
             border-radius: var(--radius-small);
             font-size: 13px;
-            color: var(--accent-color);
+            color: var(--care-accent);
             font-weight: 600;
         }
 
-        .climate-indicator::before {
+        .care-indicator::before {
             content: '●';
-            color: var(--accent-color);
+            color: var(--care-accent);
             animation: pulse 2s infinite;
         }
 
@@ -170,7 +183,7 @@
         .nav-link:hover,
         .nav-link.active {
             color: var(--primary-color);
-            background: linear-gradient(135deg, rgba(26, 61, 53, 0.04) 0%, rgba(127, 176, 105, 0.04) 100%);
+            background: linear-gradient(135deg, rgba(26, 61, 53, 0.04) 0%, rgba(199, 149, 109, 0.04) 100%);
         }
 
         .nav-link.active::before {
@@ -180,7 +193,7 @@
             top: 0;
             bottom: 0;
             width: 4px;
-            background: linear-gradient(180deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
+            background: linear-gradient(180deg, var(--accent-color) 0%, var(--care-accent) 100%);
         }
 
         .project-count {
@@ -201,8 +214,8 @@
             min-height: 100vh;
         }
 
-        /* Gardeners Hero Section */
-        .gardeners-hero {
+        /* Coordinators Hero Section - Foundational context */
+        .coordinators-hero {
             background: linear-gradient(135deg, var(--primary-color) 0%, #0f2a24 100%);
             color: white;
             padding: 120px 64px 80px;
@@ -210,7 +223,7 @@
             overflow: hidden;
         }
 
-        .gardeners-hero::before {
+        .coordinators-hero::before {
             content: '';
             position: absolute;
             top: 0;
@@ -219,19 +232,19 @@
             bottom: 0;
             background-image: 
                 linear-gradient(30deg, rgba(127, 176, 105, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(127, 176, 105, 0.1) 87.5%),
-                linear-gradient(150deg, rgba(127, 176, 105, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(127, 176, 105, 0.1) 87.5%);
+                linear-gradient(150deg, rgba(199, 149, 109, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(199, 149, 109, 0.1) 87.5%);
             background-size: 80px 140px;
             opacity: 0.3;
         }
 
-        .gardeners-hero-content {
+        .coordinators-hero-content {
             max-width: var(--content-max-width);
             margin: 0 auto;
             position: relative;
             z-index: 2;
         }
 
-        .gardeners-hero h1 {
+        .coordinators-hero h1 {
             font-size: 56px;
             font-weight: 800;
             line-height: 1.1;
@@ -239,7 +252,7 @@
             letter-spacing: -1.2px;
         }
 
-        .gardeners-hero-subtitle {
+        .coordinators-hero-subtitle {
             font-size: 24px;
             opacity: 0.9;
             line-height: 1.4;
@@ -247,7 +260,7 @@
             margin-bottom: 48px;
         }
 
-        .profession-context {
+        .pioneering-context {
             display: flex;
             align-items: center;
             gap: 16px;
@@ -256,21 +269,21 @@
             font-weight: 500;
         }
 
-        .profession-context::before {
+        .pioneering-context::before {
             content: '';
             width: 40px;
             height: 2px;
-            background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent));
+            background: linear-gradient(90deg, var(--accent-color), var(--care-accent));
         }
 
         /* ============================
            Content Sections
            ============================ */
-        .gardeners-section {
+        .coordinators-section {
             padding: 100px 64px;
         }
 
-        .gardeners-section:nth-child(even) {
+        .coordinators-section:nth-child(even) {
             background: var(--background-soft);
         }
 
@@ -314,13 +327,13 @@
             margin-bottom: 0;
         }
 
-        /* Professional insight boxes */
-        .professional-insight {
-            background: linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+        /* Historical insight boxes for foundational context */
+        .historical-insight {
+            background: linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(199, 149, 109, 0.05) 100%);
             border-radius: var(--radius-medium);
             padding: 40px;
             margin: 48px 0;
-            border-left: 4px solid var(--accent-color);
+            border-left: 4px solid var(--care-accent);
         }
 
         .insight-quote {
@@ -339,15 +352,15 @@
             font-size: 16px;
         }
 
-        /* Gardener profiles grid */
-        .gardeners-grid {
+        /* Pioneer profiles grid */
+        .coordinators-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 48px;
             margin: 64px 0;
         }
 
-        .gardener-profile {
+        .coordinator-profile {
             background: white;
             border-radius: var(--radius-large);
             overflow: hidden;
@@ -356,79 +369,27 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .gardener-profile:hover {
+        .coordinator-profile:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-strong);
         }
 
-        /* 
-           ============================
-           SISTEMA DE POSICIONAMIENTO DE IMÁGENES DE PERFIL
-           ============================
-           
-           Esta sección implementa un sistema sofisticado para optimizar cómo se muestran
-           las fotografías de cada climate gardener. Funciona en dos niveles:
-           
-           1. REGLA GENERAL: Todas las imágenes usan object-position: center 15%
-              que funciona bien para la mayoría de las fotografías
-              
-           2. AJUSTES ESPECÍFICOS: Algunas fotografías necesitan posicionamiento
-              individualizado porque fueron tomadas con composiciones diferentes
-           
-           La técnica de object-position nos permite controlar qué parte de la imagen
-           original se muestra dentro del contenedor de altura fija (280px).
-        */
-        
-        /* REGLA GENERAL para todas las imágenes de perfil */
+        /* Profile image optimization system - maintains existing sophisticated image positioning */
         .profile-image {
             width: 100%;
             height: 280px;
-            object-fit: cover; /* Mantiene proporciones mientras llena el contenedor */
-            object-position: center 15%; /* Muestra la región al 15% desde la parte superior */
-            background: linear-gradient(135deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
-            transition: transform 0.3s ease; /* Efecto hover sutil */
+            object-fit: cover;
+            object-position: center 15%;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--care-accent) 100%);
+            transition: transform 0.3s ease;
         }
 
-        /* 
-           AJUSTES ESPECÍFICOS POR PERSONA
-           ===============================
-           
-           Estas reglas CSS específicas se aplican solo a ciertas fotografías que necesitan
-           posicionamiento optimizado. Funcionan porque CSS aplica la regla más específica
-           cuando hay múltiples reglas que podrían aplicarse al mismo elemento.
-           
-           Para entender los valores:
-           - object-position usa porcentajes desde la parte superior de la imagen original
-           - 8% = muestra más de la parte superior (mejor para caras que están más abajo en la foto)
-           - 15% = posición estándar (buena para la mayoría)
-           - 20% = muestra más contexto alrededor de la cara
-        */
-        
-        /* OPTIMIZACIÓN ESPECÍFICA: Priya Sharma */
+        /* Specific optimization for Priya Sharma - maintains existing system */
         img[src*="PriyaSharma"] {
-            object-position: center 8%; 
-            /* 
-               Usamos 8% en lugar del 15% general porque la fotografía de Priya
-               tiene su rostro posicionado más abajo en la composición original.
-               Este ajuste "sube" su cara para que se vea centrada como Himari.
-            */
+            object-position: center 8%;
         }
-        
-        /* 
-           PLANTILLA PARA FUTUROS AJUSTES:
-           Si otras fotografías necesitaran optimización, agregarías reglas similares:
-           
-           img[src*="ana"] {
-               object-position: center 12%; // Ligeramente diferente
-           }
-           
-           img[src*="callagun"] {
-               object-position: center 20%; // Más contexto
-           }
-        */
 
-        /* Efecto hover sutil en las imágenes para mejor experiencia de usuario */
-        .gardener-profile:hover .profile-image {
+        .coordinator-profile:hover .profile-image {
             transform: scale(1.05);
         }
 
@@ -440,22 +401,23 @@
             margin-bottom: 24px;
         }
 
-        .gardener-name {
+        .coordinator-name {
             font-size: 24px;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 8px;
         }
 
-        .gardener-role {
+        .coordinator-role {
             font-size: 16px;
             color: var(--text-medium);
             font-weight: 500;
         }
 
-        .location-badge {
+        /* Period badge indicating foundational era */
+        .foundational-period {
             display: inline-block;
-            background: var(--accent-color);
+            background: var(--care-accent);
             color: white;
             padding: 6px 12px;
             border-radius: 16px;
@@ -464,21 +426,23 @@
             margin-top: 12px;
         }
 
-        .gardener-description {
+        /* Pioneer legacy description - expanded from original */
+        .coordinator-description {
             font-size: 16px;
             line-height: 1.6;
             color: var(--text-dark);
             margin: 24px 0;
         }
 
-        .specialties {
+        /* Innovation tags reflecting foundational contributions */
+        .innovations {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
             margin-top: 24px;
         }
 
-        .specialty-tag {
+        .innovation-tag {
             background: var(--background-soft);
             color: var(--text-medium);
             padding: 6px 12px;
@@ -488,15 +452,15 @@
             border: 1px solid var(--border-light);
         }
 
-        /* Work methods section */
-        .methods-grid {
+        /* Legacy and current influence section */
+        .legacy-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 32px;
             margin: 48px 0;
         }
 
-        .method-item {
+        .legacy-item {
             background: white;
             border-radius: var(--radius-medium);
             padding: 32px;
@@ -504,22 +468,22 @@
             border: 1px solid var(--border-light);
         }
 
-        .method-title {
+        .legacy-title {
             font-size: 20px;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 16px;
         }
 
-        .method-description {
+        .legacy-description {
             font-size: 16px;
             line-height: 1.6;
             color: var(--text-medium);
         }
 
-        /* Network collaboration section */
-        .network-visual {
-            background: linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+        /* Network influence visualization */
+        .network-influence {
+            background: linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(199, 149, 109, 0.05) 100%);
             border-radius: var(--radius-large);
             padding: 48px;
             margin: 48px 0;
@@ -527,14 +491,14 @@
             border: 1px solid rgba(127, 176, 105, 0.2);
         }
 
-        .network-title {
+        .influence-title {
             font-size: 28px;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 24px;
         }
 
-        .network-description {
+        .influence-description {
             font-size: 18px;
             line-height: 1.6;
             color: var(--text-medium);
@@ -610,22 +574,22 @@
             }
 
             .menu-toggle:hover {
-                background: rgba(127, 176, 105, 0.1);
+                background: rgba(199, 149, 109, 0.1);
             }
 
-            .gardeners-hero {
+            .coordinators-hero {
                 padding: 64px 24px 48px;
             }
 
-            .gardeners-hero h1 {
+            .coordinators-hero h1 {
                 font-size: 36px;
             }
 
-            .gardeners-hero-subtitle {
+            .coordinators-hero-subtitle {
                 font-size: 18px;
             }
 
-            .gardeners-section {
+            .coordinators-section {
                 padding: 64px 24px;
             }
 
@@ -633,30 +597,24 @@
                 font-size: 32px;
             }
 
-            .gardeners-grid {
+            .coordinators-grid {
                 grid-template-columns: 1fr;
                 gap: 32px;
             }
 
-            .methods-grid {
+            .legacy-grid {
                 grid-template-columns: 1fr;
                 gap: 24px;
             }
 
-            /* 
-               AJUSTES MÓVILES PARA IMÁGENES
-               =============================
-               En pantallas móviles, ajustamos tanto la altura como el posicionamiento
-               para optimizar la experiencia en dispositivos más pequeños
-            */
+            /* Mobile image adjustments - maintains sophisticated positioning system */
             .profile-image {
-                height: 260px; /* Ligeramente menor en móvil para mejor proporción */
-                object-position: center 20%; /* Un poco más de contexto en pantallas pequeñas */
+                height: 260px;
+                object-position: center 20%;
             }
             
-            /* Mantenemos el ajuste específico de Priya también en móvil */
             img[src*="PriyaSharma"] {
-                object-position: center 12%; /* Ajustado para móvil pero sigue siendo más alto que el estándar */
+                object-position: center 12%;
             }
         }
 
@@ -679,45 +637,47 @@
             <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
         </header>
 
-        <!-- Sidebar Navigation -->
+        <!-- Sidebar Navigation - Consistent with foundational framework -->
         <nav class="sidebar" id="sidebar">
             <div class="sidebar-header">
                 <div class="logo">Heated.city</div>
-                <div class="tagline">Where your neighborhood breathes better than a forest</div>
-                <div class="climate-indicator">Climate Gardening Network</div>
+                <!-- Catch phrase maintaining consistency -->
+                <div class="catch-phrase">Where caring became infrastructure</div>
+                <!-- Indicator showing pioneer archives -->
+                <div class="care-indicator">Pioneer Archives</div>
             </div>
             
             <div class="sidebar-nav">
                 <div class="nav-section">
                     <div class="nav-title">Navigate</div>
-                    <a href="index.html" class="nav-link">Districts</a>
+                    <a href="index.html" class="nav-link">Caring Districts</a>
+                    <a href="contributors.html" class="nav-link active">Care Coordinators</a>
                     <a href="about.html" class="nav-link">About</a>
-                    <a href="contributors.html" class="nav-link active">Gardeners</a>
                 </div>
                 
                 <div class="nav-section">
-                    <div class="nav-title">Active Districts</div>
+                    <div class="nav-title">Foundational Districts</div>
                     <a href="cities/kyoto.html" class="nav-link">
                         Kyoto
                         <span class="project-count">6</span>
                     </a>
-                    <a href="madrid.html" class="nav-link">
+                    <a href="#madrid" class="nav-link">
                         Madrid
                         <span class="project-count">18</span>
                     </a>
-                    <a href="melbourne.html" class="nav-link">
+                    <a href="#melbourne" class="nav-link">
                         Melbourne
                         <span class="project-count">15</span>
                     </a>
-                    <a href="buenos-aires.html" class="nav-link">
+                    <a href="#buenos-aires" class="nav-link">
                         Buenos Aires
                         <span class="project-count">22</span>
                     </a>
-                    <a href="nairobi.html" class="nav-link">
+                    <a href="#nairobi" class="nav-link">
                         Nairobi
                         <span class="project-count">9</span>
                     </a>
-                    <a href="new-delhi.html" class="nav-link">
+                    <a href="#new-delhi" class="nav-link">
                         New Delhi
                         <span class="project-count">16</span>
                     </a>
@@ -727,201 +687,161 @@
 
         <!-- Main Content Area -->
         <main class="main-content">
-            <!-- Gardeners Hero Section -->
-            <section class="gardeners-hero">
-                <div class="gardeners-hero-content">
-                    <h1>The people who tend to breathing neighborhoods</h1>
-                    <p class="gardeners-hero-subtitle">Climate gardeners combine the patience of traditional horticulturists with expertise in community dynamics and biological systems. They spend their days calibrating atmospheric processors, interpreting seasonal soil changes, and facilitating conversations between neighbors about what makes their environment feel healthy.</p>
-                    <div class="profession-context">
-                        A specialized practice of environmental community care
+            <!-- Coordinators Hero Section - Foundational pioneers -->
+            <section class="coordinators-hero">
+                <div class="coordinators-hero-content">
+                    <h1>The pioneers who established care coordination</h1>
+                    <p class="coordinators-hero-subtitle">Between 2028 and 2030, these six coordinators developed the observation and adjustment protocols that transformed how communities integrate environmental stewardship with daily care practices. Their foundational work now guides 134 certified coordinators across 47 active districts worldwide.</p>
+                    <div class="pioneering-context">
+                        The foundational period that changed everything
                     </div>
                 </div>
             </section>
 
-            <!-- Understanding the Profession -->
-            <section class="gardeners-section">
+            <!-- Understanding the Pioneering Work -->
+            <section class="coordinators-section">
                 <div class="section-content">
                     <div class="section-header">
-                        <h2 class="section-title">What climate gardening actually involves</h2>
-                        <p class="section-intro">Think of climate gardening as a profession that emerged when communities needed experts who could understand both the technical aspects of biointegration systems and the social dynamics of neighborhood environmental care.</p>
+                        <h2 class="section-title">How the foundational protocols were developed</h2>
+                        <p class="section-intro">Care coordination emerged through careful experimentation by practitioners who understood both technical environmental systems and the social dynamics of community care. These pioneers developed their expertise through trial and adaptation, establishing protocols that balanced system optimization with community rhythms.</p>
                     </div>
                     
                     <div class="content-text">
-                        <p>Climate gardeners work at the intersection of several disciplines traditionally operated separately. They need to understand soil microbiology well enough to diagnose why mycelium networks aren't establishing properly in a building's foundation. They need social skills to facilitate community meetings about atmospheric processing schedules that work for families with different sleep patterns and respiratory sensitivities. They need mechanical competency to troubleshoot biointegration equipment alongside biological system expertise to know when technical problems reflect ecological imbalances rather than equipment failure.</p>
+                        <p>The foundational period of 2028-2030 represented a unique moment when environmental technology had advanced enough to enable responsive community infrastructure, while urban communities were actively seeking more integrated approaches to neighborhood life. The six coordinators worked largely independently in their respective districts, developing site-specific approaches that later proved to have remarkable consistency in underlying principles.</p>
 
-                        <p>Most climate gardeners develop their practice through apprenticeship with experienced practitioners, though formal certification programs now exist through municipal environmental management departments. The work requires continuous learning because every neighborhood develops unique patterns of interaction between human activities, local climate conditions, and biointegration infrastructure. What works well in Kyoto's bamboo grove districts may need significant adaptation for Madrid's thermal management systems or Melbourne's urban watershed restoration projects.</p>
+                        <p>What distinguished these pioneers was their ability to observe community patterns with extraordinary patience and detail. Rather than implementing predetermined technical solutions, they spent months learning how families moved through spaces, when different generations needed different types of environmental support, and how community coordination naturally emerged around shared resources. This observational foundation became central to all subsequent coordinator training.</p>
 
-                        <p>Day-to-day work varies significantly by season and community needs. During spring establishment periods, climate gardeners spend considerable time monitoring soil conditions and coordinating with residents about optimal timing for new mycelium substrate installations. Summer months often require attention to thermal regulation systems and atmospheric processing capacity during heat waves. Autumn involves preparing biointegration systems for dormancy periods and community education about how building environmental performance changes during colder weather. Winter provides time for equipment maintenance, community relationship building, and collaboration with climate gardeners in other districts about innovations and problem-solving approaches.</p>
+                        <p>The protocols they established weren't primarily technical documents, but frameworks for understanding how environmental systems could amplify rather than disrupt existing community care patterns. Each coordinator developed specialized expertise based on their district's specific challenges—thermal regulation in Madrid, atmospheric processing in Kyoto, resource coordination in Melbourne—but their approaches shared fundamental principles about responsive infrastructure and community-led optimization.</p>
                     </div>
 
-                    <div class="professional-insight">
-                        <div class="insight-quote">"People think the technology is the complicated part, but honestly? Learning to listen to what a neighborhood is telling you about how it wants to breathe takes years to develop."</div>
-                        <div class="insight-attribution">— Kenji Nakamura, climate gardener with eight years of practice across four different district types</div>
+                    <div class="historical-insight">
+                        <div class="insight-quote">"We weren't trying to change how communities cared for each other. We were learning how to make the infrastructure participate in that caring more effectively."</div>
+                        <div class="insight-attribution">— From the 2031 Foundational Protocols Documentation, reflecting shared insights from the pioneer coordinators</div>
                     </div>
 
                     <div class="content-text">
-                        <p>Professional development in climate gardening emphasizes observation skills and community engagement as much as technical competency. Successful practitioners learn to recognize subtle environmental changes that indicate system optimization opportunities: how children's play patterns reveal comfortable microclimates, how elderly residents' walking routes show preferences for specific atmospheric conditions, how community gathering spaces naturally develop around areas with optimal thermal regulation. This observational expertise guides decisions about biointegration system calibration that purely technical monitoring cannot provide.</p>
+                        <p>The breakthrough came when coordinators realized that optimal environmental performance often emerged from supporting community social patterns rather than pursuing technical efficiency in isolation. Himari's discovery that family arrival patterns could inform atmospheric processing schedules, Ana's insight that intergenerational thermal needs created better cooling strategies, and similar observations from other pioneers established care coordination as a fundamentally social practice that happened to involve sophisticated technology.</p>
 
-                        <p>Climate gardeners also serve as translators between community knowledge and technical systems. When residents mention that certain corners of their building smell different on Tuesday mornings, climate gardeners investigate whether atmospheric processing schedules need adjustment. When neighbors express concerns about unfamiliar sounds from biointegration equipment, climate gardeners explain normal operational patterns while checking for potential maintenance issues. This role requires patience, communication skills, and technical expertise because community trust forms the foundation for effective environmental stewardship.</p>
+                        <p>Documentation from the foundational period reveals an extensive network of informal communication between coordinators, despite their geographic separation. They shared observations, compared approaches, and collectively developed the language and concepts that now define care coordination practice. This collaborative foundation-building created the knowledge base that enables current coordinator training and supports expansion to new districts.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Methods and Approaches -->
-            <section class="gardeners-section">
+            <!-- Pioneer Profiles -->
+            <section class="coordinators-section">
                 <div class="section-content">
                     <div class="section-header">
-                        <h2 class="section-title">How climate gardeners approach their work</h2>
-                        <p class="section-intro">Every climate gardener develops their style of practice, but certain methodological approaches have proven effective across different community contexts and biointegration system configurations.</p>
+                        <h2 class="section-title">The foundational coordinators</h2>
+                        <p class="section-intro">Each pioneer brought unique background expertise and developed specialized approaches based on their district's environmental conditions and community characteristics. Their diverse innovations collectively established the frameworks now practiced across the global care coordination network.</p>
                     </div>
 
-                    <div class="methods-grid">
-                        <div class="method-item">
-                            <h3 class="method-title">Seasonal observation cycles</h3>
-                            <p class="method-description">Climate gardeners track environmental and social patterns through annual cycles before making significant system adjustments. They map how community activities, biological system performance, and atmospheric conditions interact throughout different seasons, building a baseline understanding that guides long-term optimization decisions.</p>
-                        </div>
-                        
-                        <div class="method-item">
-                            <h3 class="method-title">Community conversation facilitation</h3>
-                            <p class="method-description">Regular neighborhood meetings allow residents to share observations about environmental changes and system performance. Climate gardeners facilitate these discussions, helping translate community feedback into technical improvements while building shared understanding about how biointegration systems serve neighborhood wellbeing.</p>
-                        </div>
-                        
-                        <div class="method-item">
-                            <h3 class="method-title">Collaborative troubleshooting</h3>
-                            <p class="method-description">When problems arise with biointegration systems, climate gardeners work with residents to understand how environmental changes affect daily routines and comfort levels. This collaborative approach often reveals solutions that purely technical diagnostics miss, while building community knowledge about system operation and maintenance.</p>
-                        </div>
-                        
-                        <div class="method-item">
-                            <h3 class="method-title">Cross-district knowledge sharing</h3>
-                            <p class="method-description">Climate gardeners maintain active communication networks with practitioners in other districts, sharing insights about effective approaches and innovative solutions. This professional community enables rapid dissemination of improvements and collaborative problem-solving for challenging environmental conditions.</p>
-                        </div>
-                        
-                        <div class="method-item">
-                            <h3 class="method-title">Anticipatory care practices</h3>
-                            <p class="method-description">Experienced climate gardeners learn to recognize early indicators of potential system stress or community needs, enabling proactive adjustments that prevent problems rather than reactive solutions. This approach minimizes disruptions to neighborhood routines while maintaining optimal environmental performance.</p>
-                        </div>
-                        
-                        <div class="method-item">
-                            <h3 class="method-title">Adaptive system calibration</h3>
-                            <p class="method-description">Rather than following standardized protocols, climate gardeners adjust biointegration system operation to match specific community rhythms and local environmental conditions. This customization requires ongoing attention and adjustment, but produces environmental quality improvements that serve particular neighborhood characteristics and resident preferences.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Gardener Profiles -->
-            <section class="gardeners-section">
-                <div class="section-content">
-                    <div class="section-header">
-                        <h2 class="section-title">Climate gardeners from around the network</h2>
-                        <p class="section-intro">Each climate gardener brings a unique background experience and develops specialized approaches based on their district's environmental conditions and community characteristics. Their diverse expertise strengthens the global practice of climate gardening through shared learning and collaborative innovation.</p>
-                    </div>
-
-                    <div class="gardeners-grid">
-                        <div class="gardener-profile">
+                    <div class="coordinators-grid">
+                        <div class="coordinator-profile">
                             <img src="img/HimariSatov2.png" alt="Himari Satō" class="profile-image">
                             <div class="profile-content">
                                 <div class="profile-header">
-                                    <h3 class="gardener-name">Himari Satō</h3>
-                                    <p class="gardener-role">Atmospheric Systems Specialist</p>
-                                    <div class="location-badge">Kyoto</div>
+                                    <h3 class="coordinator-name">Himari Satō</h3>
+                                    <p class="coordinator-role">Atmospheric Systems Pioneer</p>
+                                    <div class="foundational-period">2028-2030 Foundational Period</div>
                                 </div>
-                                <p class="gardener-description">Himari combines traditional Japanese seasonal observation practices with biointegration system calibration, specializing in atmospheric processing coordination with natural weather patterns. Her background in ecological anthropology helps her facilitate community conversations about environmental preferences and system optimization. He pioneered integration techniques between bamboo grove acoustic monitoring and neighborhood atmospheric processing schedules.</p>
-                                <div class="specialties">
-                                    <span class="specialty-tag">Acoustic-atmospheric integration</span>
-                                    <span class="specialty-tag">Seasonal pattern recognition</span>
-                                    <span class="specialty-tag">Community dialogue facilitation</span>
-                                    <span class="specialty-tag">Weather-responsive systems</span>
+                                <p class="coordinator-description">Himari pioneered the integration of traditional Japanese seasonal observation practices with biointegration system calibration in Kyoto's experimental district. Her breakthrough came through meticulous observation of the Yamamoto family at the Hikari Machiya paper workshop during 2029. Noticing that grandmother, working mother, and eight-year-old consistently arrived fifteen minutes early—with the grandmother sitting by mineral pools for arthritis relief, the child touching water to manage transition anxiety, and the mother using the time for work emails—Himari developed the foundational concept of "soft arrival periods" by subtly warming the pools during pre-session times. This innovation, which created thermal conditions that simultaneously served multiple intergenerational needs, became the template for atmospheric coordination protocols now used in 23 districts. Her collaboration with elderly resident Mrs. Tanaka, who provided traditional insights about seasonal pool conditions, established the Wednesday afternoon community dialogue sessions that became standard coordinator practice for integrating community wisdom with technical optimization. Himari's acoustic-atmospheric integration methods, connecting bamboo grove monitoring with neighborhood atmospheric processing schedules, and her Thursday calibration protocols based on weather forecasts and community feedback, created the foundational frameworks for weather-responsive system optimization used globally.</p>
+                                <div class="innovations">
+                                    <span class="innovation-tag">Soft arrival period protocols</span>
+                                    <span class="innovation-tag">Intergenerational thermal coordination</span>
+                                    <span class="innovation-tag">Community-elder wisdom integration</span>
+                                    <span class="innovation-tag">Acoustic-atmospheric integration systems</span>
+                                    <span class="innovation-tag">Wednesday dialogue facilitation methods</span>
+                                    <span class="innovation-tag">Thursday weather-responsive calibration</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="gardener-profile">
+                        <div class="coordinator-profile">
                             <img src="img/ana.png" alt="Ana García" class="profile-image">
                             <div class="profile-content">
                                 <div class="profile-header">
-                                    <h3 class="gardener-name">Ana García</h3>
-                                    <p class="gardener-role">Thermal Regulation Coordinator</p>
-                                    <div class="location-badge">Madrid</div>
+                                    <h3 class="coordinator-name">Ana García</h3>
+                                    <p class="coordinator-role">Thermal Regulation Pioneer</p>
+                                    <div class="foundational-period">2028-2030 Foundational Period</div>
                                 </div>
-                                <p class="gardener-description">Ana focuses on biointegration systems that address extreme heat management and building thermal performance. Her engineering background in passive cooling design complements her community heat vulnerability assessment expertise. She develops adaptive thermal regulation protocols that respond to weather forecasting and neighborhood demographic needs, particularly supporting elderly residents and families with young children during heat waves.</p>
-                                <div class="specialties">
-                                    <span class="specialty-tag">Thermal system optimization</span>
-                                    <span class="specialty-tag">Heat vulnerability assessment</span>
-                                    <span class="specialty-tag">Adaptive cooling protocols</span>
-                                    <span class="specialty-tag">Intergenerational care</span>
+                                <p class="coordinator-description">Ana's engineering background in passive cooling design positioned her to pioneer biointegration approaches for extreme heat management in Madrid during the 2029 heat waves that reached 47°C. Her foundational work focused on thermal systems that address intergenerational needs simultaneously, developing adaptive cooling protocols that optimize for elderly comfort while maintaining child-safe play environments. Her heat vulnerability assessment methods and thermal gradient optimization techniques became the foundation for heat adaptation strategies now used in 12 districts with extreme climate conditions. Ana's protocols for coordinating thermal infrastructure with community care schedules revolutionized how districts approach climate adaptation as community support.</p>
+                                <div class="innovations">
+                                    <span class="innovation-tag">Intergenerational thermal optimization</span>
+                                    <span class="innovation-tag">Heat vulnerability assessment protocols</span>
+                                    <span class="innovation-tag">Adaptive cooling system design</span>
+                                    <span class="innovation-tag">Community heat resilience frameworks</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="gardener-profile">
+                        <div class="coordinator-profile">
                             <img src="img/callagun.png" alt="Callagun Smith" class="profile-image">
                             <div class="profile-content">
                                 <div class="profile-header">
-                                    <h3 class="gardener-name">Callagun Smith</h3>
-                                    <p class="gardener-role">Soil Networks Integration Specialist</p>
-                                    <div class="location-badge">Melbourne</div>
+                                    <h3 class="coordinator-name">Callagun Smith</h3>
+                                    <p class="coordinator-role">Soil Networks Integration Pioneer</p>
+                                    <div class="foundational-period">2028-2030 Foundational Period</div>
                                 </div>
-                                <p class="gardener-description">Callagun specializes in mycelium network establishment and soil restoration system coordination with existing urban watershed patterns. Their background in soil microbiology and urban ecology informs their approach to biointegration system integration that enhances rather than disrupts existing ecological relationships. They coordinate closely with indigenous knowledge holders about traditional land management practices that complement technological interventions.</p>
-                                <div class="specialties">
-                                    <span class="specialty-tag">Mycelium network cultivation</span>
-                                    <span class="specialty-tag">Watershed integration</span>
-                                    <span class="specialty-tag">Indigenous knowledge collaboration</span>
-                                    <span class="specialty-tag">Soil ecosystem restoration</span>
+                                <p class="coordinator-description">Callagun's expertise in soil microbiology and urban ecology enabled pioneering work in mycelium network establishment and watershed integration in Melbourne. During the foundational period, they developed protocols for biointegration that enhance rather than disrupt existing ecological relationships, working closely with indigenous knowledge holders to ensure traditional land management practices informed technological interventions. Their mycelium cultivation techniques and watershed coordination methods established the foundation for soil ecosystem restoration approaches now used in 18 districts. Callagun's protocols for integrating indigenous knowledge with biointegration systems created frameworks that guide coordinator training in culturally responsive environmental stewardship.</p>
+                                <div class="innovations">
+                                    <span class="innovation-tag">Mycelium network cultivation protocols</span>
+                                    <span class="innovation-tag">Watershed integration systems</span>
+                                    <span class="innovation-tag">Indigenous knowledge integration frameworks</span>
+                                    <span class="innovation-tag">Soil ecosystem restoration methods</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="gardener-profile">
+                        <div class="coordinator-profile">
                             <img src="img/pablo.png" alt="Pablo Sanguinetti" class="profile-image">
                             <div class="profile-content">
                                 <div class="profile-header">
-                                    <h3 class="gardener-name">Pablo Sanguinetti</h3>
-                                    <p class="gardener-role">Community Systems Coordinator</p>
-                                    <div class="location-badge">Buenos Aires</div>
+                                    <h3 class="coordinator-name">Pablo Sanguinetti</h3>
+                                    <p class="coordinator-role">Community Systems Pioneer</p>
+                                    <div class="foundational-period">2028-2030 Foundational Period</div>
                                 </div>
-                                <p class="gardener-description">Pablo coordinates biointegration systems across high-density residential districts, specializing in vertical growing systems and community-scale atmospheric processing. His urban planning and community organizing background helps him navigate complex neighborhood politics around environmental infrastructure investments. He focuses on biointegration approaches that create economic opportunities for residents through sustainable food production and building material cultivation.</p>
-                                <div class="specialties">
-                                    <span class="specialty-tag">Vertical growing systems</span>
-                                    <span class="specialty-tag">Community economic development</span>
-                                    <span class="specialty-tag">High-density integration</span>
-                                    <span class="specialty-tag">Food system connections</span>
+                                <p class="coordinator-description">Pablo's background in urban planning and community organizing proved essential for developing biointegration approaches in Buenos Aires' high-density residential districts. His foundational work established protocols for vertical growing systems and community-scale atmospheric processing that create economic opportunities for residents while strengthening social bonds. During 2029, Pablo pioneered the integration of building maintenance systems with community care coordination, developing frameworks where teenagers earn income through environmental stewardship while learning from elder residents. His vertical community protocols and economic development methods now guide building-scale integration in 15 districts, demonstrating how environmental infrastructure can enhance rather than complicate community economic life.</p>
+                                <div class="innovations">
+                                    <span class="innovation-tag">Vertical growing system protocols</span>
+                                    <span class="innovation-tag">Community economic development frameworks</span>
+                                    <span class="innovation-tag">High-density integration methods</span>
+                                    <span class="innovation-tag">Intergenerational economic coordination</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="gardener-profile">
+                        <div class="coordinator-profile">
                             <img src="img/kamau.png" alt="Kamau Mwangi" class="profile-image">
                             <div class="profile-content">
                                 <div class="profile-header">
-                                    <h3 class="gardener-name">Kamau Mwangi</h3>
-                                    <p class="gardener-role">Water Systems Integration Specialist</p>
-                                    <div class="location-badge">Nairobi</div>
+                                    <h3 class="coordinator-name">Kamau Mwangi</h3>
+                                    <p class="coordinator-role">Water Systems Pioneer</p>
+                                    <div class="foundational-period">2028-2030 Foundational Period</div>
                                 </div>
-                                <p class="gardener-description">Kamau focuses on atmospheric water generation systems and integrated water cycle management within biointegration districts. His expertise in hydrology and community water management helps optimize moisture capture and distribution systems that serve both human needs and biological system requirements. He coordinates closely with traditional water conservation practices and local watershed restoration initiatives.</p>
-                                <div class="specialties">
-                                    <span class="specialty-tag">Atmospheric water generation</span>
-                                    <span class="specialty-tag">Integrated water cycles</span>
-                                    <span class="specialty-tag">Traditional conservation practices</span>
-                                    <span class="specialty-tag">Watershed coordination</span>
+                                <p class="coordinator-description">Kamau's expertise in hydrology and community water management enabled pioneering work in atmospheric water generation and integrated water cycle management in Nairobi. His foundational protocols coordinate water systems with community care practices, transforming resource collection from individual household tasks into opportunities for neighborhood coordination and mutual support. During the experimental period, Kamau developed frameworks that integrate traditional water conservation practices with technological systems, ensuring that innovation enhanced rather than replaced community knowledge. His water commons coordination methods and atmospheric generation protocols now guide water system integration in 11 districts, establishing models for resource security that strengthens rather than disrupts community social fabric.</p>
+                                <div class="innovations">
+                                    <span class="innovation-tag">Atmospheric water generation protocols</span>
+                                    <span class="innovation-tag">Integrated water cycle systems</span>
+                                    <span class="innovation-tag">Traditional conservation integration</span>
+                                    <span class="innovation-tag">Community water commons frameworks</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="gardener-profile">
+                        <div class="coordinator-profile">
                             <img src="img/PriyaSharma.png" alt="Priya Sharma" class="profile-image">
                             <div class="profile-content">
                                 <div class="profile-header">
-                                    <h3 class="gardener-name">Priya Sharma</h3>
-                                    <p class="gardener-role">Air Quality Systems Coordinator</p>
-                                    <div class="location-badge">New Delhi</div>
+                                    <h3 class="coordinator-name">Priya Sharma</h3>
+                                    <p class="coordinator-role">Air Quality Systems Pioneer</p>
+                                    <div class="foundational-period">2028-2030 Foundational Period</div>
                                 </div>
-                                <p class="gardener-description">Priya specializes in atmospheric processing systems for high-pollution urban environments, developing biointegration approaches that address ambient air quality improvement and indoor environmental health. Her public health and environmental engineering background informs her work on community-scale air filtration systems that provide immediate health benefits while supporting long-term atmospheric restoration. She focuses particularly on respiratory health impacts and vulnerable population protection.</p>
-                                <div class="specialties">
-                                    <span class="specialty-tag">High-pollution adaptation</span>
-                                    <span class="specialty-tag">Public health integration</span>
-                                    <span class="specialty-tag">Vulnerable population care</span>
-                                    <span class="specialty-tag">Respiratory health focus</span>
+                                <p class="coordinator-description">Priya's background in public health and environmental engineering positioned her to pioneer atmospheric processing systems for high-pollution urban environments in New Delhi. Her foundational work developed biointegration approaches that address ambient air quality improvement while supporting community health practices and intergenerational outdoor activities. During 2029-2030, Priya established protocols for community-scale air filtration that provide immediate health benefits while enabling long-term atmospheric restoration. Her focus on respiratory health protection and vulnerable population care created frameworks that demonstrate how environmental technology can eliminate the choice between economic participation and health protection. Her air quality coordination protocols now guide atmospheric systems in 16 districts with challenging environmental conditions.</p>
+                                <div class="innovations">
+                                    <span class="innovation-tag">High-pollution adaptation systems</span>
+                                    <span class="innovation-tag">Public health integration protocols</span>
+                                    <span class="innovation-tag">Vulnerable population care frameworks</span>
+                                    <span class="innovation-tag">Community respiratory health systems</span>
                                 </div>
                             </div>
                         </div>
@@ -929,52 +849,39 @@
                 </div>
             </section>
 
-            <!-- Global Collaboration -->
-            <section class="gardeners-section">
+            <!-- Legacy and Current Influence -->
+            <section class="coordinators-section">
                 <div class="section-content">
                     <div class="section-header">
-                        <h2 class="section-title">How climate gardeners learn from each other</h2>
-                        <p class="section-intro">Climate gardening improves through collaborative learning between practitioners working in different environmental and social contexts. Innovations developed in one district often inspire adaptations that benefit communities facing similar challenges elsewhere.</p>
+                        <h2 class="section-title">How pioneering innovations spread globally</h2>
+                        <p class="section-intro">The protocols established by foundational coordinators continue to evolve through implementation in new districts and ongoing collaboration between pioneer coordinators and current practitioners worldwide.</p>
                     </div>
 
-                    <div class="content-text">
-                        <p>Climate gardeners maintain active communication networks that enable rapid sharing of insights, problem-solving approaches, and technical innovations. Monthly video conferences bring together practitioners from different continents to discuss seasonal challenges, share successful adaptations, and collaborate on solutions for complex environmental problems. These conversations combine technical troubleshooting with community engagement strategies, reflecting the interdisciplinary nature of climate gardening practice.</p>
-
-                        <p>Professional development occurs through formal training programs and peer-to-peer knowledge exchange. Experienced climate gardeners often host visiting practitioners who want to learn about specific approaches or observe different community engagement methods. These exchanges enable practitioners to experience diverse biointegration system configurations and community dynamics, building expertise that they adapt to their own district's needs and characteristics.</p>
+                    <div class="legacy-grid">
+                        <div class="legacy-item">
+                            <h3 class="legacy-title">Coordinator Training Programs</h3>
+                            <p class="legacy-description">All current coordinator training incorporates apprenticeship periods with pioneer coordinators or their direct mentees. Himari, Ana, and other pioneers continue to provide guidance for coordinators implementing their protocols in new environmental and cultural contexts, ensuring foundational principles adapt appropriately to local conditions.</p>
+                        </div>
+                        
+                        <div class="legacy-item">
+                            <h3 class="legacy-title">Protocol Documentation Systems</h3>
+                            <p class="legacy-description">The observational methods and adjustment frameworks developed during the foundational period created standardized documentation approaches that enable knowledge transfer between districts. Current coordinators contribute ongoing refinements that pioneers review and incorporate into evolving protocol libraries.</p>
+                        </div>
+                        
+                        <div class="legacy-item">
+                            <h3 class="legacy-title">Cross-District Collaboration Networks</h3>
+                            <p class="legacy-description">Communication patterns established between pioneer coordinators during 2028-2030 evolved into formal collaboration networks that connect current coordinators globally. Monthly coordination calls and annual convenings maintain knowledge circulation that strengthens practice across all 47 active districts.</p>
+                        </div>
+                        
+                        <div class="legacy-item">
+                            <h3 class="legacy-title">Community Integration Research</h3>
+                            <p class="legacy-description">Pioneer coordinators maintain active research partnerships with universities and policy institutions, contributing field observations and practical insights that inform technological development and community engagement best practices for future district development and coordinator training programs.</p>
+                        </div>
                     </div>
 
-                    <div class="network-visual">
-                        <h3 class="network-title">Global Knowledge Circulation</h3>
-                        <p class="network-description">When Himari discovers that bamboo acoustic monitoring improves atmospheric processing timing in Kyoto, innovation flows through the climate gardening network to districts with different acoustic environments. Ana's thermal regulation protocols for Madrid heat waves inspire cooling adaptations in other hot climate regions. Knowledge moves through relationships, conferences, site visits, and collaborative problem-solving sessions that strengthen the global practice of climate gardening.</p>
-                    </div>
-
-                    <div class="content-text">
-                        <p>Research collaboration between climate gardeners contributes to academic understanding of biointegration system optimization and community environmental stewardship. Many practitioners maintain relationships with universities and research institutions, contributing field observations and practical insights that inform technological development and community engagement best practices. This research collaboration ensures that climate gardening practice evolves based on empirical evidence and systematic observation rather than accumulated anecdotal experience.</p>
-
-                        <p>Professional certification programs for climate gardening continue developing through input from experienced practitioners who understand technical requirements and community engagement skills necessary for effective practice. These programs combine classroom learning about biological systems and atmospheric processing technology with apprenticeship periods where new practitioners work alongside experienced climate gardeners in active districts, building practical skills through guided observation and community relationship development.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Becoming a Climate Gardener -->
-            <section class="gardeners-section" style="background: linear-gradient(135deg, var(--primary-color) 0%, #0f2a24 100%); color: white;">
-                <div class="section-content">
-                    <div class="section-header">
-                        <h2 class="section-title" style="color: white;">Pathways into climate gardening practice</h2>
-                        <p class="section-intro" style="color: rgba(255,255,255,0.9);">Climate gardening attracts people from diverse professional backgrounds who share an interest in community environmental stewardship and enjoy work that combines technical problem-solving with social engagement.</p>
-                    </div>
-                    
-                    <div class="content-text" style="color: rgba(255,255,255,0.9);">
-                        <p>Most climate gardeners enter the profession through apprenticeship programs with experienced practitioners, though formal degree programs are developed through partnerships between municipal environmental departments and regional universities. Successful climate gardeners typically have background experience in at least one relevant area: biological systems, community organizing, environmental engineering, public health, or social work. The interdisciplinary nature of the profession requires ongoing learning and collaboration rather than complete expertise in all relevant areas.</p>
-
-                        <p>Personal characteristics that support climate gardening practice include patience with complex systems that change seasonally, enjoyment of community relationship building, and comfort with technical troubleshooting. Climate gardeners spend significant time listening to community concerns and translating between technical system requirements and neighborhood preferences. The work requires persistence and adaptability, since environmental and social conditions change continuously and solutions must evolve accordingly.</p>
-
-                        <p>Professional opportunities in climate gardening continue expanding as more districts implement biointegration systems and communities recognize the value of expert environmental stewardship. Municipal environmental departments, community development organizations, and biointegration technology companies employ climate gardeners in various capacities. Many practitioners also work as independent consultants, providing specialized expertise to districts implementing new systems or optimizing existing installations.</p>
-                    </div>
-
-                    <div style="text-align: center; margin-top: 48px;">
-                        <a href="about.html" style="display: inline-block; padding: 16px 32px; background: rgba(127, 176, 105, 0.2); border: 1px solid rgba(127, 176, 105, 0.4); border-radius: var(--radius-medium); color: white; font-size: 16px; font-weight: 600; transition: all 0.3s ease; backdrop-filter: blur(10px); margin-right: 16px;">Learn about climate gardening</a>
-                        <a href="index.html" style="display: inline-block; padding: 16px 32px; background: rgba(127, 176, 105, 0.2); border: 1px solid rgba(127, 176, 105, 0.4); border-radius: var(--radius-medium); color: white; font-size: 16px; font-weight: 600; transition: all 0.3s ease; backdrop-filter: blur(10px);">Visit districts</a>
+                    <div class="network-influence">
+                        <h3 class="influence-title">Foundational Impact on Global Practice</h3>
+                        <p class="influence-description">The six foundational coordinators established more than technical protocols—they created a practice of environmental stewardship that prioritizes community wisdom and social coordination. Their combined innovations demonstrate that environmental technology achieves optimal performance when it amplifies rather than disrupts existing patterns of community care. This foundational insight continues to guide coordinator training and district development worldwide.</p>
                     </div>
                 </div>
             </section>
@@ -982,7 +889,9 @@
             <!-- Footer -->
             <footer class="footer">
                 <div class="footer-content">
-                    <p>Global climate gardening practitioners — caring for neighborhoods that breathe well together</p>
+                    <p>Six pioneering coordinators whose foundational work between 2028-2030 established the protocols now guiding care coordination in 47 districts worldwide. <a href="index.html" style="color: var(--primary-color); font-weight: 600;">Explore the foundational districts</a> or <a href="about.html" style="color: var(--primary-color); font-weight: 600;">understand how these protocols work in practice</a>.</p>
+                    <!-- Design Fiction attribution -->
+                    <p style="margin-top: 24px; font-size: 14px; color: var(--text-light); font-style: italic;">A design fiction work by <a href="https://www.heated.studio/" style="color: var(--care-accent); font-weight: 600; text-decoration: none;">heated.studio</a></p>
                 </div>
             </footer>
         </main>
