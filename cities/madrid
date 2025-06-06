@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Experience Madrid's thermal care coordination district where cooling stations create intergenerational gathering spaces, and where 45°C heat waves became opportunities for community coordination rather than isolation.">
+    <meta name="keywords" content="Madrid thermal coordination, cooling stations, heat emergency infrastructure, community thermal care">
+    <meta name="author" content="Heated.city">
+    <title>Madrid | Heated.city</title>
+    
+    <!-- Google Fonts for modern typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Leaflet CSS for interactive mapping -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+    
+    <style>
+        /* ============================
+           Design System Variables (Consistent with site-wide system)
+           ============================ */
+        :root {
+            /* Color palette inspired by thermal care and Madrid's urban environment */
+            --primary-color: #1a3d35;
+            --accent-color: #7fb069;
+            --secondary-accent: #d4af37;
+            --thermal-accent: #e67e22; /* Orange for thermal/heat themes */
+            --text-dark: #0f1419;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --background: #fdfffe;
+            --background-soft: #f7fafc;
+            --background-warm: #fefcf8;
+            --border-light: #e2e8f0;
+            --border-medium: #cbd5e0;
+            
+            /* Advanced visual effects for 2030 aesthetic */
+            --surface-glass: rgba(255, 255, 255, 0.92);
+            --shadow-subtle: 0 2px 12px rgba(0, 0, 0, 0.04);
+            --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
+            --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.12);
+            
+            /* Layout measurements */
+            --sidebar-width: 320px;
+            --content-max-width: 1400px;
+            --radius-small: 8px;
+            --radius-medium: 16px;
+            --radius-large: 24px;
+        }
+
+        /* ============================
+           Base Styles
+           ============================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--background) 0%, var(--background-warm) 100%);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        /* ============================
+           Layout Structure (Consistent with index and about)
+           ============================ */
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation - Identical to other pages for consistency */
+        .sidebar {
+            width: var(--sidebar-width);
+            border-right: 1px solid var(--border-light);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 1000;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Glassmorphism background applied via pseudo-element for stability */
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--surface-glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            z-index: -1;
+        }
+
+        .sidebar-header {
+            padding: 40px 32px 32px;
+            border-bottom: 1px solid var(--border-light);
+            background: linear-gradient(135deg, rgba(122, 176, 105, 0.1) 0%, rgba(230, 126, 34, 0.05) 100%);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.8px;
+            margin-bottom: 8px;
+        }
+
+        .tagline {
+            font-size: 15px;
+            color: var(--text-medium);
+            line-height: 1.4;
+            font-weight: 500;
+        }
+
+        .climate-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            padding: 8px 12px;
+            background: rgba(230, 126, 34, 0.1);
+            border-radius: var(--radius-small);
+            font-size: 13px;
+            color: var(--thermal-accent);
+            font-weight: 600;
+        }
+
+        .climate-indicator::before {
+            content: '●';
+            color: var(--thermal-accent);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .sidebar-nav {
+            padding: 40px 0 32px;
+        }
+
+        .nav-section {
+            margin-bottom: 40px;
+        }
+
+        .nav-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding: 0 32px;
+            margin-bottom: 20px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 32px;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--text-medium);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            background: linear-gradient(135deg, rgba(26, 61, 53, 0.04) 0%, rgba(230, 126, 34, 0.04) 100%);
+        }
+
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--accent-color) 0%, var(--thermal-accent) 100%);
+        }
+
+        .project-count {
+            font-size: 12px;
+            color: var(--text-light);
+            background: var(--background-soft);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-weight: 600;
+        }
+
+        /* ============================
+           Main Content Area
+           ============================ */
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            min-height: 100vh;
+        }
+
+        /* Madrid Hero Section - Thermal care district introduction */
+        .madrid-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') no-repeat center center / cover;
+            color: white;
+            padding: 120px 64px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .madrid-hero-content {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .district-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(230, 126, 34, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 32px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 24px;
+            border: 1px solid rgba(230, 126, 34, 0.3);
+        }
+
+        .madrid-hero h1 {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1.2px;
+        }
+
+        .madrid-hero-subtitle {
+            font-size: 22px;
+            opacity: 0.9;
+            line-height: 1.5;
+            margin-bottom: 32px;
+            max-width: 700px;
+        }
+
+        .coordinator-intro {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            opacity: 0.9;
+        }
+
+        .coordinator-intro::before {
+            content: '';
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--thermal-accent), var(--secondary-accent));
+        }
+
+        /* ============================
+           District Content Layout
+           ============================ */
+        .district-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            padding: 80px 64px;
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+        }
+
+        /* Map Section - Enhanced visual integration */
+        .map-section {
+            position: relative;
+        }
+
+        .map-header {
+            margin-bottom: 32px;
+        }
+
+        .map-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .map-description {
+            font-size: 18px;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        #map {
+            width: 100%;
+            height: 600px;
+            border-radius: var(--radius-large);
+            box-shadow: var(--shadow-medium);
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+
+        /* Interactive map markers styling */
+        .custom-marker {
+            background: none !important;
+            border: none !important;
+        }
+
+        /* Projects Section - Enhanced card design */
+        .projects-section {
+            position: relative;
+        }
+
+        .projects-header {
+            margin-bottom: 40px;
+        }
+
+        .projects-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .projects-description {
+            font-size: 18px;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        .projects-container {
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 8px;
+            padding-left: 8px;
+            margin: 0 -8px;
+        }
+
+        /* Scrollbar styling for projects container */
+        .projects-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .projects-container::-webkit-scrollbar-track {
+            background: var(--background-soft);
+            border-radius: 3px;
+        }
+
+        .projects-container::-webkit-scrollbar-thumb {
+            background: var(--thermal-accent);
+            border-radius: 3px;
+        }
+
+        /* Individual Project Cards - Interactive with click-to-expand functionality */
+        .project-card {
+            background: var(--surface-glass);
+            backdrop-filter: blur(20px) saturate(180%);
+            border-radius: var(--radius-medium);
+            padding: 32px;
+            margin: 16px 0 32px 0;
+            border: 1px solid var(--border-light);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--thermal-accent), var(--secondary-accent));
+            border-radius: inherit;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: subtract;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: var(--shadow-strong);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 250, 252, 0.92) 100%);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card.expanded {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 250, 252, 0.95) 100%);
+            border-color: var(--thermal-accent);
+        }
+
+        .project-card.expanded::before {
+            opacity: 0.7;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .project-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--thermal-accent), var(--secondary-accent));
+            color: white;
+            border-radius: 50%;
+            font-size: 16px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .project-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            border-radius: var(--radius-small);
+            object-fit: cover;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-description {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Collapsed state - shows approximately 4 lines with a subtle fade effect */
+        .project-description.collapsed {
+            max-height: 6.8em !important;
+        }
+
+        /* Expanded state - shows full content */
+        .project-description.expanded {
+            max-height: 50em !important;
+        }
+
+        /* Subtle fade effect at the bottom of collapsed text */
+        .project-description.collapsed::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1.5em;
+            background: linear-gradient(transparent, var(--surface-glass));
+            pointer-events: none;
+        }
+
+        /* Hide the fade effect when expanded */
+        .project-description.expanded::after {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .feature-tag {
+            background: linear-gradient(135deg, rgba(230, 126, 34, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+            color: var(--primary-color);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 16px;
+            border: 1px solid rgba(230, 126, 34, 0.2);
+        }
+
+        /* ============================
+           Footer (Consistent with site)
+           ============================ */
+        .footer {
+            background: var(--background-soft);
+            border-top: 1px solid var(--border-light);
+            padding: 64px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: var(--content-max-width);
+            margin: 0 auto;
+        }
+
+        .footer p {
+            color: var(--text-medium);
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* ============================
+           Mobile Responsive Design
+           ============================ */
+        @media (max-width: 968px) {
+            .district-layout {
+                grid-template-columns: 1fr;
+                gap: 64px;
+                padding: 48px 32px;
+            }
+
+            #map {
+                height: 400px;
+            }
+
+            .projects-container {
+                max-height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                width: 100vw;
+                max-width: 400px;
+            }
+
+            .sidebar.open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .mobile-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px 24px;
+                background: var(--surface-glass);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--border-light);
+                position: sticky;
+                top: 0;
+                z-index: 999;
+            }
+
+            .mobile-logo {
+                font-size: 22px;
+                font-weight: 700;
+                color: var(--primary-color);
+            }
+
+            .menu-toggle {
+                background: none;
+                border: none;
+                font-size: 28px;
+                color: var(--primary-color);
+                cursor: pointer;
+                padding: 8px;
+                border-radius: var(--radius-small);
+                transition: background-color 0.2s ease;
+            }
+
+            .menu-toggle:hover {
+                background: rgba(230, 126, 34, 0.1);
+            }
+
+            .madrid-hero {
+                padding: 64px 24px 48px;
+            }
+
+            .madrid-hero h1 {
+                font-size: 36px;
+            }
+
+            .madrid-hero-subtitle {
+                font-size: 18px;
+            }
+
+            .district-layout {
+                padding: 48px 24px;
+            }
+
+            .map-title, .projects-title {
+                font-size: 28px;
+            }
+        }
+
+        /* Hidden by default on desktop */
+        .mobile-header {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-header {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Mobile Header - Shows only on mobile devices -->
+        <header class="mobile-header">
+            <div class="mobile-logo">Heated.city</div>
+            <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
+        </header>
+
+        <!-- Sidebar Navigation - Consistent with site system -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">Heated.city</div>
+                <div class="tagline">Where your neighborhood breathes better than a forest</div>
+                <div class="climate-indicator">Live Thermal Network</div>
+            </div>
+            
+            <div class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-title">Navigate</div>
+                    <a href="../index.html" class="nav-link">Districts</a>
+                    <a href="../about.html" class="nav-link">About</a>
+                    <a href="../contributors.html" class="nav-link">Gardeners</a>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-title">Active Districts</div>
+                    <a href="kyoto.html" class="nav-link">
+                        Kyoto
+                        <span class="project-count">6</span>
+                    </a>
+                    <a href="madrid.html" class="nav-link active">
+                        Madrid
+                        <span class="project-count">10</span>
+                    </a>
+                    <a href="#melbourne" class="nav-link">
+                        Melbourne
+                        <span class="project-count">15</span>
+                    </a>
+                    <a href="#buenos-aires" class="nav-link">
+                        Buenos Aires
+                        <span class="project-count">22</span>
+                    </a>
+                    <a href="#nairobi" class="nav-link">
+                        Nairobi
+                        <span class="project-count">9</span>
+                    </a>
+                    <a href="#new-delhi" class="nav-link">
+                        New Delhi
+                        <span class="project-count">16</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Madrid Hero Section - District immersion -->
+            <section class="madrid-hero">
+                <div class="madrid-hero-content">
+                    <div class="district-badge">
+                        <span>●</span>
+                        Active Thermal Care Zone
+                    </div>
+                    <h1>Madrid</h1>
+                    <p class="madrid-hero-subtitle">Walk through neighborhoods where your morning routine includes checking the thermal gradient colors at Plaza Cooling Stations, where children's playground schedules align with optimal cooling efficiency, and where elderly pharmacy visits become community coordination points during 45°C heat waves. These aren't future adaptations—they're daily conveniences in a district where thermal care infrastructure learned to support rather than interrupt the natural rhythms of intergenerational community life.</p>
+                    <div class="coordinator-intro">
+                        Thermal care coordination guided by Ana García
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main District Content - Split layout for exploration and detail -->
+            <section class="district-layout">
+                <!-- Interactive Map Section -->
+                <div class="map-section">
+                    <div class="map-header">
+                        <h2 class="map-title">Thermal Infrastructure Network</h2>
+                        <p class="map-description">Ten interconnected cooling and heating facilities that residents use for daily activities during temperature extremes: plaza cooling stations, thermal gradient parks, community thermal libraries, elder care thermal centers, child-friendly cooling areas, and adaptive building climate systems. Click any location to see how thermal coordination fits into neighborhood routines.</p>
+                    </div>
+                    <div id="map" aria-label="Madrid thermal care district infrastructure map"></div>
+                </div>
+
+                <!-- Projects Detail Section -->
+                <div class="projects-section">
+                    <div class="projects-header">
+                        <h2 class="projects-title">Thermal Care Facilities</h2>
+                        <p class="projects-description">Each facility operates on thermal schedules that residents have learned through seasonal use, creating the patterns of daily life in a district where temperature management became as reliable as public transportation, while supporting the natural ways families care for each other across generations.</p>
+                    </div>
+                    
+                    <div class="projects-container">
+                        <!-- Project 1: Plaza de Enfriamiento Serrano -->
+                        <article class="project-card" data-id="1">
+                            <div class="project-header">
+                                <div class="project-number">1</div>
+                                <h3 class="project-title">Plaza de Enfriamiento Serrano<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">Main Community Cooling Station</span></h3>
+                            </div>
+                            <img src="../img/papel.png" class="project-image" alt="Community cooling plaza with thermal gradient zones for different family needs">
+                            <p class="project-description collapsed">
+                                The Plaza de Enfriamiento Serrano represents the practical implementation of Chief Heat and Drought Officer Isabél Sánchez's municipal cooling infrastructure, coordinated by Ana García to support family routines during Madrid's extreme heat periods. The Serrano family's daily routine during summer heat waves includes a predictable ten-minute stop at the plaza while walking elderly grandfather Luis to his pharmacy appointment. Luis uses one of the plaza's cooling pods—transparent structures designed to blend into the city's everyday landscape, offering shaded resting spots with internal temperatures maintained at 24°C through passive cooling systems and strategically placed water sprinklers that cool the atmosphere around each pod. Three-year-old Carmen plays safely in the moderate cooling zones where atmospheric water sprinklers create a gentle misting effect that brings temperatures to 28°C, while working mother Isabel coordinates with other parents in the conversation areas cooled to 26°C. The plaza's infrastructure uses bio-construction principles with adobe and rammed earth materials that naturally regulate temperature, reducing dependency on mechanical cooling systems. Concrete benches made from recycled materials warm naturally during morning sun exposure, creating comfortable seating that doesn't feel cold against elderly skin. The atmospheric sprinkler system operates on fifteen-minute cycles that families learn to anticipate, creating natural rhythm breaks where children can play while adults coordinate care responsibilities and share thermal management strategies with other families.
+                            </p>
+                            <div class="project-features">
+                                <span class="feature-tag">Three Thermal Gradient Zones</span>
+                                <span class="feature-tag">Ten-Minute Family Coordination Windows</span>
+                                <span class="feature-tag">Senior Health-Focused Deep Cooling</span>
+                                <span class="feature-tag">Child-Safe Active Cooling Areas</span>
+                            </div>
+                        </article>
+
+                        <!-- Project 2: Biblioteca Térmica Comunitaria -->
+                        <article class="project-card" data-id="2">
+                            <div class="project-header">
+                                <div class="project-number">2</div>
+                                <h3 class="project-title">Biblioteca Térmica Comunitaria<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">Adaptive Climate Community Library</span></h3>
+                            </div>
+                            <img src="../img/lamparas.png" alt="Community library with adaptive climate control for intergenerational study spaces" class="project-image">
+                            <p class="project-description collapsed">
+                                During afternoon peak heat hours, the library becomes an intergenerational study and coordination space where adaptive climate control supports different thermal needs simultaneously. The Morales family uses the space regularly: grandmother Elena prefers the warmer reading areas (28°C) for her weekly book club, mother Patricia needs moderate cooling (25°C) for laptop work, and teenage son Carlos studies in the cooler zones (22°C) that help with concentration during intense academic work. The library's HVAC system creates microclimates within the same space using programmable zone controls and strategic air circulation. Children's reading areas maintain slightly warmer temperatures to prevent drowsiness, while adult workspaces optimize for sustained concentration. The system automatically adjusts based on outdoor temperature readings and occupancy sensors, creating predictable thermal environments that families learn to navigate for different activities. Regular patrons know which areas work best for their age and comfort needs, creating informal territorial patterns that library staff accommodate in furniture arrangement and activity scheduling.
+                            </p>
+                            <div class="project-features">
+                                <span class="feature-tag">Microclimate Zone Programming</span>
+                                <span class="feature-tag">Age-Specific Thermal Optimization</span>
+                                <span class="feature-tag">Automatic Occupancy Adjustment</span>
+                                <span class="feature-tag">Intergenerational Space Coordination</span>
+                            </div>
+                        </article>
+
+                        <!-- Project 3: Centro de Cuidado Térmico para Mayores -->
+                        <article class="project-card" data-id="3">
+                            <div class="project-header">
+                                <div class="project-number">3</div>
+                                <h3 class="project-title">Centro de Cuidado Térmico para Mayores<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">Elder Thermal Care Center</span></h3>
+                            </div>
+                            <img src="../img/ecosistema.png" alt="Elder care center with specialized thermal zones for health and social activities" class="project-image">
+                            <p class="project-description collapsed">
+                                The elder care center coordinates thermal environments specifically for the health needs and social patterns of elderly residents, with particular attention to the daily rhythms that emerge when families bring elderly relatives for thermal relief during heat emergencies. María Castillo brings her 82-year-old father Vicente here every afternoon during heat waves because the center maintains consistent 22°C cooling that helps with his circulation problems, while providing social spaces where he can play dominoes with other elderly men in slightly warmer zones (25°C) that don't aggravate arthritis. The center's thermal programming accounts for medication schedules that affect temperature sensitivity, meal times when metabolism requires thermal adjustments, and afternoon rest periods when deeper cooling supports cardiovascular recovery. Families coordinate pickup times around these thermal schedule patterns, creating natural support networks where adult children share information about elder care while their parents benefit from both thermal relief and social connection. The facility uses standard medical-grade HVAC equipment with enhanced filtration, and staff monitor both thermal comfort and social interaction patterns to optimize daily programming for community well-being.
+                            </p>
+                            <div class="project-features">
+                                <span class="feature-tag">Medical-Grade Thermal Programming</span>
+                                <span class="feature-tag">Medication Schedule Coordination</span>
+                                <span class="feature-tag">Social Activity Thermal Zones</span>
+                                <span class="feature-tag">Family Coordination Support Systems</span>
+                            </div>
+                        </article>
+
+                        <!-- Project 4: Parque Infantil de Enfriamiento Gradual -->
+                        <article class="project-card" data-id="4">
+                            <div class="project-header">
+                                <div class="project-number">4</div>
+                                <h3 class="project-title">Parque Infantil de Enfriamiento Gradual<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">Child-Focused Gradient Cooling Park</span></h3>
+                            </div>
+                            <img src="../img/iot.png" alt="Children's playground with thermal gradient zones designed for safe heat relief and active play" class="project-image">
+                            <p class="project-description collapsed">
+                                This playground creates thermal gradients specifically designed for children's play patterns during extreme heat, allowing active outdoor time that would otherwise be impossible during Madrid's 45°C heat waves. The Rodriguez family brings four-year-old twins Sofia and Miguel here during summer afternoons because the gradient cooling system lets children gradually adapt to temperature changes while maintaining active play. The entry zone starts at 32°C for thermal acclimatization, the main play area maintains 28°C for sustained activity, and the rest zones cool to 25°C for recovery periods. Misting systems operate on fifteen-minute cycles that children learn to anticipate, creating natural rhythm breaks in play activities. Parent coordination areas maintain comfortable 26°C temperatures where adults can supervise while managing their own thermal comfort. The playground equipment is designed to avoid thermal shock—metal surfaces have protective coatings that prevent burning, and shaded structures create additional cooling microclimates. Children naturally learn to move between thermal zones based on their activity levels and thermal needs, developing body awareness skills while parents coordinate supervision responsibilities and share cooling strategies.
+                            </p>
+                            <div class="project-features">
+                                <span class="feature-tag">Child-Safe Thermal Acclimatization</span>
+                                <span class="feature-tag">Fifteen-Minute Misting Cycles</span>
+                                <span class="feature-tag">Anti-Burn Equipment Coatings</span>
+                                <span class="feature-tag">Parent Supervision Thermal Zones</span>
+                            </div>
+                        </article>
+
+                        <!-- Project 5: Red de Climatización Adaptativa Residencial -->
+                        <article class="project-card" data-id="5">
+                            <div class="project-header">
+                                <div class="project-number">5</div>
+                                <h3 class="project-title">Red de Climatización Adaptativa Residencial<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">Adaptive Residential Climate Network</span></h3>
+                            </div>
+                            <img src="../img/sake1.png" alt="Connected residential building systems that coordinate thermal management across family units" class="project-image">
+                            <p class="project-description collapsed">
+                                This residential network coordinates thermal management across connected apartment buildings, allowing families to optimize energy use while maintaining thermal comfort during extreme weather periods. The Fernandez extended family lives across three apartments in the complex: elderly grandmother Esperanza (apt 3A) requires consistent 26°C for circulation health, working parents David and Carmen (apt 5C) coordinate their thermal needs around morning and evening family routines, and teenage daughter Lucia (apt 2B) studies in cooler temperatures optimal for concentration. The building's connected HVAC system shares thermal load across units, using predictive programming that accounts for daily family routines, work schedules, and thermal preferences. When one unit requires intensive cooling during afternoon heat peaks, the system draws thermal capacity from less-occupied units while maintaining minimum comfort levels throughout. Families learn to time energy-intensive activities around network optimization schedules, receiving notifications through building management apps about optimal thermal windows for cooking, laundry, or extended cooling periods. During system maintenance, which occurs monthly for different building sections, families temporarily adjust their thermal expectations while backup systems maintain basic comfort levels.
+                            </p>
+                            <div class="project-features">
+                                <span class="feature-tag">Multi-Unit Thermal Load Sharing</span>
+                                <span class="feature-tag">Predictive Family Routine Programming</span>
+                                <span class="feature-tag">Building Management App Coordination</span>
+                                <span class="feature-tag">Backup System Maintenance Protocols</span>
+                            </div>
+                        </article>
+
+                        <!-- Project 6: Mercado Térmico Comunitario -->
+                        <article class="project-card" data-id="6">
+                            <div class="project-header">
+                                <div class="project-number">6</div>
+                                <h3 class="project-title">Mercado Térmico Comunitario<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">Community Thermal Market</span></h3>
+                            </div>
+                            <img src="../img/sake2.png" alt="Community market with adaptive thermal zones for shopping, socializing, and food preparation" class="project-image">
+                            <p class="project-description collapsed">
+                                The community market demonstrates Chief Heat and Drought Officer Isabél Sánchez's bio-construction strategy coordinated by Ana García to support shopping, food preparation, and social coordination activities during daily family provisioning routines. The market's structure uses sustainable materials including adobe walls, rammed earth foundations, and recycled concrete elements that naturally regulate temperature, reducing dependence on mechanical cooling systems while maintaining comfortable environments for community commerce. The Herrera family's weekly shopping routine shows how bio-construction enhances community life: mother Elena shops in areas naturally cooled to 27°C by thick adobe walls that retain coolness from nighttime temperatures, optimal conditions for evaluating fresh produce, while her 6-year-old son Diego plays safely in designated child areas where earth construction maintains consistent 25°C temperatures under supervision of other community members. The market's food preparation areas utilize rammed earth thermal mass combined with natural ventilation to maintain professional cooling standards (22°C) where local families occasionally cook communal meals during extreme heat periods when home cooking becomes unbearable due to indoor temperature accumulation. Elderly residents gather in the market's social zones during morning hours when adobe and earth materials naturally provide optimal thermal conditions (24°C) that support extended community conversations and informal information sharing about family needs, health resources, and community coordination. The thermal system operates through passive architectural design rather than energy-intensive mechanical systems, with vendors coordinating their stall operations around natural thermal optimization windows created by the building materials, storing temperature-sensitive products during peak cooling efficiency periods and scheduling customer interactions when bio-construction materials provide most comfortable thermal conditions.
+                            </p>
+                            <div class="project-features">
+                                <span class="feature-tag">Shopping-Optimized Thermal Zones</span>
+                                <span class="feature-tag">Professional Food Preparation Cooling</span>
+                                <span class="feature-tag">Child Safety Cooling Areas</span>
+                                <span class="feature-tag">Vendor Coordination Thermal Scheduling</span>
+                            </div>
+                        </article>
+
+                        <!-- Project 7: Farmacia Clima-Coordinada -->
+                        <article class="project-card" data-id="7">
+                            <div class="project-header">
+                                <div class="project-number">7</div>
+                                <h3 class="project-title">Farmacia Clima-Coordinada<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">Climate-Coordinated Pharmacy</span></h3>
+                            </div>
+                            <img src="../img/papel.png" alt="Pharmacy with climate control coordination for medication storage and patient comfort" class="project-image">
+                            <p class="project-description collapsed">
+                                This pharmacy coordinates thermal management with medication storage requirements and patient thermal needs, especially crucial for elderly customers whose medications affect temperature sensitivity. Pharmacist Carlos Ruiz noticed that customers like 78-year-old María Santos struggled during summer heat when picking up cardiovascular medications that require both temperature-controlled storage and patient thermal comfort during consultation. The pharmacy maintains three thermal zones: medication storage areas at 20°C for pharmaceutical stability, customer consultation areas at 24°C for comfortable conversation, and a waiting area at 26°C that provides gentle cooling without thermal shock for customers arriving from extreme outdoor heat. The system coordinates with local medical appointments, adjusting thermal comfort during peak elderly patient hours and maintaining optimal medication storage regardless of external temperatures. Customers learn to time pharmacy visits during optimal thermal comfort windows, and staff coordinate prescription pickup schedules around thermal programming that supports both pharmaceutical safety and customer well-being.
+                            </p>
+                            <div class="project-features">
+                                <span class="feature-tag">Pharmaceutical Storage Thermal Requirements</span>
+                                <span class="feature-tag">Patient Consultation Comfort Zones</span>
+                                <span class="feature-tag">Thermal Shock Prevention Systems</span>
+                                <span class="feature-tag">Medical Appointment Coordination</span>
+                            </div>
+                        </article>
+
+                        <!-- Project 8: Centro de Coordinación Familiar Térmica -->
+                        <article class="project-card" data-id="8">
+                            <div class="project-header">
+                                <div class="project-number">8</div>
+                                <h3 class="project-title">Centro de Coordinación Familiar Térmica<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">Family Thermal Coordination Center</span></h3>
+                            </div>
+                            <img src="../img/lamparas.png" alt="Family coordination center with thermal zones designed for cross-generational planning and support" class="project-image">
+                            <p class="project-description collapsed">
+                                This coordination center creates thermal environments specifically designed for extended family meetings and planning sessions that become essential during climate emergencies. The Gonzalez extended family uses this space monthly for coordination meetings that include grandmother Isabel (requires 27°C for arthritis comfort), working parents Ana and Miguel (need 24°C for sustained concentration), and teenagers Clara and Pablo (prefer 22°C for alertness during academic discussions). The center's adaptive thermal system creates meeting room environments that accommodate all thermal needs simultaneously through strategic air circulation and localized temperature control. During extreme heat periods, the center serves as a family emergency coordination hub where extended families plan mutual support, coordinate elder care responsibilities, and organize community response activities. The thermal programming supports both routine family coordination and crisis response planning, with comfortable environments that enable sustained conversation and decision-making regardless of external weather conditions. Families learn to schedule important conversations and planning sessions around optimal thermal coordination windows, creating community patterns of mutual support that strengthen during climate stress periods.
+                            </p>
+                            <div class="project-features">
+                                <span class="feature-tag">Extended Family Meeting Thermal Optimization</span>
+                                <span class="feature-tag">Emergency Coordination Hub Functionality</span>
+                                <span class="feature-tag">Localized Temperature Control Systems</span>
+                                <span class="feature-tag">Crisis Response Planning Support</span>
+                            </div>
+                        </article>
+
+                        <!-- Project 9: Espacios de Transición Térmica -->
+                        <article class="project-card" data-id="9">
+                            <div class="project-header">
+                                <div class="project-number">9</div>
+                                <h3 class="project-title">Espacios de Transición Térmica<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">Thermal Transition Spaces</span></h3>
+                            </div>
+                            <img src="../img/ecosistema.png" alt="Transitional thermal spaces that help families adapt between indoor and outdoor environments" class="project-image">
+                            <p class="project-description collapsed">
+                                These transition spaces implement Isabél Sánchez's heat adaptation infrastructure through thermal gradients that help families safely move between extreme outdoor heat and cooled indoor environments, preventing thermal shock while supporting natural family movement patterns. Located at key neighborhood intersections, these spaces provide essential thermal adaptation during summer heat waves when immediate transitions between 45°C outdoor temperatures and 22°C indoor cooling can cause health problems, especially for elderly residents and young children. The López family relies on these spaces during their daily routines, particularly the strategically placed public showers that provide quick cool-downs on scorching days—transparent shower pods integrated into tree-lined pathways where grandmother Carmen can rinse with cool water after arriving from outdoor heat. The transition sequence includes shower areas with recycled water systems, followed by progressively cooler zones: when Carmen uses the public shower, she then spends five minutes in the 35°C entry zone with natural ventilation enhanced by green facades, transitions through 30°C and 26°C zones created by bio-construction materials like adobe walls that naturally regulate temperature, before reaching the 23°C cooling destination. Children learn to play adaptation games in these gradient zones, developing thermal awareness while their bodies safely adjust to temperature changes through both the shower systems and passive architectural cooling. The spaces operate automatically based on temperature differentials, with longer gradient sequences and extended shower availability during extreme heat days, creating neighborhood rhythms that support community thermal safety while maintaining active outdoor-indoor lifestyle patterns.
+                            </p>
+                            <div class="project-features">
+                                <span class="feature-tag">Automatic Thermal Gradient Programming</span>
+                                <span class="feature-tag">Thermal Shock Prevention Protocols</span>
+                                <span class="feature-tag">Child Thermal Adaptation Games</span>
+                                <span class="feature-tag">Neighborhood Movement Rhythm Support</span>
+                            </div>
+                        </article>
+
+                        <!-- Project 10: Sistema de Alerta Térmica Familiar -->
+                        <article class="project-card" data-id="10">
+                            <div class="project-header">
+                                <div class="project-number">10</div>
+                                <h3 class="project-title">Sistema de Alerta Térmica Familiar<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">Family Thermal Alert System</span></h3>
+                            </div>
+                            <img src="../img/iot.png" alt="Family thermal alert system that coordinates emergency response and mutual support during extreme heat" class="project-image">
+                            <p class="project-description collapsed">
+                                This alert system integrates Chief Heat and Drought Officer Isabél Sánchez's Metropolitan Forest project with Ana García's family thermal coordination protocols, using atmospheric data from Madrid's 75-kilometer green belt of 1.5 million trees to coordinate family and community response during extreme thermal events. The Metropolitan Forest acts as a natural cooling system and carbon filter that provides predictive data about thermal patterns, wind circulation, and air quality changes that help families plan thermal safety strategies. When temperatures exceed 42°C for more than four hours, the system automatically sends coordinated alerts using atmospheric readings from forest monitoring stations to families with elderly members, young children, or residents with thermal-sensitive medical conditions. The Vásquez extended family uses this system to coordinate care for 84-year-old grandfather Antonio, who requires thermal monitoring during heat emergencies: daughter Carmen receives alerts about optimal thermal transport times based on forest wind patterns and cooling corridor availability, son-in-law David coordinates with community cooling centers while accessing real-time data about forest-adjacent cooling zones where natural temperature drops provide relief, and teenage grandson Alex helps monitor Antonio's thermal comfort using simple check-in protocols that include forest-accessible walking routes during moderate heat periods. The system integrates community thermal infrastructure with the Metropolitan Forest's natural cooling capacity, providing real-time information about cooling station availability, thermal transition space optimal timing, and forest-adjacent areas where natural shade and improved air quality from the tree canopy create comfortable refuge zones. Families develop thermal emergency plans that include both built infrastructure and natural forest resources, with neighbors coordinating to check on vulnerable residents while sharing access to forest cooling corridors and biodiversity-rich areas where birds, insects, and wildlife create additional environmental comfort during extended heat periods.
+                            </p>
+                            <div class="project-features">
+                                <span class="feature-tag">Automatic Thermal Emergency Coordination</span>
+                                <span class="feature-tag">Extended Family Thermal Alert Protocols</span>
+                                <span class="feature-tag">Community Cooling Resource Integration</span>
+                                <span class="feature-tag">Mutual Support Emergency Planning</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-content">
+                    <p>Madrid Thermal Care District — Community thermal coordination guided by Ana García</p>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Leaflet JavaScript for interactive mapping -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+    
+    <script>
+        /* ============================
+           Interactive Functionality
+           ============================ */
+        
+        // Mobile sidebar toggle functionality
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('open');
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.querySelector('.menu-toggle');
+            
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(event.target) && 
+                !menuToggle.contains(event.target) && 
+                sidebar.classList.contains('open')) {
+                sidebar.classList.remove('open');
+            }
+        });
+
+        // Card-based toggle functionality
+        function initializeCardToggles() {
+            console.log('Initializing clickable cards...');
+            
+            const projectCards = document.querySelectorAll('.project-card');
+            console.log('Found project cards:', projectCards.length);
+            
+            projectCards.forEach((card, index) => {
+                console.log(`Setting up card ${index + 1}:`, card);
+                
+                card.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    console.log('Card clicked:', this);
+                    
+                    const description = this.querySelector('.project-description');
+                    if (!description) {
+                        console.error('Could not find description in card');
+                        return;
+                    }
+                    
+                    const isCollapsed = description.classList.contains('collapsed');
+                    console.log('Current state - collapsed:', isCollapsed);
+                    
+                    if (isCollapsed) {
+                        description.classList.remove('collapsed');
+                        description.classList.add('expanded');
+                        this.classList.add('expanded');
+                        console.log('Expanded card');
+                    } else {
+                        description.classList.remove('expanded');
+                        description.classList.add('collapsed');
+                        this.classList.remove('expanded');
+                        console.log('Collapsed card');
+                    }
+                });
+                
+                card.addEventListener('mouseenter', function() {
+                    this.style.transition = 'all 0.2s ease';
+                });
+            });
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing card toggles...');
+            initializeCardToggles();
+        });
+
+        // Also initialize immediately if DOM is already loaded
+        if (document.readyState !== 'loading') {
+            console.log('DOM already loaded, initializing immediately...');
+            initializeCardToggles();
+        }
+
+        // Enhanced Map Initialization for Madrid
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize map centered on Madrid with optimal zoom
+            const map = L.map('map').setView([40.4168, -3.7038], 12);
+
+            // Add OpenStreetMap tile layer with custom styling
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+                maxZoom: 18,
+                opacity: 0.8
+            }).addTo(map);
+
+            // Define project locations with Madrid coordinates - 10 thermal care facilities
+            const projectLocations = [
+                { id: 1, name: "Plaza de Enfriamiento Serrano", coords: [40.4200, -3.6900], 
+                  type: "Main Community Cooling Station" },
+                { id: 2, name: "Biblioteca Térmica Comunitaria", coords: [40.4150, -3.7000], 
+                  type: "Adaptive Climate Community Library" },
+                { id: 3, name: "Centro de Cuidado Térmico para Mayores", coords: [40.4180, -3.7100], 
+                  type: "Elder Thermal Care Center" },
+                { id: 4, name: "Parque Infantil de Enfriamiento Gradual", coords: [40.4220, -3.6950], 
+                  type: "Child-Focused Gradient Cooling Park" },
+                { id: 5, name: "Red de Climatización Adaptativa Residencial", coords: [40.4160, -3.7050], 
+                  type: "Adaptive Residential Climate Network" },
+                { id: 6, name: "Mercado Térmico Comunitario", coords: [40.4190, -3.6980], 
+                  type: "Community Thermal Market" },
+                { id: 7, name: "Farmacia Clima-Coordinada", coords: [40.4140, -3.7020], 
+                  type: "Climate-Coordinated Pharmacy" },
+                { id: 8, name: "Centro de Coordinación Familiar Térmica", coords: [40.4210, -3.7080], 
+                  type: "Family Thermal Coordination Center" },
+                { id: 9, name: "Espacios de Transición Térmica", coords: [40.4170, -3.6920], 
+                  type: "Thermal Transition Spaces" },
+                { id: 10, name: "Sistema de Alerta Térmica Familiar", coords: [40.4130, -3.7110], 
+                  type: "Family Thermal Alert System" }
+            ];
+
+            // Create custom icon with thermal theme colors
+            const createCustomIcon = (id) => L.divIcon({
+                className: 'custom-marker',
+                html: `<div style="
+                    width: 42px; 
+                    height: 42px; 
+                    background: linear-gradient(135deg, #e67e22, #d4af37);
+                    border-radius: 50%; 
+                    border: 3px solid white; 
+                    color: white; 
+                    font-weight: 800;
+                    display: flex; 
+                    align-items: center; 
+                    justify-content: center;
+                    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+                    font-size: 16px;
+                    cursor: pointer;
+                    transition: transform 0.2s ease;
+                " onmouseover="this.style.transform='scale(1.1)'" 
+                   onmouseout="this.style.transform='scale(1)'">${id}</div>`,
+                iconSize: [42, 42],
+                iconAnchor: [21, 21],
+                popupAnchor: [0, -21]
+            });
+
+            // Add markers with enhanced interactivity
+            projectLocations.forEach(location => {
+                const marker = L.marker(location.coords, { 
+                    icon: createCustomIcon(location.id) 
+                }).addTo(map);
+                
+                // Create rich popup content
+                marker.bindPopup(`
+                    <div style="text-align: center; padding: 16px; min-width: 250px;">
+                        <div style="
+                            background: linear-gradient(135deg, #e67e22, #d4af37);
+                            color: white;
+                            padding: 8px 16px;
+                            border-radius: 20px;
+                            font-size: 12px;
+                            font-weight: 600;
+                            margin-bottom: 12px;
+                            display: inline-block;
+                        ">${location.type}</div>
+                        <h3 style="margin: 0 0 12px 0; color: #1a3d35; font-size: 18px;">
+                            ${location.name}
+                        </h3>
+                        <button style="
+                            background: #1a3d35;
+                            color: white;
+                            border: none;
+                            padding: 8px 16px;
+                            border-radius: 6px;
+                            font-size: 13px;
+                            font-weight: 600;
+                            cursor: pointer;
+                        " onclick="scrollToProject(${location.id})">
+                            View Details
+                        </button>
+                    </div>
+                `, {
+                    maxWidth: 300,
+                    className: 'custom-popup'
+                });
+                
+                // Add click handler for map marker interaction
+                marker.on('click', () => {
+                    const projectCard = document.querySelector(`[data-id="${location.id}"]`);
+                    if (projectCard) {
+                        // Remove previous highlights
+                        document.querySelectorAll('.project-card').forEach(card => {
+                            card.style.background = 'var(--surface-glass)';
+                        });
+                        
+                        // Highlight selected project with thermal theme
+                        projectCard.style.background = 'linear-gradient(135deg, rgba(230, 126, 34, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%)';
+                        
+                        // Reset highlight after 3 seconds
+                        setTimeout(() => {
+                            projectCard.style.background = 'var(--surface-glass)';
+                        }, 3000);
+                    }
+                });
+            });
+
+            // Ensure map renders correctly after layout is stable
+            setTimeout(() => {
+                map.invalidateSize();
+            }, 300);
+        });
+
+        // Function to scroll to specific project from map interaction
+        function scrollToProject(projectId) {
+            const projectCard = document.querySelector(`[data-id="${projectId}"]`);
+            if (projectCard) {
+                projectCard.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+                
+                // Add pulse effect to draw attention
+                projectCard.style.transform = 'scale(1.05)';
+                setTimeout(() => {
+                    projectCard.style.transform = 'scale(1)';
+                }, 300);
+            }
+        }
+    </script>
+</body>
+</html>
