@@ -160,35 +160,3 @@ categoryIcons.forEach(icon => {
         });
     });
 });
-```
-
----
-
-## 🖼️ 3. SUGERENCIAS DE IMÁGENES
-
-Para mejorar las imágenes de Unsplash, busca estos términos específicos:
-
-**Refugios Térmicos:**
-- "colonial architecture patio argentina"
-- "historic building courtyard shade"
-- "argentinian colonial gallery"
-
-**Cisterna Histórica:**
-- "underground cistern stone"
-- "historic water reservoir"
-- "brick tunnel arch"
-
-**Calles Frescas:**
-- "cobblestone street trees"
-- "historic street canopy"
-- "pedestrian street shade"
-
-**Plaza Dorrego:**
-- "public square trees buenos aires"
-- "historic plaza fountain"
-- "plaza market shade"
-
-**Patios-Huerta:**
-- "courtyard garden urban"
-- "community garden patio"
-- "vertical garden building"
