@@ -13,8 +13,8 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Ciudades con coordenadas
 const cities = [
-    { name: 'Kyoto', coords: [35.0116, 135.7681], url: 'cities/kyoto.html' },
     { name: 'Buenos Aires', coords: [-34.6037, -58.3816], url: 'cities/buenos-aires.html' },
+    { name: 'Kyoto', coords: [35.0116, 135.7681], url: 'cities/kyoto.html' },
     { name: 'Madrid', coords: [40.4168, -3.7038], url: '#' },
     { name: 'Melbourne', coords: [-37.8136, 144.9631], url: '#' },
     { name: 'Nairobi', coords: [-1.2864, 36.8172], url: '#' },
