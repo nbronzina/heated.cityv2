@@ -880,7 +880,7 @@ body.city-page {
 .about-hero {
     background: #000033;
     color: white;
-    padding: 8rem 2rem 3rem;
+    padding: 6rem 2rem 2rem;
     text-align: center;
     margin-top: 70px;
 }
@@ -901,7 +901,6 @@ body.city-page {
     background: #000033;
     color: white;
     padding: 2rem 2rem 3rem;
-    min-height: calc(100vh - 400px);
 }
 
 .about-grid {
@@ -930,6 +929,13 @@ body.city-page {
 
 .about-col a:hover {
     opacity: 0.7;
+}
+
+/* Fondo azul para página About */
+body.about-page {
+    background: #000033;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* ====================================
