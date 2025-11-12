@@ -901,7 +901,7 @@ body.city-page {
     background: #000033;
     color: white;
     padding: 2rem 2rem 3rem;
-    min-height: 100vh;
+    min-height: calc(100vh - 400px);
 }
 
 .about-grid {
@@ -1310,4 +1310,18 @@ body.city-page {
     .contributors-hero h1 {
         font-size: 2rem;
     }
+}
+
+/* ====================================
+   ABOUT PAGE - FONDO AZUL COMPLETO
+   ==================================== */
+
+/* Fondo azul para página About */
+body.about-page {
+    background: #000033;
+    min-height: 100vh;
+}
+
+body.about-page .about-content {
+    min-height: auto;
 }
