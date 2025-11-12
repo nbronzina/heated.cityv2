@@ -1,741 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Understanding how neighborhoods express their innate wisdom through biointegration systems that breathe with community rhythms.">
-    <meta name="keywords" content="community wisdom, biointegration, neighborhood intelligence, atmospheric processing, urban ecology">
-    <meta name="author" content="Heated.city">
-    <title>About — Heated.city</title>
-    
-    <!-- Google Fonts for modern typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        /* ============================
-           Design System Variables (Consistent with index.html)
-           ============================ */
-        :root {
-            /* Color palette inspired by regenerative design */
-            --primary-color: #1a3d35;
-            --accent-color: #7fb069;
-            --secondary-accent: #d4af37;
-            --text-dark: #0f1419;
-            --text-medium: #4a5568;
-            --text-light: #718096;
-            --background: #fdfffe;
-            --background-soft: #f7fafc;
-            --background-warm: #fefcf8;
-            --border-light: #e2e8f0;
-            --border-medium: #cbd5e0;
-            
-            /* Advanced visual effects */
-            --surface-glass: rgba(255, 255, 255, 0.92);
-            --shadow-subtle: 0 2px 12px rgba(0, 0, 0, 0.04);
-            --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
-            --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.12);
-            
-            /* Layout measurements */
-            --sidebar-width: 320px;
-            --content-max-width: 900px;
-            --radius-small: 8px;
-            --radius-medium: 16px;
-            --radius-large: 24px;
-        }
-
-        /* ============================
-           Base Styles
-           ============================ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: linear-gradient(135deg, var(--background) 0%, var(--background-warm) 100%);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.2s ease;
-        }
-
-        /* ============================
-           Layout Structure
-           ============================ */
-        .app-container {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* Sidebar Navigation */
-        .sidebar {
-            width: var(--sidebar-width);
-            border-right: 1px solid var(--border-light);
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            overflow-y: auto;
-            z-index: 1000;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .sidebar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--surface-glass);
-            backdrop-filter: blur(20px) saturate(180%);
-            z-index: -1;
-        }
-
-        .sidebar-header {
-            padding: 40px 32px 32px;
-            border-bottom: 1px solid var(--border-light);
-            background: linear-gradient(135deg, rgba(122, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary-color);
-            letter-spacing: -0.8px;
-            margin-bottom: 8px;
-        }
-
-        .tagline {
-            font-size: 15px;
-            color: var(--text-medium);
-            line-height: 1.4;
-            font-weight: 500;
-        }
-
-        .climate-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 16px;
-            padding: 8px 12px;
-            background: rgba(127, 176, 105, 0.1);
-            border-radius: var(--radius-small);
-            font-size: 13px;
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        .climate-indicator::before {
-            content: '●';
-            color: var(--accent-color);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .sidebar-nav {
-            padding: 40px 0 32px;
-        }
-
-        .nav-section {
-            margin-bottom: 40px;
-        }
-
-        .nav-title {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            padding: 0 32px;
-            margin-bottom: 20px;
-        }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 32px;
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--text-medium);
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--primary-color);
-            background: linear-gradient(135deg, rgba(26, 61, 53, 0.04) 0%, rgba(127, 176, 105, 0.04) 100%);
-        }
-
-        .nav-link.active::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
-        }
-
-        .project-count {
-            font-size: 12px;
-            color: var(--text-light);
-            background: var(--background-soft);
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-weight: 600;
-        }
-
-        /* ============================
-           Main Content Area
-           ============================ */
-        .main-content {
-            margin-left: var(--sidebar-width);
-            flex: 1;
-            min-height: 100vh;
-        }
-
-        /* About Hero Section */
-        .about-hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #0f2a24 100%);
-            color: white;
-            padding: 120px 64px 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: 
-                linear-gradient(30deg, rgba(127, 176, 105, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(127, 176, 105, 0.1) 87.5%),
-                linear-gradient(150deg, rgba(127, 176, 105, 0.1) 12%, transparent 12.5%, transparent 87%, rgba(127, 176, 105, 0.1) 87.5%);
-            background-size: 80px 140px;
-            opacity: 0.3;
-        }
-
-        .about-hero-content {
-            max-width: var(--content-max-width);
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .about-hero h1 {
-            font-size: 56px;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 32px;
-            letter-spacing: -1.2px;
-        }
-
-        .about-hero-subtitle {
-            font-size: 24px;
-            opacity: 0.9;
-            line-height: 1.4;
-            font-weight: 400;
-            margin-bottom: 48px;
-        }
-
-        .wisdom-context {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            font-size: 16px;
-            opacity: 0.8;
-            font-weight: 500;
-        }
-
-        .wisdom-context::before {
-            content: '';
-            width: 40px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent));
-        }
-
-        /* ============================
-           About Content Sections
-           ============================ */
-        .about-section {
-            padding: 100px 64px;
-        }
-
-        .about-section:nth-child(even) {
-            background: var(--background-soft);
-        }
-
-        .section-content {
-            max-width: var(--content-max-width);
-            margin: 0 auto;
-        }
-
-        .section-header {
-            margin-bottom: 64px;
-        }
-
-        .section-title {
-            font-size: 42px;
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: 24px;
-            letter-spacing: -0.8px;
-            line-height: 1.2;
-        }
-
-        .section-intro {
-            font-size: 20px;
-            color: var(--text-medium);
-            line-height: 1.6;
-            font-weight: 400;
-        }
-
-        /* Content styling for conversational flow */
-        .content-text {
-            font-size: 18px;
-            line-height: 1.7;
-            color: var(--text-dark);
-        }
-
-        .content-text p {
-            margin-bottom: 32px;
-        }
-
-        .content-text p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Observation boxes for personal insights */
-        .observation-box {
-            background: linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
-            border-radius: var(--radius-medium);
-            padding: 40px;
-            margin: 48px 0;
-            border-left: 4px solid var(--accent-color);
-            position: relative;
-        }
-
-        .observation-text {
-            font-size: 18px;
-            line-height: 1.6;
-            color: var(--text-dark);
-            font-style: italic;
-        }
-
-        /* Stories grid for authentic examples */
-        .stories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-            margin: 48px 0;
-        }
-
-        .story-card {
-            background: white;
-            border-radius: var(--radius-medium);
-            padding: 32px;
-            box-shadow: var(--shadow-subtle);
-            border: 1px solid var(--border-light);
-        }
-
-        .story-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 16px;
-        }
-
-        .story-text {
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--text-medium);
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--background-soft);
-            border-top: 1px solid var(--border-light);
-            padding: 64px;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: var(--content-max-width);
-            margin: 0 auto;
-        }
-
-        .footer p {
-            color: var(--text-medium);
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        /* ============================
-           Mobile Responsive Design
-           ============================ */
-        @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-                width: 100vw;
-                max-width: 400px;
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            .main-content {
-                margin-left: 0;
-            }
-
-            .mobile-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 20px 24px;
-                background: var(--surface-glass);
-                backdrop-filter: blur(20px);
-                border-bottom: 1px solid var(--border-light);
-                position: sticky;
-                top: 0;
-                z-index: 999;
-            }
-
-            .mobile-logo {
-                font-size: 22px;
-                font-weight: 700;
-                color: var(--primary-color);
-            }
-
-            .menu-toggle {
-                background: none;
-                border: none;
-                font-size: 28px;
-                color: var(--primary-color);
-                cursor: pointer;
-                padding: 8px;
-                border-radius: var(--radius-small);
-                transition: background-color 0.2s ease;
-            }
-
-            .menu-toggle:hover {
-                background: rgba(127, 176, 105, 0.1);
-            }
-
-            .about-hero {
-                padding: 64px 24px 48px;
-            }
-
-            .about-hero h1 {
-                font-size: 36px;
-            }
-
-            .about-hero-subtitle {
-                font-size: 18px;
-            }
-
-            .about-section {
-                padding: 64px 24px;
-            }
-
-            .section-title {
-                font-size: 32px;
-            }
-
-            .stories-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
-        }
-
-        .mobile-header {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-header {
-                display: flex;
-            }
-        }
-    </style>
+    <title>About - Heated City</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="app-container">
-        <!-- Mobile Header -->
-        <header class="mobile-header">
-            <div class="mobile-logo">Heated.city</div>
-            <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
-        </header>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-left">
+            <a href="/" class="logo">Heated City</a>
+            <button class="search-icon" onclick="openSearch()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+            </button>
+        </div>
+        
+        <nav class="main-nav">
+            <a href="index.html#cities">Cities</a>
+            <a href="#contributors">Contributors</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
 
-        <!-- Sidebar Navigation -->
-        <nav class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">Heated.city</div>
-                <div class="tagline">Neighborhoods that speak the language of care through their very design</div>
-                <div class="climate-indicator">Regenerative Proximity Network</div>
+    <!-- About Hero -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1>A speculative atlas of urban care infrastructure</h1>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="about-grid">
+            <div class="about-col">
+                <p><strong>Heated City is a design fiction project</strong></p>
+                
+                <p>Heated City was not a guide for the average climate tourist. It was not where you would find the best place to buy carbon offsets, book disaster-proof hotels, or highlight the same old resilience initiatives.</p>
+                
+                <p>From 2028 - 2030, Heated City documented the urban districts around the world where caring became infrastructure—neighborhoods where climate adaptation, community care, and biointegration created new forms of everyday life. It was the essential exploration guide made by and for the climate-conscious urbanites.</p>
+                
+                <p>Created by <a href="https://www.instagram.com/heated.studio?igsh=MTJveTk5Zm9vYmlqNQ==" target="_blank" rel="noopener noreferrer">Heated Studio</a>, Heated City was a speculative effort exploring how hundreds of communities might respond to climate challenges through care-based infrastructure. Each district represented different approaches to atmospheric coordination, thermal equity, water adaptation, and community resilience.</p>
+            </div>
+
+            <div class="about-col">
+                <p>Local coordinators documented their neighborhoods with carefully crafted observations so visitors could experience each district like a resident. Whether you explored biointegration labs or community cooling centers, seasonal observation protocols or adaptive housing, we had you covered.</p>
+                
+                <p>In this speculative near-future, communities worldwide developed innovative care infrastructures in response to escalating climate challenges. Heated City emerged as a way to document and share these approaches—a collaborative mapping of how urban care systems might evolve.</p>
+                
+                <p><strong>This is a design fiction project</strong></p>
+                
+                <p>All locations, projects, technologies, and narratives presented are speculative scenarios created for educational and imaginative purposes. Heated City explores possible futures of urban climate adaptation through the lens of care-based infrastructure.</p>
+                
+                <p>If you have any ideas or interest in imagining a future for Heated City, please feel free to <a href="mailto:nicolas.bronzina@gmail.com">reach out</a>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="4"/>
+                    <path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>
+                </svg>
             </div>
             
-            <div class="sidebar-nav">
-                <div class="nav-section">
-                    <div class="nav-title">Navigate</div>
-                    <a href="index.html" class="nav-link">Districts</a>
-                    <a href="about.html" class="nav-link active">About</a>
-                    <a href="contributors.html" class="nav-link">Gardeners</a>
-                </div>
-                
-                <div class="nav-section">
-                    <div class="nav-title">Walking Neighborhoods</div>
-                    <a href="cities/kyoto.html" class="nav-link">
-                        Kyoto
-                        <span class="project-count">6</span>
-                    </a>
-                    <a href="madrid.html" class="nav-link">
-                        Madrid
-                        <span class="project-count">18</span>
-                    </a>
-                    <a href="melbourne.html" class="nav-link">
-                        Melbourne
-                        <span class="project-count">15</span>
-                    </a>
-                    <a href="buenos-aires.html" class="nav-link">
-                        Buenos Aires
-                        <span class="project-count">22</span>
-                    </a>
-                    <a href="nairobi.html" class="nav-link">
-                        Nairobi
-                        <span class="project-count">9</span>
-                    </a>
-                    <a href="new-delhi.html" class="nav-link">
-                        New Delhi
-                        <span class="project-count">16</span>
-                    </a>
-                </div>
+            <div class="footer-credits">
+                <p>Created by <a href="https://www.instagram.com/heated.studio?igsh=MTJveTk5Zm9vYmlqNQ==" target="_blank" rel="noopener noreferrer">Heated Studio</a></p>
+                <p>Curated by collaborators around the world</p>
+                <p>If you have any ideas or interest in imagining a future for Heated City, please feel free to <a href="mailto:nicolas.bronzina@gmail.com">reach out</a></p>
             </div>
-        </nav>
+            
+            <div class="footer-social">
+                <a href="https://www.instagram.com/heated.studio?igsh=MTJveTk5Zm9vYmlqNQ==" target="_blank" rel="noopener noreferrer">Follow us on Instagram</a>
+            </div>
+            
+            <div class="footer-disclaimer">
+                <p>⚠️ Heated City is a design fiction project exploring possible futures of urban climate adaptation. All content, including locations, projects, and narratives, is speculative and created for educational and imaginative purposes</p>
+            </div>
+        </div>
+    </footer>
 
-        <!-- Main Content Area -->
-        <main class="main-content">
-            <!-- About Hero Section -->
-            <section class="about-hero">
-                <div class="about-hero-content">
-                    <h1>What makes a neighborhood breathe well</h1>
-                    <p class="about-hero-subtitle">After spending time in these six places, you start noticing things. How the timing feels right. How spaces seem to anticipate your needs. How everything connects in ways that make daily life easier, not harder.</p>
-                    <div class="wisdom-context">
-                        Some places know how to take care of themselves
-                    </div>
+    <!-- Search Modal -->
+    <div id="searchModal" class="search-modal">
+        <div class="search-modal-content">
+            <div class="search-header">
+                <div class="search-icon-large">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
                 </div>
-            </section>
-
-            <!-- It Started With Walking Distance -->
-            <section class="about-section">
-                <div class="section-content">
-                    <div class="section-header">
-                        <h2 class="section-title">It started with walking distance</h2>
-                        <p class="section-intro">During lockdown, millions of people rediscovered something that urban planner Carlos Moreno had been talking about for years—life gets better when everything you need is fifteen minutes away on foot.</p>
-                    </div>
-                    
-                    <div class="content-text">
-                        <p>You probably felt it yourself. That moment you realized your neighborhood had a personality you'd never noticed. The corner bakery that became your morning ritual. The park where you started recognizing the same dog walkers. The route to the grocery store turned into a proper walk instead of a necessary chore. Everything slowed down. Distances shrunk. Your world became more textured, more familiar.</p>
-
-                        <p>These six neighborhoods took that feeling and asked a different question. What if walking distance didn't just make life more convenient? What if it could improve the air you breathe, the soil beneath your feet, and the quality of water that flows through your community?</p>
-
-                        <p>It sounds almost too simple, but here's what they figured out. The same density that puts your coffee shop around the corner also makes it possible to close the loops on energy, water, and waste. The mixed-use buildings that give you a pharmacy downstairs can also house community workshops where neighbors process organic materials. The plaza where you meet friends can also serve as an atmospheric water generation collection point.</p>
-                    </div>
-
-                    <div class="observation-box">
-                        <p class="observation-text">Walking through Melbourne's vertical growing district on a Tuesday afternoon, you can smell bread baking in the community kitchen, hear the soft hum of composting systems processing yesterday's kitchen scraps, and see families picking herbs from rooftop gardens for tonight's dinner. None of it feels like "environmental technology." It just feels like a neighborhood that works.</p>
-                    </div>
-
-                    <div class="content-text">
-                        <p>The breakthrough wasn't technological. It recognized that caring for a place and people could happen simultaneously within the same fifteen-minute radius, using many of the same community spaces and social rhythms already there.</p>
-                    </div>
+                <div class="search-input-wrapper">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        id="searchInput"
+                        placeholder="Search Cities and Neighborhoods"
+                        autocomplete="off"
+                    >
                 </div>
-            </section>
-
-            <!-- Places That Communicate -->
-            <section class="about-section">
-                <div class="section-content">
-                    <div class="section-header">
-                        <h2 class="section-title">Places that learn to communicate</h2>
-                        <p class="section-intro">The strangest thing about these neighborhoods is how they seem to talk to you. Not literally, but through a thousand small design choices that make information visible and accessible.</p>
-                    </div>
-                    
-                    <div class="content-text">
-                        <p>In Kyoto, the paper workshop pools shift from pale green to deep amber throughout the week, reflecting the mineral content that makes Tuesday perfect for origami while Thursday works better for calligraphy. The street lighting along the main walking route changes hue eighteen hours before storms, not dramatically enough that you've learned to bring an umbrella when the fixtures look slightly more blue than usual.</p>
-
-                        <p>Madrid's cooling corridors announce themselves through the specific way building entrances are angled, creating visual cues that promise thermal relief before you feel it. The plaza fountains operate on schedules that coordinate with pedestrian flows, not because of sensors, but because someone paid attention to when people walk through those spaces and adjusted the timing accordingly.</p>
-
-                        <p>This kind of communication isn't accidental. It emerged from communities that recognized how much environmental intelligence already exists in neighborhoods—the elderly residents who can predict weather by how their joints feel, the mothers who know which corners smell wrong on certain days, the teenagers who've mapped every spot that stays cool during summer heat waves.</p>
-                    </div>
-
-                    <div class="stories-grid">
-                        <div class="story-card">
-                            <h3 class="story-title">The Buenos Aires Building Manager</h3>
-                            <p class="story-text">Elena manages a twelve-story residential building where the lobby functions as an informal community coordination center. The building association meetings happen monthly, but the real coordination happens daily when residents check the growing schedule posted next to the mailboxes, noting which floors are ready for herb pickup and when the community kitchen will be available for shared meals. "It's not different from managing any building amenity," Elena says. "Except that this amenity feeds people."</p>
-                        </div>
-                        
-                        <div class="story-card">
-                            <h3 class="story-title">The New Delhi School Teacher</h3>
-                            <p class="story-text">Preet teaches fourth grade at a school that schedules outdoor activities based on real-time air quality optimization. The community gardens process ambient air while providing educational spaces where children learn to identify plants that indicate environmental health. "The kids develop a kind of environmental literacy just by being here," she explains. "They notice things about air and soil that I'm still learning to see."</p>
-                        </div>
-                    </div>
-
-                    <div class="content-text">
-                        <p>What makes these neighborhoods feel different is that they developed infrastructure that amplifies rather than replaces this community's environmental intelligence. Technology serves the patterns of attention and care already there, instead of requiring people to adapt to technical schedules and specifications.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- The Gardener Insight -->
-            <section class="about-section">
-                <div class="section-content">
-                    <div class="section-header">
-                        <h2 class="section-title">Someone pays attention to how it all fits together</h2>
-                        <p class="section-intro">Every neighborhood that works well has people who understand how the pieces connect. In these places, those people have a specific role and a particular set of skills.</p>
-                    </div>
-                    
-                    <div class="content-text">
-                        <p>Himari Satō coordinates atmospheric rhythms in Kyoto the way a building superintendent manages heating and cooling—except that his building is an entire neighborhood, and the systems he tends include bamboo groves that predict weather, workshop schedules that align with seasonal patterns, and community energy generation that follows brewing cycles.</p>
-
-                        <p>He spends Tuesday mornings walking the district, observing how people move through spaces and noting atmospheric changes that might affect workshop conditions. He facilitates community meetings on Wednesday afternoons where residents share observations about air quality, seasonal timing, and resource flows. He calibrates atmospheric processing systems on Thursday evenings based on weather forecasts and community feedback.</p>
-
-                        <p>It's skilled work, but not in the way you might expect. Himari's expertise lies in translation—between the needs of ecological systems and the preferences of human communities, between technical possibilities and social rhythms, between individual observations and collective coordination.</p>
-                    </div>
-
-                    <div class="observation-box">
-                        <p class="observation-text">Watching Himari adjust atmospheric processing schedules based on a conversation with Mrs. Tanaka about how the paper workshop pools have been smelling different lately, you realize that the most sophisticated technology in these neighborhoods is the social infrastructure that enables this kind of coordination between human attention and environmental response.</p>
-                    </div>
-
-                    <div class="content-text">
-                        <p>Each neighborhood has developed its version of this coordination role. Ana in Madrid focuses on thermal management and heat adaptation. Callagun in Melbourne specializes in resource flows and circular systems. Pablo in Buenos Aires coordinates vertical community systems. Kamau in Nairobi manages water commons. Priya in New Delhi handles air quality optimization.</p>
-
-                        <p> They share an understanding that environmental infrastructure works best when it serves community rhythms rather than requiring communities to adapt to technical optimization. Their job is to facilitate conversations between different scales of care—individual comfort, household needs, neighborhood coordination, and district ecosystem health.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Why It Feels Natural -->
-            <section class="about-section">
-                <div class="section-content">
-                    <div class="section-header">
-                        <h2 class="section-title">Why it all feels surprisingly normal</h2>
-                        <p class="section-intro">The most remarkable thing about these neighborhoods is how unremarkable living in them becomes. After a few months, the environmental care feels as routine as taking out trash or checking the weather.</p>
-                    </div>
-                    
-                    <div class="content-text">
-                        <p>Children who grow up in these places provide the clearest evidence of how thoroughly the systems have integrated into daily life. They notice that when atmospheric processing creates optimal conditions for outdoor play, the same way kids anywhere learn to recognize good weather for the playground. They develop timing habits around community workshops that align with their after-school schedules. They understand resource flows through participation in building maintenance rather than environmental science classes.</p>
-
-                        <p> Clean air isn't a technological achievement for them—it's simply how neighborhoods function. Reliable water isn't infrastructure innovation—it's what water systems do. Community coordination around resource sharing isn't environmental sustainability—it's how neighbors behave.</p>
-
-                        <p>This naturalness emerges because the infrastructure supports rather than disrupts existing patterns of community life. Energy systems align with daily routines instead of requiring schedule adjustments. Atmospheric processing operates during optimal windows for outdoor activities instead of demanding indoor restrictions. Resource processing coordinates with community rhythms instead of imposing technical timing.</p>
-                    </div>
-
-                    <div class="observation-box">
-                        <p class="observation-text">Visiting friends in conventional neighborhoods after living in regenerative proximity districts, you notice the absence more than you ever noticed the presence. The air feels heavier. Resource flows feel wasteful. Community coordination feels more difficult. It's like getting used to a really good internet connection and visiting somewhere with dial-up.</p>
-                    </div>
-
-                    <div class="content-text">
-                        <p>The neighborhoods continue evolving because the infrastructure enables rather than constrains experimentation. When residents suggest improvements based on lived experience, those suggestions can be implemented through the same coordination systems that manage daily operations. Over time, environmental care becomes more responsive through feedback loops that serve human comfort and ecological health.</p>
-
-                        <p>This is the most important insight from these places. Environmental challenges require solutions that enhance rather than complicate daily life. When caring for place aligns with caring for community, both kinds of care become self-sustaining rather than requiring constant effort and attention.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- What This Means -->
-            <section class="about-section">
-                <div class="section-content">
-                    <div class="section-header">
-                        <h2 class="section-title">What this might mean for where you live</h2>
-                        <p class="section-intro">These six neighborhoods suggest that choosing between environmental health and quality of life might be a false dilemma. What if caring for place and caring for people were the same activity?</p>
-                    </div>
-                    
-                    <div class="content-text">
-                        <p>Every community already possesses environmental intelligence. People notice daily air quality changes, seasonal patterns, resource flows, and social rhythms. They develop preferences about timing and location based on how environmental factors affect comfort and well-being. They coordinate informally around shared resources and community spaces.</p>
-
-                        <p>The question isn't whether communities can handle environmental care—they already do, within the constraints of whatever infrastructure is available. The question is whether infrastructure can be designed to amplify existing community intelligence rather than requiring specialized knowledge or lifestyle adaptation.</p>
-
-                        <p>What makes these neighborhoods distinctive isn't their technology, but their recognition that environmental health and community wellbeing enhance each other when systems are designed with sufficient attention to local patterns of care and attention. The specific solutions—atmospheric processing, resource cycling, community workshops, coordination roles—emerged from particular places with particular needs and cultural patterns.</p>
-                    </div>
-
-                    <div class="observation-box">
-                        <p class="observation-text">The principles could manifest differently anywhere. A rural community might develop agricultural cycles, coordinating energy generation and water processing. A dense urban district might focus on building-integrated systems and vertical resource flows. A suburban neighborhood might emphasize distributed processing and household-scale coordination. The specifics matter less than the relationship between proximity, community intelligence, and responsive infrastructure.</p>
-                    </div>
-
-                    <div class="content-text">
-                        <p>Perhaps most importantly, these places demonstrate that environmental resilience can emerge from community care rather than requiring individual sacrifice or technological domination. When neighborhoods have tools that match their natural capacity for environmental attention, they create surplus healing capacity that benefits broader regions while improving daily life for residents.</p>
-
-                        <p>It's not a complete solution to environmental challenges, but it's evidence that solutions can enhance rather than constrain human flourishing when designed to serve community rhythms rather than technical optimization. Which suggests possibilities worth exploring, wherever you happen to live.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Footer -->
-            <footer class="footer">
-                <div class="footer-content">
-                    <p>Ready to see how this works in practice? <a href="cities/kyoto.html" style="color: var(--primary-color); font-weight: 600;">Walk through Kyoto's systems</a> or <a href="contributors.html" style="color: var(--primary-color); font-weight: 600;">meet the gardeners who coordinate it all</a>.</p>
-                    <p style="margin-top: 24px; font-size: 14px; color: var(--text-light); font-style: italic;">A design fiction work by <a href="https://www.heated.studio/" style="color: var(--accent-color); font-weight: 600; text-decoration: none;">heated.studio</a></p>
-                </div>
-            </footer>
-        </main>
+                <button class="search-close" onclick="closeSearch()">×</button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
     </div>
 
-    <script>
-        // Mobile sidebar toggle
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('open');
-        }
-
-        // Close sidebar when clicking outside
-        document.addEventListener('click', function(event) {
-            const sidebar = document.getElementById('sidebar');
-            const menuToggle = document.querySelector('.menu-toggle');
-            
-            if (window.innerWidth <= 768 && 
-                !sidebar.contains(event.target) && 
-                !menuToggle.contains(event.target) && 
-                sidebar.classList.contains('open')) {
-                sidebar.classList.remove('open');
-            }
-        });
-
-        // Smooth scrolling for internal navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    
-                    if (window.innerWidth <= 768) {
-                        document.getElementById('sidebar').classList.remove('open');
-                    }
-                }
-            });
-        });
-    </script>
+    <!-- JavaScript -->
+    <script src="js/search.js"></script>
 </body>
 </html>
