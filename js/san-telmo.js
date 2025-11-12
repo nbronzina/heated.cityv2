@@ -14,14 +14,14 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Datos de proyectos
 const projects = {
-    'mercado-san-telmo': {
-        title: 'Mercado San Telmo',
-        location: 'Defensa 963, San Telmo',
-        website: 'https://www.futures-in-maps.com/san-telmo/',
-        image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800',
-        description: 'The historic San Telmo Market has been transformed into a community thermal refuge and food coordination center. Its cast-iron structure now houses cooling systems, rainwater collection, and community kitchens that serve as a model for heritage-based climate adaptation throughout Buenos Aires.',
-        coords: [-34.6215, -58.3724]
-    },
+'mercado-san-telmo': {
+    title: 'Mercado San Telmo',
+    location: 'Defensa 963, San Telmo',
+    website: 'https://www.futures-in-maps.com/san-telmo/',
+    image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800',
+    description: 'Built in 1897 and fully restored in 2028, San Telmo Market remains a vibrant shopping destination offering fresh summer environments and a wide range of products. The market embodies the richness and diversity of gastronomic possibilities, from specialty coffee and artisan bread to seasonal fruits and vegetables. It features a herboristería treasured by herbology enthusiasts, explores sustainable protein sources, and offers a paradise for history enthusiasts and technology aficionados with its collection of antiques and tech items.',
+    coords: [-34.6215, -58.3724]
+},
     'refugio-termico': {
         title: 'Refugios Térmicos Históricos',
         location: 'Multiple locations, San Telmo',
