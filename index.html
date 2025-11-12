@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heated City - Cities That Care</title>
-    
-    <!-- External CSS -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -31,12 +29,12 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600" alt="City" class="hero-bg">
+        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600&q=80" alt="City skyline" class="hero-bg">
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Cities That Care</h1>
             <p>Heated City documents urban districts where caring became infrastructure—neighborhoods where climate adaptation, community care, and biointegration created new forms of everyday life.</p>
-            <button class="cta-button" onclick="document.querySelector('.neighborhoods-section').scrollIntoView({behavior: 'smooth'})">
+            <button class="cta-button">
                 Explore Districts
             </button>
         </div>
@@ -52,9 +50,10 @@
         </div>
 
         <div class="neighborhoods-grid">
-            <!-- District 1: Kyoto -->
-            <article class="neighborhood-card" onclick="window.location.href='cities/kyoto.html'">
-                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800" alt="Kyoto Biointegration District">
+            <!-- District 1: Kyoto Higashiyama -->
+            <article class="neighborhood-card" data-city="kyoto">
+                <!-- Higashiyama: pagoda Yasaka, calles tradicionales de madera -->
+                <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80" alt="Higashiyama District Kyoto">
                 <div class="neighborhood-info">
                     <div class="neighborhood-title">Higashiyama</div>
                     <div class="neighborhood-city">Kyoto</div>
@@ -62,9 +61,10 @@
                 </div>
             </article>
 
-            <!-- District 2: Buenos Aires -->
-            <article class="neighborhood-card" onclick="window.location.href='cities/buenos-aires.html'">
-                <img src="https://images.unsplash.com/photo-1512395749243-3cd5fec60e95?w=800" alt="Balvanera">
+            <!-- District 2: Buenos Aires Balvanera -->
+            <article class="neighborhood-card" data-city="buenos-aires">
+                <!-- Balvanera/Abasto: barrio del tango, Carlos Gardel -->
+                <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800&q=80" alt="Balvanera Buenos Aires">
                 <div class="neighborhood-info">
                     <div class="neighborhood-title">Balvanera</div>
                     <div class="neighborhood-city">Buenos Aires</div>
@@ -72,9 +72,10 @@
                 </div>
             </article>
 
-            <!-- District 3: Madrid -->
-            <article class="neighborhood-card" onclick="window.location.href='cities/madrid.html'">
-                <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=800" alt="Madrid">
+            <!-- District 3: Madrid Lavapiés -->
+            <article class="neighborhood-card" data-city="madrid">
+                <!-- Lavapiés: multicultural, calles estrechas, corrala -->
+                <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&q=80" alt="Lavapiés Madrid">
                 <div class="neighborhood-info">
                     <div class="neighborhood-title">Lavapiés</div>
                     <div class="neighborhood-city">Madrid</div>
@@ -82,9 +83,10 @@
                 </div>
             </article>
 
-            <!-- District 4: Melbourne -->
-            <article class="neighborhood-card" onclick="window.location.href='cities/melbourne.html'">
-                <img src="https://images.unsplash.com/photo-1514395462725-fb4566210144?w=800" alt="Melbourne">
+            <!-- District 4: Melbourne Carlton -->
+            <article class="neighborhood-card" data-city="melbourne">
+                <!-- Carlton: arquitectura victoriana, cafés -->
+                <img src="https://images.unsplash.com/photo-1514395462725-fb4566210144?w=800&q=80" alt="Carlton Melbourne">
                 <div class="neighborhood-info">
                     <div class="neighborhood-title">Carlton</div>
                     <div class="neighborhood-city">Melbourne</div>
@@ -92,9 +94,10 @@
                 </div>
             </article>
 
-            <!-- District 5: Nairobi -->
-            <article class="neighborhood-card" onclick="window.location.href='cities/nairobi.html'">
-                <img src="https://images.unsplash.com/photo-1611348524140-53c9a25263d6?w=800" alt="Nairobi">
+            <!-- District 5: Nairobi Kibera -->
+            <article class="neighborhood-card" data-city="nairobi">
+                <!-- Kibera: comunidad resiliente, innovación -->
+                <img src="https://images.unsplash.com/photo-1611348524140-53c9a25263d6?w=800&q=80" alt="Kibera Nairobi">
                 <div class="neighborhood-info">
                     <div class="neighborhood-title">Kibera</div>
                     <div class="neighborhood-city">Nairobi</div>
@@ -102,9 +105,10 @@
                 </div>
             </article>
 
-            <!-- District 6: New Delhi -->
-            <article class="neighborhood-card" onclick="window.location.href='cities/new-delhi.html'">
-                <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800" alt="New Delhi">
+            <!-- District 6: New Delhi Hauz Khas -->
+            <article class="neighborhood-card" data-city="new-delhi">
+                <!-- Hauz Khas: patrimonio histórico, vida urbana -->
+                <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80" alt="Hauz Khas New Delhi">
                 <div class="neighborhood-info">
                     <div class="neighborhood-title">Hauz Khas</div>
                     <div class="neighborhood-city">New Delhi</div>
@@ -117,54 +121,54 @@
     <!-- Cities Section -->
     <section class="cities-section" id="cities">
         <div class="cities-tabs">
-            <button class="city-tab active">All Cities</button>
-            <button class="city-tab">Asia</button>
-            <button class="city-tab">Europe</button>
-            <button class="city-tab">Africa</button>
-            <button class="city-tab">Oceania</button>
-            <button class="city-tab">Americas</button>
+            <button class="city-tab active" data-region="all">All Cities</button>
+            <button class="city-tab" data-region="asia">Asia</button>
+            <button class="city-tab" data-region="europe">Europe</button>
+            <button class="city-tab" data-region="africa">Africa</button>
+            <button class="city-tab" data-region="oceania">Oceania</button>
+            <button class="city-tab" data-region="americas">Americas</button>
         </div>
 
         <div class="cities-grid">
             <!-- City 1: Kyoto -->
-            <article class="city-card" onclick="window.location.href='cities/kyoto.html'">
+            <article class="city-card" data-region="asia" data-city="kyoto">
                 <div class="city-name">Kyoto</div>
                 <div class="city-country">Japan</div>
             </article>
 
             <!-- City 2: Buenos Aires -->
-            <article class="city-card" onclick="window.location.href='cities/buenos-aires.html'">
+            <article class="city-card" data-region="americas" data-city="buenos-aires">
                 <div class="city-name">Buenos Aires</div>
                 <div class="city-country">Argentina</div>
             </article>
 
             <!-- City 3: Madrid -->
-            <article class="city-card" onclick="window.location.href='cities/madrid.html'">
+            <article class="city-card" data-region="europe" data-city="madrid">
                 <div class="city-name">Madrid</div>
                 <div class="city-country">Spain</div>
             </article>
 
             <!-- City 4: Melbourne -->
-            <article class="city-card" onclick="window.location.href='cities/melbourne.html'">
+            <article class="city-card" data-region="oceania" data-city="melbourne">
                 <div class="city-name">Melbourne</div>
                 <div class="city-country">Australia</div>
             </article>
 
             <!-- City 5: Nairobi -->
-            <article class="city-card" onclick="window.location.href='cities/nairobi.html'">
+            <article class="city-card" data-region="africa" data-city="nairobi">
                 <div class="city-name">Nairobi</div>
                 <div class="city-country">Kenya</div>
             </article>
 
             <!-- City 6: New Delhi -->
-            <article class="city-card" onclick="window.location.href='cities/new-delhi.html'">
+            <article class="city-card" data-region="asia" data-city="new-delhi">
                 <div class="city-name">New Delhi</div>
                 <div class="city-country">India</div>
             </article>
         </div>
     </section>
 
-    <!-- External JavaScript -->
+    <!-- JavaScript -->
     <script src="js/main.js"></script>
 </body>
 </html>
