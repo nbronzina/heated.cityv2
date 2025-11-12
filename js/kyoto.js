@@ -1,52 +1,121 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Inicializa el mapa centrado en Kyoto
-    const map = L.map('map').setView([35.0116, 135.7681], 12);
+/**
+ * HEATED CITY - Kyoto Page JavaScript
+ * For cities/kyoto.html
+ */
 
-    // Agrega la capa base de OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
-    }).addTo(map);
+// Project data for Kyoto
+const projectsData = {
+    'hikari-machiya': {
+        title: 'Hikari Machiya Community Workshop',
+        location: 'Higashiyama-ku, Kyoto',
+        locationLink: 'https://maps.google.com/?q=Higashiyama+Kyoto',
+        website: '#',
+        image: 'https://images.unsplash.com/photo-1528164344705-47542687000d?w=800',
+        description: 'The converted machiya where Himari Satō first observed the Yamamoto family\'s fifteen-minute-early arrivals that led to the "soft arrival periods" innovation. Traditional papermaking workshops integrate with biointegration system calibration, creating spaces where craft, community gathering, and atmospheric coordination naturally overlap.'
+    },
+    'bamboo-grove': {
+        title: 'Bamboo Grove Acoustic Monitors',
+        location: 'Arashiyama, Kyoto',
+        locationLink: 'https://maps.google.com/?q=Arashiyama+Kyoto',
+        website: '#',
+        image: 'https://images.unsplash.com/photo-1542208776-f2d90e5c9087?w=800',
+        description: 'Acoustic monitoring systems embedded in bamboo groves connect traditional seasonal observation practices with neighborhood atmospheric processing schedules. The rustling bamboo sounds inform system calibrations, creating feedback loops between natural phenomena and urban infrastructure.'
+    },
+    'mineral-pools': {
+        title: 'Seasonal Mineral Pools',
+        location: 'Higashiyama District',
+        locationLink: 'https://maps.google.com/?q=Higashiyama+Kyoto',
+        website: '#',
+        image: 'https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?w=800',
+        description: 'Temperature-responsive mineral pools where grandmother Kimiko\'s arthritic joints found relief during morning visits. The three-week mineral cycling patterns became templates for atmospheric system optimization, demonstrating how individual care needs inform collective infrastructure.'
+    },
+    'machiya-integration': {
+        title: 'Machiya Infrastructure Integration',
+        location: 'Historic Higashiyama',
+        locationLink: 'https://maps.google.com/?q=Higashiyama+Kyoto',
+        website: '#',
+        image: 'https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=800',
+        description: 'Traditional wooden machiya buildings retrofitted with biointegration systems that respect architectural heritage while enabling atmospheric coordination. Split-unit air conditioning discretely mounted on traditional facades, PVC utility conduits following wood beam structures.'
+    },
+    'atmospheric-gardens': {
+        title: 'Atmospheric Processing Gardens',
+        location: 'Throughout Higashiyama',
+        locationLink: 'https://maps.google.com/?q=Higashiyama+Kyoto',
+        website: '#',
+        image: 'https://images.unsplash.com/photo-1519408299519-b52e315a47e0?w=800',
+        description: 'Distributed garden spaces where atmospheric processing occurs through biointegrated plant systems. Seasonal patterns of growth and dormancy inform neighborhood climate coordination, making infrastructure visible through living systems.'
+    },
+    'coordination-centers': {
+        title: 'Community Coordination Centers',
+        location: 'Multiple Locations',
+        locationLink: 'https://maps.google.com/?q=Higashiyama+Kyoto',
+        website: '#',
+        image: 'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800',
+        description: 'Weekly Wednesday gathering spaces where Himari Satō developed community dialogue methods for discussing environmental preferences and system adjustments. These coordination protocols became standard practice in 23 districts worldwide.'
+    }
+};
 
-    // Define las ubicaciones de proyectos en Kyoto
-    const locations = [
-        { id: 1, name: "Hikari Machiya Studio (光町家スタジオ)", coords: [35.0035, 135.7780] },
-        { id: 2, name: "Akari no Michi (明かりの道)", coords: [35.0045, 135.7795] },
-        { id: 3, name: "Katzura Eco-Island Center (保津川エコアイランドセンター)", coords: [35.0129, 135.6778] },
-        { id: 4, name: "Bamboo Grove Knowledge Trail (竹林知識トレイル)", coords: [35.0168, 135.6713] },
-        { id: 5, name: "Kura no Megumi (倉の恵み)", coords: [34.9305, 135.7630] },
-        { id: 6, name: "Midori no Kura (緑の蔵)", coords: [34.9310, 135.7645] },
-    ];
+// Modal functions
+function openProjectModal(projectId) {
+    const modal = document.getElementById('projectModal');
+    const project = projectsData[projectId];
+    
+    if (project && modal) {
+        document.getElementById('modalTitle').textContent = project.title;
+        document.getElementById('modalLocationText').textContent = project.location;
+        document.getElementById('modalLocation').href = project.locationLink;
+        document.getElementById('modalWebsite').href = project.website;
+        document.getElementById('modalImage').src = project.image;
+        document.getElementById('modalDescription').textContent = project.description;
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
 
-    // Función para crear íconos personalizados numerados
-    const createCustomIcon = (id) => L.divIcon({
-        className: 'custom-marker',
-        html: `<div style="width: 30px; height: 30px; background-color: #f4a261; 
-                border-radius: 50%; border: 2px solid white; color: white; font-weight: bold;
-                display: flex; align-items: center; justify-content: center;">${id}</div>`,
-        iconSize: [30, 30],
-        iconAnchor: [15, 15],
-    });
+function closeProjectModal() {
+    const modal = document.getElementById('projectModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
 
-    // Agrega los marcadores al mapa
-    locations.forEach(location => {
-        L.marker(location.coords, { icon: createCustomIcon(location.id) })
-            .addTo(map)
-            .bindPopup(`<b>${location.id}. ${location.name}</b>`);
-    });
-
-    // Función de "Read More" para expandir contenido
-    document.querySelectorAll('.read-more').forEach(button => {
-        button.addEventListener('click', (event) => {
-            const parentCard = event.currentTarget.closest('.contributor');
-            const paragraph = parentCard.querySelector('p');
-
-            if (event.currentTarget.textContent === 'Read More') {
-                paragraph.style.maxHeight = 'none';
-                event.currentTarget.textContent = 'Read Less';
-            } else {
-                paragraph.style.maxHeight = '3.6em';
-                event.currentTarget.textContent = 'Read More';
-            }
+// Category filtering
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryIcons = document.querySelectorAll('.category-icon');
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    categoryIcons.forEach(icon => {
+        icon.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            
+            categoryIcons.forEach(ic => ic.classList.remove('active'));
+            this.classList.add('active');
+            
+            projectCards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else {
+                    const categories = card.getAttribute('data-category');
+                    card.style.display = categories.includes(category) ? 'block' : 'none';
+                }
+            });
         });
     });
+});
+
+// Close modal on outside click
+window.addEventListener('click', function(event) {
+    const modal = document.getElementById('projectModal');
+    if (event.target === modal) {
+        closeProjectModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeProjectModal();
+    }
 });
