@@ -7,17 +7,35 @@
     
     <!-- External CSS -->
     <link rel="stylesheet" href="../css/styles.css">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        /* Estilos específicos para marcadores numerados */
+        .numbered-marker {
+            background: #000080;
+            border: 3px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.25rem;
+            color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            margin-left: -20px !important;
+            margin-top: -20px !important;
+        }
+    </style>
 </head>
 <body class="city-page">
     <!-- Header -->
     <header class="main-header">
         <div class="header-left">
             <a href="../index.html" class="logo">Heated City</a>
-            <div class="landmark-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                </svg>
-            </div>
             <button class="search-icon" onclick="window.location.href='../index.html'">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="11" cy="11" r="8"/>
@@ -39,11 +57,7 @@
         <!-- Left: Map -->
         <div class="map-section">
             <div class="map-embed">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52452.67896157564!2d135.75343097832032!3d34.996447900000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001089f801f1b8d%3A0x8e4e9e5e1c4e9e5e!2sHigashiyama%20Ward%2C%20Kyoto!5e0!3m2!1sen!2sjp!4v1234567890"
-                    allowfullscreen=""
-                    loading="lazy">
-                </iframe>
+                <div id="map"></div>
             </div>
         </div>
 
@@ -204,6 +218,9 @@
         </div>
     </div>
 
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
     <!-- External JavaScript -->
     <script src="../js/kyoto.js"></script>
 </body>
