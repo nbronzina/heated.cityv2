@@ -880,7 +880,7 @@ body.city-page {
 .about-hero {
     background: #000033;
     color: white;
-    padding: 12rem 2rem 8rem;
+    padding: 8rem 2rem 3rem;
     text-align: center;
     margin-top: 70px;
 }
@@ -891,7 +891,7 @@ body.city-page {
 }
 
 .about-hero h1 {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 0;
@@ -900,8 +900,8 @@ body.city-page {
 .about-content {
     background: #000033;
     color: white;
-    padding: 4rem 2rem 6rem;
-    min-height: 100vh;
+    padding: 2rem 2rem 3rem;
+    min-height: calc(100vh - 400px);
 }
 
 .about-grid {
@@ -909,18 +909,18 @@ body.city-page {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: 3rem;
 }
 
 .about-col p {
-    font-size: 1.125rem;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
 }
 
 .about-col p strong {
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1.125rem;
 }
 
 .about-col a {
