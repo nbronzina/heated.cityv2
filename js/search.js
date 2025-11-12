@@ -11,7 +11,7 @@ const searchDatabase = [
         keywords: 'kyoto japan higashiyama bamboo machiya traditional'
     },
     {
-        title: 'Balvanera',
+        title: 'San Telmo',
         location: 'Buenos Aires, Argentina',
         url: '/cities/buenos-aires.html',
         keywords: 'buenos aires argentina balvanera abasto plaza'
