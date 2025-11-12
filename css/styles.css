@@ -350,41 +350,6 @@ body.city-page {
     height: calc(100vh - 60px);
 }
 
-.city-header-overlay {
-    position: absolute;
-    top: 2rem;
-    left: 2rem;
-    z-index: 10;
-    background: var(--primary-color);
-    padding: 2rem;
-    max-width: 400px;
-}
-
-.city-header-overlay h1 {
-    font-size: 4rem;
-    font-weight: 800;
-    color: var(--navy);
-    line-height: 0.9;
-    margin-bottom: 0.5rem;
-}
-
-.city-location {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.city-location a {
-    text-decoration: underline;
-}
-
-.curator-credit {
-    font-size: 0.875rem;
-}
-
-.curator-credit a {
-    text-decoration: underline;
-}
-
 .map-embed {
     width: 100%;
     height: 100%;
@@ -402,8 +367,43 @@ body.city-page {
     padding: 2rem;
 }
 
+.city-header {
+    background: var(--background);
+    padding: 2rem;
+    margin-bottom: 0;
+}
+
+.city-header h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.city-location {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.city-location a {
+    text-decoration: underline;
+    color: var(--navy);
+}
+
+.curator-credit {
+    font-size: 0.875rem;
+    color: var(--text-dark);
+}
+
+.curator-credit a {
+    text-decoration: underline;
+    color: var(--navy);
+}
+
 .city-description {
-    background: white;
+    background: var(--background);
     padding: 2rem;
     margin-bottom: 2rem;
     line-height: 1.8;
@@ -451,7 +451,7 @@ body.city-page {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 1px;
     background: var(--navy);
     border: 1px solid var(--navy);
@@ -660,7 +660,7 @@ body.city-page {
         grid-template-columns: 1fr;
     }
 
-    .city-header-overlay h1 {
+    .city-header h1 {
         font-size: 3rem;
     }
 }
