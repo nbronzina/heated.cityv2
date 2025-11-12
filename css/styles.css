@@ -877,14 +877,10 @@ body.city-page {
    ABOUT PAGE
    ==================================== */
 
-/* ====================================
-   ABOUT PAGE
-   ==================================== */
-
 .about-hero {
     background: #000033;
     color: white;
-    padding: 4rem 2rem 1.5rem;
+    padding: 6rem 2rem 2rem;
     text-align: center;
     margin-top: 70px;
 }
@@ -895,17 +891,17 @@ body.city-page {
 }
 
 .about-hero h1 {
-    font-size: 3rem;
+    font-size: 3.2rem;
     font-weight: 800;
     line-height: 1.1;
-    margin-bottom: 0;
+    margin-bottom: 2rem;
 }
 
 .about-content {
     background: #000033;
     color: white;
-    padding: 1.5rem 2rem 1.5rem;
-    max-height: calc(100vh - 350px);
+    padding: 2rem 2rem 2rem;
+    max-height: calc(100vh - 420px);
     overflow-y: auto;
 }
 
@@ -914,18 +910,18 @@ body.city-page {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    gap: 3rem;
 }
 
 .about-col p {
-    font-size: 1.125rem;
-    line-height: 1.5;
-    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 0.9rem;
 }
 
 .about-col p strong {
     font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1.35rem;
 }
 
 .about-col a {
