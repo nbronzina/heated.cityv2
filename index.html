@@ -3,376 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heated City</title>
+    <title>Heated City - Cities That Care</title>
     
-    <style>
-        :root {
-            --primary-color: #E6B800;
-            --primary-dark: #C49F00;
-            --text-dark: #2C3E50;
-            --text-light: #FFFFFF;
-            --background: #F8F9FA;
-            --card-background: #FFFFFF;
-            --border-color: #E0E0E0;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.3s ease;
-        }
-
-        button {
-            cursor: pointer;
-            border: none;
-            background: none;
-            font-family: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        /* Header */
-        .main-header {
-            background-color: var(--primary-color);
-            color: var(--text-dark);
-            padding: 0.75rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .grid-icon {
-            width: 24px;
-            height: 24px;
-            display: grid;
-            grid-template-columns: repeat(4, 4px);
-            grid-template-rows: repeat(4, 4px);
-            gap: 2px;
-        }
-
-        .grid-icon span {
-            background: var(--text-dark);
-            border-radius: 1px;
-        }
-
-        .logo {
-            font-size: 1.125rem;
-            font-weight: 600;
-        }
-
-        .search-icon {
-            padding: 0.5rem;
-        }
-
-        .main-nav {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .main-nav a {
-            font-weight: 500;
-            font-size: 0.875rem;
-        }
-
-        .main-nav a:hover {
-            opacity: 0.7;
-        }
-
-        .climate-icon {
-            padding: 0.5rem;
-        }
-
-        /* Hero */
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            overflow: hidden;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 0;
-        }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 0 2rem;
-        }
-
-        .hero-content h1 {
-            font-size: 5rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .hero-content p {
-            font-size: 1.125rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.6;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: transparent;
-            border: 2px solid white;
-            color: white;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background: white;
-            color: var(--text-dark);
-        }
-
-        /* Neighborhoods Section */
-        .neighborhoods-section {
-            padding: 0;
-            background: var(--background);
-        }
-
-        .section-tabs {
-            background: #000033;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            border-bottom: 3px solid #000033;
-        }
-
-        .tab-btn {
-            padding: 1rem 2rem;
-            color: white;
-            background: #000033;
-            border: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .tab-btn:hover,
-        .tab-btn.active {
-            background: #1a1a4d;
-        }
-
-        .neighborhoods-grid {
-            display: grid;
-            grid-template-columns: repeat(6, 1fr);
-            gap: 0;
-        }
-
-        .neighborhood-card {
-            position: relative;
-            aspect-ratio: 1;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .neighborhood-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .neighborhood-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .neighborhood-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 1.5rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
-            color: white;
-        }
-
-        .neighborhood-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-
-        .neighborhood-city {
-            font-size: 0.875rem;
-            opacity: 0.9;
-            margin-bottom: 0.5rem;
-        }
-
-        .neighborhood-curator {
-            font-size: 0.75rem;
-            opacity: 0.8;
-        }
-
-        .neighborhood-curator a {
-            text-decoration: underline;
-        }
-
-        /* Cities Section */
-        .cities-section {
-            padding: 3rem 0;
-            background: #000033;
-        }
-
-        .cities-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 0;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .city-tab {
-            padding: 0.75rem 1.5rem;
-            color: white;
-            background: #000033;
-            border: 1px solid #1a1a4d;
-            font-size: 0.875rem;
-            transition: all 0.3s ease;
-        }
-
-        .city-tab:hover,
-        .city-tab.active {
-            background: #1a1a4d;
-        }
-
-        .cities-grid {
-            display: grid;
-            grid-template-columns: repeat(8, 1fr);
-            gap: 0;
-            max-width: 100%;
-        }
-
-        .city-card {
-            background: #000033;
-            border: 1px solid #1a1a4d;
-            padding: 2rem 1rem;
-            text-align: center;
-            color: white;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .city-card:hover {
-            background: #1a1a4d;
-        }
-
-        .city-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1rem;
-            opacity: 0.8;
-        }
-
-        .city-name {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-
-        .city-country {
-            font-size: 0.875rem;
-            opacity: 0.7;
-        }
-
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .neighborhoods-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .cities-grid {
-                grid-template-columns: repeat(6, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-            .neighborhoods-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .cities-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-            .main-nav {
-                display: none;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .neighborhoods-grid {
-                grid-template-columns: 1fr;
-            }
-            .cities-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <!-- Header -->
     <header class="main-header">
         <div class="header-left">
-            <button class="grid-icon">
-                <span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span>
-                <span></span><span></span><span></span><span></span>
-            </button>
+            <a href="/" class="logo">Heated City</a>
             <button class="search-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="11" cy="11" r="8"/>
@@ -381,20 +21,12 @@
             </button>
         </div>
         
-        <a href="/" class="logo">Heated City</a>
-        
         <nav class="main-nav">
             <a href="#cities">Cities</a>
             <a href="#contributors">Contributors</a>
             <a href="#about">About</a>
-            <a href="#shop">Shop</a>
+            <a href="#resources">Resources</a>
         </nav>
-        
-        <button class="climate-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="12" r="10"/>
-            </svg>
-        </button>
     </header>
 
     <!-- Hero Section -->
@@ -402,10 +34,10 @@
         <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600" alt="City" class="hero-bg">
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Climate-Adapted Cities</h1>
-            <p>Heated City is a collection of climate adaptation projects curated by local experts in cities around the world.</p>
+            <h1>Cities That Care</h1>
+            <p>Heated City documents urban districts where caring became infrastructure—neighborhoods where climate adaptation, community care, and biointegration created new forms of everyday life.</p>
             <button class="cta-button" onclick="document.querySelector('.neighborhoods-section').scrollIntoView({behavior: 'smooth'})">
-                Choose a City
+                Explore Districts
             </button>
         </div>
     </section>
@@ -413,15 +45,25 @@
     <!-- Neighborhoods Section -->
     <section class="neighborhoods-section">
         <div class="section-tabs">
-            <button class="tab-btn active">Newest Neighborhoods</button>
-            <button class="tab-btn">Recently Updated Neighborhoods</button>
-            <button class="tab-btn">Nearby Neighborhoods</button>
-            <button class="tab-btn">Random Neighborhoods</button>
+            <button class="tab-btn active">Featured Districts</button>
+            <button class="tab-btn">Recently Updated</button>
+            <button class="tab-btn">By Climate Challenge</button>
+            <button class="tab-btn">By Coordinator</button>
         </div>
 
         <div class="neighborhoods-grid">
-            <!-- Neighborhood 1 -->
-            <article class="neighborhood-card" onclick="window.location.href='city-buenos-aires.html'">
+            <!-- District 1: Kyoto -->
+            <article class="neighborhood-card" onclick="window.location.href='cities/kyoto.html'">
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=800" alt="Kyoto Biointegration District">
+                <div class="neighborhood-info">
+                    <div class="neighborhood-title">Higashiyama</div>
+                    <div class="neighborhood-city">Kyoto</div>
+                    <div class="neighborhood-curator">by <a href="#">Himari Satō</a></div>
+                </div>
+            </article>
+
+            <!-- District 2: Buenos Aires -->
+            <article class="neighborhood-card" onclick="window.location.href='cities/buenos-aires.html'">
                 <img src="https://images.unsplash.com/photo-1512395749243-3cd5fec60e95?w=800" alt="Balvanera">
                 <div class="neighborhood-info">
                     <div class="neighborhood-title">Balvanera</div>
@@ -430,53 +72,43 @@
                 </div>
             </article>
 
-            <!-- Neighborhood 2 -->
-            <article class="neighborhood-card">
-                <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800" alt="Southwark">
+            <!-- District 3: Madrid -->
+            <article class="neighborhood-card" onclick="window.location.href='cities/madrid.html'">
+                <img src="https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=800" alt="Madrid">
                 <div class="neighborhood-info">
-                    <div class="neighborhood-title">Southwark</div>
-                    <div class="neighborhood-city">London</div>
-                    <div class="neighborhood-curator">by <a href="#">James Chen</a></div>
-                </div>
-            </article>
-
-            <!-- Neighborhood 3 -->
-            <article class="neighborhood-card">
-                <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800" alt="Shibuya">
-                <div class="neighborhood-info">
-                    <div class="neighborhood-title">Shibuya</div>
-                    <div class="neighborhood-city">Tokyo</div>
-                    <div class="neighborhood-curator">by <a href="#">Yuki Tanaka</a></div>
-                </div>
-            </article>
-
-            <!-- Neighborhood 4 -->
-            <article class="neighborhood-card">
-                <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=800" alt="Kreuzberg">
-                <div class="neighborhood-info">
-                    <div class="neighborhood-title">Kreuzberg</div>
-                    <div class="neighborhood-city">Berlin</div>
-                    <div class="neighborhood-curator">by <a href="#">Anna Schmidt</a></div>
-                </div>
-            </article>
-
-            <!-- Neighborhood 5 -->
-            <article class="neighborhood-card">
-                <img src="https://images.unsplash.com/photo-1523978591478-c753949ff840?w=800" alt="Gràcia">
-                <div class="neighborhood-info">
-                    <div class="neighborhood-title">Gràcia</div>
-                    <div class="neighborhood-city">Barcelona</div>
+                    <div class="neighborhood-title">Lavapiés</div>
+                    <div class="neighborhood-city">Madrid</div>
                     <div class="neighborhood-curator">by <a href="#">Ana García</a></div>
                 </div>
             </article>
 
-            <!-- Neighborhood 6 -->
-            <article class="neighborhood-card">
-                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800" alt="Le Marais">
+            <!-- District 4: Melbourne -->
+            <article class="neighborhood-card" onclick="window.location.href='cities/melbourne.html'">
+                <img src="https://images.unsplash.com/photo-1514395462725-fb4566210144?w=800" alt="Melbourne">
                 <div class="neighborhood-info">
-                    <div class="neighborhood-title">Le Marais</div>
-                    <div class="neighborhood-city">Paris</div>
-                    <div class="neighborhood-curator">by <a href="#">Sophie Dubois</a></div>
+                    <div class="neighborhood-title">Carlton</div>
+                    <div class="neighborhood-city">Melbourne</div>
+                    <div class="neighborhood-curator">by <a href="#">Sarah Chen</a></div>
+                </div>
+            </article>
+
+            <!-- District 5: Nairobi -->
+            <article class="neighborhood-card" onclick="window.location.href='cities/nairobi.html'">
+                <img src="https://images.unsplash.com/photo-1611348524140-53c9a25263d6?w=800" alt="Nairobi">
+                <div class="neighborhood-info">
+                    <div class="neighborhood-title">Kibera</div>
+                    <div class="neighborhood-city">Nairobi</div>
+                    <div class="neighborhood-curator">by <a href="#">James Kamau</a></div>
+                </div>
+            </article>
+
+            <!-- District 6: New Delhi -->
+            <article class="neighborhood-card" onclick="window.location.href='cities/new-delhi.html'">
+                <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800" alt="New Delhi">
+                <div class="neighborhood-info">
+                    <div class="neighborhood-title">Hauz Khas</div>
+                    <div class="neighborhood-city">New Delhi</div>
+                    <div class="neighborhood-curator">by <a href="#">Priya Sharma</a></div>
                 </div>
             </article>
         </div>
@@ -485,20 +117,29 @@
     <!-- Cities Section -->
     <section class="cities-section" id="cities">
         <div class="cities-tabs">
-            <button class="city-tab active">World</button>
-            <button class="city-tab">Africa</button>
+            <button class="city-tab active">All Cities</button>
             <button class="city-tab">Asia</button>
-            <button class="city-tab">Caribbean</button>
             <button class="city-tab">Europe</button>
-            <button class="city-tab">Middle East</button>
-            <button class="city-tab">North America</button>
+            <button class="city-tab">Africa</button>
             <button class="city-tab">Oceania</button>
-            <button class="city-tab">South America</button>
+            <button class="city-tab">Americas</button>
         </div>
 
         <div class="cities-grid">
-            <!-- City 1 -->
-            <article class="city-card" onclick="window.location.href='city-buenos-aires.html'">
+            <!-- City 1: Kyoto -->
+            <article class="city-card" onclick="window.location.href='kyoto-city.html'">
+                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="30" y="60" width="10" height="30"/>
+                    <rect x="45" y="50" width="10" height="40"/>
+                    <rect x="60" y="55" width="10" height="35"/>
+                    <path d="M 25 40 L 50 20 L 75 40"/>
+                </svg>
+                <div class="city-name">Kyoto</div>
+                <div class="city-country">Japan</div>
+            </article>
+
+            <!-- City 2: Buenos Aires -->
+            <article class="city-card" onclick="window.location.href='buenos-aires-city.html'">
                 <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="20" y="40" width="15" height="40"/>
                     <rect x="40" y="30" width="15" height="50"/>
@@ -509,89 +150,52 @@
                 <div class="city-country">Argentina</div>
             </article>
 
-            <!-- City 2 -->
-            <article class="city-card">
-                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="50" cy="50" r="20"/>
-                    <line x1="50" y1="10" x2="50" y2="30"/>
-                    <line x1="50" y1="70" x2="50" y2="90"/>
-                    <line x1="10" y1="50" x2="30" y2="50"/>
-                    <line x1="70" y1="50" x2="90" y2="50"/>
-                </svg>
-                <div class="city-name">London</div>
-                <div class="city-country">United Kingdom</div>
-            </article>
-
-            <!-- City 3 -->
-            <article class="city-card">
-                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="30" y="60" width="10" height="30"/>
-                    <rect x="45" y="50" width="10" height="40"/>
-                    <rect x="60" y="55" width="10" height="35"/>
-                    <path d="M 25 40 L 50 20 L 75 40"/>
-                </svg>
-                <div class="city-name">Tokyo</div>
-                <div class="city-country">Japan</div>
-            </article>
-
-            <!-- City 4 -->
-            <article class="city-card">
-                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="20" y="50" width="20" height="40"/>
-                    <rect x="45" y="40" width="20" height="50"/>
-                    <rect x="70" y="55" width="20" height="35"/>
-                </svg>
-                <div class="city-name">Berlin</div>
-                <div class="city-country">Germany</div>
-            </article>
-
-            <!-- City 5 -->
-            <article class="city-card">
+            <!-- City 3: Madrid -->
+            <article class="city-card" onclick="window.location.href='cities/madrid.html'">
                 <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M 30 70 L 30 40 L 50 30 L 70 40 L 70 70"/>
                     <line x1="50" y1="30" x2="50" y2="10"/>
                     <circle cx="50" cy="10" r="3"/>
                 </svg>
-                <div class="city-name">Barcelona</div>
+                <div class="city-name">Madrid</div>
                 <div class="city-country">Spain</div>
             </article>
 
-            <!-- City 6 -->
-            <article class="city-card">
+            <!-- City 4: Melbourne -->
+            <article class="city-card" onclick="window.location.href='cities/melbourne.html'">
+                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="50" cy="50" r="25"/>
+                    <path d="M 35 50 Q 50 35 65 50"/>
+                </svg>
+                <div class="city-name">Melbourne</div>
+                <div class="city-country">Australia</div>
+            </article>
+
+            <!-- City 5: Nairobi -->
+            <article class="city-card" onclick="window.location.href='cities/nairobi.html'">
+                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="20" y="50" width="20" height="40"/>
+                    <rect x="45" y="40" width="20" height="50"/>
+                    <rect x="70" y="55" width="20" height="35"/>
+                </svg>
+                <div class="city-name">Nairobi</div>
+                <div class="city-country">Kenya</div>
+            </article>
+
+            <!-- City 6: New Delhi -->
+            <article class="city-card" onclick="window.location.href='cities/new-delhi.html'">
                 <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="35" y="35" width="30" height="50"/>
                     <line x1="50" y1="35" x2="50" y2="10"/>
                     <circle cx="50" cy="10" r="5"/>
                 </svg>
-                <div class="city-name">Paris</div>
-                <div class="city-country">France</div>
-            </article>
-
-            <!-- City 7 -->
-            <article class="city-card">
-                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="25" y="45" width="15" height="40"/>
-                    <rect x="43" y="35" width="15" height="50"/>
-                    <rect x="61" y="50" width="15" height="35"/>
-                </svg>
-                <div class="city-name">New York</div>
-                <div class="city-country">USA</div>
-            </article>
-
-            <!-- City 8 -->
-            <article class="city-card">
-                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="50" cy="50" r="25"/>
-                    <path d="M 35 50 Q 50 35 65 50"/>
-                </svg>
-                <div class="city-name">Sydney</div>
-                <div class="city-country">Australia</div>
+                <div class="city-name">New Delhi</div>
+                <div class="city-country">India</div>
             </article>
         </div>
     </section>
 
-    <script>
-        console.log('Heated City');
-    </script>
+    <!-- External JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>
