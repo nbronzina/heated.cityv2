@@ -901,7 +901,7 @@ body.city-page {
     background: #000033;
     color: white;
     padding: 2rem 2rem 3rem;
-    min-height: calc(100vh - 400px);
+    min-height: 100vh;
 }
 
 .about-grid {
