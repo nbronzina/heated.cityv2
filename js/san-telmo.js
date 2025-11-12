@@ -26,7 +26,7 @@ const projects = {
         title: 'Historic Thermal Refuges',
         location: 'Casa de los Ezeiza, Defensa 1179, San Telmo',
         website: '#',
-        image: 'https://www.futures-in-maps.com/san-telmo/images/san-telmo-map-wall.jpg',
+        image: 'https://holasantelmo.ar/wp-content/uploads/2021/06/Hola-San-Telmo-Pasaje-Defensa-G4.png',
         description: 'A network of historic 19th-century buildings functions as thermal refuges during heat waves. These colonial structures and conventillos use their thick walls (60-80cm), arched galleries, and deep patios to maintain temperatures 5-8°C cooler than outside. During extreme heat days, spaces open to the public with water fountains, shade, and basic health monitoring for vulnerable neighbors. Casa Ezeiza, San Pedro Telmo Church (Carlos Calvo 242), and the ex-conventillo at Balcarce 1016 form the main nodes of this network coordinated by neighborhood centers.',
         coords: [-34.6216, -58.3728]
     },
