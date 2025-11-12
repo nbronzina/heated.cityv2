@@ -877,10 +877,14 @@ body.city-page {
    ABOUT PAGE
    ==================================== */
 
+/* ====================================
+   ABOUT PAGE
+   ==================================== */
+
 .about-hero {
     background: #000033;
     color: white;
-    padding: 6rem 2rem 2rem;
+    padding: 4rem 2rem 1.5rem;
     text-align: center;
     margin-top: 70px;
 }
@@ -891,7 +895,7 @@ body.city-page {
 }
 
 .about-hero h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 0;
@@ -900,7 +904,9 @@ body.city-page {
 .about-content {
     background: #000033;
     color: white;
-    padding: 2rem 2rem 3rem;
+    padding: 1.5rem 2rem 1.5rem;
+    max-height: calc(100vh - 350px);
+    overflow-y: auto;
 }
 
 .about-grid {
@@ -908,18 +914,18 @@ body.city-page {
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
 .about-col p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 1rem;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
 }
 
 .about-col p strong {
     font-weight: 600;
-    font-size: 1.125rem;
+    font-size: 1.25rem;
 }
 
 .about-col a {
@@ -934,8 +940,8 @@ body.city-page {
 /* Fondo azul para página About */
 body.about-page {
     background: #000033;
-    min-height: 100vh;
-    overflow-x: hidden;
+    height: 100vh;
+    overflow: hidden;
 }
 
 /* ====================================
@@ -1316,18 +1322,4 @@ body.about-page {
     .contributors-hero h1 {
         font-size: 2rem;
     }
-}
-
-/* ====================================
-   ABOUT PAGE - FONDO AZUL COMPLETO
-   ==================================== */
-
-/* Fondo azul para página About */
-body.about-page {
-    background: #000033;
-    min-height: 100vh;
-}
-
-body.about-page .about-content {
-    min-height: auto;
 }
