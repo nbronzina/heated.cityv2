@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Telmo, Buenos Aires - Heated City</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <style>
+        /* Estilos específicos para marcadores numerados */
+        .numbered-marker {
+            background: #000080;
+            border: 3px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.25rem;
+            color: white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            margin-left: -20px !important;
+            margin-top: -20px !important;
+        }
+    </style>
+</head>
+<body class="city-page">
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-left">
+            <a href="../index.html" class="logo">Heated City</a>
+            <button class="search-icon" onclick="openSearch()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+            </button>
+        </div>
+        
+        <nav class="main-nav">
+            <a href="../index.html#cities">Cities</a>
+            <a href="../contributors.html">Contributors</a>
+            <a href="../about.html">About</a>
+        </nav>
+    </header>
+
+    <!-- City Hero Split Screen -->
+    <div class="city-hero-split">
+        <!-- Left: Map -->
+        <div class="map-section">
+            <div class="map-embed">
+                <div id="map"></div>
+            </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="content-section">
+            <!-- City Header -->
+            <div class="city-header">
+                <h1>San Telmo</h1>
+                <p class="city-location">
+                    <a href="buenos-aires.html">Buenos Aires</a>, Argentina
+                </p>
+                <p class="curator-credit">by <a href="#">María Fernández</a></p>
+            </div>
+
+            <div class="city-description">
+                <p>San Telmo, one of Buenos Aires' oldest neighborhoods, has transformed its historic architecture into a laboratory for care-based climate adaptation. Cobblestone streets lined with 19th-century buildings now house thermal refuges, community water systems, and collective green spaces that preserve cultural heritage while addressing environmental stress through coordinated neighborhood care.</p>
+            </div>
+
+            <!-- Category Icons -->
+            <div class="category-icons">
+                <button class="category-icon active" data-category="all" title="All">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="heat" title="Heat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="water" title="Water">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="green" title="Green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="heritage" title="Heritage">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="community" title="Community">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Project 1: Mercado San Telmo -->
+                <article class="project-card" data-category="community heritage" onclick="openProjectModal('mercado-san-telmo')">
+                    <div class="project-number">1</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800" alt="Mercado San Telmo">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Mercado San Telmo</h3>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card" data-category="heat community" onclick="openProjectModal('refugio-termico')">
+                    <div class="project-number">2</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=800" alt="Refugios Térmicos">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Refugios Térmicos Históricos</h3>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card" data-category="water green" onclick="openProjectModal('patios-colectivos')">
+                    <div class="project-number">3</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1486718448742-163732cd1544?w=800" alt="Patios Colectivos">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Patios Colectivos Verdes</h3>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card" data-category="water heritage" onclick="openProjectModal('cisterna-historica')">
+                    <div class="project-number">4</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1519331379826-f10be5486c6f?w=800" alt="Cisterna Histórica">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Cisterna Histórica Comunitaria</h3>
+                    </div>
+                </article>
+
+                <!-- Project 5 -->
+                <article class="project-card" data-category="green community" onclick="openProjectModal('azoteas-verdes')">
+                    <div class="project-number">5</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=800" alt="Azoteas Verdes">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Red de Azoteas Verdes</h3>
+                    </div>
+                </article>
+
+                <!-- Project 6 -->
+                <article class="project-card" data-category="heat water" onclick="openProjectModal('calles-frescas')">
+                    <div class="project-number">6</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=800" alt="Calles Frescas">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Calles Frescas de Adoquín</h3>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+            <div class="modal-body">
+                <div class="modal-images">
+                    <img src="" alt="Project image" id="modalImage">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-meta">
+                        <a href="#" id="modalLocation" class="modal-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span id="modalLocationText"></span>
+                        </a>
+                        <a href="#" id="modalWebsite" class="modal-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                            </svg>
+                            Visit Website
+                        </a>
+                    </div>
+                    <p class="modal-description" id="modalDescription"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div id="searchModal" class="search-modal">
+        <div class="search-modal-content">
+            <div class="search-header">
+                <div class="search-icon-large">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </div>
+                <div class="search-input-wrapper">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        id="searchInput"
+                        placeholder="Search Cities and Neighborhoods"
+                        autocomplete="off"
+                    >
+                </div>
+                <button class="search-close" onclick="closeSearch()">×</button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    
+    <!-- External JavaScript -->
+    <script src="../js/san-telmo.js"></script>
+    <script src="../js/search.js"></script>
+</body>
+</html>
