@@ -1,1113 +1,210 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Walk through Kyoto's biointegration zone where bamboo groves predict weather, sake breweries power themselves with fungal networks, and traditional crafts grow from living materials.">
-    <meta name="keywords" content="Kyoto biointegration, regenerative districts, climate gardening, traditional innovation">
-    <meta name="author" content="Heated.city">
-    <title>Kyoto | Heated.city</title>
+    <title>Higashiyama, Kyoto - Heated City</title>
     
-    <!-- Google Fonts for modern typography -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Leaflet CSS for interactive mapping -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin=""/>
-    
-    <style>
-        /* ============================
-           Design System Variables (Consistent with site-wide system)
-           ============================ */
-        :root {
-            /* Color palette inspired by regenerative design */
-            --primary-color: #1a3d35;
-            --accent-color: #7fb069;
-            --secondary-accent: #d4af37;
-            --text-dark: #0f1419;
-            --text-medium: #4a5568;
-            --text-light: #718096;
-            --background: #fdfffe;
-            --background-soft: #f7fafc;
-            --background-warm: #fefcf8;
-            --border-light: #e2e8f0;
-            --border-medium: #cbd5e0;
-            
-            /* Advanced visual effects for 2030 aesthetic */
-            --surface-glass: rgba(255, 255, 255, 0.92);
-            --shadow-subtle: 0 2px 12px rgba(0, 0, 0, 0.04);
-            --shadow-medium: 0 8px 32px rgba(0, 0, 0, 0.08);
-            --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.12);
-            
-            /* Layout measurements */
-            --sidebar-width: 320px;
-            --content-max-width: 1400px;
-            --radius-small: 8px;
-            --radius-medium: 16px;
-            --radius-large: 24px;
-        }
-
-        /* ============================
-           Base Styles
-           ============================ */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', sans-serif;
-            font-size: 16px;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background: linear-gradient(135deg, var(--background) 0%, var(--background-warm) 100%);
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: all 0.2s ease;
-        }
-
-        /* ============================
-           Layout Structure (Consistent with index and about)
-           ============================ */
-        .app-container {
-            display: flex;
-            min-height: 100vh;
-        }
-
-        /* Sidebar Navigation - Identical to other pages for consistency */
-        .sidebar {
-            width: var(--sidebar-width);
-            border-right: 1px solid var(--border-light);
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            overflow-y: auto;
-            z-index: 1000;
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* Glassmorphism background applied via pseudo-element for stability */
-        .sidebar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: var(--surface-glass);
-            backdrop-filter: blur(20px) saturate(180%);
-            z-index: -1;
-        }
-
-        .sidebar-header {
-            padding: 40px 32px 32px;
-            border-bottom: 1px solid var(--border-light);
-            background: linear-gradient(135deg, rgba(122, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
-        }
-
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary-color);
-            letter-spacing: -0.8px;
-            margin-bottom: 8px;
-        }
-
-        .tagline {
-            font-size: 15px;
-            color: var(--text-medium);
-            line-height: 1.4;
-            font-weight: 500;
-        }
-
-        .climate-indicator {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 16px;
-            padding: 8px 12px;
-            background: rgba(127, 176, 105, 0.1);
-            border-radius: var(--radius-small);
-            font-size: 13px;
-            color: var(--accent-color);
-            font-weight: 600;
-        }
-
-        .climate-indicator::before {
-            content: '●';
-            color: var(--accent-color);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
-        }
-
-        .sidebar-nav {
-            padding: 40px 0 32px;
-        }
-
-        .nav-section {
-            margin-bottom: 40px;
-        }
-
-        .nav-title {
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            padding: 0 32px;
-            margin-bottom: 20px;
-        }
-
-        .nav-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 32px;
-            font-size: 15px;
-            font-weight: 500;
-            color: var(--text-medium);
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--primary-color);
-            background: linear-gradient(135deg, rgba(26, 61, 53, 0.04) 0%, rgba(127, 176, 105, 0.04) 100%);
-        }
-
-        .nav-link.active::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, var(--accent-color) 0%, var(--secondary-accent) 100%);
-        }
-
-        .project-count {
-            font-size: 12px;
-            color: var(--text-light);
-            background: var(--background-soft);
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-weight: 600;
-        }
-
-        /* ============================
-           Main Content Area
-           ============================ */
-        .main-content {
-            margin-left: var(--sidebar-width);
-            flex: 1;
-            min-height: 100vh;
-        }
-
-        /* Kyoto Hero Section - Immersive district introduction */
-        .kyoto-hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                        url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') no-repeat center center / cover;
-            color: white;
-            padding: 120px 64px 80px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .kyoto-hero-content {
-            max-width: var(--content-max-width);
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-
-        .district-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(127, 176, 105, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 12px 20px;
-            border-radius: 32px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 24px;
-            border: 1px solid rgba(127, 176, 105, 0.3);
-        }
-
-        .kyoto-hero h1 {
-            font-size: 56px;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -1.2px;
-        }
-
-        .kyoto-hero-subtitle {
-            font-size: 22px;
-            opacity: 0.9;
-            line-height: 1.5;
-            margin-bottom: 32px;
-            max-width: 700px;
-        }
-
-        .gardener-intro {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            opacity: 0.9;
-        }
-
-        .gardener-intro::before {
-            content: '';
-            width: 40px;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-color), var(--secondary-accent));
-        }
-
-        /* ============================
-           District Content Layout
-           ============================ */
-        .district-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 48px;
-            padding: 80px 64px;
-            max-width: var(--content-max-width);
-            margin: 0 auto;
-        }
-
-        /* Map Section - Enhanced visual integration */
-        .map-section {
-            position: relative;
-        }
-
-        .map-header {
-            margin-bottom: 32px;
-        }
-
-        .map-title {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-
-        .map-description {
-            font-size: 18px;
-            color: var(--text-medium);
-            line-height: 1.6;
-        }
-
-        #map {
-            width: 100%;
-            height: 600px;
-            border-radius: var(--radius-large);
-            box-shadow: var(--shadow-medium);
-            border: 1px solid var(--border-light);
-            overflow: hidden;
-        }
-
-        /* Interactive map markers styling */
-        .custom-marker {
-            background: none !important;
-            border: none !important;
-        }
-
-        /* Projects Section - Enhanced card design */
-        .projects-section {
-            position: relative;
-        }
-
-        .projects-header {
-            margin-bottom: 40px;
-        }
-
-        .projects-title {
-            font-size: 32px;
-            font-weight: 800;
-            color: var(--primary-color);
-            margin-bottom: 16px;
-            letter-spacing: -0.5px;
-        }
-
-        .projects-description {
-            font-size: 18px;
-            color: var(--text-medium);
-            line-height: 1.6;
-        }
-
-        .projects-container {
-            max-height: 600px;
-            overflow-y: auto;
-            padding-right: 8px;
-            /* Add left padding to prevent cards from touching the edge when scaled */
-            padding-left: 8px;
-            /* Add extra space around the container to accommodate hover effects */
-            margin: 0 -8px;
-        }
-
-        /* Scrollbar styling for projects container */
-        .projects-container::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .projects-container::-webkit-scrollbar-track {
-            background: var(--background-soft);
-            border-radius: 3px;
-        }
-
-        .projects-container::-webkit-scrollbar-thumb {
-            background: var(--accent-color);
-            border-radius: 3px;
-        }
-
-        /* Individual Project Cards - Now fully interactive with click-to-expand functionality */
-        .project-card {
-            background: var(--surface-glass);
-            backdrop-filter: blur(20px) saturate(180%);
-            border-radius: var(--radius-medium);
-            padding: 32px;
-            margin: 16px 0 32px 0;
-            border: 1px solid var(--border-light);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            cursor: pointer; /* Indicate the entire card is clickable */
-        }
-
-        .project-card::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            padding: 1px;
-            background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent));
-            border-radius: inherit;
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: subtract;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-2px) scale(1.01);
-            box-shadow: var(--shadow-strong);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 250, 252, 0.92) 100%);
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
-
-        /* Add visual feedback for expanded state */
-        .project-card.expanded {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(247, 250, 252, 0.95) 100%);
-            border-color: var(--accent-color);
-        }
-
-        .project-card.expanded::before {
-            opacity: 0.7;
-        }
-
-        .project-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .project-number {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--accent-color), var(--secondary-accent));
-            color: white;
-            border-radius: 50%;
-            font-size: 16px;
-            font-weight: 800;
-            flex-shrink: 0;
-        }
-
-        .project-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--primary-color);
-            line-height: 1.3;
-            margin: 0;
-        }
-
-        .project-image {
-            width: 100%;
-            height: 200px;
-            border-radius: var(--radius-small);
-            object-fit: cover;
-            margin: 20px 0;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover .project-image {
-            transform: scale(1.05);
-        }
-
-        .project-description {
-            font-size: 16px;
-            line-height: 1.7;
-            color: var(--text-dark);
-            margin-bottom: 24px;
-            transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Collapsed state - shows approximately 4 lines with a subtle fade effect */
-        .project-description.collapsed {
-            max-height: 6.8em !important; /* Force specificity to ensure this rule applies */
-        }
-
-        /* Expanded state - shows full content */
-        .project-description.expanded {
-            max-height: 50em !important; /* Use a large but finite value for smooth transitions */
-        }
-
-        /* Subtle fade effect at the bottom of collapsed text */
-        .project-description.collapsed::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1.5em;
-            background: linear-gradient(transparent, var(--surface-glass));
-            pointer-events: none;
-        }
-
-        /* Hide the fade effect when expanded */
-        .project-description.expanded::after {
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 24px;
-        }
-
-        .feature-tag {
-            background: linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
-            color: var(--primary-color);
-            font-size: 12px;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 16px;
-            border: 1px solid rgba(127, 176, 105, 0.2);
-        }
-
-        /* Remove all button-related styles since we no longer have buttons */
-        /* Cards are now fully interactive through click events */
-
-        /* ============================
-           Footer (Consistent with site)
-           ============================ */
-        .footer {
-            background: var(--background-soft);
-            border-top: 1px solid var(--border-light);
-            padding: 64px;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: var(--content-max-width);
-            margin: 0 auto;
-        }
-
-        .footer p {
-            color: var(--text-medium);
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        /* ============================
-           Mobile Responsive Design
-           ============================ */
-        @media (max-width: 968px) {
-            .district-layout {
-                grid-template-columns: 1fr;
-                gap: 64px;
-                padding: 48px 32px;
-            }
-
-            #map {
-                height: 400px;
-            }
-
-            .projects-container {
-                max-height: 500px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-                width: 100vw;
-                max-width: 400px;
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            .main-content {
-                margin-left: 0;
-            }
-
-            .mobile-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 20px 24px;
-                background: var(--surface-glass);
-                backdrop-filter: blur(20px);
-                border-bottom: 1px solid var(--border-light);
-                position: sticky;
-                top: 0;
-                z-index: 999;
-            }
-
-            .mobile-logo {
-                font-size: 22px;
-                font-weight: 700;
-                color: var(--primary-color);
-            }
-
-            .menu-toggle {
-                background: none;
-                border: none;
-                font-size: 28px;
-                color: var(--primary-color);
-                cursor: pointer;
-                padding: 8px;
-                border-radius: var(--radius-small);
-                transition: background-color 0.2s ease;
-            }
-
-            .menu-toggle:hover {
-                background: rgba(127, 176, 105, 0.1);
-            }
-
-            .kyoto-hero {
-                padding: 64px 24px 48px;
-            }
-
-            .kyoto-hero h1 {
-                font-size: 36px;
-            }
-
-            .kyoto-hero-subtitle {
-                font-size: 18px;
-            }
-
-            .district-layout {
-                padding: 48px 24px;
-            }
-
-            .map-title, .projects-title {
-                font-size: 28px;
-            }
-        }
-
-        /* Hidden by default on desktop */
-        .mobile-header {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-header {
-                display: flex;
-            }
-        }
-    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body>
-    <div class="app-container">
-        <!-- Mobile Header - Shows only on mobile devices -->
-        <header class="mobile-header">
-            <div class="mobile-logo">Heated.city</div>
-            <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Toggle navigation">☰</button>
-        </header>
-
-        <!-- Sidebar Navigation - Consistent with site system -->
-        <nav class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">Heated.city</div>
-                <div class="tagline">Where your neighborhood breathes better than a forest</div>
-                <div class="climate-indicator">Live Climate Network</div>
+<body class="city-page">
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-left">
+            <a href="../index.html" class="logo">Heated City</a>
+            <div class="landmark-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                </svg>
             </div>
-            
-            <div class="sidebar-nav">
-                <!-- Primary navigation section -->
-                <div class="nav-section">
-                    <div class="nav-title">Navigate</div>
-                    <a href="../index.html" class="nav-link">Districts</a>
-                    <a href="../about.html" class="nav-link">About</a>
-                    <a href="../contributors.html" class="nav-link">Gardeners</a>
-                </div>
-                
-                <!-- Districts section with project counts -->
-                <div class="nav-section">
-                    <div class="nav-title">Active Districts</div>
-                    <a href="kyoto.html" class="nav-link active">
-                        Kyoto
-                        <span class="project-count">6</span>
-                    </a>
-                    <a href="#madrid" class="nav-link">
-                        Madrid
-                        <span class="project-count">18</span>
-                    </a>
-                    <a href="#melbourne" class="nav-link">
-                        Melbourne
-                        <span class="project-count">15</span>
-                    </a>
-                    <a href="#buenos-aires" class="nav-link">
-                        Buenos Aires
-                        <span class="project-count">22</span>
-                    </a>
-                    <a href="#nairobi" class="nav-link">
-                        Nairobi
-                        <span class="project-count">9</span>
-                    </a>
-                    <a href="#new-delhi" class="nav-link">
-                        New Delhi
-                        <span class="project-count">16</span>
-                    </a>
-                </div>
-            </div>
+            <button class="search-icon" onclick="window.location.href='../index.html'">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+            </button>
+        </div>
+        
+        <nav class="main-nav">
+            <a href="../index.html#cities">Cities</a>
+            <a href="#contributors">Contributors</a>
+            <a href="#about">About</a>
+            <a href="#resources">Resources</a>
         </nav>
+    </header>
 
-        <!-- Main Content Area -->
-        <main class="main-content">
-            <!-- Kyoto Hero Section - District immersion -->
-            <section class="kyoto-hero">
-                <div class="kyoto-hero-content">
-                    <div class="district-badge">
-                        <span>●</span>
-                        Active Biointegration Zone
+    <!-- City Hero Split Screen -->
+    <div class="city-hero-split">
+        <!-- Left: Map -->
+        <div class="map-section">
+            <div class="map-embed">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52452.67896157564!2d135.75343097832032!3d34.996447900000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6001089f801f1b8d%3A0x8e4e9e5e1c4e9e5e!2sHigashiyama%20Ward%2C%20Kyoto!5e0!3m2!1sen!2sjp!4v1234567890"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="content-section">
+            <!-- City Header -->
+            <div class="city-header">
+                <h1>Higashiyama</h1>
+                <p class="city-location">
+                    <a href="#">Kyoto</a>, Japan
+                </p>
+                <p class="curator-credit">by <a href="#">Himari Satō</a></p>
+            </div>
+
+            <div class="city-description">
+                <p>Kyoto's Higashiyama district pioneered biointegration systems where traditional architecture merged with atmospheric processing infrastructure. The district's historic wooden machiya buildings became test sites for bamboo-grove atmospheric coordination, seasonal observation protocols, and community dialogue methods that spread to 23 other districts worldwide during the 2028-2030 foundational period.</p>
+            </div>
+
+            <!-- Category Icons -->
+            <div class="category-icons">
+                <button class="category-icon active" data-category="all" title="All">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="biointegration" title="Biointegration">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="atmospheric" title="Atmospheric">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="traditional" title="Traditional">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="community" title="Community">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="seasonal" title="Seasonal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <article class="project-card" data-category="biointegration traditional" onclick="openProjectModal('hikari-machiya')">
+                    <div class="project-number">1</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1528164344705-47542687000d?w=800" alt="Hikari Machiya">
                     </div>
-                    <h1>Kyoto</h1>
-                    <p class="kyoto-hero-subtitle">Walk through neighborhoods where morning routines include checking rainwater pool colors, where street lighting helps you time your umbrella-carrying, and where local breweries power your evening showers. These aren't tomorrow's innovations—they're Tuesday's mundane conveniences in a district where biotechnology solved everyday problems so well that people forgot it was biotechnology.</p>
-                    <div class="gardener-intro">
-                        Climate gardening guided by Himari Satō
+                    <div class="project-info">
+                        <h3 class="project-title">Hikari Machiya Workshop</h3>
                     </div>
-                </div>
-            </section>
+                </article>
 
-            <!-- Main District Content - Split layout for exploration and detail -->
-            <section class="district-layout">
-                <!-- Interactive Map Section -->
-                <div class="map-section">
-                    <div class="map-header">
-                        <h2 class="map-title">District Infrastructure Map</h2>
-                        <p class="map-description">Six interconnected facilities that residents use for daily conveniences: papermaking workshops, weather-responsive lighting, community gardens, walking trails, breweries, and waste processing. Click any location to see how it fits into neighborhood routines.</p>
+                <!-- Project 2 -->
+                <article class="project-card" data-category="atmospheric community" onclick="openProjectModal('bamboo-grove')">
+                    <div class="project-number">2</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1542208776-f2d90e5c9087?w=800" alt="Bamboo Grove">
                     </div>
-                    <div id="map" aria-label="Kyoto biointegration zone infrastructure map"></div>
-                </div>
-
-                <!-- Projects Detail Section -->
-                <div class="projects-section">
-                    <div class="projects-header">
-                        <h2 class="projects-title">Neighborhood Facilities</h2>
-                        <p class="projects-description">Each facility operates on schedules and protocols that residents have learned through repeated use, creating the rhythms of daily life in a district where biotechnology became as mundane as public transportation or postal delivery.</p>
+                    <div class="project-info">
+                        <h3 class="project-title">Bamboo Grove Monitors</h3>
                     </div>
-                    
-                    <div class="projects-container">
-                        <!-- Project 1: Hikari Machiya Studio -->
-                        <article class="project-card" data-id="1">
-                            <div class="project-header">
-                                <div class="project-number">1</div>
-                                <h3 class="project-title">Hikari Machiya Studio<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">光町家スタジオ - Community Paper Workshop</span></h3>
-                            </div>
-                            <img src="../img/papel.png" class="project-image">
-                            <p class="project-description collapsed">
-                                Most workshop participants don’t give much thought to why they add mineral tablets to the collection pools. It is just part of the routine, like washing your hands before cooking. The workshop runs on a three-week cycle, matching the time it takes for rainwater pools to reach the right conditions for different paper types. Origami sessions are scheduled when the pools are treated with calcium, while calligraphy workshops occur when magnesium levels are higher. The texture of the paper changes slightly depending on which pool was used, though most people attribute this to seasonal shifts or traditional methods. Children enjoy feeding the pools their weekly mineral tablets, similar to feeding fish. The scent of the workshop also changes from week to week. Sometimes it smells like wet leaves, and other times it smells more like cedar. Longtime participants use these subtle shifts to judge whether their project will succeed.
-                            </p>
-                            <div class="project-features">
-                                <span class="feature-tag">Three-Week Cycles</span>
-                                <span class="feature-tag">Mineral Pool Feeding</span>
-                                <span class="feature-tag">Seasonal Paper Variations</span>
-                                <span class="feature-tag">Weekly Scent Patterns</span>
-                            </div>
-                            <!-- Click anywhere on card to expand/collapse -->
-                        </article>
+                </article>
 
-                        <!-- Project 2: Akari no Michi -->
-                        <article class="project-card" data-id="2">
-                            <div class="project-header">
-                                <div class="project-number">2</div>
-                                <h3 class="project-title">Akari no Michi<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">明かりの道 - Adaptive Street Lighting</span></h3>
-                            </div>
-                            <img src="../img/lamparas.png" alt="Street lighting that adjusts to weather patterns for community navigation" class="project-image">
-                            <p class="project-description collapsed">
-                                People have gradually learned to read the street lights to anticipate weather and time their routines. Blue-tinted clusters usually signal rain within six hours, so residents grab umbrellas or shift plans indoors. Amber lighting means stable weather, a good time for hanging laundry or outdoor work. Pattern recognition has become second nature. Mothers call their children inside based on subtle color shifts they may not notice consciously. Local merchants adjust store hours slightly. The hardware store stays open later when the lights suggest good weather for home repairs. The tea shop prepares for busier afternoons when blue lights hint at rainy days. The system sometimes malfunctions during unusual weather, sparking the usual frustrations that come with shared infrastructure. Teenagers text each other about good nights for meeting outdoors, treating the system like any everyday neighborhood tool.
-                            </p>
-                            <div class="project-features">
-                                <span class="feature-tag">Six-Hour Weather Signals</span>
-                                <span class="feature-tag">Unconscious Pattern Reading</span>
-                                <span class="feature-tag">Merchant Schedule Adjustments</span>
-                                <span class="feature-tag">Occasional Malfunctions</span>
-                            </div>
-                            <!-- Click anywhere on card to expand/collapse -->
-                        </article>
-
-                        <!-- Project 3: Katzura Eco-Island Center -->
-                        <article class="project-card" data-id="3">
-                            <div class="project-header">
-                                <div class="project-number">3</div>
-                                <h3 class="project-title">Katzura Eco-Island Center<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">保津川エコアイランドセンター - Riverside Community Garden</span></h3>
-                            </div>
-                            <img src="../img/ecosistema.png" alt="Community riverside space where families learn to coordinate activities with wildlife" class="project-image">
-                            <p class="project-description collapsed">
-                                Parents have noticed that their children tend to be calmer at certain times of day, leading to an informal schedule where families visit when kids are most likely to have a good experience. Mornings are best for energetic play, while late afternoons suit quiet observation. There are no official schedules. People learn the timing through repeated visits and casual conversations. Local wildlife has adapted to human presence in ways that create reliable patterns. Birds feed in the same areas at consistent times, which helps school groups plan nature lessons. Garden staff sometimes adjust lighting and seating based on seasonal wildlife movement, much like any public park that responds to natural rhythms. Some children become skilled at spotting and identifying birds through steady exposure rather than formal training.
-                            </p>
-                            <div class="project-features">
-                                <span class="feature-tag">Unofficial Family Scheduling</span>
-                                <span class="feature-tag">Predictable Wildlife Patterns</span>
-                                <span class="feature-tag">Seasonal Maintenance Adjustments</span>
-                                <span class="feature-tag">Gradual Skill Development</span>
-                            </div>
-                            <!-- Click anywhere on card to expand/collapse -->
-                        </article>
-
-                        <!-- Project 4: Bamboo Grove Knowledge Trail -->
-                        <article class="project-card" data-id="4">
-                            <div class="project-header">
-                                <div class="project-number">4</div>
-                                <h3 class="project-title">Bamboo Grove Knowledge Trail<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">竹林知識トレイル - Weather-Responsive Walking Paths</span></h3>
-                            </div>
-                            <img src="../img/iot.png" alt="Bamboo walking trail with integrated environmental monitoring for weather prediction" class="project-image">
-                            <p class="project-description collapsed">
-                                Regular walkers and joggers have learned to choose different paths through the bamboo grove based on subtle sound changes that signal incoming weather. The grove hums softly about eighteen hours before major storms, giving people enough time to plan indoor activities or secure outdoor items. This has become part of the local routine, like checking a weather app in the morning. School teachers bring students here for environmental lessons, where they learn to place their hands on bamboo stalks to feel vibrations reflecting atmospheric pressure shifts. Teaching basic meteorology through direct sensation rather than theory alone is a popular way. The district’s water management system uses sensors throughout the grove to forecast demand, but most residents know that certain grove sounds mean their rain barrels will fill within a day.
-                            </p>
-                            <div class="project-features">
-                                <span class="feature-tag">18-Hour Storm Warnings</span>
-                                <span class="feature-tag">Path Selection by Sound</span>
-                                <span class="feature-tag">Hands-On Weather Education</span>
-                                <span class="feature-tag">Water Management Integration</span>
-                            </div>
-                            <!-- Click anywhere on card to expand/collapse -->
-                        </article>
-
-                        <!-- Project 5: Kura no Megumi -->
-                        <article class="project-card" data-id="5">
-                            <div class="project-header">
-                                <div class="project-number">5</div>
-                                <h3 class="project-title">Kura no Megumi<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">倉の恵み - Community Brewery & Power Station</span></h3>
-                            </div>
-                            <img src="../img/sake1.png" alt="Local brewery that supplies both sake and electrical power to neighborhood" class="project-image">
-                            <p class="project-description collapsed">
-                                The brewery operates on a seasonal schedule that produces different types of sake while generating electricity for the surrounding neighborhood. Residents have learned to time energy-intensive tasks around the brewing cycles. Laundry and electric heating are most efficient during peak fermentation, usually mid-week. Local sake enthusiasts have developed preferences for seasonal batches, noticing that spring brews are lighter and autumn varieties more robust, though few link this to changes in energy production. The facility occasionally experiences technical problems that lower both the quality and the power output, prompting the usual frustrations that come with shared infrastructure. Electricity bills in the neighborhood shift slightly depending on brewing performance, creating a shared sense of investment in the brewery’s success. Regular visitors often say they sleep better after evening tastings, attributing it to relaxation rather than any specific environmental factor.
-                            </p>
-                            <div class="project-features">
-                                <span class="feature-tag">Seasonal Brewing-Power Cycles</span>
-                                <span class="feature-tag">Mid-Week Energy Peaks</span>
-                                <span class="feature-tag">Fluctuating Utility Bills</span>
-                                <span class="feature-tag">Better Sleep After Visits</span>
-                            </div>
-                            <!-- Click anywhere on card to expand/collapse -->
-                        </article>
-
-                        <!-- Project 6: Midori no Kura -->
-                        <article class="project-card" data-id="6">
-                            <div class="project-header">
-                                <div class="project-number">6</div>
-                                <h3 class="project-title">Midori no Kura<br><span style="font-size: 16px; font-weight: 400; color: var(--text-medium);">緑の蔵 - Waste-to-Energy Processing Center</span></h3>
-                            </div>
-                            <img src="../img/sake2.png" alt="Community facility that converts brewing waste into electrical power" class="project-image">
-                            <p class="project-description collapsed">
-                                The waste processing facility coordinates with the brewery next door, converting spent brewing materials into electricity and heat for nearby blocks. Residents adjust their hot water use to early afternoon when processing is at its peak and efficiency is highest. The facility sends periodic alerts to neighborhood phones indicating the best times to use energy, similar to utility company notices about peak pricing. Transparent windows let children observe the conversion process, turning waste management into a hands-on lesson in resource recycling. During maintenance, processing capacity and energy output temporarily drop, requiring residents to adapt their routines as with any shared infrastructure. Community members also contribute select organic waste to supplement the brewing byproducts, coordinating drop-offs through neighborhood message boards.
-                            </p>
-                            <div class="project-features">
-                                <span class="feature-tag">Coordinated Processing Schedule</span>
-                                <span class="feature-tag">Early Afternoon Hot Water</span>
-                                <span class="feature-tag">Phone Usage Notifications</span>
-                                <span class="feature-tag">Maintenance Downtime Issues</span>
-                            </div>
-                            <!-- Click anywhere on card to expand/collapse -->
-                        </article>
+                <!-- Project 3 -->
+                <article class="project-card" data-category="seasonal biointegration" onclick="openProjectModal('mineral-pools')">
+                    <div class="project-number">3</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?w=800" alt="Mineral Pools">
                     </div>
-                </div>
-            </section>
+                    <div class="project-info">
+                        <h3 class="project-title">Seasonal Mineral Pools</h3>
+                    </div>
+                </article>
 
-            <!-- Footer -->
-            <footer class="footer">
-                <div class="footer-content">
-                    <p>Kyoto Biointegration Zone — Climate gardening guided by Himari Satō</p>
-                </div>
-            </footer>
-        </main>
+                <!-- Project 4 -->
+                <article class="project-card" data-category="traditional community" onclick="openProjectModal('machiya-integration')">
+                    <div class="project-number">4</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1490806843957-31f4c9a91c65?w=800" alt="Machiya Integration">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Machiya Infrastructure</h3>
+                    </div>
+                </article>
+
+                <!-- Project 5 -->
+                <article class="project-card" data-category="atmospheric seasonal" onclick="openProjectModal('atmospheric-gardens')">
+                    <div class="project-number">5</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1519408299519-b52e315a47e0?w=800" alt="Atmospheric Gardens">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Atmospheric Gardens</h3>
+                    </div>
+                </article>
+
+                <!-- Project 6 -->
+                <article class="project-card" data-category="community traditional" onclick="openProjectModal('coordination-centers')">
+                    <div class="project-number">6</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=800" alt="Coordination Centers">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Community Coordination</h3>
+                    </div>
+                </article>
+            </div>
+        </div>
     </div>
 
-    <!-- Leaflet JavaScript for interactive mapping -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""></script>
-    
-    <script>
-        /* ============================
-           Interactive Functionality
-           ============================ */
-        
-        // Mobile sidebar toggle functionality
-        function toggleSidebar() {
-            const sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('open');
-        }
-
-        // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', function(event) {
-            const sidebar = document.getElementById('sidebar');
-            const menuToggle = document.querySelector('.menu-toggle');
-            
-            if (window.innerWidth <= 768 && 
-                !sidebar.contains(event.target) && 
-                !menuToggle.contains(event.target) && 
-                sidebar.classList.contains('open')) {
-                sidebar.classList.remove('open');
-            }
-        });
-
-        // Simplified card-based toggle functionality - much more intuitive!
-        function initializeCardToggles() {
-            console.log('Initializing clickable cards...');
-            
-            // Find all project cards
-            const projectCards = document.querySelectorAll('.project-card');
-            console.log('Found project cards:', projectCards.length);
-            
-            projectCards.forEach((card, index) => {
-                console.log(`Setting up card ${index + 1}:`, card);
-                
-                // Add click event listener to entire card
-                card.addEventListener('click', function(event) {
-                    // Prevent interference from other click events
-                    event.stopPropagation();
-                    
-                    console.log('Card clicked:', this);
-                    
-                    // Find the description within this card
-                    const description = this.querySelector('.project-description');
-                    if (!description) {
-                        console.error('Could not find description in card');
-                        return;
-                    }
-                    
-                    // Toggle the state
-                    const isCollapsed = description.classList.contains('collapsed');
-                    console.log('Current state - collapsed:', isCollapsed);
-                    
-                    if (isCollapsed) {
-                        // Expand
-                        description.classList.remove('collapsed');
-                        description.classList.add('expanded');
-                        this.classList.add('expanded');
-                        console.log('Expanded card');
-                    } else {
-                        // Collapse
-                        description.classList.remove('expanded');
-                        description.classList.add('collapsed');
-                        this.classList.remove('expanded');
-                        console.log('Collapsed card');
-                    }
-                });
-                
-                // Add visual feedback for better UX
-                card.addEventListener('mouseenter', function() {
-                    this.style.transition = 'all 0.2s ease';
-                });
-            });
-        }
-
-        // Initialize when DOM is ready
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('DOM loaded, initializing card toggles...');
-            initializeCardToggles();
-        });
-
-        // Also initialize immediately if DOM is already loaded
-        if (document.readyState !== 'loading') {
-            console.log('DOM already loaded, initializing immediately...');
-            initializeCardToggles();
-        }
-
-        // Enhanced Map Initialization
-        document.addEventListener('DOMContentLoaded', () => {
-            // Initialize map centered on Kyoto with optimal zoom
-            const map = L.map('map').setView([35.0116, 135.7681], 13);
-
-            // Add OpenStreetMap tile layer with custom styling
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
-                maxZoom: 18,
-                opacity: 0.8
-            }).addTo(map);
-
-            // Define project locations with precise coordinates
-            const projectLocations = [
-                { id: 1, name: "Hikari Machiya Studio", coords: [35.0035, 135.7780], 
-                  japanese: "光町家スタジオ", type: "Community Paper Workshop" },
-                { id: 2, name: "Akari no Michi", coords: [35.0045, 135.7795], 
-                  japanese: "明かりの道", type: "Adaptive Street Lighting" },
-                { id: 3, name: "Katzura Eco-Island Center", coords: [35.0129, 135.6778], 
-                  japanese: "保津川エコアイランドセンター", type: "Riverside Community Garden" },
-                { id: 4, name: "Bamboo Grove Knowledge Trail", coords: [35.0168, 135.6713], 
-                  japanese: "竹林知識トレイル", type: "Weather-Responsive Walking Paths" },
-                { id: 5, name: "Kura no Megumi", coords: [34.9305, 135.7630], 
-                  japanese: "倉の恵み", type: "Community Brewery & Power Station" },
-                { id: 6, name: "Midori no Kura", coords: [34.9310, 135.7645], 
-                  japanese: "緑の蔵", type: "Waste-to-Energy Processing Center" }
-            ];
-
-            // Create custom icon with enhanced styling
-            const createCustomIcon = (id) => L.divIcon({
-                className: 'custom-marker',
-                html: `<div style="
-                    width: 42px; 
-                    height: 42px; 
-                    background: linear-gradient(135deg, #7fb069, #d4af37);
-                    border-radius: 50%; 
-                    border: 3px solid white; 
-                    color: white; 
-                    font-weight: 800;
-                    display: flex; 
-                    align-items: center; 
-                    justify-content: center;
-                    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-                    font-size: 16px;
-                    cursor: pointer;
-                    transition: transform 0.2s ease;
-                " onmouseover="this.style.transform='scale(1.1)'" 
-                   onmouseout="this.style.transform='scale(1)'">${id}</div>`,
-                iconSize: [42, 42],
-                iconAnchor: [21, 21],
-                popupAnchor: [0, -21]
-            });
-
-            // Add markers with enhanced interactivity
-            projectLocations.forEach(location => {
-                const marker = L.marker(location.coords, { 
-                    icon: createCustomIcon(location.id) 
-                }).addTo(map);
-                
-                // Create rich popup content
-                marker.bindPopup(`
-                    <div style="text-align: center; padding: 16px; min-width: 250px;">
-                        <div style="
-                            background: linear-gradient(135deg, #7fb069, #d4af37);
-                            color: white;
-                            padding: 8px 16px;
-                            border-radius: 20px;
-                            font-size: 12px;
-                            font-weight: 600;
-                            margin-bottom: 12px;
-                            display: inline-block;
-                        ">${location.type}</div>
-                        <h3 style="margin: 0 0 4px 0; color: #1a3d35; font-size: 18px;">
-                            ${location.name}
-                        </h3>
-                        <p style="margin: 0 0 12px 0; color: #4a5568; font-size: 14px;">
-                            ${location.japanese}
-                        </p>
-                        <button style="
-                            background: #1a3d35;
-                            color: white;
-                            border: none;
-                            padding: 8px 16px;
-                            border-radius: 6px;
-                            font-size: 13px;
-                            font-weight: 600;
-                            cursor: pointer;
-                        " onclick="scrollToProject(${location.id})">
-                            View Details
-                        </button>
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+            <div class="modal-body">
+                <div class="modal-images">
+                    <img src="" alt="Project image" id="modalImage">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-meta">
+                        <a href="#" id="modalLocation" class="modal-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span id="modalLocationText"></span>
+                        </a>
+                        <a href="#" id="modalWebsite" class="modal-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                            </svg>
+                            Visit Website
+                        </a>
                     </div>
-                `, {
-                    maxWidth: 300,
-                    className: 'custom-popup'
-                });
-                
-                // Add click handler for map marker interaction
-                marker.on('click', () => {
-                    // Highlight corresponding project card
-                    const projectCard = document.querySelector(`[data-id="${location.id}"]`);
-                    if (projectCard) {
-                        // Remove previous highlights
-                        document.querySelectorAll('.project-card').forEach(card => {
-                            card.style.background = 'var(--surface-glass)';
-                        });
-                        
-                        // Highlight selected project with subtle animation
-                        projectCard.style.background = 'linear-gradient(135deg, rgba(127, 176, 105, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%)';
-                        
-                        // Reset highlight after 3 seconds
-                        setTimeout(() => {
-                            projectCard.style.background = 'var(--surface-glass)';
-                        }, 3000);
-                    }
-                });
-            });
+                    <p class="modal-description" id="modalDescription"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-            // Ensure map renders correctly after layout is stable
-            setTimeout(() => {
-                map.invalidateSize();
-            }, 300);
-        });
-
-        // Function to scroll to specific project from map interaction
-        function scrollToProject(projectId) {
-            const projectCard = document.querySelector(`[data-id="${projectId}"]`);
-            if (projectCard) {
-                projectCard.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center' 
-                });
-                
-                // Add pulse effect to draw attention
-                projectCard.style.transform = 'scale(1.05)';
-                setTimeout(() => {
-                    projectCard.style.transform = 'scale(1)';
-                }, 300);
-            }
-        }
-
-        // Note: Parallax effect for hero content has been disabled for static behavior
-        // If you want to re-enable subtle parallax, uncomment the following code:
-        /*
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            
-            // Subtle parallax for hero content
-            const heroContent = document.querySelector('.kyoto-hero-content');
-            if (heroContent && scrolled < window.innerHeight) {
-                heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-            }
-        });
-        */
-    </script>
+    <!-- External JavaScript -->
+    <script src="../js/kyoto.js"></script>
 </body>
 </html>
