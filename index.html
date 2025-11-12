@@ -3,23 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heated City - Climate Futures in Cities</title>
+    <title>Heated City</title>
     
     <style>
-        /* Heated City - All Styles Inline */
         :root {
-            --primary-color: #8B7FC7;
-            --primary-dark: #6B5FA7;
-            --primary-light: #ABA0D9;
-            --accent-heat: #FF6B6B;
-            --accent-water: #4ECDC4;
-            --accent-green: #95E1D3;
+            --primary-color: #E6B800;
+            --primary-dark: #C49F00;
             --text-dark: #2C3E50;
             --text-light: #FFFFFF;
             --background: #F8F9FA;
             --card-background: #FFFFFF;
             --border-color: #E0E0E0;
-            --transition: all 0.3s ease;
         }
 
         * {
@@ -32,13 +26,12 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background-color: var(--background);
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
 
         button {
@@ -53,61 +46,47 @@
             display: block;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
         /* Header */
         .main-header {
             background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 1rem 2rem;
+            color: var(--text-dark);
+            padding: 0.75rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
+            position: fixed;
             top: 0;
+            width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .header-left {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
-        .grid-icon,
-        .climate-icon,
-        .back-btn {
-            color: var(--text-light);
-            padding: 0.5rem;
-            transition: var(--transition);
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
+        .grid-icon {
+            width: 24px;
+            height: 24px;
+            display: grid;
+            grid-template-columns: repeat(4, 4px);
+            grid-template-rows: repeat(4, 4px);
+            gap: 2px;
         }
 
-        .grid-icon:hover,
-        .climate-icon:hover,
-        .back-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .grid-icon svg {
-            fill: currentColor;
-        }
-
-        .climate-icon svg,
-        .back-btn svg {
-            stroke-width: 2;
+        .grid-icon span {
+            background: var(--text-dark);
+            border-radius: 1px;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .search-icon {
+            padding: 0.5rem;
         }
 
         .main-nav {
@@ -117,1383 +96,502 @@
 
         .main-nav a {
             font-weight: 500;
-            position: relative;
-            padding: 0.5rem 0;
+            font-size: 0.875rem;
         }
 
-        .main-nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--text-light);
-            transition: width 0.3s ease;
+        .main-nav a:hover {
+            opacity: 0.7;
         }
 
-        .main-nav a:hover::after {
-            width: 100%;
+        .climate-icon {
+            padding: 0.5rem;
         }
 
         /* Hero */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-            color: var(--text-light);
-            padding: 6rem 2rem;
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 0 2rem;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
+            font-size: 5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .tagline {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto;
-            opacity: 0.95;
+        .hero-content p {
+            font-size: 1.125rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
-        /* Section Header */
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            gap: 1rem;
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
-        .section-header h2 {
-            font-size: 2rem;
-            font-weight: 700;
+        .cta-button:hover {
+            background: white;
             color: var(--text-dark);
         }
 
-        /* Filters */
-        .filters {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
+        /* Neighborhoods Section */
+        .neighborhoods-section {
+            padding: 0;
+            background: var(--background);
         }
 
-        .filter-btn {
-            padding: 0.5rem 1.25rem;
-            border: 2px solid var(--border-color);
-            border-radius: 50px;
-            background: var(--card-background);
-            color: var(--text-dark);
+        .section-tabs {
+            background: #000033;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            border-bottom: 3px solid #000033;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            color: white;
+            background: #000033;
+            border: none;
+            font-size: 0.875rem;
             font-weight: 500;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
 
-        .filter-btn:hover,
-        .filter-btn.active {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-            color: var(--text-light);
+        .tab-btn:hover,
+        .tab-btn.active {
+            background: #1a1a4d;
         }
 
-        /* Cities Grid */
-        .cities-grid {
-            padding: 4rem 2rem;
-        }
-
-        .city-cards {
+        .neighborhoods-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 0;
         }
 
-        /* City Card */
-        .city-card {
-            background: var(--card-background);
-            border-radius: 12px;
+        .neighborhood-card {
+            position: relative;
+            aspect-ratio: 1;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
             cursor: pointer;
         }
 
-        .city-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .city-image {
-            position: relative;
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .city-image img {
+        .neighborhood-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s ease;
         }
 
-        .city-card:hover .city-image img {
+        .neighborhood-card:hover img {
             transform: scale(1.05);
         }
 
-        .city-overlay {
+        .neighborhood-info {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-        }
-
-        .climate-badge {
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 600;
-        }
-
-        .climate-badge.heat {
-            background: var(--accent-heat);
-        }
-
-        .climate-badge.water {
-            background: var(--accent-water);
-        }
-
-        .city-info {
+            bottom: 0;
+            left: 0;
+            right: 0;
             padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+            color: white;
         }
 
-        .city-info h3 {
-            font-size: 1.75rem;
+        .neighborhood-title {
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
+            margin-bottom: 0.25rem;
         }
 
-        .city-meta {
-            color: #666;
+        .neighborhood-city {
             font-size: 0.875rem;
-            margin-bottom: 1rem;
-        }
-
-        .city-description {
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-
-        .city-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .tag {
-            background: var(--primary-light);
-            color: var(--primary-dark);
-            padding: 0.25rem 0.75rem;
-            border-radius: 50px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .explore-btn {
-            display: inline-block;
-            color: var(--primary-color);
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .explore-btn:hover {
-            color: var(--primary-dark);
-            transform: translateX(5px);
-        }
-
-        /* City Page */
-        .city-page {
-            background-color: var(--primary-color);
-        }
-
-        .city-hero {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 2rem;
-        }
-
-        .city-hero-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .city-header {
-            margin-bottom: 2rem;
-        }
-
-        .city-header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .city-location {
-            font-size: 1.125rem;
             opacity: 0.9;
             margin-bottom: 0.5rem;
         }
 
-        .curator-credit {
-            font-size: 0.875rem;
+        .neighborhood-curator {
+            font-size: 0.75rem;
             opacity: 0.8;
         }
 
-        .curator-link {
+        .neighborhood-curator a {
             text-decoration: underline;
-            opacity: 1;
         }
 
-        .city-intro {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-            font-size: 1.05rem;
+        /* Cities Section */
+        .cities-section {
+            padding: 3rem 0;
+            background: #000033;
         }
 
-        .map-container {
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            height: 400px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .map-embed {
-            width: 100%;
-            height: 100%;
-        }
-
-        .map-embed img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Category Filters */
-        .category-filters {
-            background: var(--card-background);
-            padding: 2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .filter-icons {
+        .cities-tabs {
             display: flex;
             justify-content: center;
-            gap: 2rem;
+            gap: 0;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
         }
 
-        .category-icon {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem;
-            border-radius: 8px;
-            transition: var(--transition);
-            color: var(--text-dark);
+        .city-tab {
+            padding: 0.75rem 1.5rem;
+            color: white;
+            background: #000033;
+            border: 1px solid #1a1a4d;
+            font-size: 0.875rem;
+            transition: all 0.3s ease;
         }
 
-        .category-icon:hover,
-        .category-icon.active {
-            background: var(--primary-light);
-            color: var(--primary-dark);
+        .city-tab:hover,
+        .city-tab.active {
+            background: #1a1a4d;
         }
 
-        .category-icon svg {
-            stroke-width: 2;
-        }
-
-        .category-icon span {
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        /* Projects Section */
-        .projects-section {
-            background: var(--card-background);
-            padding: 3rem 2rem;
-        }
-
-        .projects-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        /* Project Card */
-        .project-card {
+        .cities-grid {
             display: grid;
-            grid-template-columns: 60px 1fr;
-            gap: 2rem;
-            padding: 2rem 0;
-            border-bottom: 1px solid var(--border-color);
-            transition: var(--transition);
+            grid-template-columns: repeat(8, 1fr);
+            gap: 0;
+            max-width: 100%;
         }
 
-        .project-card:hover {
-            background: rgba(139, 127, 199, 0.05);
-            padding-left: 1rem;
-            padding-right: 1rem;
-            margin: 0 -1rem;
-        }
-
-        .project-number {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
+        .city-card {
+            background: #000033;
+            border: 1px solid #1a1a4d;
+            padding: 2rem 1rem;
             text-align: center;
-            padding-top: 0.5rem;
-        }
-
-        .project-content {
+            color: white;
+            transition: all 0.3s ease;
             cursor: pointer;
         }
 
-        .project-content h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin-bottom: 0.75rem;
+        .city-card:hover {
+            background: #1a1a4d;
         }
 
-        .project-meta {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1rem;
-            font-size: 0.875rem;
-            color: #666;
-            flex-wrap: wrap;
-        }
-
-        .project-location,
-        .project-timeline {
-            display: flex;
-            align-items: center;
-            gap: 0.25rem;
-        }
-
-        .project-description {
-            color: #555;
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        /* Timeline Filter */
-        .timeline-filter {
-            background: var(--background);
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .timeline-filter h3 {
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .timeline-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .timeline-btn {
-            padding: 0.75rem 1.5rem;
-            border: 2px solid var(--primary-color);
-            border-radius: 50px;
-            background: var(--card-background);
-            color: var(--primary-color);
-            font-weight: 600;
-            transition: var(--transition);
-        }
-
-        .timeline-btn:hover,
-        .timeline-btn.active {
-            background: var(--primary-color);
-            color: var(--text-light);
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            overflow-y: auto;
-        }
-
-        .modal.active {
-            display: block;
-        }
-
-        .modal-content {
-            background: var(--card-background);
-            margin: 2% auto;
-            max-width: 900px;
-            border-radius: 12px;
-            position: relative;
-            animation: modalSlideIn 0.3s ease;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 2rem;
-            color: var(--text-light);
-            background: rgba(0, 0, 0, 0.5);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 10;
-        }
-
-        .modal-body {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .modal-images {
-            background: #f0f0f0;
-        }
-
-        .modal-images img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .modal-info {
-            padding: 2rem;
-        }
-
-        .modal-info h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .modal-meta {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary-color);
-            font-weight: 500;
-        }
-
-        .modal-link:hover {
-            color: var(--primary-dark);
-        }
-
-        /* How It Works */
-        .how-it-works {
-            padding: 4rem 2rem;
-            background: var(--card-background);
-        }
-
-        .how-it-works h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
-        }
-
-        .steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-        }
-
-        .step {
-            text-align: center;
-        }
-
-        .step-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-        }
-
-        .step h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .step p {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Contributors */
-        .contributors-preview {
-            padding: 4rem 2rem;
-            background: var(--background);
-        }
-
-        .contributors-preview h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
-        }
-
-        .curator-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .curator-card {
-            background: var(--card-background);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: var(--transition);
-        }
-
-        .curator-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .curator-avatar {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            overflow: hidden;
+        .city-icon {
+            width: 80px;
+            height: 80px;
             margin: 0 auto 1rem;
-            border: 3px solid var(--primary-color);
+            opacity: 0.8;
         }
 
-        .curator-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .curator-card h3 {
+        .city-name {
             font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .curator-role {
-            color: var(--primary-color);
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 0.25rem;
         }
 
-        .curator-city {
-            color: #666;
+        .city-country {
             font-size: 0.875rem;
-        }
-
-        /* Footer */
-        .main-footer {
-            background: var(--text-dark);
-            color: var(--text-light);
-            padding: 3rem 2rem 1rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            font-size: 1.125rem;
-        }
-
-        .footer-section a {
-            display: block;
-            margin-bottom: 0.5rem;
-            opacity: 0.8;
-            transition: var(--transition);
-        }
-
-        .footer-section a:hover {
-            opacity: 1;
-            color: var(--primary-light);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
             opacity: 0.7;
         }
 
-        /* Utility */
-        .hidden {
-            display: none !important;
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .neighborhoods-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .cities-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .main-header {
-                flex-wrap: wrap;
-                padding: 1rem;
-            }
-            
-            .main-nav {
-                width: 100%;
-                justify-content: center;
-                margin-top: 1rem;
-                gap: 1rem;
-            }
-            
             .hero-content h1 {
-                font-size: 2rem;
+                font-size: 3rem;
             }
-            
-            .tagline {
-                font-size: 1rem;
+            .neighborhoods-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            
-            .city-cards {
+            .cities-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .main-nav {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .neighborhoods-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .city-header h1 {
-                font-size: 2rem;
-            }
-            
-            .filter-icons {
-                gap: 1rem;
-            }
-            
-            .project-card {
-                grid-template-columns: 40px 1fr;
-                gap: 1rem;
-            }
-            
-            .modal-body {
-                grid-template-columns: 1fr;
-            }
-            
-            .steps {
-                grid-template-columns: 1fr;
+            .cities-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
 <body>
-    <!-- HOME VIEW -->
-    <div id="homeView">
-        <!-- Navigation Header -->
-        <header class="main-header">
-            <div class="header-left">
-                <button class="grid-icon" aria-label="Menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                        <rect width="10" height="10" x="1" y="1"/>
-                        <rect width="10" height="10" x="13" y="1"/>
-                        <rect width="10" height="10" x="1" y="13"/>
-                        <rect width="10" height="10" x="13" y="13"/>
-                    </svg>
-                </button>
-                <a href="#" class="logo" onclick="showHome(); return false;">Heated</a>
-            </div>
-            
-            <nav class="main-nav">
-                <a href="#cities">Cities</a>
-                <a href="#contributors">Contributors</a>
-                <a href="#about">About</a>
-                <a href="#resources">Resources</a>
-            </nav>
-            
-            <button class="climate-icon" aria-label="Climate info" onclick="alert('Heated City uses climate data from IPCC reports and local climate action plans.')">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <circle cx="12" cy="12" r="5"/>
-                    <line x1="12" y1="1" x2="12" y2="3"/>
-                    <line x1="12" y1="21" x2="12" y2="23"/>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                    <line x1="1" y1="12" x2="3" y2="12"/>
-                    <line x1="21" y1="12" x2="23" y2="12"/>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-left">
+            <button class="grid-icon">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+            </button>
+            <button class="search-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
                 </svg>
             </button>
-        </header>
-
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Climate Futures in Cities</h1>
-                <p class="tagline">Speculative guides exploring how cities are adapting to climate change, curated by climate thinkers, designers, and activists.</p>
-            </div>
-        </section>
-
-        <!-- Featured Cities Grid -->
-        <section class="cities-grid" id="cities">
-            <div class="section-header">
-                <h2>Featured Cities</h2>
-                <div class="filters">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="heat">Heat</button>
-                    <button class="filter-btn" data-filter="water">Water</button>
-                    <button class="filter-btn" data-filter="coastal">Coastal</button>
-                </div>
-            </div>
-
-            <div class="city-cards">
-                <!-- City Card 1 -->
-                <article class="city-card" data-climate="heat" onclick="showCity('buenos-aires')">
-                    <div class="city-image">
-                        <img src="https://images.unsplash.com/photo-1512395749243-3cd5fec60e95?w=800" alt="Buenos Aires climate adaptation">
-                        <div class="city-overlay">
-                            <span class="climate-badge heat">+3.2°C by 2050</span>
-                        </div>
-                    </div>
-                    <div class="city-info">
-                        <h3>Buenos Aires</h3>
-                        <p class="city-meta">Argentina · 8 projects</p>
-                        <p class="city-description">Transforming traditional neighborhoods into climate-resilient zones through green infrastructure and adaptive architecture.</p>
-                        <div class="city-tags">
-                            <span class="tag">Urban Heat</span>
-                            <span class="tag">Flooding</span>
-                        </div>
-                        <span class="explore-btn">Explore →</span>
-                    </div>
-                </article>
-
-                <!-- City Card 2 -->
-                <article class="city-card" data-climate="coastal">
-                    <div class="city-image">
-                        <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800" alt="London climate futures">
-                        <div class="city-overlay">
-                            <span class="climate-badge water">River Rising</span>
-                        </div>
-                    </div>
-                    <div class="city-info">
-                        <h3>London</h3>
-                        <p class="city-meta">United Kingdom · 12 projects</p>
-                        <p class="city-description">Reimagining Thames barriers and creating amphibious neighborhoods for a future of rising waters.</p>
-                        <div class="city-tags">
-                            <span class="tag">Flooding</span>
-                            <span class="tag">Water Systems</span>
-                        </div>
-                        <span class="explore-btn">Explore →</span>
-                    </div>
-                </article>
-
-                <!-- City Card 3 -->
-                <article class="city-card" data-climate="heat">
-                    <div class="city-image">
-                        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800" alt="Tokyo climate adaptation">
-                        <div class="city-overlay">
-                            <span class="climate-badge heat">Urban Heat Island</span>
-                        </div>
-                    </div>
-                    <div class="city-info">
-                        <h3>Tokyo</h3>
-                        <p class="city-meta">Japan · 15 projects</p>
-                        <p class="city-description">High-tech solutions and traditional wisdom merge to create climate havens in Asia's megacity.</p>
-                        <div class="city-tags">
-                            <span class="tag">Heat Refuges</span>
-                            <span class="tag">Smart Infrastructure</span>
-                        </div>
-                        <span class="explore-btn">Explore →</span>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <!-- How It Works -->
-        <section class="how-it-works">
-            <div class="container">
-                <h2>How Heated City Works</h2>
-                <div class="steps">
-                    <div class="step">
-                        <div class="step-icon">🌍</div>
-                        <h3>Explore Cities</h3>
-                        <p>Browse climate-adapted neighborhoods and speculative projects across global cities.</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-icon">🔮</div>
-                        <h3>Multiple Timelines</h3>
-                        <p>See projects in three timeframes: Present (existing), Near Future (2030), and Speculative (2050).</p>
-                    </div>
-                    <div class="step">
-                        <div class="step-icon">👥</div>
-                        <h3>Local Curators</h3>
-                        <p>All content curated by climate designers, scientists, and activists who live in these cities.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contributors Preview -->
-        <section class="contributors-preview" id="contributors">
-            <h2>Climate Curators</h2>
-            <div class="curator-grid">
-                <div class="curator-card">
-                    <div class="curator-avatar">
-                        <img src="https://i.pravatar.cc/150?img=1" alt="Curator">
-                    </div>
-                    <h3>María Fernández</h3>
-                    <p class="curator-role">Climate Designer</p>
-                    <p class="curator-city">Buenos Aires</p>
-                </div>
-                <div class="curator-card">
-                    <div class="curator-avatar">
-                        <img src="https://i.pravatar.cc/150?img=2" alt="Curator">
-                    </div>
-                    <h3>James Chen</h3>
-                    <p class="curator-role">Urban Planner</p>
-                    <p class="curator-city">London</p>
-                </div>
-                <div class="curator-card">
-                    <div class="curator-avatar">
-                        <img src="https://i.pravatar.cc/150?img=3" alt="Curator">
-                    </div>
-                    <h3>Yuki Tanaka</h3>
-                    <p class="curator-role">Climate Activist</p>
-                    <p class="curator-city">Tokyo</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="main-footer">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h4>Heated City</h4>
-                    <p>A project by <a href="https://heated.studio" target="_blank">Heated Studio</a></p>
-                    <p>Climate foresight through design fiction.</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Navigate</h4>
-                    <a href="#cities">Cities</a>
-                    <a href="#contributors">Contributors</a>
-                    <a href="#about">About</a>
-                    <a href="#resources">Resources</a>
-                </div>
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <a href="#">Newsletter</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">Instagram</a>
-                    <a href="https://heated.studio">Heated Studio</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 Heated Studio. Imagining climate futures together.</p>
-            </div>
-        </footer>
-    </div>
-
-    <!-- CITY VIEW -->
-    <div id="cityView" class="hidden city-page">
-        <!-- Navigation Header -->
-        <header class="main-header">
-            <div class="header-left">
-                <button class="grid-icon" aria-label="Menu">
-                    <svg width="24" height="24" viewBox="0 0 24 24">
-                        <rect width="10" height="10" x="1" y="1"/>
-                        <rect width="10" height="10" x="13" y="1"/>
-                        <rect width="10" height="10" x="1" y="13"/>
-                        <rect width="10" height="10" x="13" y="13"/>
-                    </svg>
-                </button>
-                <a href="#" class="logo" onclick="showHome(); return false;">Heated</a>
-                <button class="back-btn" onclick="showHome()">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <path d="M19 12H5M12 19l-7-7 7-7"/>
-                    </svg>
-                </button>
-            </div>
-            
-            <nav class="main-nav">
-                <a href="#" onclick="showHome(); return false;">Cities</a>
-                <a href="#contributors">Contributors</a>
-                <a href="#about">About</a>
-                <a href="#resources">Resources</a>
-            </nav>
-            
-            <button class="climate-icon" aria-label="Climate info">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <circle cx="12" cy="12" r="5"/>
-                    <line x1="12" y1="1" x2="12" y2="3"/>
-                    <line x1="12" y1="21" x2="12" y2="23"/>
-                </svg>
-            </button>
-        </header>
-
-        <!-- City Hero -->
-        <section class="city-hero">
-            <div class="city-hero-content">
-                <div class="city-header">
-                    <h1>Balvanera</h1>
-                    <p class="city-location">Buenos Aires, Argentina</p>
-                    <p class="curator-credit">curated by <a href="#" class="curator-link">María Fernández</a></p>
-                </div>
-                
-                <div class="city-intro">
-                    <p>Buenos Aires enfrenta un futuro de inundaciones intensificadas y olas de calor extremo. Balvanera, con su impresionante legado de arquitectura marmórea y monumentos estatales, es un recordatorio de una era próspera del pasado. Este barrio tradicional en el corazón pulsante de la ciudad aún preserva idiosincrasias y un espíritu familiar que son quintesencialmente Porteño (el nombre dado a quienes viven cerca del puerto/residentes de Buenos Aires). Ahora, estos espacios históricos se están transformando en zonas de resiliencia climática.</p>
-                </div>
-
-                <!-- Map Container -->
-                <div class="map-container">
-                    <div class="map-embed">
-                        <img src="https://api.mapbox.com/styles/v1/mapbox/light-v11/static/-58.4019,-34.6096,13,0/800x400?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw" alt="Balvanera Map">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Category Filters -->
-        <section class="category-filters">
-            <div class="container">
-                <div class="filter-icons">
-                    <button class="category-icon active" data-category="all" title="All Projects">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <circle cx="12" cy="12" r="10"/>
-                        </svg>
-                        <span>All</span>
-                    </button>
-                    <button class="category-icon" data-category="heat" title="Heat Refuges">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <circle cx="12" cy="12" r="5"/>
-                            <line x1="12" y1="1" x2="12" y2="3"/>
-                            <line x1="12" y1="21" x2="12" y2="23"/>
-                        </svg>
-                        <span>Heat</span>
-                    </button>
-                    <button class="category-icon" data-category="water" title="Water Systems">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
-                        </svg>
-                        <span>Water</span>
-                    </button>
-                    <button class="category-icon" data-category="green" title="Green Infrastructure">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
-                        </svg>
-                        <span>Green</span>
-                    </button>
-                    <button class="category-icon" data-category="adaptive" title="Adaptive Buildings">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                            <polyline points="9 22 9 12 15 12 15 22"/>
-                        </svg>
-                        <span>Buildings</span>
-                    </button>
-                    <button class="category-icon" data-category="mobility" title="Climate Mobility">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                        <span>Mobility</span>
-                    </button>
-                    <button class="category-icon" data-category="community" title="Community Hubs">
-                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                        <span>Community</span>
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Grid -->
-        <section class="projects-section">
-            <div class="container">
-                <div class="projects-grid">
-                    
-                    <!-- Project Card 1 -->
-                    <article class="project-card" data-category="water green" data-timeline="present">
-                        <div class="project-number">1</div>
-                        <div class="project-content" onclick="openProjectModal('plaza-seca')">
-                            <h3>Plaza Seca de Balvanera</h3>
-                            <div class="project-meta">
-                                <span class="project-location">📍 Av. Corrientes 3247</span>
-                                <span class="project-timeline">⏱ Present · 2024</span>
-                            </div>
-                            <p class="project-description">Un proyecto piloto que transforma plazas tradicionales en sistemas de gestión de agua de lluvia, actuando como esponjas urbanas durante inundaciones y espacios de enfriamiento durante olas de calor. El diseño combina infraestructura verde con pavimentos permeables y jardines de lluvia nativos.</p>
-                            <div class="project-tags">
-                                <span class="tag">Water Management</span>
-                                <span class="tag">Green Infrastructure</span>
-                                <span class="tag">Public Space</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project Card 2 -->
-                    <article class="project-card" data-category="heat community" data-timeline="present">
-                        <div class="project-number">2</div>
-                        <div class="project-content" onclick="openProjectModal('refugio-termico')">
-                            <h3>Refugio Térmico del Abasto</h3>
-                            <div class="project-meta">
-                                <span class="project-location">📍 Av. Corrientes 3247</span>
-                                <span class="project-timeline">⏱ Present · 2023</span>
-                            </div>
-                            <p class="project-description">El antiguo Mercado del Abasto se reconvierte en refugio climático comunitario durante olas de calor extremo. Con sistemas de enfriamiento pasivo, techos verdes y espacios sociales adaptados, ofrece respiro a residentes vulnerables. Un modelo de reutilización adaptativa de patrimonio histórico.</p>
-                            <div class="project-tags">
-                                <span class="tag">Heat Refuge</span>
-                                <span class="tag">Community Hub</span>
-                                <span class="tag">Adaptive Reuse</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project Card 3 -->
-                    <article class="project-card" data-category="adaptive" data-timeline="2030">
-                        <div class="project-number">3</div>
-                        <div class="project-content" onclick="openProjectModal('edificios-anfibios')">
-                            <h3>Edificios Anfibios de Balvanera</h3>
-                            <div class="project-meta">
-                                <span class="project-location">📍 Área: Balvanera Sur</span>
-                                <span class="project-timeline">⏱ Near Future · 2030</span>
-                            </div>
-                            <p class="project-description">Especulación arquitectónica sobre edificios de vivienda que pueden elevarse durante inundaciones extremas. Usando tecnología de flotación y cimientos adaptativos, estos edificios prototipos reimaginan cómo vivir con el agua en lugar de luchar contra ella.</p>
-                            <div class="project-tags">
-                                <span class="tag">Adaptive Architecture</span>
-                                <span class="tag">Flooding Resilience</span>
-                                <span class="tag">Speculative</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project Card 4 -->
-                    <article class="project-card" data-category="green mobility" data-timeline="2030">
-                        <div class="project-number">4</div>
-                        <div class="project-content" onclick="openProjectModal('corredores-verdes')">
-                            <h3>Corredores Verdes Conectados</h3>
-                            <div class="project-meta">
-                                <span class="project-location">📍 Red: Todo Balvanera</span>
-                                <span class="project-timeline">⏱ Near Future · 2030</span>
-                            </div>
-                            <p class="project-description">Una red interconectada de calles verdes que reduce temperatura urbana hasta 5°C y gestiona escorrentía. Los corredores combinan movilidad activa, biodiversidad nativa y gestión de aguas pluviales en un sistema integrado de resiliencia.</p>
-                            <div class="project-tags">
-                                <span class="tag">Green Infrastructure</span>
-                                <span class="tag">Urban Cooling</span>
-                                <span class="tag">Mobility</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- Project Card 5 -->
-                    <article class="project-card" data-category="water adaptive" data-timeline="2050">
-                        <div class="project-number">5</div>
-                        <div class="project-content" onclick="openProjectModal('barrio-esponja')">
-                            <h3>Balvanera: Barrio Esponja 2050</h3>
-                            <div class="project-meta">
-                                <span class="project-location">📍 Área: Todo el barrio</span>
-                                <span class="project-timeline">⏱ Speculative · 2050</span>
-                            </div>
-                            <p class="project-description">Visión especulativa de Balvanera transformado en un "barrio esponja" completo donde cada superficie - desde calles hasta techos - absorbe, almacena y filtra agua. Los edificios históricos integran fachadas vivas, sistemas de captura de niebla y microhábitats, creando un ecosistema urbano regenerativo.</p>
-                            <div class="project-tags">
-                                <span class="tag">Speculative Design</span>
-                                <span class="tag">Systemic Change</span>
-                                <span class="tag">Design Fiction</span>
-                            </div>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Timeline Filter -->
-        <section class="timeline-filter">
-            <div class="container">
-                <h3>Filter by Timeline</h3>
-                <div class="timeline-buttons">
-                    <button class="timeline-btn active" data-timeline="all">All Projects</button>
-                    <button class="timeline-btn" data-timeline="present">Present (2024)</button>
-                    <button class="timeline-btn" data-timeline="2030">Near Future (2030)</button>
-                    <button class="timeline-btn" data-timeline="2050">Speculative (2050)</button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Project Modal -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeProjectModal()">&times;</button>
-            <div class="modal-body">
-                <div class="modal-images">
-                    <img src="" alt="Project image" id="modalImage">
-                </div>
-                <div class="modal-info">
-                    <h2 id="modalTitle"></h2>
-                    <div class="modal-meta">
-                        <a href="#" id="modalLocation" class="modal-link">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                <circle cx="12" cy="10" r="3"/>
-                            </svg>
-                            <span id="modalLocationText"></span>
-                        </a>
-                        <a href="#" id="modalWebsite" class="modal-link">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <circle cx="12" cy="12" r="10"/>
-                                <line x1="2" y1="12" x2="22" y2="12"/>
-                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                            </svg>
-                            Visit Website
-                        </a>
-                    </div>
-                    <p id="modalDescription"></p>
-                </div>
-            </div>
         </div>
-    </div>
+        
+        <a href="/" class="logo">Heated City</a>
+        
+        <nav class="main-nav">
+            <a href="#cities">Cities</a>
+            <a href="#contributors">Contributors</a>
+            <a href="#about">About</a>
+            <a href="#shop">Shop</a>
+        </nav>
+        
+        <button class="climate-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1600" alt="City" class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Climate-Adapted Cities</h1>
+            <p>Heated City is a collection of climate adaptation projects curated by local experts in cities around the world.</p>
+            <button class="cta-button" onclick="document.querySelector('.neighborhoods-section').scrollIntoView({behavior: 'smooth'})">
+                Choose a City
+            </button>
+        </div>
+    </section>
+
+    <!-- Neighborhoods Section -->
+    <section class="neighborhoods-section">
+        <div class="section-tabs">
+            <button class="tab-btn active">Newest Neighborhoods</button>
+            <button class="tab-btn">Recently Updated Neighborhoods</button>
+            <button class="tab-btn">Nearby Neighborhoods</button>
+            <button class="tab-btn">Random Neighborhoods</button>
+        </div>
+
+        <div class="neighborhoods-grid">
+            <!-- Neighborhood 1 -->
+            <article class="neighborhood-card" onclick="window.location.href='city-buenos-aires.html'">
+                <img src="https://images.unsplash.com/photo-1512395749243-3cd5fec60e95?w=800" alt="Balvanera">
+                <div class="neighborhood-info">
+                    <div class="neighborhood-title">Balvanera</div>
+                    <div class="neighborhood-city">Buenos Aires</div>
+                    <div class="neighborhood-curator">by <a href="#">María Fernández</a></div>
+                </div>
+            </article>
+
+            <!-- Neighborhood 2 -->
+            <article class="neighborhood-card">
+                <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800" alt="Southwark">
+                <div class="neighborhood-info">
+                    <div class="neighborhood-title">Southwark</div>
+                    <div class="neighborhood-city">London</div>
+                    <div class="neighborhood-curator">by <a href="#">James Chen</a></div>
+                </div>
+            </article>
+
+            <!-- Neighborhood 3 -->
+            <article class="neighborhood-card">
+                <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=800" alt="Shibuya">
+                <div class="neighborhood-info">
+                    <div class="neighborhood-title">Shibuya</div>
+                    <div class="neighborhood-city">Tokyo</div>
+                    <div class="neighborhood-curator">by <a href="#">Yuki Tanaka</a></div>
+                </div>
+            </article>
+
+            <!-- Neighborhood 4 -->
+            <article class="neighborhood-card">
+                <img src="https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?w=800" alt="Kreuzberg">
+                <div class="neighborhood-info">
+                    <div class="neighborhood-title">Kreuzberg</div>
+                    <div class="neighborhood-city">Berlin</div>
+                    <div class="neighborhood-curator">by <a href="#">Anna Schmidt</a></div>
+                </div>
+            </article>
+
+            <!-- Neighborhood 5 -->
+            <article class="neighborhood-card">
+                <img src="https://images.unsplash.com/photo-1523978591478-c753949ff840?w=800" alt="Gràcia">
+                <div class="neighborhood-info">
+                    <div class="neighborhood-title">Gràcia</div>
+                    <div class="neighborhood-city">Barcelona</div>
+                    <div class="neighborhood-curator">by <a href="#">Ana García</a></div>
+                </div>
+            </article>
+
+            <!-- Neighborhood 6 -->
+            <article class="neighborhood-card">
+                <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=800" alt="Le Marais">
+                <div class="neighborhood-info">
+                    <div class="neighborhood-title">Le Marais</div>
+                    <div class="neighborhood-city">Paris</div>
+                    <div class="neighborhood-curator">by <a href="#">Sophie Dubois</a></div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Cities Section -->
+    <section class="cities-section" id="cities">
+        <div class="cities-tabs">
+            <button class="city-tab active">World</button>
+            <button class="city-tab">Africa</button>
+            <button class="city-tab">Asia</button>
+            <button class="city-tab">Caribbean</button>
+            <button class="city-tab">Europe</button>
+            <button class="city-tab">Middle East</button>
+            <button class="city-tab">North America</button>
+            <button class="city-tab">Oceania</button>
+            <button class="city-tab">South America</button>
+        </div>
+
+        <div class="cities-grid">
+            <!-- City 1 -->
+            <article class="city-card" onclick="window.location.href='city-buenos-aires.html'">
+                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="20" y="40" width="15" height="40"/>
+                    <rect x="40" y="30" width="15" height="50"/>
+                    <rect x="60" y="35" width="15" height="45"/>
+                    <circle cx="50" cy="20" r="8"/>
+                </svg>
+                <div class="city-name">Buenos Aires</div>
+                <div class="city-country">Argentina</div>
+            </article>
+
+            <!-- City 2 -->
+            <article class="city-card">
+                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="50" cy="50" r="20"/>
+                    <line x1="50" y1="10" x2="50" y2="30"/>
+                    <line x1="50" y1="70" x2="50" y2="90"/>
+                    <line x1="10" y1="50" x2="30" y2="50"/>
+                    <line x1="70" y1="50" x2="90" y2="50"/>
+                </svg>
+                <div class="city-name">London</div>
+                <div class="city-country">United Kingdom</div>
+            </article>
+
+            <!-- City 3 -->
+            <article class="city-card">
+                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="30" y="60" width="10" height="30"/>
+                    <rect x="45" y="50" width="10" height="40"/>
+                    <rect x="60" y="55" width="10" height="35"/>
+                    <path d="M 25 40 L 50 20 L 75 40"/>
+                </svg>
+                <div class="city-name">Tokyo</div>
+                <div class="city-country">Japan</div>
+            </article>
+
+            <!-- City 4 -->
+            <article class="city-card">
+                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="20" y="50" width="20" height="40"/>
+                    <rect x="45" y="40" width="20" height="50"/>
+                    <rect x="70" y="55" width="20" height="35"/>
+                </svg>
+                <div class="city-name">Berlin</div>
+                <div class="city-country">Germany</div>
+            </article>
+
+            <!-- City 5 -->
+            <article class="city-card">
+                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M 30 70 L 30 40 L 50 30 L 70 40 L 70 70"/>
+                    <line x1="50" y1="30" x2="50" y2="10"/>
+                    <circle cx="50" cy="10" r="3"/>
+                </svg>
+                <div class="city-name">Barcelona</div>
+                <div class="city-country">Spain</div>
+            </article>
+
+            <!-- City 6 -->
+            <article class="city-card">
+                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="35" y="35" width="30" height="50"/>
+                    <line x1="50" y1="35" x2="50" y2="10"/>
+                    <circle cx="50" cy="10" r="5"/>
+                </svg>
+                <div class="city-name">Paris</div>
+                <div class="city-country">France</div>
+            </article>
+
+            <!-- City 7 -->
+            <article class="city-card">
+                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="25" y="45" width="15" height="40"/>
+                    <rect x="43" y="35" width="15" height="50"/>
+                    <rect x="61" y="50" width="15" height="35"/>
+                </svg>
+                <div class="city-name">New York</div>
+                <div class="city-country">USA</div>
+            </article>
+
+            <!-- City 8 -->
+            <article class="city-card">
+                <svg class="city-icon" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="50" cy="50" r="25"/>
+                    <path d="M 35 50 Q 50 35 65 50"/>
+                </svg>
+                <div class="city-name">Sydney</div>
+                <div class="city-country">Australia</div>
+            </article>
+        </div>
+    </section>
 
     <script>
-        // All JavaScript inline
-        
-        // Project data
-        const projectsData = {
-            'plaza-seca': {
-                title: 'Plaza Seca de Balvanera',
-                location: 'Av. Corrientes 3247',
-                locationLink: 'https://maps.google.com/?q=Av.+Corrientes+3247+Buenos+Aires',
-                website: '#',
-                image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800',
-                description: 'Un proyecto piloto que transforma plazas tradicionales en sistemas de gestión de agua de lluvia, actuando como esponjas urbanas durante inundaciones y espacios de enfriamiento durante olas de calor. El diseño combina infraestructura verde con pavimentos permeables y jardines de lluvia nativos. Este proyecto ha reducido la temperatura local en 4°C durante días calurosos y ha absorbido el 80% del agua de lluvia en eventos extremos, demostrando cómo el diseño urbano puede crear resiliencia climática mientras mejora la calidad de vida de los residentes.'
-            },
-            'refugio-termico': {
-                title: 'Refugio Térmico del Abasto',
-                location: 'Av. Corrientes 3247',
-                locationLink: 'https://maps.google.com/?q=Mercado+del+Abasto+Buenos+Aires',
-                website: '#',
-                image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800',
-                description: 'El antiguo Mercado del Abasto se reconvierte en refugio climático comunitario durante olas de calor extremo. Con sistemas de enfriamiento pasivo, techos verdes y espacios sociales adaptados, ofrece respiro a residentes vulnerables. Un modelo de reutilización adaptativa de patrimonio histórico que protege a la comunidad mientras preserva la identidad cultural del barrio.'
-            },
-            'edificios-anfibios': {
-                title: 'Edificios Anfibios de Balvanera',
-                location: 'Área: Balvanera Sur',
-                locationLink: 'https://maps.google.com/?q=Balvanera+Buenos+Aires',
-                website: '#',
-                image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800',
-                description: 'Especulación arquitectónica sobre edificios de vivienda que pueden elevarse durante inundaciones extremas. Usando tecnología de flotación y cimientos adaptativos, estos edificios prototipos reimaginan cómo vivir con el agua en lugar de luchar contra ella. Este diseño especulativo propone una nueva tipología de vivienda resiliente que responde dinámicamente a condiciones climáticas cambiantes.'
-            },
-            'corredores-verdes': {
-                title: 'Corredores Verdes Conectados',
-                location: 'Red: Todo Balvanera',
-                locationLink: 'https://maps.google.com/?q=Balvanera+Buenos+Aires',
-                website: '#',
-                image: 'https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800',
-                description: 'Una red interconectada de calles verdes que reduce temperatura urbana hasta 5°C y gestiona escorrentía. Los corredores combinan movilidad activa, biodiversidad nativa y gestión de aguas pluviales en un sistema integrado de resiliencia. Este proyecto transforma la infraestructura gris en ecosistemas verdes multifuncionales.'
-            },
-            'barrio-esponja': {
-                title: 'Balvanera: Barrio Esponja 2050',
-                location: 'Área: Todo el barrio',
-                locationLink: 'https://maps.google.com/?q=Balvanera+Buenos+Aires',
-                website: '#',
-                image: 'https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800',
-                description: 'Visión especulativa de Balvanera transformado en un "barrio esponja" completo donde cada superficie - desde calles hasta techos - absorbe, almacena y filtra agua. Los edificios históricos integran fachadas vivas, sistemas de captura de niebla y microhábitats, creando un ecosistema urbano regenerativo. Esta ficción de diseño imagina un futuro donde arquitectura, infraestructura y naturaleza se fusionan en un sistema simbiótico de adaptación climática.'
-            }
-        };
-
-        // View switching
-        function showHome() {
-            document.getElementById('homeView').classList.remove('hidden');
-            document.getElementById('cityView').classList.add('hidden');
-            window.scrollTo(0, 0);
-        }
-
-        function showCity(cityId) {
-            document.getElementById('homeView').classList.add('hidden');
-            document.getElementById('cityView').classList.remove('hidden');
-            window.scrollTo(0, 0);
-        }
-
-        // Modal functions
-        function openProjectModal(projectId) {
-            const modal = document.getElementById('projectModal');
-            const project = projectsData[projectId];
-            
-            if (project && modal) {
-                document.getElementById('modalTitle').textContent = project.title;
-                document.getElementById('modalLocationText').textContent = project.location;
-                document.getElementById('modalLocation').href = project.locationLink;
-                document.getElementById('modalWebsite').href = project.website;
-                document.getElementById('modalImage').src = project.image;
-                document.getElementById('modalDescription').textContent = project.description;
-                
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-        }
-
-        function closeProjectModal() {
-            const modal = document.getElementById('projectModal');
-            if (modal) {
-                modal.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        }
-
-        // Initialize on load
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            // City cards filtering (homepage)
-            const filterButtons = document.querySelectorAll('.cities-grid .filter-btn');
-            const cityCards = document.querySelectorAll('.city-card');
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const filter = this.getAttribute('data-filter');
-                    
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    cityCards.forEach(card => {
-                        if (filter === 'all') {
-                            card.style.display = 'block';
-                        } else {
-                            const climate = card.getAttribute('data-climate');
-                            card.style.display = (climate === filter) ? 'block' : 'none';
-                        }
-                    });
-                });
-            });
-            
-            // Category filtering (city page)
-            const categoryIcons = document.querySelectorAll('.category-icon');
-            const projectCards = document.querySelectorAll('.project-card');
-            
-            categoryIcons.forEach(icon => {
-                icon.addEventListener('click', function() {
-                    const category = this.getAttribute('data-category');
-                    
-                    categoryIcons.forEach(ic => ic.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    projectCards.forEach(card => {
-                        if (category === 'all') {
-                            card.style.display = 'grid';
-                        } else {
-                            const categories = card.getAttribute('data-category');
-                            card.style.display = categories.includes(category) ? 'grid' : 'none';
-                        }
-                    });
-                });
-            });
-            
-            // Timeline filtering
-            const timelineButtons = document.querySelectorAll('.timeline-btn');
-            
-            timelineButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const timeline = this.getAttribute('data-timeline');
-                    
-                    timelineButtons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    projectCards.forEach(card => {
-                        if (timeline === 'all') {
-                            card.style.display = 'grid';
-                        } else {
-                            const cardTimeline = card.getAttribute('data-timeline');
-                            card.style.display = (cardTimeline === timeline) ? 'grid' : 'none';
-                        }
-                    });
-                });
-            });
-            
-            // Smooth scroll for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const href = this.getAttribute('href');
-                    if (href !== '#' && href.length > 1) {
-                        e.preventDefault();
-                        const target = document.querySelector(href);
-                        if (target) {
-                            target.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    }
-                });
-            });
-        });
-
-        // Close modal when clicking outside
-        window.addEventListener('click', function(event) {
-            const modal = document.getElementById('projectModal');
-            if (event.target === modal) {
-                closeProjectModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeProjectModal();
-            }
-        });
-
-        // Console message
-        console.log('%c🌡️ Heated City', 'font-size: 20px; color: #8B7FC7; font-weight: bold;');
-        console.log('A project by Heated Studio - Climate Foresight through Design Fiction');
+        console.log('Heated City');
     </script>
 </body>
 </html>
