@@ -330,6 +330,285 @@ img {
 }
 
 /* ====================================
+   CITY PAGE LAYOUT
+   ==================================== */
+
+body.city-page {
+    background: var(--primary-color);
+}
+
+.city-hero-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 60px);
+    margin-top: 60px;
+}
+
+/* Map Section */
+.map-section {
+    position: sticky;
+    top: 60px;
+    height: calc(100vh - 60px);
+}
+
+.map-embed {
+    width: 100%;
+    height: 100%;
+}
+
+.map-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Content Section */
+.content-section {
+    background: var(--primary-color);
+    padding: 2rem;
+}
+
+.city-header {
+    background: var(--background);
+    padding: 2rem;
+    margin-bottom: 0;
+}
+
+.city-header h1 {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.city-location {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.city-location a {
+    text-decoration: underline;
+    color: var(--navy);
+}
+
+.curator-credit {
+    font-size: 0.875rem;
+    color: var(--text-dark);
+}
+
+.curator-credit a {
+    text-decoration: underline;
+    color: var(--navy);
+}
+
+.city-description {
+    background: var(--background);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+/* ====================================
+   CATEGORY ICONS
+   ==================================== */
+
+.category-icons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.category-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.category-icon:hover,
+.category-icon.active {
+    background: var(--navy);
+    color: white;
+}
+
+.category-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke-width: 2;
+}
+
+/* ====================================
+   PROJECTS GRID
+   ==================================== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--navy);
+    border: 1px solid var(--navy);
+}
+
+.project-card {
+    background: white;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.project-number {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 32px;
+    height: 32px;
+    background: white;
+    border: 2px solid var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+    z-index: 2;
+}
+
+.project-image {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+}
+
+/* ====================================
+   MODAL
+   ==================================== */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    overflow-y: auto;
+}
+
+.modal.active {
+    display: block;
+}
+
+.modal-content {
+    background: white;
+    margin: 2% auto;
+    max-width: 1200px;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: var(--text-dark);
+    background: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.modal-images {
+    background: #f0f0f0;
+}
+
+.modal-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-info {
+    padding: 3rem;
+}
+
+.modal-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--navy);
+    font-weight: 800;
+}
+
+.modal-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.modal-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.modal-link:hover {
+    text-decoration: underline;
+}
+
+.modal-description {
+    line-height: 1.8;
+    font-size: 0.95rem;
+}
+
+/* ====================================
    RESPONSIVE
    ==================================== */
 
@@ -339,6 +618,21 @@ img {
     }
     .cities-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .city-hero-split {
+        grid-template-columns: 1fr;
+    }
+    
+    .map-section {
+        position: relative;
+        height: 60vh;
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -357,6 +651,18 @@ img {
     
     .main-nav {
         display: none;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+
+    .city-header h1 {
+        font-size: 3rem;
     }
     
     .city-card {
