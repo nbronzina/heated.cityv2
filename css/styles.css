@@ -348,7 +348,209 @@ img {
 }
 
 /* ====================================
-   CITY PAGE LAYOUT
+   CITY NEIGHBORHOODS PAGE (Buenos Aires, etc.)
+   ==================================== */
+
+.city-neighborhoods-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 70px);
+    margin-top: 70px;
+}
+
+/* Map Section */
+.neighborhoods-map-section {
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+}
+
+.neighborhoods-map-embed {
+    width: 100%;
+    height: 100%;
+}
+
+.neighborhoods-map-embed #map {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Content Section */
+.neighborhoods-content-section {
+    background: white;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.neighborhoods-city-header {
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.neighborhoods-city-header h1 {
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--navy);
+    line-height: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.neighborhoods-country {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.neighborhoods-organized {
+    font-size: 1.25rem;
+    color: var(--text-dark);
+}
+
+.neighborhoods-organized a {
+    text-decoration: underline;
+    font-weight: 600;
+}
+
+/* Neighborhoods Grid */
+.neighborhoods-city-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--navy);
+    border: 1px solid var(--navy);
+    margin-bottom: 3rem;
+}
+
+.neighborhood-city-card {
+    background: white;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.neighborhood-city-card:not(.coming-soon-card) {
+    cursor: pointer;
+}
+
+.neighborhood-city-card:not(.coming-soon-card):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.coming-soon-card {
+    opacity: 0.7;
+    cursor: default;
+}
+
+.neighborhood-number {
+    position: absolute;
+    top: 1.25rem;
+    left: 1.25rem;
+    width: 48px;
+    height: 48px;
+    background: white;
+    border: 3px solid var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.5rem;
+    z-index: 2;
+    border-radius: 4px;
+}
+
+.neighborhood-city-image {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+}
+
+.neighborhood-city-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.neighborhood-city-card:not(.coming-soon-card):hover .neighborhood-city-image img {
+    transform: scale(1.05);
+}
+
+.neighborhood-city-info {
+    padding: 1.5rem;
+}
+
+.neighborhood-city-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 0.5rem;
+}
+
+.neighborhood-city-curator {
+    font-size: 1rem;
+    color: var(--text-dark);
+}
+
+.neighborhood-city-curator a {
+    text-decoration: underline;
+}
+
+.coming-soon-badge {
+    display: inline-block;
+    background: #000033;
+    color: white;
+    padding: 0.35rem 0.85rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 3px;
+}
+
+/* Explore More Cities */
+.explore-more-cities {
+    padding: 2rem;
+    text-align: center;
+}
+
+.explore-more-cities h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.more-cities-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.more-city-card {
+    padding: 2rem;
+    color: white;
+    text-align: center;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+.more-city-card:hover {
+    opacity: 0.85;
+}
+
+.more-city-card h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.more-city-card p {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* ====================================
+   CITY PAGE LAYOUT (Project Pages)
    ==================================== */
 
 body.city-page {
@@ -1080,20 +1282,24 @@ body.about-page {
 }
 
 @media (max-width: 1024px) {
-    .city-hero-split {
+    .city-hero-split,
+    .city-neighborhoods-split {
         grid-template-columns: 1fr;
     }
     
-    .map-section {
+    .map-section,
+    .neighborhoods-map-section {
         position: relative;
         height: 60vh;
     }
 
-    .projects-grid {
+    .projects-grid,
+    .neighborhoods-city-grid {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .city-header h1 {
+    .city-header h1,
+    .neighborhoods-city-header h1 {
         font-size: 4em;
     }
     
@@ -1148,7 +1354,8 @@ body.about-page {
         display: none;
     }
 
-    .projects-grid {
+    .projects-grid,
+    .neighborhoods-city-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1160,7 +1367,8 @@ body.about-page {
         font-size: 1.5rem;
     }
     
-    .city-header h1 {
+    .city-header h1,
+    .neighborhoods-city-header h1 {
         font-size: 3em;
     }
     
@@ -1193,11 +1401,13 @@ body.about-page {
         font-size: 1.5rem;
     }
     
-    .project-title {
+    .project-title,
+    .neighborhood-city-name {
         font-size: 1.5rem;
     }
     
-    .project-number {
+    .project-number,
+    .neighborhood-number {
         width: 42px;
         height: 42px;
         font-size: 1.25rem;
@@ -1281,6 +1491,10 @@ body.about-page {
     .contributor-header h2 {
         font-size: 1.125rem;
     }
+    
+    .more-cities-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1295,7 +1509,8 @@ body.about-page {
         font-size: 1.25rem;
     }
     
-    .city-header h1 {
+    .city-header h1,
+    .neighborhoods-city-header h1 {
         font-size: 2.5em;
     }
     
