@@ -1,5 +1,5 @@
 /* ====================================
-   HEATED CITY - MAIN STYLESHEET (FINAL ACTUALIZADO)
+   HEATED CITY - MAIN STYLESHEET (EXTRA GRANDE)
    ==================================== */
 
 /* CSS Variables */
@@ -25,6 +25,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
+    font-size: 18px; /* Base más grande para todo el sitio */
 }
 
 a {
@@ -46,13 +47,13 @@ img {
 }
 
 /* ====================================
-   HEADER - ACTUALIZADO
+   HEADER - MÁS GRANDE
    ==================================== */
 
 .main-header {
     background-color: var(--primary-color);
     color: var(--text-dark);
-    padding: 1rem 2rem;
+    padding: 1.25rem 2.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -65,11 +66,11 @@ img {
 .header-left {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2rem;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 2rem;          /* Era 1.5rem - Ahora MÁS grande */
     font-weight: 700;
 }
 
@@ -82,18 +83,18 @@ img {
 }
 
 .search-icon svg {
-    width: 24px;
-    height: 24px;
+    width: 28px;              /* Era 24px - Más grande */
+    height: 28px;
 }
 
 .main-nav {
     display: flex;
-    gap: 2.5rem;
+    gap: 3rem;                /* Era 2.5rem - Más espaciado */
 }
 
 .main-nav a {
     font-weight: 600;
-    font-size: 1.125rem;
+    font-size: 1.5rem;        /* Era 1.125rem - MÁS grande */
 }
 
 .main-nav a:hover {
@@ -101,7 +102,7 @@ img {
 }
 
 /* ====================================
-   HERO SECTION (Index)
+   HERO SECTION (Index) - MÁS GRANDE
    ==================================== */
 
 .hero {
@@ -138,12 +139,12 @@ img {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 900px;
+    max-width: 1000px;
     padding: 0 2rem;
 }
 
 .hero-content h1 {
-    font-size: 5rem;
+    font-size: 6rem;           /* Era 5rem - Más grande */
     font-weight: 800;
     margin-bottom: 1.5rem;
     line-height: 1.1;
@@ -151,7 +152,7 @@ img {
 }
 
 .hero-content p {
-    font-size: 1.125rem;
+    font-size: 1.5rem;         /* Era 1.125rem - MÁS grande */
     margin-bottom: 2.5rem;
     line-height: 1.6;
     text-shadow: 0 1px 3px rgba(0,0,0,0.3);
@@ -159,12 +160,12 @@ img {
 
 .cta-button {
     display: inline-block;
-    padding: 1rem 2.5rem;
+    padding: 1.25rem 3rem;     /* Más grande */
     background: transparent;
     border: 2px solid white;
     color: white;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 1.25rem;        /* Era 1rem - Más grande */
     transition: all 0.3s ease;
 }
 
@@ -174,7 +175,7 @@ img {
 }
 
 /* ====================================
-   NEIGHBORHOODS SECTION (Index)
+   NEIGHBORHOODS SECTION (Index) - MÁS GRANDE
    ==================================== */
 
 .neighborhoods-section {
@@ -191,11 +192,11 @@ img {
 }
 
 .tab-btn {
-    padding: 1rem 2rem;
+    padding: 1.25rem 2.5rem;   /* Más grande */
     color: white;
     background: #000033;
     border: none;
-    font-size: 0.875rem;
+    font-size: 1.125rem;       /* Era 0.875rem - Más grande */
     font-weight: 500;
     transition: all 0.3s ease;
 }
@@ -240,19 +241,19 @@ img {
 }
 
 .neighborhood-title {
-    font-size: 1.5rem;
+    font-size: 1.875rem;       /* Era 1.5rem - Más grande */
     font-weight: 700;
     margin-bottom: 0.25rem;
 }
 
 .neighborhood-city {
-    font-size: 0.875rem;
+    font-size: 1.125rem;       /* Era 0.875rem - Más grande */
     opacity: 0.9;
     margin-bottom: 0.5rem;
 }
 
 .neighborhood-curator {
-    font-size: 0.75rem;
+    font-size: 1rem;           /* Era 0.75rem - Más grande */
     opacity: 0.8;
 }
 
@@ -261,11 +262,11 @@ img {
 }
 
 /* ====================================
-   CITIES SECTION (Index)
+   CITIES SECTION (Index) - MÁS GRANDE
    ==================================== */
 
 .cities-section {
-    padding: 3rem 0;
+    padding: 4rem 0;           /* Era 3rem - Más espaciado */
     background: #000033;
     width: 100%;
 }
@@ -274,16 +275,16 @@ img {
     display: flex;
     justify-content: center;
     gap: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;       /* Era 2rem - Más espaciado */
     flex-wrap: wrap;
 }
 
 .city-tab {
-    padding: 0.75rem 1.5rem;
+    padding: 1rem 2rem;        /* Más grande */
     color: white;
     background: #000033;
     border: 1px solid #1a1a4d;
-    font-size: 0.875rem;
+    font-size: 1.125rem;       /* Era 0.875rem - Más grande */
     transition: all 0.3s ease;
 }
 
@@ -303,12 +304,12 @@ img {
 .city-card {
     background: #000033;
     border: 1px solid #1a1a4d;
-    padding: 4rem 3rem;
+    padding: 5rem 4rem;        /* Era 4rem 3rem - Más grande */
     text-align: center;
     color: white;
     transition: all 0.3s ease;
     cursor: pointer;
-    min-height: 180px;
+    min-height: 220px;         /* Era 180px - Más grande */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -320,38 +321,38 @@ img {
 }
 
 .city-name {
-    font-size: 2rem;
+    font-size: 2.5rem;         /* Era 2rem - Más grande */
     font-weight: 700;
     margin-bottom: 0.75rem;
 }
 
 .city-country {
-    font-size: 1.125rem;
+    font-size: 1.5rem;         /* Era 1.125rem - Más grande */
     opacity: 0.7;
 }
 
 /* ====================================
-   CITY PAGE LAYOUT - ACTUALIZADO
+   CITY PAGE LAYOUT - MÁS GRANDE
    ==================================== */
 
 body.city-page {
     background: var(--primary-color);
-    font-size: 1.0625em;
+    font-size: 1.125em;        /* Ligeramente más grande */
     line-height: 1.25;
 }
 
 .city-hero-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: calc(100vh - 60px);
-    margin-top: 60px;
+    min-height: calc(100vh - 70px);
+    margin-top: 70px;          /* Ajustado por header más grande */
 }
 
 /* Map Section */
 .map-section {
     position: sticky;
-    top: 60px;
-    height: calc(100vh - 60px);
+    top: 70px;
+    height: calc(100vh - 70px);
 }
 
 .map-embed {
@@ -380,7 +381,7 @@ body.city-page {
 
 /* TÍTULO - MÁS GRANDE */
 .city-header h1 {
-    font-size: 4.5em;
+    font-size: 5.5em;          /* Era 4.5em - MÁS grande */
     font-weight: 900;
     color: var(--navy);
     line-height: 0.9;
@@ -390,7 +391,7 @@ body.city-page {
 
 /* UBICACIÓN - MÁS GRANDE */
 .city-location {
-    font-size: 1.5rem;
+    font-size: 1.75rem;        /* Era 1.5rem - Más grande */
     line-height: 1.25;
     margin-bottom: 0.5em;
     color: inherit;
@@ -404,7 +405,7 @@ body.city-page {
 
 /* CURATOR - MÁS GRANDE */
 .curator-credit {
-    font-size: 1.25rem;
+    font-size: 1.5rem;         /* Era 1.25rem - Más grande */
     line-height: 1.25;
     color: inherit;
     font-weight: 400;
@@ -420,8 +421,8 @@ body.city-page {
     background: transparent;
     padding: 2rem;
     margin-bottom: 2rem;
-    font-size: 1.375rem;
-    line-height: 1.6;
+    font-size: 1.625rem;       /* Era 1.375rem - MÁS grande */
+    line-height: 1.65;         /* Más espaciado */
     text-align: left;
     color: var(--text-dark);
     font-weight: 400;
@@ -657,11 +658,19 @@ body.city-page {
     }
     
     .city-header h1 {
-        font-size: 4em;
+        font-size: 4.5em;
     }
     
     .city-description {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.375rem;
     }
 }
 
@@ -680,17 +689,25 @@ body.city-page {
     }
     
     .city-header h1 {
-        font-size: 3.5em;
+        font-size: 4em;
     }
     
     .city-description {
-        font-size: 1.15rem;
+        font-size: 1.375rem;
     }
 }
 
 @media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+    
     .hero-content h1 {
-        font-size: 3rem;
+        font-size: 3.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.25rem;
     }
     
     .neighborhoods-grid {
@@ -714,11 +731,7 @@ body.city-page {
     }
     
     .logo {
-        font-size: 1.25rem;
-    }
-    
-    .main-nav a {
-        font-size: 1rem;
+        font-size: 1.5rem;
     }
     
     .city-header h1 {
@@ -726,15 +739,15 @@ body.city-page {
     }
     
     .city-location {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
     
     .curator-credit {
-        font-size: 1.125rem;
+        font-size: 1.25rem;
     }
     
     .city-description {
-        font-size: 1.125rem;
+        font-size: 1.25rem;
     }
     
     .city-card {
@@ -743,6 +756,14 @@ body.city-page {
     }
     
     .city-name {
+        font-size: 2rem;
+    }
+    
+    .city-country {
+        font-size: 1.25rem;
+    }
+    
+    .neighborhood-title {
         font-size: 1.5rem;
     }
     
@@ -776,7 +797,7 @@ body.city-page {
     }
     
     .logo {
-        font-size: 1.125rem;
+        font-size: 1.25rem;
     }
     
     .city-header h1 {
@@ -784,6 +805,14 @@ body.city-page {
     }
     
     .city-description {
-        font-size: 1rem;
+        font-size: 1.125rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.125rem;
     }
 }
