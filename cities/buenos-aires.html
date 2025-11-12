@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balvanera, Buenos Aires - Heated City</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="city-page">
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-left">
+            <a href="../index.html" class="logo">Heated City</a>
+            <div class="landmark-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                </svg>
+            </div>
+            <button class="search-icon" onclick="window.location.href='../index.html'">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+            </button>
+        </div>
+        
+        <nav class="main-nav">
+            <a href="../index.html#cities">Cities</a>
+            <a href="#contributors">Contributors</a>
+            <a href="#about">About</a>
+            <a href="#resources">Resources</a>
+        </nav>
+    </header>
+
+    <!-- City Hero Split Screen -->
+    <div class="city-hero-split">
+        <!-- Left: Map -->
+        <div class="map-section">
+            <div class="map-embed">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26280.847583796283!2d-58.41859332269094!3d-34.60960617326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca62ca1c3b3b%3A0x5b3c8f64d6e9f8c2!2sBalvanera%2C%20Buenos%20Aires!5e0!3m2!1sen!2sar!4v1234567890"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div class="content-section">
+            <!-- City Header -->
+            <div class="city-header">
+                <h1>Balvanera</h1>
+                <p class="city-location">
+                    <a href="#">Buenos Aires</a>, Argentina
+                </p>
+                <p class="curator-credit">by <a href="#">María Fernández</a></p>
+            </div>
+
+            <div class="city-description">
+                <p>Balvanera's impressive legacy of grand marble clad architecture and impressive state monuments are a constant reminder of an affluent bygone era. A traditional neighbourhood found slap bang in the pulsing heart of the city, which still preserves idiosyncrasies and a familiar neighbourhood spirit which are quintessentially Porteño (the name given for those living by the port/residents of Buenos Aires).</p>
+            </div>
+
+            <!-- Category Icons -->
+            <div class="category-icons">
+                <button class="category-icon active" data-category="all" title="All">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="heat" title="Heat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="water" title="Water">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="green" title="Green">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="adaptive" title="Adaptive">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="mobility" title="Mobility">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                </button>
+                <button class="category-icon" data-category="community" title="Community">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <article class="project-card" data-category="water green" onclick="openProjectModal('plaza-seca')">
+                    <div class="project-number">1</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800" alt="Plaza Seca de Balvanera">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Plaza Seca de Balvanera</h3>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card" data-category="heat community" onclick="openProjectModal('refugio-termico')">
+                    <div class="project-number">2</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800" alt="Refugio Térmico">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Refugio Térmico del Abasto</h3>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card" data-category="adaptive" onclick="openProjectModal('edificios-anfibios')">
+                    <div class="project-number">3</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800" alt="Edificios Anfibios">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Edificios Anfibios</h3>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card" data-category="green mobility" onclick="openProjectModal('corredores-verdes')">
+                    <div class="project-number">4</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=800" alt="Corredores Verdes">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Corredores Verdes</h3>
+                    </div>
+                </article>
+
+                <!-- Project 5 -->
+                <article class="project-card" data-category="water adaptive" onclick="openProjectModal('barrio-esponja')">
+                    <div class="project-number">5</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?w=800" alt="Barrio Esponja">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Barrio Esponja</h3>
+                    </div>
+                </article>
+
+                <!-- Project 6 -->
+                <article class="project-card" data-category="heat" onclick="openProjectModal('techos-verdes')">
+                    <div class="project-number">6</div>
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800" alt="Techos Verdes">
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Techos Verdes Colectivos</h3>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+            <div class="modal-body">
+                <div class="modal-images">
+                    <img src="" alt="Project image" id="modalImage">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-meta">
+                        <a href="#" id="modalLocation" class="modal-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span id="modalLocationText"></span>
+                        </a>
+                        <a href="#" id="modalWebsite" class="modal-link">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="2" y1="12" x2="22" y2="12"/>
+                            </svg>
+                            Visit Website
+                        </a>
+                    </div>
+                    <p class="modal-description" id="modalDescription"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JavaScript -->
+    <script src="../js/buenos-aires.js"></script>
+</body>
+</html>
