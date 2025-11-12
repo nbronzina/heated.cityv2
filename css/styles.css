@@ -1,5 +1,5 @@
 /* ====================================
-   HEATED CITY - MAIN STYLESHEET (EXTRA GRANDE)
+   HEATED CITY - MAIN STYLESHEET (COMPLETO FINAL)
    ==================================== */
 
 /* CSS Variables */
@@ -25,7 +25,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
-    font-size: 18px; /* Base más grande para todo el sitio */
+    font-size: 18px;
 }
 
 a {
@@ -47,7 +47,7 @@ img {
 }
 
 /* ====================================
-   HEADER - MÁS GRANDE
+   HEADER
    ==================================== */
 
 .main-header {
@@ -61,6 +61,7 @@ img {
     top: 0;
     width: 100%;
     z-index: 1000;
+    height: 70px;
 }
 
 .header-left {
@@ -70,8 +71,9 @@ img {
 }
 
 .logo {
-    font-size: 2rem;          /* Era 1.5rem - Ahora MÁS grande */
+    font-size: 2rem;
     font-weight: 700;
+    line-height: 1;
 }
 
 .landmark-icon {
@@ -79,22 +81,35 @@ img {
 }
 
 .search-icon {
-    padding: 0.5rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.search-icon:hover {
+    opacity: 0.7;
 }
 
 .search-icon svg {
-    width: 28px;              /* Era 24px - Más grande */
+    width: 28px;
     height: 28px;
 }
 
 .main-nav {
     display: flex;
-    gap: 3rem;                /* Era 2.5rem - Más espaciado */
+    gap: 3rem;
+    align-items: center;
 }
 
 .main-nav a {
     font-weight: 600;
-    font-size: 1.5rem;        /* Era 1.125rem - MÁS grande */
+    font-size: 1.5rem;
+    line-height: 1;
 }
 
 .main-nav a:hover {
@@ -102,7 +117,7 @@ img {
 }
 
 /* ====================================
-   HERO SECTION (Index) - MÁS GRANDE
+   HERO SECTION (Index)
    ==================================== */
 
 .hero {
@@ -114,6 +129,7 @@ img {
     text-align: center;
     color: white;
     overflow: hidden;
+    margin-top: 70px;
 }
 
 .hero-bg {
@@ -144,7 +160,7 @@ img {
 }
 
 .hero-content h1 {
-    font-size: 6rem;           /* Era 5rem - Más grande */
+    font-size: 6rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
     line-height: 1.1;
@@ -152,7 +168,7 @@ img {
 }
 
 .hero-content p {
-    font-size: 1.5rem;         /* Era 1.125rem - MÁS grande */
+    font-size: 1.5rem;
     margin-bottom: 2.5rem;
     line-height: 1.6;
     text-shadow: 0 1px 3px rgba(0,0,0,0.3);
@@ -160,12 +176,12 @@ img {
 
 .cta-button {
     display: inline-block;
-    padding: 1.25rem 3rem;     /* Más grande */
+    padding: 1.25rem 3rem;
     background: transparent;
     border: 2px solid white;
     color: white;
     font-weight: 600;
-    font-size: 1.25rem;        /* Era 1rem - Más grande */
+    font-size: 1.25rem;
     transition: all 0.3s ease;
 }
 
@@ -175,7 +191,7 @@ img {
 }
 
 /* ====================================
-   NEIGHBORHOODS SECTION (Index) - MÁS GRANDE
+   NEIGHBORHOODS SECTION (Index)
    ==================================== */
 
 .neighborhoods-section {
@@ -192,11 +208,11 @@ img {
 }
 
 .tab-btn {
-    padding: 1.25rem 2.5rem;   /* Más grande */
+    padding: 1.25rem 2.5rem;
     color: white;
     background: #000033;
     border: none;
-    font-size: 1.125rem;       /* Era 0.875rem - Más grande */
+    font-size: 1.125rem;
     font-weight: 500;
     transition: all 0.3s ease;
 }
@@ -241,19 +257,19 @@ img {
 }
 
 .neighborhood-title {
-    font-size: 1.875rem;       /* Era 1.5rem - Más grande */
+    font-size: 1.875rem;
     font-weight: 700;
     margin-bottom: 0.25rem;
 }
 
 .neighborhood-city {
-    font-size: 1.125rem;       /* Era 0.875rem - Más grande */
+    font-size: 1.125rem;
     opacity: 0.9;
     margin-bottom: 0.5rem;
 }
 
 .neighborhood-curator {
-    font-size: 1rem;           /* Era 0.75rem - Más grande */
+    font-size: 1rem;
     opacity: 0.8;
 }
 
@@ -262,11 +278,11 @@ img {
 }
 
 /* ====================================
-   CITIES SECTION (Index) - MÁS GRANDE
+   CITIES SECTION (Index)
    ==================================== */
 
 .cities-section {
-    padding: 4rem 0;           /* Era 3rem - Más espaciado */
+    padding: 4rem 0;
     background: #000033;
     width: 100%;
 }
@@ -275,16 +291,16 @@ img {
     display: flex;
     justify-content: center;
     gap: 0;
-    margin-bottom: 3rem;       /* Era 2rem - Más espaciado */
+    margin-bottom: 3rem;
     flex-wrap: wrap;
 }
 
 .city-tab {
-    padding: 1rem 2rem;        /* Más grande */
+    padding: 1rem 2rem;
     color: white;
     background: #000033;
     border: 1px solid #1a1a4d;
-    font-size: 1.125rem;       /* Era 0.875rem - Más grande */
+    font-size: 1.125rem;
     transition: all 0.3s ease;
 }
 
@@ -304,12 +320,12 @@ img {
 .city-card {
     background: #000033;
     border: 1px solid #1a1a4d;
-    padding: 5rem 4rem;        /* Era 4rem 3rem - Más grande */
+    padding: 5rem 4rem;
     text-align: center;
     color: white;
     transition: all 0.3s ease;
     cursor: pointer;
-    min-height: 220px;         /* Era 180px - Más grande */
+    min-height: 220px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -321,23 +337,23 @@ img {
 }
 
 .city-name {
-    font-size: 2.5rem;         /* Era 2rem - Más grande */
+    font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 0.75rem;
 }
 
 .city-country {
-    font-size: 1.5rem;         /* Era 1.125rem - Más grande */
+    font-size: 1.5rem;
     opacity: 0.7;
 }
 
 /* ====================================
-   CITY PAGE LAYOUT - MÁS GRANDE
+   CITY PAGE LAYOUT
    ==================================== */
 
 body.city-page {
     background: var(--primary-color);
-    font-size: 1.125em;        /* Ligeramente más grande */
+    font-size: 1.125em;
     line-height: 1.25;
 }
 
@@ -345,7 +361,7 @@ body.city-page {
     display: grid;
     grid-template-columns: 1fr 1fr;
     min-height: calc(100vh - 70px);
-    margin-top: 70px;          /* Ajustado por header más grande */
+    margin-top: 70px;
 }
 
 /* Map Section */
@@ -379,9 +395,8 @@ body.city-page {
     margin-bottom: 0;
 }
 
-/* TÍTULO - MÁS GRANDE */
 .city-header h1 {
-    font-size: 5.5em;          /* Era 4.5em - MÁS grande */
+    font-size: 5.5em;
     font-weight: 900;
     color: var(--navy);
     line-height: 0.9;
@@ -389,9 +404,8 @@ body.city-page {
     letter-spacing: -0.02em;
 }
 
-/* UBICACIÓN - MÁS GRANDE */
 .city-location {
-    font-size: 1.75rem;        /* Era 1.5rem - Más grande */
+    font-size: 1.75rem;
     line-height: 1.25;
     margin-bottom: 0.5em;
     color: inherit;
@@ -403,9 +417,8 @@ body.city-page {
     color: inherit;
 }
 
-/* CURATOR - MÁS GRANDE */
 .curator-credit {
-    font-size: 1.5rem;         /* Era 1.25rem - Más grande */
+    font-size: 1.5rem;
     line-height: 1.25;
     color: inherit;
     font-weight: 400;
@@ -416,13 +429,12 @@ body.city-page {
     color: inherit;
 }
 
-/* DESCRIPCIÓN - MÁS GRANDE */
 .city-description {
     background: transparent;
     padding: 2rem;
     margin-bottom: 2rem;
-    font-size: 1.625rem;       /* Era 1.375rem - MÁS grande */
-    line-height: 1.65;         /* Más espaciado */
+    font-size: 1.625rem;
+    line-height: 1.65;
     text-align: left;
     color: var(--text-dark);
     font-weight: 400;
@@ -449,6 +461,7 @@ body.city-page {
     justify-content: center;
     background: var(--primary-color);
     transition: all 0.3s ease;
+    padding: 0;
 }
 
 .category-icon:hover,
@@ -461,6 +474,12 @@ body.city-page {
     width: 28px;
     height: 28px;
     stroke-width: 2;
+    display: block;
+    margin: auto;
+}
+
+.category-icon[data-category="community"] svg {
+    transform: translateY(1px);
 }
 
 /* ====================================
@@ -646,6 +665,145 @@ body.city-page {
 }
 
 /* ====================================
+   SEARCH MODAL
+   ==================================== */
+
+.search-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 8, 0.95);
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+
+.search-modal.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.search-modal-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.search-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.search-icon-large {
+    color: white;
+    flex-shrink: 0;
+}
+
+.search-icon-large svg {
+    width: 32px;
+    height: 32px;
+    stroke: white;
+}
+
+.search-input-wrapper {
+    flex: 1;
+}
+
+.search-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    font-size: 2rem;
+    font-weight: 300;
+    padding: 0.5rem 0;
+    outline: none;
+    font-family: inherit;
+}
+
+.search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.search-input:focus {
+    border-bottom-color: white;
+}
+
+.search-close {
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease;
+    flex-shrink: 0;
+}
+
+.search-close:hover {
+    opacity: 0.7;
+}
+
+.search-results {
+    margin-top: 3rem;
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
+}
+
+.search-result-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-result-item:hover {
+    padding-left: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.search-result-item a {
+    color: white;
+    display: block;
+}
+
+.search-result-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.search-result-location {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.search-no-results {
+    color: rgba(255, 255, 255, 0.6);
+    text-align: center;
+    padding: 3rem 0;
+    font-size: 1.25rem;
+}
+
+/* ====================================
    RESPONSIVE
    ==================================== */
 
@@ -785,6 +943,18 @@ body.city-page {
     .category-icon svg {
         width: 24px;
         height: 24px;
+    }
+    
+    .search-input {
+        font-size: 1.5rem;
+    }
+    
+    .search-result-title {
+        font-size: 1.25rem;
+    }
+    
+    .search-modal-content {
+        padding: 1.5rem;
     }
 }
 
