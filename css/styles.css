@@ -804,6 +804,99 @@ body.city-page {
 }
 
 /* ====================================
+   FOOTER
+   ==================================== */
+
+.main-footer {
+    background: #000033;
+    color: white;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 1.5rem;
+}
+
+.footer-logo svg {
+    width: 100%;
+    height: 100%;
+    fill: white;
+}
+
+.footer-credits {
+    margin-bottom: 2rem;
+}
+
+.footer-credits p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.footer-credits a {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer-credits a:hover {
+    opacity: 0.7;
+}
+
+.footer-message {
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-message p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-message a {
+    color: white;
+    text-decoration: underline;
+}
+
+.footer-message a:hover {
+    opacity: 0.7;
+}
+
+.footer-social {
+    margin-bottom: 2rem;
+}
+
+.footer-social a {
+    color: white;
+    font-size: 1rem;
+    text-decoration: underline;
+}
+
+.footer-social a:hover {
+    opacity: 0.7;
+}
+
+.footer-disclaimer {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ====================================
    RESPONSIVE
    ==================================== */
 
@@ -955,6 +1048,18 @@ body.city-page {
     
     .search-modal-content {
         padding: 1.5rem;
+    }
+    
+    .main-footer {
+        padding: 3rem 1.5rem;
+    }
+    
+    .footer-credits p {
+        font-size: 1rem;
+    }
+    
+    .footer-message p {
+        font-size: 0.95rem;
     }
 }
 
