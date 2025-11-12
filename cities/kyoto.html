@@ -36,7 +36,7 @@
     <header class="main-header">
         <div class="header-left">
             <a href="../index.html" class="logo">Heated City</a>
-            <button class="search-icon" onclick="window.location.href='../index.html'">
+            <button class="search-icon" onclick="openSearch()">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="11" cy="11" r="8"/>
                     <path d="m21 21-4.35-4.35"/>
@@ -218,10 +218,36 @@
         </div>
     </div>
 
+    <!-- Search Modal -->
+    <div id="searchModal" class="search-modal">
+        <div class="search-modal-content">
+            <div class="search-header">
+                <div class="search-icon-large">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </div>
+                <div class="search-input-wrapper">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        id="searchInput"
+                        placeholder="Search Cities and Neighborhoods"
+                        autocomplete="off"
+                    >
+                </div>
+                <button class="search-close" onclick="closeSearch()">×</button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
     <!-- Leaflet JavaScript -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     
     <!-- External JavaScript -->
     <script src="../js/kyoto.js"></script>
+    <script src="../js/search.js"></script>
 </body>
 </html>
