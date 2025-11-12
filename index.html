@@ -11,7 +11,7 @@
     <header class="main-header">
         <div class="header-left">
             <a href="/" class="logo">Heated City</a>
-            <button class="search-icon">
+            <button class="search-icon" onclick="openSearch()">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="11" cy="11" r="8"/>
                     <path d="m21 21-4.35-4.35"/>
@@ -52,7 +52,6 @@
         <div class="neighborhoods-grid">
             <!-- District 1: Kyoto Higashiyama -->
             <article class="neighborhood-card" data-city="kyoto">
-                <!-- Higashiyama: pagoda Yasaka, calles tradicionales de madera -->
                 <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80" alt="Higashiyama District Kyoto">
                 <div class="neighborhood-info">
                     <div class="neighborhood-title">Higashiyama</div>
@@ -63,7 +62,6 @@
 
             <!-- District 2: Buenos Aires Balvanera -->
             <article class="neighborhood-card" data-city="buenos-aires">
-                <!-- Balvanera/Abasto: barrio del tango, Carlos Gardel -->
                 <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800&q=80" alt="Balvanera Buenos Aires">
                 <div class="neighborhood-info">
                     <div class="neighborhood-title">Balvanera</div>
@@ -74,7 +72,6 @@
 
             <!-- District 3: Madrid Lavapiés -->
             <article class="neighborhood-card" data-city="madrid">
-                <!-- Lavapiés: multicultural, calles estrechas, corrala -->
                 <img src="https://images.unsplash.com/photo-1543783207-ec64e4d95325?w=800&q=80" alt="Lavapiés Madrid">
                 <div class="neighborhood-info">
                     <div class="neighborhood-title">Lavapiés</div>
@@ -85,7 +82,6 @@
 
             <!-- District 4: Melbourne Carlton -->
             <article class="neighborhood-card" data-city="melbourne">
-                <!-- Carlton: arquitectura victoriana, cafés -->
                 <img src="https://images.unsplash.com/photo-1514395462725-fb4566210144?w=800&q=80" alt="Carlton Melbourne">
                 <div class="neighborhood-info">
                     <div class="neighborhood-title">Carlton</div>
@@ -96,7 +92,6 @@
 
             <!-- District 5: Nairobi Kibera -->
             <article class="neighborhood-card" data-city="nairobi">
-                <!-- Kibera: comunidad resiliente, innovación -->
                 <img src="https://images.unsplash.com/photo-1611348524140-53c9a25263d6?w=800&q=80" alt="Kibera Nairobi">
                 <div class="neighborhood-info">
                     <div class="neighborhood-title">Kibera</div>
@@ -107,7 +102,6 @@
 
             <!-- District 6: New Delhi Hauz Khas -->
             <article class="neighborhood-card" data-city="new-delhi">
-                <!-- Hauz Khas: patrimonio histórico, vida urbana -->
                 <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?w=800&q=80" alt="Hauz Khas New Delhi">
                 <div class="neighborhood-info">
                     <div class="neighborhood-title">Hauz Khas</div>
@@ -168,7 +162,33 @@
         </div>
     </section>
 
+    <!-- Search Modal -->
+    <div id="searchModal" class="search-modal">
+        <div class="search-modal-content">
+            <div class="search-header">
+                <div class="search-icon-large">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="m21 21-4.35-4.35"/>
+                    </svg>
+                </div>
+                <div class="search-input-wrapper">
+                    <input 
+                        type="text" 
+                        class="search-input" 
+                        id="searchInput"
+                        placeholder="Search Cities and Neighborhoods"
+                        autocomplete="off"
+                    >
+                </div>
+                <button class="search-close" onclick="closeSearch()">×</button>
+            </div>
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
 </body>
 </html>
