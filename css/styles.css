@@ -1,5 +1,5 @@
 /* ====================================
-   HEATED CITY - MAIN STYLESHEET (IMPROVED)
+   HEATED CITY - MAIN STYLESHEET (FINAL)
    ==================================== */
 
 /* CSS Variables */
@@ -327,11 +327,13 @@ img {
 }
 
 /* ====================================
-   CITY PAGE LAYOUT
+   CITY PAGE LAYOUT - VALORES EXACTOS ON THE GRID
    ==================================== */
 
 body.city-page {
     background: var(--primary-color);
+    font-size: 1.0625em;
+    line-height: 1.25;
 }
 
 .city-hero-split {
@@ -372,45 +374,50 @@ body.city-page {
     margin-bottom: 0;
 }
 
-/* MEJORADO: Título del barrio más grande */
+/* EXACTO: Título del barrio (2em como On The Grid) */
 .city-header h1 {
-    font-size: 5.5rem;
+    font-size: 2em;
     font-weight: 900;
     color: var(--navy);
-    line-height: 0.9;
-    margin-bottom: 0.5rem;
-    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: 0.25em;
+    letter-spacing: normal;
 }
 
+/* EXACTO: Ubicación (1.0625em como On The Grid) */
 .city-location {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-dark);
-    font-weight: 500;
+    font-size: 1.0625em;
+    line-height: 1.25;
+    margin-bottom: 0.25em;
+    color: inherit;
+    font-weight: normal;
 }
 
 .city-location a {
-    text-decoration: underline;
-    color: var(--navy);
+    text-decoration: none;
+    color: inherit;
 }
 
 .curator-credit {
-    font-size: 1rem;
-    color: var(--text-dark);
+    font-size: 1.0625em;
+    line-height: 1.25;
+    color: inherit;
+    font-weight: normal;
 }
 
 .curator-credit a {
-    text-decoration: underline;
-    color: var(--navy);
+    text-decoration: none;
+    color: inherit;
 }
 
-/* MEJORADO: Descripción sin fondo blanco */
+/* EXACTO: Descripción (1.0625em con line-height 1.5 como On The Grid) */
 .city-description {
     background: transparent;
     padding: 2rem;
     margin-bottom: 2rem;
-    line-height: 1.8;
-    font-size: 1.05rem;
+    font-size: 1.0625em;
+    line-height: 1.5;
+    text-align: left;
     color: var(--text-dark);
 }
 
@@ -645,10 +652,6 @@ body.city-page {
     .cities-grid {
         grid-template-columns: repeat(3, 1fr);
     }
-    
-    .city-header h1 {
-        font-size: 4.5rem;
-    }
 }
 
 @media (max-width: 1024px) {
@@ -663,10 +666,6 @@ body.city-page {
 
     .projects-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .city-header h1 {
-        font-size: 4rem;
     }
 }
 
@@ -693,10 +692,6 @@ body.city-page {
 
     .modal-body {
         grid-template-columns: 1fr;
-    }
-
-    .city-header h1 {
-        font-size: 3.5rem;
     }
     
     .city-card {
@@ -735,9 +730,5 @@ body.city-page {
     }
     .cities-grid {
         grid-template-columns: 1fr;
-    }
-    
-    .city-header h1 {
-        font-size: 2.5rem;
     }
 }
