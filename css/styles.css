@@ -681,7 +681,7 @@ body.city-page {
 }
 
 .category-icon[data-category="community"] svg {
-    transform: translateY(1px, 2px);
+    transform: translateY(2px, 2px);
 }
 
 /* ====================================
