@@ -83,26 +83,5 @@ neighborhoods.forEach(neighborhood => {
     });
 });
 
-// Funcionalidad para las tarjetas de barrios
-document.addEventListener('DOMContentLoaded', function() {
-    const neighborhoodCards = document.querySelectorAll('.neighborhood-city-card');
-    
-    neighborhoodCards.forEach(card => {
-        card.addEventListener('click', function() {
-            // Solo permitir click en San Telmo
-            if (this.dataset.neighborhood === 'san-telmo') {
-                window.location.href = 'san-telmo.html';
-            } else if (this.classList.contains('coming-soon-card')) {
-                // Opcional: mostrar mensaje
-                console.log('Coming soon!');
-            }
-        });
-        
-        // Cambiar cursor solo para San Telmo
-        if (card.dataset.neighborhood === 'san-telmo') {
-            card.style.cursor = 'pointer';
-        } else {
-            card.style.cursor = 'default';
-        }
-    });
-});
+// La navegación de las tarjetas de barrios es HTML puro:
+// la tarjeta activa (San Telmo) es un <a>, el resto son coming-soon.

@@ -1606,3 +1606,13 @@ button:focus-visible,
     color: white;
     box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
+
+/* Coming-soon variant for "explore more cities" cards */
+.more-city-card.coming-soon {
+    cursor: default;
+    opacity: 0.65;
+}
+
+.more-city-card .coming-soon-badge {
+    margin-top: 0.75rem;
+}
