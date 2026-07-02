@@ -172,19 +172,21 @@ Las cards de proyectos se generan desde el mismo objeto que los marcadores, y la
 
 ## 7. Checklist post-audit
 
-**Esta semana (bugs visibles al usuario):**
-- [ ] Arreglar logo de `cities/kyoto.html` → `../index.html`
-- [ ] Corregir URL de San Telmo en `search.js` (página equivocada + ruta absoluta)
-- [ ] Borrar el listener con `alert()` en `main.js:94-102`
-- [ ] Cards sin página (Madrid, Melbourne, Nairobi, Delhi): badge "coming soon" en vez de navegar a 404
-- [ ] Ocultar los tabs del home que no filtran nada
+**Esta semana (bugs visibles al usuario):** — ✅ completado en esta rama
+- [x] Arreglar logo de `cities/kyoto.html` → `../index.html`
+- [x] Corregir URL de San Telmo en `search.js` (página equivocada + ruta absoluta)
+- [x] Borrar el listener con `alert()` en `main.js`
+- [x] Cards sin página (Madrid, Melbourne, Nairobi, Delhi): badge "coming soon" en vez de navegar a 404
+- [x] Reemplazar los tabs muertos del home por un título de sección
 
 **Este mes (deuda estructural):**
-- [ ] Localizar imágenes en uso (descarga + WebP + licencias verificadas) y eliminar los 54 MB huérfanos de `img/`
-- [ ] Unificar los 3 JS de ciudad en un motor + archivos de datos por ciudad
-- [ ] Generar cards de proyectos y `searchDatabase` desde esos mismos datos
-- [ ] Pasada de accesibilidad: links reales en cards, `:focus-visible`, `lang` correcto, `aria-label` en botones de ícono
-- [ ] README de verdad (15 líneas alcanzan)
+- [x] Eliminar los 54 MB huérfanos de `img/` (recuperables desde el historial git)
+- [ ] Localizar las imágenes en uso (descarga + WebP + licencias verificadas) — pendiente: requiere verificar derechos de las fotos de Booking/Infobae/holasantelmo antes de commitearlas al repo
+- [x] Unificar los JS de ciudad en un motor (`js/city-page.js`) + archivos de datos por ciudad (`js/data/`)
+- [x] Generar las cards de proyectos desde esos datos (la `searchDatabase` sigue siendo manual: los data files se cargan por página, así que el índice global se mantiene a mano en `search.js`)
+- [x] Pasada de accesibilidad: links reales en cards, `:focus-visible`, `lang` correcto, `aria-label` en botones de ícono, cards de proyecto operables por teclado
+- [x] README de verdad
+- [x] Extra: SRI (`integrity`) en los scripts de Leaflet, verificado contra los bytes del paquete npm
 
 **Cuando toque crecer:**
 - [ ] Activar la primera ciudad "coming soon" usando el motor nuevo (prueba de que el refactor sirvió)
