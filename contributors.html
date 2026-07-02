@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="css/styles.css">
     
     <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" />
 </head>
 <body>
     <!-- Header -->
     <header class="main-header">
         <div class="header-left">
             <a href="index.html" class="logo">Heated City</a>
-            <button class="search-icon" onclick="openSearch()">
+            <button class="search-icon" onclick="openSearch()" aria-label="Search cities and neighborhoods">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="11" cy="11" r="8"/>
                     <path d="m21 21-4.35-4.35"/>
@@ -127,14 +127,14 @@
                         autocomplete="off"
                     >
                 </div>
-                <button class="search-close" onclick="closeSearch()">×</button>
+                <button class="search-close" onclick="closeSearch()" aria-label="Close search">×</button>
             </div>
             <div class="search-results" id="searchResults"></div>
         </div>
     </div>
 
     <!-- Leaflet JavaScript -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
     
     <!-- JavaScript -->
     <script src="js/contributors.js"></script>

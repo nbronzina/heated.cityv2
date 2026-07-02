@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,14 +9,14 @@
     <link rel="stylesheet" href="../css/styles.css">
     
     <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" />
 </head>
 <body class="city-page">
     <!-- Header -->
     <header class="main-header">
         <div class="header-left">
             <a href="../index.html" class="logo">Heated City</a>
-            <button class="search-icon" onclick="openSearch()">
+            <button class="search-icon" onclick="openSearch()" aria-label="Search cities and neighborhoods">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="11" cy="11" r="8"/>
                     <path d="m21 21-4.35-4.35"/>
@@ -46,22 +46,22 @@
             <div class="neighborhoods-city-header">
                 <h1>Buenos Aires</h1>
                 <p class="neighborhoods-country">Argentina</p>
-                <p class="neighborhoods-organized">Organized by <a href="#">María Fernández</a></p>
+                <p class="neighborhoods-organized">Organized by <span>María Fernández</span></p>
             </div>
 
             <!-- Neighborhoods Grid -->
             <div class="neighborhoods-city-grid">
                 <!-- Neighborhood 1: San Telmo -->
-                <article class="neighborhood-city-card" data-neighborhood="san-telmo" style="background: #FFE082;">
+                <a class="neighborhood-city-card" href="san-telmo.html" style="background: #FFE082;">
                     <div class="neighborhood-number">1</div>
                     <div class="neighborhood-city-image">
                         <img src="https://www.mountainsoftravelphotos.com/Argentina%20Buenos%20Aires/01%20Best/slides/02%20Tango%20Dancers%20Plaza%20Dorrego%20Square%20San%20Telmo%20Buenos%20Aires.jpg" alt="San Telmo">
                     </div>
                     <div class="neighborhood-city-info">
                         <h3 class="neighborhood-city-name">San Telmo</h3>
-                        <p class="neighborhood-city-curator">by <a href="#">María Fernández</a></p>
+                        <p class="neighborhood-city-curator">by <span>María Fernández</span></p>
                     </div>
-                </article>
+                </a>
 
                 <!-- Neighborhood 2: Palermo -->
                 <article class="neighborhood-city-card coming-soon-card" style="background: #CE93D8;">
@@ -132,10 +132,11 @@
                         <h4>Kyoto</h4>
                         <p>Japan</p>
                     </a>
-                    <a href="#" class="more-city-card" style="background: #000033;">
+                    <div class="more-city-card coming-soon" style="background: #000033;">
                         <h4>Madrid</h4>
                         <p>Spain</p>
-                    </a>
+                        <span class="coming-soon-badge">COMING SOON</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -160,14 +161,14 @@
                         autocomplete="off"
                     >
                 </div>
-                <button class="search-close" onclick="closeSearch()">×</button>
+                <button class="search-close" onclick="closeSearch()" aria-label="Close search">×</button>
             </div>
             <div class="search-results" id="searchResults"></div>
         </div>
     </div>
 
     <!-- Leaflet JavaScript -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
     
     <!-- External JavaScript -->
     <script src="../js/buenos-aires-map.js"></script>
