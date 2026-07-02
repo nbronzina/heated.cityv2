@@ -1535,3 +1535,74 @@ body.about-page {
         font-size: 2rem;
     }
 }
+
+/* ====================================
+   ACCESSIBILITY & SHARED COMPONENTS
+   ==================================== */
+
+/* Visible focus for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--navy);
+    outline-offset: 2px;
+}
+
+/* Anchor targets scroll below the fixed header */
+#cities {
+    scroll-margin-top: 70px;
+}
+
+/* Section heading (replaces the old non-functional tabs) */
+.section-title {
+    padding: 1.25rem 2.5rem;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+/* Coming-soon cards on the home page */
+.neighborhood-card.coming-soon {
+    cursor: default;
+}
+
+.neighborhood-card.coming-soon img {
+    filter: grayscale(35%);
+}
+
+.neighborhood-card.coming-soon:hover img {
+    transform: none;
+}
+
+.neighborhood-card .coming-soon-badge {
+    margin-top: 0.5rem;
+}
+
+.city-card.coming-soon {
+    cursor: default;
+    opacity: 0.65;
+}
+
+.city-card.coming-soon:hover {
+    background: #000033;
+}
+
+.city-card .coming-soon-badge {
+    margin-top: 1rem;
+}
+
+/* Numbered map markers (shared by every city page) */
+.numbered-marker {
+    background: var(--navy);
+    border: 3px solid white;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.25rem;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
