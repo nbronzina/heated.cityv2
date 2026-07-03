@@ -22,13 +22,22 @@ document.addEventListener('DOMContentLoaded', function() {
     if (heroMapEl && typeof L !== 'undefined') {
         const heroMap = L.map('heroMap', {
             scrollWheelZoom: false,
-            zoomControl: true
-        }).setView([18, 10], 2);
+            zoomControl: true,
+            zoomSnap: 0.25,
+            // One world only: no horizontal repetition, panning clamped
+            maxBounds: [[-85, -200], [85, 200]],
+            maxBoundsViscosity: 1.0
+        });
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors',
-            maxZoom: 19
+            maxZoom: 19,
+            noWrap: true
         }).addTo(heroMap);
+
+        // Frame all six districts, then lock the minimum zoom there
+        heroMap.fitBounds([[-50, -80], [55, 150]], { padding: [30, 30] });
+        heroMap.setMinZoom(Math.floor(heroMap.getZoom() * 4) / 4);
 
         HERO_DISTRICTS.forEach(d => {
             const pill = L.divIcon({
@@ -42,6 +51,24 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 marker.bindPopup(`<strong>${d.name}</strong><br><small>Coming soon</small>`);
             }
+        });
+
+        // The intro panel collapses to a chip so the map can be explored
+        // full-width: on the close button, or as soon as the map is used.
+        const panel = document.getElementById('heroPanel');
+        const chip = document.getElementById('heroPanelChip');
+
+        function collapsePanel() {
+            panel.classList.add('hidden');
+            chip.classList.remove('hidden');
+        }
+
+        document.getElementById('heroPanelClose').addEventListener('click', collapsePanel);
+        heroMap.on('dragstart zoomstart', collapsePanel);
+
+        chip.addEventListener('click', () => {
+            panel.classList.remove('hidden');
+            chip.classList.add('hidden');
         });
     }
 
