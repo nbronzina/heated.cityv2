@@ -1,5 +1,5 @@
 /**
- * HEATED CITY - Kyoto (Higashiyama) district data
+ * CITIES THAT CARE - Kyoto (Higashiyama) district data
  * Single source of truth for the map markers, project cards and modal
  * on cities/kyoto.html. Rendered by js/city-page.js.
  */

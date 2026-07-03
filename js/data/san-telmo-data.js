@@ -1,5 +1,5 @@
 /**
- * HEATED CITY - San Telmo (Buenos Aires) district data
+ * CITIES THAT CARE - San Telmo (Buenos Aires) district data
  * Single source of truth for the map markers, project cards and modal
  * on cities/san-telmo.html. Rendered by js/city-page.js.
  */
