@@ -27,7 +27,7 @@ const CITY_DATA = {
             location: 'Casa de los Ezeiza, Defensa 1179, San Telmo',
             coords: [-34.6216, -58.3728],
             website: '#',
-            image: 'https://holasantelmo.ar/wp-content/uploads/2021/06/Hola-San-Telmo-Pasaje-Defensa-G4.png',
+            image: '../img/san-telmo-refuge.webp',
             categories: 'heat heritage',
             description: 'A network of historic 19th-century buildings functions as thermal refuges during heat waves. These colonial structures and conventillos use their thick walls (60-80cm), arched galleries, and deep patios to maintain temperatures 5-8°C cooler than outside. During extreme heat days, spaces open to the public with water fountains, shade, and basic health monitoring for vulnerable neighbors. Casa Ezeiza, San Pedro Telmo Church (Carlos Calvo 242), and the ex-conventillo at Balcarce 1016 form the main nodes of this network coordinated by neighborhood centers.'
         },
@@ -71,7 +71,7 @@ const CITY_DATA = {
             location: 'Nodo Bolivar 958, San Telmo',
             coords: [-34.6220, -58.3735],
             website: '#',
-            image: 'https://cf.bstatic.com/xdata/images/hotel/max1024x768/353965255.jpg?k=a156d0cd83f21e4305b57339e3ceef7dc6574fe407258d92a3aba210e2de7339&o=',
+            image: '../img/san-telmo-patios.webp',
             categories: 'green community',
             description: 'A network of 34 patios in historic conventillos and buildings has transformed into community urban gardens. The Bolivar 958 patio functions as coordination and training hub, producing monthly 340kg of vegetables, 45kg of herbs, and 78kg of fruits distributed among neighbors, community kitchens, and exchange with other networks. Patios maintain their original architecture (galleries, iron columns, limestone floors) but add raised beds, vertical gardens on railings, composters, and irrigation systems connected to historic cisterns. Eight patios in the block between Defensa and Bolivar are connected by shared gates that open during heat waves creating fresh air currents. Other active nodes: Defensa 1179, Pasaje San Lorenzo 380, Balcarce 1053.'
         }
