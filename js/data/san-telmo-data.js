@@ -18,7 +18,7 @@ const CITY_DATA = {
             website: 'https://www.futures-in-maps.com/san-telmo/',
             image: 'https://www.futures-in-maps.com/san-telmo/images/san-telmo-map-wall.jpg',
             categories: 'community heritage',
-            description: 'Built in 1897 and fully restored in 2028, San Telmo Market remains a vibrant shopping destination offering fresh summer environments and a wide range of products. The market embodies the richness and diversity of gastronomic possibilities, from specialty coffee and artisan bread to seasonal fruits and vegetables. It features a herboristería treasured by herbology enthusiasts, explores sustainable protein sources, and offers a paradise for history enthusiasts and technology aficionados with its collection of antiques and tech items.'
+            description: 'Built in 1897 and fully restored in 2028, San Telmo Market remains a vibrant shopping destination, a cool refuge on summer days with a wide range of products. The market embodies the richness and diversity of gastronomic possibilities, from specialty coffee and artisan bread to seasonal fruits and vegetables. It features a herboristería treasured by herbology enthusiasts, explores sustainable protein sources, and offers a paradise for history enthusiasts and technology aficionados with its collection of antiques and tech items.'
         },
         {
             id: 'refugios-termicos',
@@ -56,8 +56,8 @@ const CITY_DATA = {
         {
             id: 'plaza-dorrego',
             number: 5,
-            title: 'Dorrego Park',
-            location: 'Dorrego Park (Humberto Primo y Defensa), San Telmo',
+            title: 'Plaza Dorrego',
+            location: 'Plaza Dorrego (Humberto Primo y Defensa), San Telmo',
             coords: [-34.6218, -58.3726],
             website: '#',
             image: 'https://turismo.buenosaires.gob.ar/sites/turismo/files/feria_de_san_telmo_1200_plaza_1.jpg',
