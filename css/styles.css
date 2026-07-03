@@ -120,60 +120,6 @@ img {
    HERO SECTION (Index)
    ==================================== */
 
-.hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-    margin-top: 70px;
-}
-
-.hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 1000px;
-    padding: 0 2rem;
-}
-
-.hero-content h1 {
-    font-size: 6rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 2.5rem;
-    line-height: 1.6;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-}
-
 .cta-button {
     display: inline-block;
     padding: 1.25rem 3rem;
@@ -1007,142 +953,10 @@ body.city-page {
 }
 
 /* ====================================
-   FOOTER
-   ==================================== */
-
-.main-footer {
-    background: #000033;
-    color: white;
-    padding: 2.5rem 2rem;
-    text-align: center;
-}
-
-.footer-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.footer-logo {
-    width: 40px;
-    height: 40px;
-    margin: 0 auto 1rem;
-}
-
-.footer-logo svg {
-    width: 100%;
-    height: 100%;
-    fill: white;
-}
-
-.footer-credits {
-    margin-bottom: 1.5rem;
-}
-
-.footer-credits p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-}
-
-.footer-credits a {
-    color: white;
-    text-decoration: underline;
-}
-
-.footer-credits a:hover {
-    opacity: 0.7;
-}
-
-.footer-social {
-    margin-bottom: 1.5rem;
-}
-
-.footer-social a {
-    color: white;
-    font-size: 1rem;
-    text-decoration: underline;
-}
-
-.footer-social a:hover {
-    opacity: 0.7;
-}
-
-.footer-disclaimer {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.6);
-    font-style: italic;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* ====================================
    ABOUT PAGE
    ==================================== */
 
-.about-hero {
-    background: #000033;
-    color: white;
-    padding: 6rem 2rem 2rem;
-    text-align: center;
-    margin-top: 70px;
-}
-
-.about-hero-content {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.about-hero h1 {
-    font-size: 3.2rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 2rem;
-}
-
-.about-content {
-    background: #000033;
-    color: white;
-    padding: 2rem 2rem 2rem;
-    max-height: calc(100vh - 420px);
-    overflow-y: auto;
-}
-
-.about-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-}
-
-.about-col p {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    margin-bottom: 0.9rem;
-}
-
-.about-col p strong {
-    font-weight: 600;
-    font-size: 1.35rem;
-}
-
-.about-col a {
-    color: white;
-    text-decoration: underline;
-}
-
-.about-col a:hover {
-    opacity: 0.7;
-}
-
 /* Fondo azul para página About */
-body.about-page {
-    background: #000033;
-    height: 100vh;
-    overflow: hidden;
-}
-
 /* ====================================
    CONTRIBUTORS PAGE
    ==================================== */
@@ -1273,13 +1087,6 @@ body.about-page {
         font-size: 1.5rem;
     }
     
-    .hero-content h1 {
-        font-size: 5rem;
-    }
-    
-    .hero-content p {
-        font-size: 1.375rem;
-    }
 }
 
 @media (max-width: 1024px) {
@@ -1308,13 +1115,6 @@ body.about-page {
         font-size: 1.375rem;
     }
     
-    .about-hero h1 {
-        font-size: 3.5rem;
-    }
-    
-    .about-grid {
-        gap: 3rem;
-    }
     
     .contributors-content {
         grid-template-columns: 1fr;
@@ -1335,13 +1135,6 @@ body.about-page {
         font-size: 16px;
     }
     
-    .hero-content h1 {
-        font-size: 3.5rem;
-    }
-    
-    .hero-content p {
-        font-size: 1.25rem;
-    }
     
     .neighborhoods-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1436,39 +1229,9 @@ body.about-page {
         padding: 1.5rem;
     }
     
-    .main-footer {
-        padding: 2rem 1.5rem;
-    }
-    
-    .footer-credits p {
-        font-size: 0.95rem;
-    }
-    
-    .about-hero {
-        padding: 8rem 2rem 4rem;
-    }
-    
-    .about-hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .about-col p {
-        font-size: 1rem;
-    }
-    
-    .about-col p strong {
-        font-size: 1.125rem;
-    }
-    
-    .about-content {
-        padding: 3rem 1.5rem 4rem;
-    }
-    
+        
+        
+
     .contributors-hero {
         padding: 8rem 2rem 3rem;
     }
@@ -1519,19 +1282,8 @@ body.about-page {
         font-size: 1.125rem;
     }
     
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
     
-    .hero-content p {
-        font-size: 1.125rem;
-    }
-    
-    .about-hero h1 {
-        font-size: 2rem;
-    }
-    
-    .contributors-hero h1 {
+.contributors-hero h1 {
         font-size: 2rem;
     }
 }
@@ -1675,62 +1427,6 @@ h1, h2, h3,
    HERO MAP (home)
    ==================================== */
 
-.hero-map {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-
-.hero-panel {
-    position: absolute;
-    left: 2.5rem;
-    bottom: 2.5rem;
-    z-index: 500; /* above leaflet panes (400), below its controls (1000) */
-    max-width: 620px;
-    background: var(--primary-color);
-    color: var(--text-dark);
-    padding: 2.5rem 2.75rem;
-    text-align: left;
-    box-shadow: 0 8px 32px rgba(0, 0, 32, 0.25);
-}
-
-.hero-panel h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    line-height: 1.05;
-    margin-bottom: 1rem;
-    text-shadow: none;
-}
-
-.hero-panel p {
-    font-size: 1.05rem;
-    line-height: 1.55;
-    margin-bottom: 1.5rem;
-    text-shadow: none;
-}
-
-.hero-panel .cta-button {
-    border-color: var(--navy);
-    color: var(--navy);
-    background: transparent;
-    font-size: 1.05rem;
-    padding: 0.9rem 2rem;
-}
-
-.hero-panel .cta-button:hover {
-    background: var(--navy);
-    color: white;
-}
-
-@media (max-width: 768px) {
-    .hero-panel {
-        left: 1rem;
-        right: 1rem;
-        bottom: 1rem;
-        padding: 1.5rem;
-    }
-}
-
 /* City pills on the hero map */
 .city-pill {
     display: inline-block;
@@ -1859,60 +1555,6 @@ h1, h2, h3,
 }
 
 /* Hero panel collapse: the map can be explored full-width */
-.hero-panel {
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.hero-panel.hidden {
-    opacity: 0;
-    transform: translateY(1rem);
-    pointer-events: none;
-}
-
-.hero-panel-close {
-    position: absolute;
-    top: 0.75rem;
-    right: 1rem;
-    font-size: 1.75rem;
-    line-height: 1;
-    color: var(--text-dark);
-    opacity: 0.6;
-}
-
-.hero-panel-close:hover {
-    opacity: 1;
-}
-
-.hero-panel-chip {
-    position: absolute;
-    left: 2.5rem;
-    bottom: 2.5rem;
-    z-index: 500;
-    background: var(--primary-color);
-    color: var(--text-dark);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.1rem;
-    padding: 0.75rem 1.5rem;
-    box-shadow: 0 4px 16px rgba(0, 0, 32, 0.25);
-    transition: opacity 0.3s ease;
-}
-
-.hero-panel-chip:hover {
-    background: var(--primary-dark);
-}
-
-.hero-panel-chip.hidden {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .hero-panel-chip {
-        left: 1rem;
-        bottom: 1rem;
-    }
-}
-
 /* ====================================
    CONTRIBUTORS - portrait markers + cards
    ==================================== */
@@ -2180,4 +1822,142 @@ h1, h2, h3,
     .logo {
         font-size: 1.4rem;
     }
+}
+
+/* ====================================
+   UNIFIED SITE FOOTER (every page)
+   ==================================== */
+
+.site-footer {
+    background: #000033;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.9rem;
+}
+
+.site-footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+    color: white;
+}
+
+.site-footer-links a:hover {
+    opacity: 0.7;
+}
+
+.site-footer p {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.site-footer p a {
+    text-decoration: underline;
+}
+
+/* ====================================
+   HERO DUO (home): world map + intro panel side by side
+   ==================================== */
+
+.hero-duo {
+    display: grid;
+    grid-template-columns: 1fr 460px;
+    height: calc(100vh - 70px);
+    margin-top: 70px;
+}
+
+.hero-duo-map {
+    height: 100%;
+}
+
+.hero-duo-panel {
+    background: var(--primary-color);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 2.75rem;
+}
+
+.hero-duo-panel h1 {
+    font-size: clamp(2.4rem, 3.2vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+}
+
+.hero-duo-panel p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.hero-duo-panel .cta-button {
+    align-self: flex-start;
+    border-color: var(--navy);
+    color: var(--navy);
+    font-size: 1.05rem;
+    padding: 0.9rem 2rem;
+}
+
+.hero-duo-panel .cta-button:hover {
+    background: var(--navy);
+    color: white;
+}
+
+@media (max-width: 900px) {
+    .hero-duo {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        height: auto;
+    }
+
+    .hero-duo-map {
+        height: 55vh;
+    }
+
+    .hero-duo-panel {
+        padding: 2rem 1.5rem;
+    }
+}
+
+/* ====================================
+   COLOPHON (about.html)
+   ==================================== */
+
+.colophon-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 2rem 5rem;
+}
+
+.colophon-section {
+    padding: 2rem 0;
+}
+
+.colophon-section h2 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 1rem;
+}
+
+.colophon-section p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.colophon-section a {
+    color: var(--navy);
+    border-bottom: 2px solid var(--navy);
+    font-weight: 500;
+}
+
+.colophon-section a:hover {
+    opacity: 0.7;
 }

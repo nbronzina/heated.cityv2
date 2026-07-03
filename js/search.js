@@ -8,12 +8,6 @@ const PATH_PREFIX = window.location.pathname.includes('/cities/') ? '../' : '';
 
 const searchDatabase = [
     {
-        title: 'Higashiyama',
-        location: 'Kyoto, Japan',
-        url: 'cities/kyoto.html',
-        keywords: 'kyoto japan higashiyama bamboo machiya traditional biointegration'
-    },
-    {
         title: 'San Telmo',
         location: 'Buenos Aires, Argentina',
         url: 'cities/san-telmo.html',
@@ -24,6 +18,12 @@ const searchDatabase = [
         location: 'Argentina',
         url: 'cities/buenos-aires.html',
         keywords: 'buenos aires argentina san telmo palermo chacarita recoleta la boca puerto madero'
+    },
+    {
+        title: 'Higashiyama',
+        location: 'Kyoto, Japan',
+        url: 'cities/kyoto.html',
+        keywords: 'kyoto japan higashiyama bamboo machiya traditional biointegration'
     }
 ];
 

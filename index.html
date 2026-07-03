@@ -38,22 +38,19 @@
             <a href="protocols.html">Protocols</a>
             <a href="contributors.html">Contributors</a>
             <a href="contribute.html">Join</a>
-            <a href="about.html">About</a>
         </nav>
     </header>
 
-    <!-- Hero: world map of districts -->
-    <section class="hero">
-        <div id="heroMap" class="hero-map" aria-label="World map of the network's districts"></div>
-        <div class="hero-panel" id="heroPanel">
-            <button class="hero-panel-close" id="heroPanelClose" aria-label="Hide panel and explore the map">×</button>
+    <!-- Hero: world map of districts + intro panel, side by side -->
+    <section class="hero-duo">
+        <div id="heroMap" class="hero-duo-map" aria-label="World map of the network's districts"></div>
+        <div class="hero-duo-panel">
             <h1>Care became infrastructure</h1>
             <p>Since 2028, neighborhoods around the world have answered climate stress with coordinated care — thermal refuges, shared water, connected courtyards. This atlas documents them, told by the coordinators who tend them.</p>
             <button class="cta-button">
                 Explore Districts
             </button>
         </div>
-        <button class="hero-panel-chip hidden" id="heroPanelChip">Cities That Care</button>
     </section>
 
     <!-- Neighborhoods Section -->
@@ -184,29 +181,14 @@
     </section>
 
     <!-- Footer -->
-    <footer class="main-footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="4"/>
-                    <path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>
-                </svg>
-            </div>
-
-            <div class="footer-credits">
-                <p>Compiled by the district coordinators' network</p>
-                <p>New districts are documented as coordinators join — <a href="contribute.html">the network is open</a></p>
-                <p>Questions and proposals: <a href="mailto:nicolas.bronzina@gmail.com">reach out</a></p>
-            </div>
-
-            <div class="footer-social">
-                <a href="https://www.instagram.com/heated.studio/#" target="_blank" rel="noopener noreferrer">Follow Heated Studio on Instagram</a>
-            </div>
-
-            <div class="footer-disclaimer">
-                <p>Cities That Care is a design fiction project by <a href="https://www.heated.studio/" target="_blank" rel="noopener noreferrer">Heated Studio</a>, exploring possible futures of urban climate adaptation. All districts, projects and people are fictional, created for educational and imaginative purposes.</p>
-            </div>
-        </div>
+    <footer class="site-footer">
+        <nav class="site-footer-links">
+            <a href="about.html">About this project</a>
+            <a href="contribute.html">Join the network</a>
+            <a href="mailto:nicolas.bronzina@gmail.com">Contact</a>
+            <a href="https://www.instagram.com/heated.studio/#" target="_blank" rel="noopener noreferrer">Follow Heated Studio on Instagram</a>
+        </nav>
+        <p>Cities That Care is a <a href="about.html">design fiction project</a> by <a href="https://www.heated.studio/" target="_blank" rel="noopener noreferrer">Heated Studio</a>. All districts, projects and people are fictional, created for educational and imaginative purposes.</p>
     </footer>
 
     <!-- Search Modal -->

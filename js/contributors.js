@@ -74,8 +74,11 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     bounds: [[-90, -180], [90, 180]]
 }).addTo(map);
 
-map.fitBounds([[-50, -80], [55, 150]], { padding: [40, 40] });
-map.setMinZoom(Math.floor(map.getZoom() * 4) / 4);
+// Cover the container with one world: no gray bands around the map
+const mapSize = map.getSize();
+const coverZoom = Math.ceil(Math.log2(Math.max(mapSize.x, mapSize.y) / 256) * 4) / 4;
+map.setMinZoom(coverZoom);
+map.setView([15, 10], coverZoom);
 
 CONTRIBUTORS.forEach(c => {
     const icon = L.divIcon({
