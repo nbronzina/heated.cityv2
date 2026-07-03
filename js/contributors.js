@@ -6,6 +6,15 @@
 
 const CONTRIBUTORS = [
     {
+        name: 'Himari Satō',
+        district: 'Higashiyama',
+        city: 'Kyoto, Japan',
+        coords: [35.0116, 135.7681],
+        portrait: 'img/people/himari-sato.webp',
+        url: 'cities/kyoto.html',
+        color: '#FFE082'
+    },
+    {
         name: 'María Fernández',
         district: 'San Telmo',
         city: 'Buenos Aires, Argentina',
@@ -15,13 +24,12 @@ const CONTRIBUTORS = [
         color: '#CE93D8'
     },
     {
-        name: 'Himari Satō',
-        district: 'Higashiyama',
-        city: 'Kyoto, Japan',
-        coords: [35.0116, 135.7681],
-        portrait: 'img/people/himari-sato.webp',
-        url: 'cities/kyoto.html',
-        color: '#FFE082'
+        name: 'Priya Sharma',
+        district: 'Hauz Khas',
+        city: 'New Delhi, India',
+        coords: [28.6139, 77.2090],
+        portrait: 'img/people/priya-sharma.webp',
+        color: '#FFB74D'
     },
     {
         name: 'Ana García',
@@ -46,14 +54,6 @@ const CONTRIBUTORS = [
         coords: [-1.2864, 36.8172],
         portrait: 'img/people/james-kamau.webp',
         color: '#AED581'
-    },
-    {
-        name: 'Priya Sharma',
-        district: 'Hauz Khas',
-        city: 'New Delhi, India',
-        coords: [28.6139, 77.2090],
-        portrait: 'img/people/priya-sharma.webp',
-        color: '#FFB74D'
     }
 ];
 
