@@ -22,7 +22,7 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-family: var(--font-body);
     line-height: 1.6;
     color: var(--text-dark);
     font-size: 18px;
@@ -1615,4 +1615,245 @@ button:focus-visible,
 
 .more-city-card .coming-soon-badge {
     margin-top: 0.75rem;
+}
+
+/* ====================================
+   TYPOGRAPHY (self-hosted)
+   ==================================== */
+
+@font-face {
+    font-family: 'Fraunces';
+    src: url('../fonts/fraunces-latin-600-normal.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Fraunces';
+    src: url('../fonts/fraunces-latin-700-normal.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/inter-latin-400-normal.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/inter-latin-500-normal.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../fonts/inter-latin-600-normal.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+:root {
+    --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+}
+
+.logo,
+h1, h2, h3,
+.city-name,
+.neighborhood-title,
+.neighborhood-city-name,
+.project-title,
+.section-title {
+    font-family: var(--font-display);
+}
+
+/* ====================================
+   HERO MAP (home)
+   ==================================== */
+
+.hero-map {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-panel {
+    position: absolute;
+    left: 2.5rem;
+    bottom: 2.5rem;
+    z-index: 500; /* above leaflet panes (400), below its controls (1000) */
+    max-width: 620px;
+    background: var(--primary-color);
+    color: var(--text-dark);
+    padding: 2.5rem 2.75rem;
+    text-align: left;
+    box-shadow: 0 8px 32px rgba(0, 0, 32, 0.25);
+}
+
+.hero-panel h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    text-shadow: none;
+}
+
+.hero-panel p {
+    font-size: 1.05rem;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+    text-shadow: none;
+}
+
+.hero-panel .cta-button {
+    border-color: var(--navy);
+    color: var(--navy);
+    background: transparent;
+    font-size: 1.05rem;
+    padding: 0.9rem 2rem;
+}
+
+.hero-panel .cta-button:hover {
+    background: var(--navy);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .hero-panel {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+        padding: 1.5rem;
+    }
+}
+
+/* City pills on the hero map */
+.city-pill {
+    display: inline-block;
+    white-space: nowrap;
+    background: var(--navy);
+    color: white;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.8rem;
+    border-radius: 999px;
+    border: 2px solid white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+}
+
+.city-pill.soon {
+    background: #9e9e9e;
+    cursor: default;
+}
+
+/* ====================================
+   SCROLLYTELLING PROJECT SECTIONS (city pages)
+   ==================================== */
+
+.project-section {
+    padding: 3.5rem 2rem;
+    border-top: 2px solid rgba(0, 0, 128, 0.15);
+    scroll-margin-top: 90px;
+}
+
+.project-section:first-of-type {
+    border-top: none;
+}
+
+.project-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--navy);
+}
+
+.project-eyebrow .project-index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--navy);
+    color: white;
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.project-section h2 {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+    color: var(--navy);
+}
+
+.project-section img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+}
+
+.project-section .project-text {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+.project-section .project-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.project-section .project-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--navy);
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 1px;
+}
+
+.project-section .project-links a:hover {
+    opacity: 0.7;
+}
+
+/* Marker highlight while its section is in view */
+.numbered-marker {
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.numbered-marker.active {
+    background: var(--primary-color);
+    color: var(--navy);
+    transform: scale(1.2);
+}
+
+/* ====================================
+   MOTION PREFERENCES
+   ==================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

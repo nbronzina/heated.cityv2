@@ -1,9 +1,12 @@
 /**
- * HEATED CITY - City page engine
- * Renders the map, project cards, category filtering and the project
- * modal from the CITY_DATA object defined in js/data/<city>-data.js.
- * Load the data file before this script.
+ * HEATED CITY - City page engine (scrollytelling)
+ * Renders the map and the project story sections from the CITY_DATA
+ * object defined in js/data/<city>-data.js. As the reader scrolls
+ * through a project, the map flies to its marker; clicking a marker
+ * scrolls to its section. Load the data file before this script.
  */
+
+const REDUCED_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // ======================================
 // MAP
@@ -20,7 +23,7 @@ const markers = {};
 CITY_DATA.projects.forEach(project => {
     const icon = L.divIcon({
         className: '',
-        html: `<div class="numbered-marker">${project.number}</div>`,
+        html: `<div class="numbered-marker" data-project="${project.id}">${project.number}</div>`,
         iconSize: [40, 40],
         iconAnchor: [20, 20]
     });
@@ -28,83 +31,85 @@ CITY_DATA.projects.forEach(project => {
     const marker = L.marker(project.coords, { icon })
         .addTo(map)
         .bindPopup(`<strong>${project.title}</strong><br>${project.location}`)
-        .on('click', () => openProjectModal(project.id));
+        .on('click', () => {
+            const section = document.getElementById(`project-${project.id}`);
+            if (section) {
+                section.scrollIntoView({ behavior: REDUCED_MOTION ? 'auto' : 'smooth', block: 'start' });
+            }
+        });
 
     markers[project.id] = marker;
 });
 
 // ======================================
-// PROJECT CARDS (generated from CITY_DATA)
+// PROJECT STORY SECTIONS (generated from CITY_DATA)
 // ======================================
-const projectsGrid = document.getElementById('projectsGrid');
+const storyContainer = document.getElementById('projectsGrid');
 
 CITY_DATA.projects.forEach(project => {
-    const card = document.createElement('article');
-    card.className = 'project-card';
-    card.dataset.category = project.categories;
-    card.tabIndex = 0;
-    card.setAttribute('role', 'button');
-    card.setAttribute('aria-label', `Open project: ${project.title}`);
-    card.innerHTML = `
-        <div class="project-number">${project.number}</div>
-        <div class="project-image">
-            <img src="${project.image}" alt="${project.title}">
+    const section = document.createElement('section');
+    section.className = 'project-section';
+    section.id = `project-${project.id}`;
+    section.dataset.project = project.id;
+    section.dataset.category = project.categories;
+
+    const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(project.location)}`;
+    const websiteLink = (project.website && project.website !== '#')
+        ? `<a href="${project.website}" target="_blank" rel="noopener noreferrer">Visit website</a>`
+        : '';
+
+    section.innerHTML = `
+        <div class="project-eyebrow">
+            <span class="project-index">${project.number}</span>
+            <span>${project.location}</span>
         </div>
-        <div class="project-info">
-            <h3 class="project-title">${project.title}</h3>
+        <h2>${project.title}</h2>
+        <img src="${project.image}" alt="${project.title}" loading="lazy">
+        <p class="project-text">${project.description}</p>
+        <div class="project-links">
+            <a href="${mapsUrl}" target="_blank" rel="noopener noreferrer">View on map</a>
+            ${websiteLink}
         </div>
     `;
-    card.addEventListener('click', () => openProjectModal(project.id));
-    card.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            openProjectModal(project.id);
-        }
-    });
-    projectsGrid.appendChild(card);
+    storyContainer.appendChild(section);
 });
 
 // ======================================
-// PROJECT MODAL
+// SCROLL → MAP SYNC
 // ======================================
-function openProjectModal(projectId) {
+let activeId = null;
+
+function activateProject(projectId) {
+    if (projectId === activeId) return;
+    activeId = projectId;
+
     const project = CITY_DATA.projects.find(p => p.id === projectId);
-    const modal = document.getElementById('projectModal');
-    if (!project || !modal) return;
+    if (!project) return;
 
-    document.getElementById('modalTitle').textContent = project.title;
-    document.getElementById('modalLocationText').textContent = project.location;
-    document.getElementById('modalLocation').href =
-        `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(project.location)}`;
-    document.getElementById('modalDescription').textContent = project.description;
+    document.querySelectorAll('.numbered-marker.active').forEach(m => m.classList.remove('active'));
+    const markerEl = document.querySelector(`.numbered-marker[data-project="${projectId}"]`);
+    if (markerEl) markerEl.classList.add('active');
 
-    const modalImage = document.getElementById('modalImage');
-    modalImage.src = project.image;
-    modalImage.alt = project.title;
-
-    // Only show the website link when the project has a real site
-    const websiteLink = document.getElementById('modalWebsite');
-    if (project.website && project.website !== '#') {
-        websiteLink.href = project.website;
-        websiteLink.style.display = '';
+    if (REDUCED_MOTION) {
+        map.setView(project.coords, 16);
     } else {
-        websiteLink.style.display = 'none';
-    }
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-
-    map.setView(project.coords, 16);
-    markers[projectId].openPopup();
-}
-
-function closeProjectModal() {
-    const modal = document.getElementById('projectModal');
-    if (modal) {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
+        map.flyTo(project.coords, 16, { duration: 1.2 });
     }
 }
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            activateProject(entry.target.dataset.project);
+        }
+    });
+}, {
+    // A section becomes active when it crosses the middle band of the viewport
+    rootMargin: '-35% 0px -55% 0px',
+    threshold: 0
+});
+
+document.querySelectorAll('.project-section').forEach(s => observer.observe(s));
 
 // ======================================
 // CATEGORY FILTERING
@@ -117,20 +122,9 @@ categoryIcons.forEach(icon => {
         this.classList.add('active');
 
         const category = this.dataset.category;
-        document.querySelectorAll('.project-card').forEach(card => {
-            const show = category === 'all' || card.dataset.category.split(' ').includes(category);
-            card.style.display = show ? 'block' : 'none';
+        document.querySelectorAll('.project-section').forEach(section => {
+            const show = category === 'all' || section.dataset.category.split(' ').includes(category);
+            section.style.display = show ? 'block' : 'none';
         });
     });
-});
-
-// ======================================
-// CLOSE MODAL - ESC key and outside click
-// ======================================
-document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeProjectModal();
-});
-
-document.getElementById('projectModal').addEventListener('click', function(e) {
-    if (e.target === this) closeProjectModal();
 });
