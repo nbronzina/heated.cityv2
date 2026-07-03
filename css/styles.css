@@ -2012,3 +2012,172 @@ h1, h2, h3,
         padding: 2rem 1rem;
     }
 }
+
+/* ====================================
+   PAGE HERO (Protocols, Join)
+   ==================================== */
+
+.page-hero {
+    margin-top: 70px;
+    padding: 5rem 2rem 3rem;
+    text-align: center;
+    background: var(--background);
+}
+
+.page-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.75rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 1rem;
+}
+
+.page-hero p {
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* ====================================
+   PROTOCOLS
+   ==================================== */
+
+.protocols-list {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2rem 2rem 5rem;
+}
+
+.protocol-entry {
+    padding: 3rem 0;
+    border-top: 2px solid rgba(0, 0, 128, 0.15);
+}
+
+.protocol-entry:first-of-type {
+    border-top: none;
+}
+
+.protocol-entry h2 {
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+}
+
+.protocol-problem {
+    font-size: 1.1rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+.protocol-practice {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+.protocol-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-size: 0.95rem;
+}
+
+.protocol-links-label {
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.protocol-links a {
+    color: var(--navy);
+    border-bottom: 2px solid var(--navy);
+    padding-bottom: 1px;
+    font-weight: 500;
+}
+
+.protocol-links a:hover {
+    opacity: 0.7;
+}
+
+/* ====================================
+   JOIN THE NETWORK
+   ==================================== */
+
+.contribute-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 2rem 5rem;
+}
+
+.contribute-step {
+    padding: 2rem 0;
+}
+
+.contribute-step p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.contribute-step a {
+    color: var(--navy);
+    border-bottom: 2px solid var(--navy);
+    font-weight: 500;
+}
+
+.contribute-cta {
+    text-align: center;
+    padding: 2rem 0;
+}
+
+.contribute-cta .cta-button {
+    border-color: var(--navy);
+    color: var(--navy);
+}
+
+.contribute-cta .cta-button:hover {
+    background: var(--navy);
+    color: white;
+}
+
+/* Join card on the contributors grid */
+.join-card {
+    border: 3px dashed var(--navy);
+    background: transparent;
+}
+
+.join-card-plus {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    border: 3px solid var(--navy);
+    color: var(--navy);
+    font-size: 3rem;
+    font-family: var(--font-display);
+    flex-shrink: 0;
+}
+
+/* ====================================
+   SITE NOTE (design-fiction disclaimer footer)
+   ==================================== */
+
+.site-note {
+    background: #000033;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+    padding: 1.5rem 2rem;
+    font-size: 0.85rem;
+}
+
+.site-note a {
+    text-decoration: underline;
+}
+
+/* Longer wordmark fits small screens */
+@media (max-width: 900px) {
+    .logo {
+        font-size: 1.4rem;
+    }
+}

@@ -1,5 +1,5 @@
 /**
- * HEATED CITY - Contributors
+ * CITIES THAT CARE - Contributors
  * Single source of truth for the coordinators: renders the world map
  * (portrait markers) and the contributor cards on contributors.html.
  */
@@ -117,3 +117,17 @@ CONTRIBUTORS.forEach(c => {
     `;
     grid.appendChild(card);
 });
+
+// Open invitation card at the end of the grid
+const joinCard = document.createElement('a');
+joinCard.className = 'contributor-card join-card';
+joinCard.href = 'contribute.html';
+joinCard.innerHTML = `
+    <div class="join-card-plus" aria-hidden="true">+</div>
+    <div class="contributor-info">
+        <h2 class="contributor-name">Your district could be next</h2>
+        <p class="contributor-role">The network is looking for coordinators</p>
+        <p class="contributor-place">Join →</p>
+    </div>
+`;
+grid.appendChild(joinCard);

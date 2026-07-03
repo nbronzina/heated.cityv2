@@ -1,5 +1,5 @@
 /**
- * HEATED CITY - Search Functionality
+ * CITIES THAT CARE - Search Functionality
  * Shared by every page. URLs are relative to the site root; PATH_PREFIX
  * makes them resolve correctly from pages inside /cities/ too.
  */

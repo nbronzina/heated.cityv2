@@ -1,5 +1,5 @@
 /**
- * HEATED CITY - City page engine (scrollytelling)
+ * CITIES THAT CARE - City page engine (scrollytelling)
  * Renders the map and the project story sections from the CITY_DATA
  * object defined in js/data/<city>-data.js. As the reader scrolls
  * through a project, the map flies to its marker; clicking a marker

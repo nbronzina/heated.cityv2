@@ -1,5 +1,5 @@
 /**
- * HEATED CITY - Main JavaScript
+ * CITIES THAT CARE - Main JavaScript
  * For index.html
  */
 
