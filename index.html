@@ -4,7 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heated City - Cities That Care</title>
+    <meta name="description" content="A speculative atlas of urban care infrastructure: fictional districts where climate adaptation, community care and biointegration became everyday life.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Heated City - Cities That Care">
+    <meta property="og:description" content="A speculative atlas of urban care infrastructure: fictional districts where climate adaptation, community care and biointegration became everyday life.">
+    <meta property="og:image" content="https://nbronzina.github.io/heated.cityv2/img/hero.webp">
+    <meta property="og:url" content="https://nbronzina.github.io/heated.cityv2/">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preload" href="fonts/fraunces-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H" crossorigin="anonymous" />
 </head>
 <body>
     <!-- Header -->
@@ -26,11 +40,10 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero: world map of districts -->
     <section class="hero">
-        <img src="img/hero.webp" alt="Aerial view of a green urban park surrounded by buildings" class="hero-bg">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
+        <div id="heroMap" class="hero-map" aria-label="World map of Heated City districts"></div>
+        <div class="hero-panel">
             <h1>Cities That Care</h1>
             <p>Heated City documents urban districts where caring became infrastructure—neighborhoods where climate adaptation, community care, and biointegration created new forms of everyday life.</p>
             <button class="cta-button">
@@ -218,6 +231,7 @@
     </div>
 
     <!-- JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH" crossorigin="anonymous"></script>
     <script src="js/main.js"></script>
     <script src="js/search.js"></script>
 </body>

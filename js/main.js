@@ -3,7 +3,47 @@
  * For index.html
  */
 
+// Districts shown on the hero world map
+const HERO_DISTRICTS = [
+    { name: 'San Telmo',   coords: [-34.6215, -58.3724], url: 'cities/san-telmo.html' },
+    { name: 'Higashiyama', coords: [35.0116, 135.7681],  url: 'cities/kyoto.html' },
+    { name: 'Lavapiés',    coords: [40.4168, -3.7038] },
+    { name: 'Carlton',     coords: [-37.8136, 144.9631] },
+    { name: 'Kibera',      coords: [-1.2864, 36.8172] },
+    { name: 'Hauz Khas',   coords: [28.6139, 77.2090] }
+];
+
 document.addEventListener('DOMContentLoaded', function() {
+
+    // ======================================
+    // HERO - World map of districts
+    // ======================================
+    const heroMapEl = document.getElementById('heroMap');
+    if (heroMapEl && typeof L !== 'undefined') {
+        const heroMap = L.map('heroMap', {
+            scrollWheelZoom: false,
+            zoomControl: true
+        }).setView([18, 10], 2);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(heroMap);
+
+        HERO_DISTRICTS.forEach(d => {
+            const pill = L.divIcon({
+                className: '',
+                html: `<span class="city-pill${d.url ? '' : ' soon'}">${d.name}</span>`,
+                iconSize: null
+            });
+            const marker = L.marker(d.coords, { icon: pill }).addTo(heroMap);
+            if (d.url) {
+                marker.on('click', () => { window.location.href = d.url; });
+            } else {
+                marker.bindPopup(`<strong>${d.name}</strong><br><small>Coming soon</small>`);
+            }
+        });
+    }
 
     // ======================================
     // CTA BUTTON - Smooth scroll
@@ -51,20 +91,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // ======================================
-    // PARALLAX EFFECT on hero image
-    // ======================================
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                const heroImg = document.querySelector('.hero-bg');
-                if (heroImg) {
-                    heroImg.style.transform = `translateY(${window.pageYOffset * 0.5}px)`;
-                }
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
 });
