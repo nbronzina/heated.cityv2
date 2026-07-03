@@ -120,60 +120,6 @@ img {
    HERO SECTION (Index)
    ==================================== */
 
-.hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    overflow: hidden;
-    margin-top: 70px;
-}
-
-.hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 1000px;
-    padding: 0 2rem;
-}
-
-.hero-content h1 {
-    font-size: 6rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-}
-
-.hero-content p {
-    font-size: 1.5rem;
-    margin-bottom: 2.5rem;
-    line-height: 1.6;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-}
-
 .cta-button {
     display: inline-block;
     padding: 1.25rem 3rem;
@@ -1273,13 +1219,6 @@ body.about-page {
         font-size: 1.5rem;
     }
     
-    .hero-content h1 {
-        font-size: 5rem;
-    }
-    
-    .hero-content p {
-        font-size: 1.375rem;
-    }
 }
 
 @media (max-width: 1024px) {
@@ -1335,13 +1274,6 @@ body.about-page {
         font-size: 16px;
     }
     
-    .hero-content h1 {
-        font-size: 3.5rem;
-    }
-    
-    .hero-content p {
-        font-size: 1.25rem;
-    }
     
     .neighborhoods-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1519,13 +1451,6 @@ body.about-page {
         font-size: 1.125rem;
     }
     
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-    
-    .hero-content p {
-        font-size: 1.125rem;
-    }
     
     .about-hero h1 {
         font-size: 2rem;
@@ -1675,62 +1600,6 @@ h1, h2, h3,
    HERO MAP (home)
    ==================================== */
 
-.hero-map {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-}
-
-.hero-panel {
-    position: absolute;
-    left: 2.5rem;
-    bottom: 2.5rem;
-    z-index: 500; /* above leaflet panes (400), below its controls (1000) */
-    max-width: 620px;
-    background: var(--primary-color);
-    color: var(--text-dark);
-    padding: 2.5rem 2.75rem;
-    text-align: left;
-    box-shadow: 0 8px 32px rgba(0, 0, 32, 0.25);
-}
-
-.hero-panel h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    line-height: 1.05;
-    margin-bottom: 1rem;
-    text-shadow: none;
-}
-
-.hero-panel p {
-    font-size: 1.05rem;
-    line-height: 1.55;
-    margin-bottom: 1.5rem;
-    text-shadow: none;
-}
-
-.hero-panel .cta-button {
-    border-color: var(--navy);
-    color: var(--navy);
-    background: transparent;
-    font-size: 1.05rem;
-    padding: 0.9rem 2rem;
-}
-
-.hero-panel .cta-button:hover {
-    background: var(--navy);
-    color: white;
-}
-
-@media (max-width: 768px) {
-    .hero-panel {
-        left: 1rem;
-        right: 1rem;
-        bottom: 1rem;
-        padding: 1.5rem;
-    }
-}
-
 /* City pills on the hero map */
 .city-pill {
     display: inline-block;
@@ -1859,60 +1728,6 @@ h1, h2, h3,
 }
 
 /* Hero panel collapse: the map can be explored full-width */
-.hero-panel {
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.hero-panel.hidden {
-    opacity: 0;
-    transform: translateY(1rem);
-    pointer-events: none;
-}
-
-.hero-panel-close {
-    position: absolute;
-    top: 0.75rem;
-    right: 1rem;
-    font-size: 1.75rem;
-    line-height: 1;
-    color: var(--text-dark);
-    opacity: 0.6;
-}
-
-.hero-panel-close:hover {
-    opacity: 1;
-}
-
-.hero-panel-chip {
-    position: absolute;
-    left: 2.5rem;
-    bottom: 2.5rem;
-    z-index: 500;
-    background: var(--primary-color);
-    color: var(--text-dark);
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: 1.1rem;
-    padding: 0.75rem 1.5rem;
-    box-shadow: 0 4px 16px rgba(0, 0, 32, 0.25);
-    transition: opacity 0.3s ease;
-}
-
-.hero-panel-chip:hover {
-    background: var(--primary-dark);
-}
-
-.hero-panel-chip.hidden {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .hero-panel-chip {
-        left: 1rem;
-        bottom: 1rem;
-    }
-}
-
 /* ====================================
    CONTRIBUTORS - portrait markers + cards
    ==================================== */
@@ -2179,5 +1994,106 @@ h1, h2, h3,
 @media (max-width: 900px) {
     .logo {
         font-size: 1.4rem;
+    }
+}
+
+/* ====================================
+   UNIFIED SITE FOOTER (every page)
+   ==================================== */
+
+.site-footer {
+    background: #000033;
+    color: rgba(255, 255, 255, 0.85);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.9rem;
+}
+
+.site-footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+    font-weight: 600;
+    color: white;
+}
+
+.site-footer-links a:hover {
+    opacity: 0.7;
+}
+
+.site-footer p {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.site-footer p a {
+    text-decoration: underline;
+}
+
+/* ====================================
+   HERO DUO (home): world map + intro panel side by side
+   ==================================== */
+
+.hero-duo {
+    display: grid;
+    grid-template-columns: 1fr 460px;
+    height: calc(100vh - 70px);
+    margin-top: 70px;
+}
+
+.hero-duo-map {
+    height: 100%;
+}
+
+.hero-duo-panel {
+    background: var(--primary-color);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 2.75rem;
+}
+
+.hero-duo-panel h1 {
+    font-size: clamp(2.4rem, 3.2vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+}
+
+.hero-duo-panel p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.hero-duo-panel .cta-button {
+    align-self: flex-start;
+    border-color: var(--navy);
+    color: var(--navy);
+    font-size: 1.05rem;
+    padding: 0.9rem 2rem;
+}
+
+.hero-duo-panel .cta-button:hover {
+    background: var(--navy);
+    color: white;
+}
+
+@media (max-width: 900px) {
+    .hero-duo {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        height: auto;
+    }
+
+    .hero-duo-map {
+        height: 55vh;
+    }
+
+    .hero-duo-panel {
+        padding: 2rem 1.5rem;
     }
 }

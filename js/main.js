@@ -36,9 +36,13 @@ document.addEventListener('DOMContentLoaded', function() {
             bounds: [[-90, -180], [90, 180]]
         }).addTo(heroMap);
 
-        // Frame all six districts, then lock the minimum zoom there
-        heroMap.fitBounds([[-50, -80], [55, 150]], { padding: [30, 30] });
-        heroMap.setMinZoom(Math.floor(heroMap.getZoom() * 4) / 4);
+        // Cover the container with exactly one world: the map fills the
+        // hero with no gray bands and every continent in view.
+        const heroSize = heroMap.getSize();
+        const heroCoverZoom = Math.ceil(Math.log2(Math.max(heroSize.x, heroSize.y) / 256) * 4) / 4;
+        heroMap.setMinZoom(heroCoverZoom);
+        heroMap.setView([30, 0], heroCoverZoom);
+        window.heroMapRef = heroMap;
 
         HERO_DISTRICTS.forEach(d => {
             const pill = L.divIcon({
@@ -54,23 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // The intro panel collapses to a chip so the map can be explored
-        // full-width: on the close button, or as soon as the map is used.
-        const panel = document.getElementById('heroPanel');
-        const chip = document.getElementById('heroPanelChip');
-
-        function collapsePanel() {
-            panel.classList.add('hidden');
-            chip.classList.remove('hidden');
-        }
-
-        document.getElementById('heroPanelClose').addEventListener('click', collapsePanel);
-        heroMap.on('dragstart zoomstart', collapsePanel);
-
-        chip.addEventListener('click', () => {
-            panel.classList.remove('hidden');
-            chip.classList.add('hidden');
-        });
     }
 
     // ======================================

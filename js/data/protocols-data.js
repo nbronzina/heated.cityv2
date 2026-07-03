@@ -6,18 +6,8 @@
 
 const PROTOCOLS = [
     {
-        id: 'soft-arrival',
-        number: 1,
-        name: 'Soft Arrival Periods',
-        problem: 'Climate systems calibrated to fixed schedules ignore how people actually arrive.',
-        practice: 'Community spaces open their atmospheric systems in gradual windows instead of on-the-hour switches. The protocol began when Higashiyama coordinators noticed the Yamamoto family arriving fifteen minutes early to gathering spaces, and recalibrated around people instead of clocks.',
-        documented: [
-            { label: 'Hikari Machiya Community Workshop — Higashiyama', url: 'cities/kyoto.html#project-hikari-machiya' }
-        ]
-    },
-    {
         id: 'thermal-refuge-network',
-        number: 2,
+        number: 1,
         name: 'Thermal Refuge Networks',
         problem: 'Heat waves are deadliest for neighbors who cannot cool their own homes.',
         practice: 'Historic buildings with thick walls, arched galleries and deep patios open to the public on extreme heat days — water, shade, and basic health monitoring — coordinated by neighborhood centers as a single network of nodes rather than isolated shelters.',
@@ -28,7 +18,7 @@ const PROTOCOLS = [
     },
     {
         id: 'water-commons',
-        number: 3,
+        number: 2,
         name: 'Reactivated Water Commons',
         problem: 'Rain falls on rooftops and disappears while droughts grow longer.',
         practice: 'Historic cisterns and tunnels return to service: rooftop collection feeds shared storage, and level sensors with solar pumps distribute the water to community gardens, public misters and drought reserves. Storage the neighborhood already owned, plumbed back into daily life.',
@@ -39,7 +29,7 @@ const PROTOCOLS = [
     },
     {
         id: 'cool-corridors',
-        number: 4,
+        number: 3,
         name: 'Cool Corridors',
         problem: 'Asphalt stores heat exactly where people need to walk.',
         practice: 'Pedestrian corridors keep their reflective historic surfaces and add continuous tree canopy, porous sidewalks and cistern-fed drip irrigation. The combined microclimate runs several degrees cooler than adjacent streets in the worst afternoon hours.',
@@ -49,13 +39,23 @@ const PROTOCOLS = [
     },
     {
         id: 'connected-courtyards',
-        number: 5,
+        number: 4,
         name: 'Connected Courtyards',
         problem: 'A private patio cools one family; the block stays hot.',
         practice: 'Courtyard gardens link through shared gates that open during heat waves, creating cross-currents of fresh air and a distributed harvest shared between neighbors, community kitchens and other networks.',
         documented: [
             { label: 'Shared Courtyard-Garden Network — San Telmo', url: 'cities/san-telmo.html#project-patios-huerta' },
             { label: 'Atmospheric Processing Gardens — Higashiyama', url: 'cities/kyoto.html#project-atmospheric-gardens' }
+        ]
+    },
+    {
+        id: 'soft-arrival',
+        number: 5,
+        name: 'Soft Arrival Periods',
+        problem: 'Climate systems calibrated to fixed schedules ignore how people actually arrive.',
+        practice: 'Community spaces open their atmospheric systems in gradual windows instead of on-the-hour switches. The protocol began when Higashiyama coordinators noticed the Yamamoto family arriving fifteen minutes early to gathering spaces, and recalibrated around people instead of clocks.',
+        documented: [
+            { label: 'Hikari Machiya Community Workshop — Higashiyama', url: 'cities/kyoto.html#project-hikari-machiya' }
         ]
     },
     {
