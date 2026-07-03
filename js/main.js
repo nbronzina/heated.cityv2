@@ -5,12 +5,12 @@
 
 // Districts shown on the hero world map
 const HERO_DISTRICTS = [
-    { name: 'San Telmo',   coords: [-34.6215, -58.3724], url: 'cities/san-telmo.html' },
     { name: 'Higashiyama', coords: [35.0116, 135.7681],  url: 'cities/kyoto.html' },
+    { name: 'San Telmo',   coords: [-34.6215, -58.3724], url: 'cities/san-telmo.html' },
+    { name: 'Hauz Khas',   coords: [28.6139, 77.2090] },
     { name: 'Lavapiés',    coords: [40.4168, -3.7038] },
     { name: 'Carlton',     coords: [-37.8136, 144.9631] },
-    { name: 'Kibera',      coords: [-1.2864, 36.8172] },
-    { name: 'Hauz Khas',   coords: [28.6139, 77.2090] }
+    { name: 'Kibera',      coords: [-1.2864, 36.8172] }
 ];
 
 document.addEventListener('DOMContentLoaded', function() {
