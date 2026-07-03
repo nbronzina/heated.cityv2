@@ -953,142 +953,10 @@ body.city-page {
 }
 
 /* ====================================
-   FOOTER
-   ==================================== */
-
-.main-footer {
-    background: #000033;
-    color: white;
-    padding: 2.5rem 2rem;
-    text-align: center;
-}
-
-.footer-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.footer-logo {
-    width: 40px;
-    height: 40px;
-    margin: 0 auto 1rem;
-}
-
-.footer-logo svg {
-    width: 100%;
-    height: 100%;
-    fill: white;
-}
-
-.footer-credits {
-    margin-bottom: 1.5rem;
-}
-
-.footer-credits p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 0.5rem;
-}
-
-.footer-credits a {
-    color: white;
-    text-decoration: underline;
-}
-
-.footer-credits a:hover {
-    opacity: 0.7;
-}
-
-.footer-social {
-    margin-bottom: 1.5rem;
-}
-
-.footer-social a {
-    color: white;
-    font-size: 1rem;
-    text-decoration: underline;
-}
-
-.footer-social a:hover {
-    opacity: 0.7;
-}
-
-.footer-disclaimer {
-    font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.6);
-    font-style: italic;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-/* ====================================
    ABOUT PAGE
    ==================================== */
 
-.about-hero {
-    background: #000033;
-    color: white;
-    padding: 6rem 2rem 2rem;
-    text-align: center;
-    margin-top: 70px;
-}
-
-.about-hero-content {
-    max-width: 1000px;
-    margin: 0 auto;
-}
-
-.about-hero h1 {
-    font-size: 3.2rem;
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 2rem;
-}
-
-.about-content {
-    background: #000033;
-    color: white;
-    padding: 2rem 2rem 2rem;
-    max-height: calc(100vh - 420px);
-    overflow-y: auto;
-}
-
-.about-grid {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-}
-
-.about-col p {
-    font-size: 1.25rem;
-    line-height: 1.6;
-    margin-bottom: 0.9rem;
-}
-
-.about-col p strong {
-    font-weight: 600;
-    font-size: 1.35rem;
-}
-
-.about-col a {
-    color: white;
-    text-decoration: underline;
-}
-
-.about-col a:hover {
-    opacity: 0.7;
-}
-
 /* Fondo azul para página About */
-body.about-page {
-    background: #000033;
-    height: 100vh;
-    overflow: hidden;
-}
-
 /* ====================================
    CONTRIBUTORS PAGE
    ==================================== */
@@ -1247,13 +1115,6 @@ body.about-page {
         font-size: 1.375rem;
     }
     
-    .about-hero h1 {
-        font-size: 3.5rem;
-    }
-    
-    .about-grid {
-        gap: 3rem;
-    }
     
     .contributors-content {
         grid-template-columns: 1fr;
@@ -1368,39 +1229,9 @@ body.about-page {
         padding: 1.5rem;
     }
     
-    .main-footer {
-        padding: 2rem 1.5rem;
-    }
-    
-    .footer-credits p {
-        font-size: 0.95rem;
-    }
-    
-    .about-hero {
-        padding: 8rem 2rem 4rem;
-    }
-    
-    .about-hero h1 {
-        font-size: 2.5rem;
-    }
-    
-    .about-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .about-col p {
-        font-size: 1rem;
-    }
-    
-    .about-col p strong {
-        font-size: 1.125rem;
-    }
-    
-    .about-content {
-        padding: 3rem 1.5rem 4rem;
-    }
-    
+        
+        
+
     .contributors-hero {
         padding: 8rem 2rem 3rem;
     }
@@ -1452,11 +1283,7 @@ body.about-page {
     }
     
     
-    .about-hero h1 {
-        font-size: 2rem;
-    }
-    
-    .contributors-hero h1 {
+.contributors-hero h1 {
         font-size: 2rem;
     }
 }
@@ -2096,4 +1923,41 @@ h1, h2, h3,
     .hero-duo-panel {
         padding: 2rem 1.5rem;
     }
+}
+
+/* ====================================
+   COLOPHON (about.html)
+   ==================================== */
+
+.colophon-content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 2rem 5rem;
+}
+
+.colophon-section {
+    padding: 2rem 0;
+}
+
+.colophon-section h2 {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 1rem;
+}
+
+.colophon-section p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.colophon-section a {
+    color: var(--navy);
+    border-bottom: 2px solid var(--navy);
+    font-weight: 500;
+}
+
+.colophon-section a:hover {
+    opacity: 0.7;
 }
