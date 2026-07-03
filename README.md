@@ -1,6 +1,6 @@
 # Cities That Care
 
-A speculative atlas of urban care infrastructure, by [Heated Studio](https://www.heated.studio/). (The repository name, `heated.cityv2`, is the project's legacy name.)
+A speculative atlas of urban care infrastructure, by [Heated Studio](https://www.heated.studio/).
 
 The site speaks from inside its fiction: an atlas compiled by a network of district coordinators, set between 2028 and 2030, documenting neighborhoods where care functions as infrastructure — thermal refuges, community cisterns, shared courtyard gardens. **All content is fictional**; every page links a design-fiction disclaimer to the [colophon](about.html).
 
