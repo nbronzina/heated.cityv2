@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '© OpenStreetMap contributors',
             maxZoom: 19,
-            noWrap: true
+            noWrap: true,
+            bounds: [[-90, -180], [90, 180]]
         }).addTo(heroMap);
 
         // Frame all six districts, then lock the minimum zoom there
