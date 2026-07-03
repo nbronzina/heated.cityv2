@@ -1857,3 +1857,58 @@ h1, h2, h3,
         scroll-behavior: auto !important;
     }
 }
+
+/* Hero panel collapse: the map can be explored full-width */
+.hero-panel {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hero-panel.hidden {
+    opacity: 0;
+    transform: translateY(1rem);
+    pointer-events: none;
+}
+
+.hero-panel-close {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    font-size: 1.75rem;
+    line-height: 1;
+    color: var(--text-dark);
+    opacity: 0.6;
+}
+
+.hero-panel-close:hover {
+    opacity: 1;
+}
+
+.hero-panel-chip {
+    position: absolute;
+    left: 2.5rem;
+    bottom: 2.5rem;
+    z-index: 500;
+    background: var(--primary-color);
+    color: var(--text-dark);
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 32, 0.25);
+    transition: opacity 0.3s ease;
+}
+
+.hero-panel-chip:hover {
+    background: var(--primary-dark);
+}
+
+.hero-panel-chip.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hero-panel-chip {
+        left: 1rem;
+        bottom: 1rem;
+    }
+}

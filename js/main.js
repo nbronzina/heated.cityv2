@@ -43,6 +43,24 @@ document.addEventListener('DOMContentLoaded', function() {
                 marker.bindPopup(`<strong>${d.name}</strong><br><small>Coming soon</small>`);
             }
         });
+
+        // The intro panel collapses to a chip so the map can be explored
+        // full-width: on the close button, or as soon as the map is used.
+        const panel = document.getElementById('heroPanel');
+        const chip = document.getElementById('heroPanelChip');
+
+        function collapsePanel() {
+            panel.classList.add('hidden');
+            chip.classList.remove('hidden');
+        }
+
+        document.getElementById('heroPanelClose').addEventListener('click', collapsePanel);
+        heroMap.on('dragstart zoomstart', collapsePanel);
+
+        chip.addEventListener('click', () => {
+            panel.classList.remove('hidden');
+            chip.classList.add('hidden');
+        });
     }
 
     // ======================================

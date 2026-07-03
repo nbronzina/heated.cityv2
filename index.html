@@ -43,13 +43,15 @@
     <!-- Hero: world map of districts -->
     <section class="hero">
         <div id="heroMap" class="hero-map" aria-label="World map of Heated City districts"></div>
-        <div class="hero-panel">
+        <div class="hero-panel" id="heroPanel">
+            <button class="hero-panel-close" id="heroPanelClose" aria-label="Hide panel and explore the map">×</button>
             <h1>Cities That Care</h1>
             <p>Heated City documents urban districts where caring became infrastructure—neighborhoods where climate adaptation, community care, and biointegration created new forms of everyday life.</p>
             <button class="cta-button">
                 Explore Districts
             </button>
         </div>
+        <button class="hero-panel-chip hidden" id="heroPanelChip">Cities That Care</button>
     </section>
 
     <!-- Neighborhoods Section -->
